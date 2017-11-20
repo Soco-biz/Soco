@@ -55,7 +55,7 @@ class PostsController < ApplicationController
       #   trip = trip10(tripword)
       #   author = author.gsub(/#.+?$/, '#' + trip)
       # end
-      #similarity(params[:content])
+      similarity(params[:content])
     	post = Post.new(content:params[:content], room:params[:room_id], image:@image_link, similarity: @mostSimId, simvalue: @mostSimvValue)
     	post.save
     end
@@ -63,7 +63,7 @@ class PostsController < ApplicationController
   end
   def similarity(post)
         @soco = Post.where('room = ?', params[:room_id]).select("id", "content").map{ |p| p.attributes }
-        unless @soco.count < 1 || params[:content].length < 2 then
+        unless @soco.count == 0 || params[:content].length < 2 then
           num = 0
           jsonPosts = {}
           for soco in @soco do
@@ -78,10 +78,11 @@ class PostsController < ApplicationController
           res = http.request(req)
           result = JSON.parse(res.body).to_hash
           result.to_hash
-          p result
-          #result
-          # @mostSimvValue = result["similarity"]["max"]
-          # @mostSimId = result["id"]["max"]
+          p result["comment_id"]
+          unless result["comment_id"] == 400 then
+          @mostSimvValue = "1"
+          @mostSimId = result["comment_id"]
+        end
         end
   end
   # def trip10(tripkey)
