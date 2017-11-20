@@ -39,7 +39,9 @@
         end %>
       </div>
       <script>
-        $("#timeline").css("display", "none");
+        function init(){
+      $("#timeline").css("display", "none");
+    }
       var last_id = "<%= @last_id %>";
       var update = function(){
       $.ajax({
@@ -65,7 +67,9 @@
 }
 }) 
 }
+window.onload = init();
 window.onload = getLocation();
+
 setInterval(getLocation, 60000);
 function getLocation(){
         var geocoder;
