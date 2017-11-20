@@ -70,13 +70,11 @@ div.top{
 
   }
 div.top_left{
-font-family: 'Candal', sans-serif;
   font-size:25px;
   display: inline;
   padding:0;
   margin:0;
   font-family: 'Candal', sans-serif;
-  letter-spacing: 0.1em;
 }
 div.top img{
   height: 28px;
@@ -267,7 +265,7 @@ letter-spacing: 0.05em;
   height:100px;
   min-height: 100px;
   font-size: 12px;
-  letter-spacing: 2px;
+  letter-spacing: 0.7px;
   resize:none;
   border:none;
   border-radius: 5px;
@@ -344,12 +342,20 @@ div.new_room{
   outline:0;
   border:0;
 }
-.new_room input[type=text]{
-  padding:11px 0px 11px 0px;
-  width:100%;
-  font-size: 13px;
-  letter-spacing: 2px;
+div.newTlWrapper{
   background-color:rgba(255,255,255,0.5);
+  height:38px;
+  margin-bottom:10px;
+}
+div.new_tl_count{
+  padding:12px 4px 11px 0px;
+  display: inline-block;
+}
+.new_room input[type=text]{
+  padding:11px 0px 11px 3px;
+  width:89%;
+  font-size: 13px;
+  letter-spacing: 0.7px;
 /*  box-shadow:0px 3px 3px #AAA;*/
   border:none;
   outline:0;
@@ -358,14 +364,14 @@ div.new_room{
   text-align: left;
 }
 label.tl {
-  padding:8px 0px 8px 0px;
+  padding:8px 0px 8px 3px;
   background-color:#FF9933;
   color: #333;
   cursor: pointer;
   font-size:13px;
   border:none;
   outline:0;
-  width:100%;
+  width:99%;
   display: block;
   text-align: center
 }
