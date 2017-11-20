@@ -40,9 +40,10 @@
       </div>
       <script>
         function init(){
-          if(<%=@room.id == "0"%>){
+          if(<%=@room.id%> == "0"){
+          $("#loading").css("display", "none");
+       $("#timeline").css("display", "block");
             }else{
-                     $("#loading").css("display", "none");
       $("#timeline").css("display", "none");
     }
     }
@@ -115,8 +116,6 @@ function getLocation(){
               userLng = gpsLng;
               checkLocation();
             } else {
-    // 　        alert("位置情報を取得できないため、表示できません。\nトップページに戻ります");
-    //            location.href="/";
               console.log(status);
             }
           });

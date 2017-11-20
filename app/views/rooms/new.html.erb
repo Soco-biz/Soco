@@ -22,7 +22,21 @@
   <script>
 window.onload = getLocation();
 locationFlag = 0;
-setInterval(checkLocation, 10000);
+setInterval(getLocation, 10000);
+    function checkLocation(){
+      var startLat = <%= @startLat %>;
+      var endLat = <%= @endLat %>;
+      var startLng = <%= @startLng %>;
+      var endLng = <%= @endLng %>; 
+if(startLat < userLat　&& userLat < endLat && startLng < userLng && userLng < endLng){
+        locationFlag = 1;
+        str = document.getElementById('content').value
+        ShowLength(str);
+  }else{
+    　   alert("タイムラインの範囲以内にいないため、表示できません。\nトップページに戻ります");
+    location.href="/";
+  }
+  }
 function getLocation(){
         var geocoder;
         navigator.geolocation.getCurrentPosition(is_success,is_error);
@@ -63,8 +77,6 @@ function getLocation(){
               userLng = gpsLng;
               locationFlag = 1;
             } else {
-              alert("位置情報が取得できないため、表示できません。\nトップページに戻ります");
-              location.href="/";
               console.log(status);
             }
           });

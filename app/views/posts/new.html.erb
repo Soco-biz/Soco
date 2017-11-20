@@ -28,7 +28,7 @@
 window.onload = getLocation();
 locationFlag = 0;
 $('#content').focus();
-setInterval(checkLocation, 10000);
+setInterval(getLocation, 10000);
 function getLocation(){
         var geocoder;
         navigator.geolocation.getCurrentPosition(is_success,is_error);
@@ -69,8 +69,6 @@ function getLocation(){
               userLng = gpsLng;
               checkLocation();
             } else {
-              alert("位置情報が取得できないため、表示できません。\nトップページに戻ります");
-              location.href="/";
               console.log(status);
             }
           });
