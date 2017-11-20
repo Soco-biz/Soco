@@ -64,18 +64,36 @@ div.loading{
   margin-bottom:10px;
 }
 div.top{
-font-family: 'Candal', sans-serif;
   width:88%;
   margin:auto;
   padding:0;
-  font-size:25px;
+
   }
+div.top_left{
+font-family: 'Candal', sans-serif;
+  font-size:25px;
+  display: inline;
+  padding:0;
+  margin:0;
+  font-family: 'Candal', sans-serif;
+  letter-spacing: 0.1em;
+}
+div.top img{
+  height: 28px;
+}
+div.top_left img{
+  margin-left:3px;
+  vertical-align: middle;
+}
+div.top_left:hover{
+  filter: invert(1);
+}
 div.post_page a:visited{
   font-size: 19px;
   color: #000;
 }
 div.post_page a:hover{
-filter: invert(0.8);
+filter: invert(1);
 }
 div.post_page img{
   height:23px;
@@ -84,7 +102,6 @@ div.top a{
   color:#eee;
 }
 div.top a:hover{
-  color:#000;
 }
 div.main{
   width:90%;
@@ -136,7 +153,6 @@ header a{
   text-decoration:none;
 }
 header a:hover{
-  color:#333;
   text-decoration:none;
 }
 a:link.post_link{
