@@ -55,7 +55,7 @@ class PostsController < ApplicationController
       #   trip = trip10(tripword)
       #   author = author.gsub(/#.+?$/, '#' + trip)
       # end
-      #similarity(params[:content])
+      similarity(params[:content])
     	post = Post.new(content:params[:content], room:params[:room_id], image:@image_link, similarity: @mostSimId, simvalue: @mostSimvValue)
     	post.save
     end
