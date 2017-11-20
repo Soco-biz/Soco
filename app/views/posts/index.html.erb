@@ -1,0 +1,53 @@
+<html>
+<head>
+  <script src="//code.jquery.com/jquery-3.0.0.min.js"></script>
+</head>
+<body>
+<div id="timeline">
+  <% first_flag = 0 %>
+    <% @posts.each do |post| %>
+    <div class="post" id="content">
+            <%=if post.content.include?("http")
+                  post.content = post.content.gsub("i.imgur", "p.imgur").gsub(/https?:\/\/[\S]+/){"\<a href\=\"#{$&}\" target\=\"new\"\>#{$&}\<\/a\>"}
+                  simple_format(post.content, {}, wrapper_tag: "div")
+              else
+                simple_format(h(post.content), {}, wrapper_tag: "div")
+            end %>
+            <small>
+             <%= time_ago_in_words(post.created_at) %>
+             <%= if post.author.present? then
+                ": " + post.author 
+             end %>
+               <!--  <%= link_to("☓", "/delete/#{post.id}")%> -->
+          </small>
+        </div>
+        <% if first_flag == 0
+          @last_id = post.id
+          first_flag = 1
+        end%>
+        <% end %> 
+</div>
+<%= javascript_tag do %>
+        last_id = "<%= @last_id %>";
+        var update = function(){
+          $.ajax({
+            url: location.href, 
+            type: 'GET', 
+            data: {
+              id: "last_id"
+            },
+            dataType: 'json'
+          })
+          .then(function(data){ 
+          if(data.length > 0){
+            $.each(data, function(i, data){
+              $('#main').prepend('<div class="post">' + data['content'] + '<br /> <small> less than a minute ago : ' + data['author']  + '</small> </div>');
+              last_id = data['id'];
+          })
+      }
+    }) 
+      }
+          setInterval(update, 1000);
+          <% end %>
+</body>
+</html>
