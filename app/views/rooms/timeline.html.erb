@@ -40,7 +40,11 @@
       </div>
       <script>
         function init(){
+          if(<%=@room.id == "0"%>){
+            }else{
+                     $("#loading").css("display", "none");
       $("#timeline").css("display", "none");
+    }
     }
       var last_id = "<%= @last_id %>";
       var update = function(){
