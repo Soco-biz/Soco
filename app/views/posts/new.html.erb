@@ -28,7 +28,7 @@
 window.onload = getLocation();
 locationFlag = 0;
 $('#content').focus();
-setInterval(getLocation, 10000);
+setInterval(getLocation, 300000);
 function getLocation(){
         var geocoder;
         navigator.geolocation.getCurrentPosition(is_success,is_error);
