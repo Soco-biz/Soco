@@ -5,7 +5,7 @@ a{
   text-decoration: none;
 }
 body{
-/*  background-image:url("/bg.jpg");*/
+  /*  background-image:url("/bg.jpg");*/
   background-color: #eee;
   margin:0;
   font-family: 'Noto Sans Japanese', 'Noto sans-serif', -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Yu Gothic", YuGothic, "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Arial, "メイリオ", Meiryo, sans-serif;
@@ -26,6 +26,9 @@ header img{
   vertical-align:middle;
   margin-right:5px;
 }
+div.timeline{
+  display: none;
+}
 div.newTlWrapper{
   background-color:rgba(255,255,255,0.5);
   height:38px;
@@ -42,7 +45,7 @@ div.new_tl_count{
   padding:5px;
   text-align: center;
   font-size:18px;
-letter-spacing: 0.05em;
+  letter-spacing: 0.05em;
 }
 .notification a:link{
   color:#FF9933;
@@ -72,9 +75,9 @@ letter-spacing: 0.05em;
   text-decoration: none;
 }
 .page-back {
- position: fixed;
- bottom: 20px;
- right: 20px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
 }
 .page-back img{
   height:36px;
@@ -115,19 +118,19 @@ div.top{
   width:80%;
   margin:auto;
   padding:0;
-  }
+}
 div.top a:hover{
 }
-  div.post_page a:link{
-    font-size: 17px;
-    color: #000;
-  }
+div.post_page a:link{
+  font-size: 17px;
+  color: #000;
+}
 div.post_page a:visited{
   font-size: 19px;
   color: #000;
 }
 div.post_page a:hover{
-filter: invert(1);
+  filter: invert(1);
 }
 
 div.top a{
@@ -173,9 +176,9 @@ div.error404{
   -webkit-line-clamp: 3;
 }
 div.error404 img{
-   vertical-align: middle;
-   opacity: 0.9;
-   margin-left:10px;
+  vertical-align: middle;
+  opacity: 0.9;
+  margin-left:10px;
 }
 
 /* link */
@@ -207,15 +210,15 @@ a:visited.post_link{
   text-decoration: none;
 }
 /*div.text_data a:link, a:visited{
-  background-color:red;
-  padding:4px 5px 4px 5px;
-  color:#333;
-  border-radius: 5px;
-  text-decoration: none;
+background-color:red;
+padding:4px 5px 4px 5px;
+color:#333;
+border-radius: 5px;
+text-decoration: none;
 }*/
 div.text_data a:hover{
   opacity: 0.8
-  }
+}
 .post a{
   color:black;
   padding:3px 5px 3px 5px;
@@ -331,7 +334,7 @@ label:hover{
   border:0;
 }
 .new_room input[type=text]{
-/*  margin-left:200px;*/
+  /*  margin-left:200px;*/
   background-color: rgba(0,0,0,0);
   padding:11px;
   width:50%;
@@ -357,7 +360,7 @@ label:hover{
 }
 .form-body {
   padding: 0px;
-    outline:0;
+  outline:0;
   border:0;
 }
 
@@ -374,9 +377,9 @@ label:hover{
 }
 .form_wrapper{
   color:#AAA;
-    background-color:rgba(255,255,255,0.5);
+  background-color:rgba(255,255,255,0.5);
   /* box-shadow:3px 3px 3px #AAA; */
-    padding:1px 3px 0px 3px;
+  padding:1px 3px 0px 3px;
 }
 .form textarea {
   padding:5px;
@@ -391,8 +394,8 @@ label:hover{
   resize: none;
 }
 .form :focus{
-outline:0;
-border:0;
+  outline:0;
+  border:0;
 }
 .form input[type="submit"] {
   height:25px;
@@ -458,24 +461,24 @@ ul, ol {
 .main ul a:link { 
   color: #555;
   text-decoration: none;
- }
+}
 .main ul a:visited { 
   color: #555;
   text-decoration: none;
- }
+}
 .main ul a:hover { 
   color: #AAA;
   text-decoration: none;
- }
+}
 .main ul a:active { 
   color: #555;
   text-decoration: none;
- }
- .rooms{
+}
+.rooms{
   width:70%;
   text-align:center;  
   margin: 0 auto; 
- }
+}
 
 p{
   margin:none;

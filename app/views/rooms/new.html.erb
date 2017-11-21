@@ -22,7 +22,7 @@
   <script>
 window.onload = getLocation();
 locationFlag = 0;
-setInterval(getLocation, 300000);
+setTimeout(getLocation, 300000);
 function getLocation(){
     var geocoder;
     navigator.geolocation.getCurrentPosition(is_success,is_error);
@@ -62,7 +62,6 @@ function getLocation(){
               result += '住所：' + results[0].formatted_address + '<br>';
               userLat = gpsLat;
               userLng = gpsLng;
-              locationFlag = 1;
             } else {
               console.log(status);
             }
@@ -84,6 +83,7 @@ function getLocation(){
           userLng = gpsLng;
           $("#latitude").val(userLat);
           $("#longitude").val(userLng);
+          locationFlag = 1;
         } else {
           console.log(status);
         }

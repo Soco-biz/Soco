@@ -7,7 +7,7 @@
       <br />位置情報を取得しています<br/>
     </div>
 
-<div id="timeline">
+<div id="timeline" class="timeline">
   <% unless @posts.present? %>
     <div class="notification">まだ投稿がありません<br />最初の<a href="/new?room_id=<%= @room_id %>">投稿</a>をしませんか？</div>
   <% end %>
@@ -45,9 +45,8 @@
           postId = <%= @postId.to_json.html_safe %>;
           if(<%=@room.id%> == "0"){
           $("#loading").css("display", "none");
-       $("#timeline").css("display", "block");
+       // $("#timeline").css("display", "block");
             }else{
-      $("#timeline").css("display", "none");
     }
     }
       var last_id = "<%= @last_id %>";
@@ -79,8 +78,8 @@
 }
 window.onload = init();
 window.onload = getLocation();
-setInterval(update, 30000);
-setInterval(getLocation, 300000);
+setTimeout(update, 30000);
+setTimeout(getLocation, 300000);
 function getLocation(){
         var geocoder;
         navigator.geolocation.getCurrentPosition(is_success,is_error);
@@ -137,7 +136,7 @@ function getLocation(){
       console.log(endLng);
       if(startLat < userLat　&& userLat < endLat && startLng < userLng && userLng < endLng){
       console.log("範囲内です");
-       $("#timeline").css("display", "block");
+      $("#timeline").css("display", "block");
        $("#loading").css("display", "none");
   }else{
     console.log("you are out of the range");

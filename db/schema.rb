@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171114021946) do
+ActiveRecord::Schema.define(version: 20171121064043) do
 
   create_table "add_post_to_posts", force: :cascade do |t|
     t.text     "name"
@@ -39,6 +39,8 @@ ActiveRecord::Schema.define(version: 20171114021946) do
     t.text     "image"
     t.text     "similarity"
     t.text     "simvalue"
+    t.text     "latitude"
+    t.text     "longitude"
   end
 
   create_table "rooms", force: :cascade do |t|
