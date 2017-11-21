@@ -5,6 +5,9 @@ body{
   margin:0;
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Yu Gothic", YuGothic, "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Arial, "メイリオ", Meiryo, sans-serif;
 }
+a{
+  text-decoration: none;
+}
 small{
   font-size: 70%;
 }
@@ -44,6 +47,14 @@ header img{
 .room_name img{
   height:28px;
   vertical-align: middle;
+}
+.room_name a:link,a:visited,a:hover{
+  color:#333;
+  text-decoration: none;
+}
+.timeline a{
+  text-decoration: none;
+  color:#FF9933;
 }
 .page-back {
  position: fixed;
@@ -243,7 +254,11 @@ ul, li{
   font-size:15px;
 letter-spacing: 0.05em;
 }
-.notification a:link, a:visited{
+.notification a:link{
+  color:#FF9933;
+  text-decoration: none;
+}
+.notification a:visited{
   color:#FF9933;
   text-decoration: none;
 }

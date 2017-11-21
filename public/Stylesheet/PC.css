@@ -1,6 +1,9 @@
 
 @import url(https://fonts.googleapis.com/earlyaccess/notosansjapanese.css);
 /*lyaout*/
+a{
+  text-decoration: none;
+}
 body{
 /*  background-image:url("/bg.jpg");*/
   background-color: #eee;
@@ -41,7 +44,11 @@ div.new_tl_count{
   font-size:18px;
 letter-spacing: 0.05em;
 }
-.notification a:link, a:visited{
+.notification a:link{
+  color:#FF9933;
+  text-decoration: none;
+}
+.notification a:visited{
   color:#FF9933;
   text-decoration: none;
 }
@@ -59,6 +66,10 @@ letter-spacing: 0.05em;
 .room_name img{
   height:28px;
   vertical-align: middle;
+}
+.room_name a:link,a:visited,a:hover{
+  color:#333;
+  text-decoration: none;
 }
 .page-back {
  position: fixed;

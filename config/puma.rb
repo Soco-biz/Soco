@@ -4,6 +4,14 @@
 # the maximum value specified for Puma. Default is set to 5 threads for minimum
 # and maximum, this matches the default thread size of Active Record.
 #
+# HTTPS 利用可能設定
+if "development" == ENV.fetch("RAILS_ENV") { "development" }
+  ssl_bind '0.0.0.0', '3001', {
+    key: "./server.key",
+    cert: "./server.crt",
+    verify_mode: "none"
+  }
+end
 threads_count = ENV.fetch("RAILS_MAX_THREADS") { 5 }.to_i
 threads threads_count, threads_count
 

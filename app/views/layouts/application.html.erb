@@ -37,8 +37,8 @@
 
 <div class="main" id="main">
   <% if @room.present? then %>
-    <div class="room_name">   
-      <img src="/room.png">
+    <div id="room_name_wrapper" class="room_name">   
+      <img id="room_name" src="/room.png">
       <%= @room.name %>
     </div>
   <% end %>

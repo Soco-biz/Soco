@@ -27,6 +27,8 @@
   <script>
 window.onload = getLocation();
 locationFlag = 0;
+$('#room_name').attr("src","/back.png");
+$('#room_name_wrapper').wrap("<a href='/rooms/<%=params[:room_id]%>' />");
 $('#content').focus();
 setInterval(getLocation, 300000);
 function getLocation(){
@@ -81,10 +83,10 @@ function getLocation(){
       var startLng = <%= @startLng %>;
       var endLng = <%= @endLng %>; 
 if(startLat < userLat　&& userLat < endLat && startLng < userLng && userLng < endLng){
+  }else{
         locationFlag = 1;
         str = document.getElementById('content').value
         ShowLength(str);
-  }else{
     　   alert("タイムラインの範囲以内にいないため、表示できません。\nトップページに戻ります");
     location.href="/";
   }
