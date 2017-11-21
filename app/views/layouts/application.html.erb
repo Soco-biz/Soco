@@ -22,7 +22,7 @@
 	<ul class="header-menus">
     <li>
 			<div class="post_page" id="post_page"><% if params[:room_id].present? || params[:id].present? then %>
-        <a href="/new?room_id=<%= @room_id %>"><%else%><a href="/rooms/new"><% end %>
+        <a herf="#" class="show-modal"><%else%><a href="/rooms/new"><% end %>
       <img src="/post.png" height="28">
     </a></div>
 		</li>
@@ -45,5 +45,6 @@
 
     <%= yield %>
    	</div>
+
   </body>
 </html>

@@ -25,6 +25,22 @@ header{
 header img{
   vertical-align:middle;
   margin-right:5px;
+    cursor: pointer;
+}
+div.bottom{
+  height: 550px;
+  width: 99.5%;
+  bottom:0;
+}
+div.bottom_post{
+    border: 1px solid #aaa;
+    height: 220px;
+    bottom: 0;
+    width:80%;
+    padding-bottom:20px;
+    border:10px solid #AAA;
+    position:fixed;
+    margin: auto;
 }
 div.timeline{
   display: none;
@@ -362,6 +378,7 @@ label:hover{
   padding: 0px;
   outline:0;
   border:0;
+
 }
 
 .form input {
@@ -377,6 +394,7 @@ label:hover{
 }
 .form_wrapper{
   color:#AAA;
+
   background-color:rgba(255,255,255,0.5);
   /* box-shadow:3px 3px 3px #AAA; */
   padding:1px 3px 0px 3px;
@@ -483,4 +501,105 @@ ul, ol {
 p{
   margin:none;
   padding:none;
+}
+
+.modalwin {
+    position: fixed;
+    width: 600px;
+    background-color: #eee;
+    z-index: 1;
+}
+
+.modalwin dl {
+    padding: 0px 10px;
+}
+
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
+}
+
+.modalwin h1 {
+  background-color: #34495e;
+  color:#FFF;
+    padding: 10px;
+    font-size: 1.2em;
+    margin-top: 0;
+    text-align: center;
+}
+
+.modalwin-contents {
+    margin:10px;
+}
+.modalwin-contents button{
+  background-color:#FF9933;
+  color: #333;
+  cursor: pointer;
+  font-size:14px;
+  border:none;
+  border-radius: 0;
+  width: 130px;
+  padding:6px 5px 6px 5px;
+  float:right;
+}
+
+.modalwin-contents p {
+    margin: 0 0 1em 0;
+    line-height: 1.8em;
+}
+
+#shade {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255,255,255,0.4);
+    opacity: 0.9;
+    z-index: 1;
+}
+img.thumbnail{
+  box-shadow: 0px 0px 20px -5px rgba(0, 0, 0, 0.8);
+  background-color:rgba(255,255,255,0.3);
+  border-radius: 5px;
+  padding:2px;
+  margin-top:0px;
+  max-width: 200px;
+  max-height: 50px;
+}
+textarea.post {
+  padding:5px;
+  width: 98%;
+  height: 100px;
+  font-size: 16px;
+  letter-spacing: 2px;
+  background-color:rgba(255,255,255,0.0);
+  border:none;
+  border-radius: 5px;
+  outline:0;
+  resize: none;
+}
+label.hoge {
+  background-color:#FF9933;
+  color: #333;
+  cursor: pointer;
+  text-align: center;
+  font-size:16px;
+  border:none;
+  width: 130px;
+  padding:6px 5px 6px 5px;
+  height:30px;
+  line-height: 30px;
+  margin-bottom:10px;
+  margin-left:10px;
+  float: right;
+  /* box-shadow:3px 3px 3px #AAA; */
+}
+@media screen and (max-width: 600px) {
+    .modalwin {
+        width: 90%;
+    }
 }
