@@ -38,11 +38,9 @@
     first_flag = 1
   end
   end %>
-
-      <a herf="#" class="show-modal">投稿画面</a>
       <div id="modalwin" class="modalwin hide">
         <a herf="#" class="modal-close"></a>
-        <h1>投稿画面</h1>
+        <h1><%=@room.name%>への投稿</h1>
         <div class="modalwin-contents">
           <%= form_tag("/create") do %>
           <div class="form-body">
