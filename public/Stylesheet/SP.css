@@ -52,6 +52,9 @@ header img{
   color:#333;
   text-decoration: none;
 }
+div.timeline{
+  display: none;
+}
 .timeline a{
   text-decoration: none;
   color:#FF9933;

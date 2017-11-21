@@ -42,6 +42,9 @@ def new
 end
 
 def create
+  if params[:content].length > 300 then
+    redirect_to("/rooms/" + params[:room_id])
+  end
   @room_id = params[:room_id]
   @room = Timeline.find_by(id: @room_id)
   @startLat = @room.latitude.to_f - 0.00138889
