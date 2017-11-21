@@ -83,8 +83,9 @@ function getLocation(){
       var startLng = <%= @startLng %>;
       var endLng = <%= @endLng %>; 
 if(startLat < userLat　&& userLat < endLat && startLng < userLng && userLng < endLng){
+          locationFlag = 1;
   }else{
-        locationFlag = 1;
+
         str = document.getElementById('content').value
         ShowLength(str);
     　   alert("タイムラインの範囲以内にいないため、表示できません。\nトップページに戻ります");

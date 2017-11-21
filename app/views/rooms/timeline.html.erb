@@ -41,6 +41,8 @@
       <script>
 
         function init(){
+          counts = <%=@posts.count%>;
+          postId = <%= @postId.to_json.html_safe %>;
           if(<%=@room.id%> == "0"){
           $("#loading").css("display", "none");
        $("#timeline").css("display", "block");
@@ -61,11 +63,13 @@
   .then(function(data){ 
   if(data.length > 0){
   $.each(data, function(i, data){
+    counts = counts + 1;
+    postId[data['id']] = counts;
   if(data['simvalue'] > 0.49){
   var similarity = data['similarity'];
-    $('#timeline').prepend('<div class="post">' + data['content'] + '<div class="text_data">'  + data['id'] + ' : less than a minute  <a href="#' + similarity  + '"> >>' + similarity  + '</a></div> </div>');
+    $('#timeline').prepend('<div class="post">' + data['content'] + '<div class="text_data">'  + postId[data['id']] + ' : less than a minute  <a href="#' + similarity  + '"> >>' + similarity  + '</a></div> </div>');
 }else{
-    $('#timeline').prepend('<div class="post"><div class="text_body">' + data['content'] + '</div><div class="text_data">'  + data['id'] + ' : less than a minute </div> </div>');
+    $('#timeline').prepend('<div class="post"><div class="text_body">' + data['content'] + '</div><div class="text_data">'  + postId[data['id']] + ' : less than a minute </div> </div>');
 }
 
   last_id = data['id'];
