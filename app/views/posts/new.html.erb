@@ -39,7 +39,6 @@
     function is_success(position) {
       var gpsLat = position.coords.latitude;
       var gpsLng = position.coords.longitude;
-
       gmap_init(gpsLat,gpsLng);
     }
     function is_error(error) {
@@ -75,6 +74,8 @@ function gmap_init(gpsLat,gpsLng) {
       $("#longitude").val(userLng);
       checkLocation();
     } else {
+    　   alert("位置情報が取得できないため、表示できません。\nトップページに戻ります");
+        location.href="/";
       console.log(status);
     }
   });

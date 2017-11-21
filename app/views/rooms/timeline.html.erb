@@ -120,6 +120,8 @@ function getLocation(){
               userLng = gpsLng;
               checkLocation();
             } else {
+    　   alert("位置情報が取得できないため、表示できません。\nトップページに戻ります");
+        location.href="/";
               console.log(status);
             }
           });

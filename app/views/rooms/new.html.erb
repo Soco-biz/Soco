@@ -85,6 +85,8 @@ function getLocation(){
           $("#longitude").val(userLng);
           locationFlag = 1;
         } else {
+    　   alert("位置情報が取得できないため、表示できません。\nトップページに戻ります");
+        location.href="/";
           console.log(status);
         }
       });
