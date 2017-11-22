@@ -40,6 +40,7 @@
       <div id="modalwin" class="modalwin hide">
         <a herf="#" class="modal-close"></a>
         <h1><%=@room.name%>への投稿</h1>
+
         <div class="modalwin-contents">
           <%= form_tag("/create") do %>
           <div class="form-body">
@@ -62,6 +63,7 @@
             <input id="longitude" type="hidden" name="longitude">
             <% end %>
           </div>
+          <div class="back"><button><img src="/close.png" class="h1" alt="☓"></button></div>
         </div>
     <script>
       window.onload = init();
@@ -153,7 +155,6 @@
         function is_success(position) {
           var gpsLat = position.coords.latitude;
           var gpsLng = position.coords.longitude;
-
           gmap_init(gpsLat,gpsLng);
         }
         function is_error(error) {

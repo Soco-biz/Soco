@@ -488,12 +488,12 @@ ul, ol {
   text-decoration: none;
  }
  .modalwin {
-
-    width: 600px;
-    background-color: #eee;
+    position: fixed;
+    width: 10000px;
+    background-color:#EEE;
+    height: 100%;
     z-index: 1;
 }
-
 .modalwin dl {
     padding: 0px 10px;
 }
@@ -505,12 +505,16 @@ ul, ol {
 .hide {
     display: none;
 }
-
+.modalwin img.h1{
+  height:18px;
+  vertical-align: middle;
+}
 .modalwin h1 {
+  line-height: 30px;
   background-color: #34495e;
   color:#FFF;
-    padding: 10px;
-    font-size: 1.2em;
+    padding: 7px;
+    font-size: 1.3em;
     margin-top: 0;
     text-align: center;
 }
@@ -519,7 +523,7 @@ ul, ol {
     margin:10px;
 }
 .modalwin-contents button{
-  background-color:#FF9933;
+/*  background-color:#FF9933;
   color: #333;
   cursor: pointer;
   font-size:14px;
@@ -527,7 +531,7 @@ ul, ol {
   border-radius: 0;
   width: 130px;
   padding:6px 5px 6px 5px;
-  float:right;
+  float:right;*/
 }
 
 .modalwin-contents p {
@@ -585,6 +589,6 @@ label.hoge {
 }
 @media screen and (max-width: 600px) {
     .modalwin {
-        width: 90%;
+        width: 100%;
     }
 }
