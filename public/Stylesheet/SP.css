@@ -193,8 +193,8 @@ div.text_data a:link, a:visited{
 }
 .back {
  position: fixed;
- bottom: 20px;
- right: 20px;
+ bottom: 10px;
+ right: 10px;
 }
 .back img{
   height:28px;
@@ -507,7 +507,6 @@ ul, ol {
 }
 .modalwin img.h1{
   height:18px;
-  vertical-align: middle;
 }
 .modalwin h1 {
   line-height: 30px;
@@ -532,6 +531,8 @@ ul, ol {
   width: 130px;
   padding:6px 5px 6px 5px;
   float:right;*/
+  background: none;
+  border:none;
 }
 
 .modalwin-contents p {
