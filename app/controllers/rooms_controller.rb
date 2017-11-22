@@ -20,12 +20,11 @@ def timeline
       p "hoge"
       @room = Timeline.find_by(id: params[:id])
       if @room == nil then 
-        p "can you fucking watch me ?"
         @room = Timeline.new(id: "0", name: "ラウンジ")
         @room.save
       end
       @room_id = params[:id]
-      if @room_id == "0" then
+      if @room_id == "0" || @room_id == "-1"  then
         @startLat = -1000
         @endLat = 1000
         @startLng = -1000
