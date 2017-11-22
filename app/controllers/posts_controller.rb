@@ -42,6 +42,7 @@ def new
 end
 
 def create
+  p "投稿を新規作成します"
   if params[:content].length > 300 then
     redirect_to("/rooms/" + params[:room_id])
   end
@@ -62,6 +63,8 @@ def create
       post = Post.new(content:params[:content], room:params[:room_id], image:@image_link, similarity: @mostSimId, simvalue: @mostSimvValue)
       post.save
     end
+  else
+    p "位置情報が違います"
   end
 redirect_to("/rooms/" + params[:room_id])
 end

@@ -187,6 +187,8 @@ function gmap_init(gpsLat,gpsLng) {
       result += '住所：' + results[0].formatted_address + '<br>';
       userLat = gpsLat;
       userLng = gpsLng;
+      $("#latitude").val(userLat);
+      $("#longitude").val(userLng);
       checkLocation();
     } else {
       　   alert("位置情報が取得できないため、表示できません。\nトップページに戻ります");
