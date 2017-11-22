@@ -25,7 +25,7 @@ def new
     @endLat = @room.latitude.to_f + 0.00138889
     @startLng = @room.longitude.to_f - 0.00138889
     @endLng = @room.longitude.to_f + 0.00138889
-    if @room_id == "0"; then
+    if @room_id == "0" || @room_id == "-1" then
       p "ラウンジへようこそ"
       @startLat = -1000
       @endLat = 1000
