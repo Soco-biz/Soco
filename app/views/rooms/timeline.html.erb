@@ -9,7 +9,7 @@
 
 <div id="timeline" class="timeline">
   <% unless @posts.present? %>
-  <div class="notification">まだ投稿がありません<br />最初の<a href="/new?room_id=<%= @room_id %>">投稿</a>をしませんか？</div>
+  <div class="notification">まだ投稿がありません<br />最初の<a herf="#" class="show-modal">投稿</a>をしませんか？</div>
   <% end %>
   <% first_flag = 0 %>
   <% @posts.each do |post|  %>
@@ -188,9 +188,9 @@ function gmap_init(gpsLat,gpsLng) {
       $("#longitude").val(userLng);
       checkLocation();
     } else {
-      　   alert("位置情報が取得できないため、表示できません。\nトップページに戻ります");
-      location.href="/";
-      exit;
+      // 　   alert("位置情報が取得できないため、表示できません。\nトップページに戻ります");
+      // location.href="/";
+      // exit;
       console.log(status);
     }
   });
