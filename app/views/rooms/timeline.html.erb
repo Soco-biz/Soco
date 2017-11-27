@@ -13,14 +13,14 @@
   <% end %>
   <% first_flag = 0 %>
   <% @posts.each do |post|  %>
-  <div class="post" id="content">
+  <div id="<%= post.id %>" class="post" id="content">
     <div class="text_body">
       <%= raw(hbr(post.content)) %>
     </div>
     <%= if post.image.present? then link_to post.image, :target=>["_blank"] do image_tag "#{post.image}" end end %>
     <div class="text_data">
       <% post.id %>
-      <div id="<%= post.id %>" style="display:inline"><%= @postId[post.id] %></div> :
+      <div style="display:inline"><%= @postId[post.id] %></div> :
       <%= time_ago_in_words(post.created_at) %>
       <%= 
       if post.simvalue.present? then
@@ -68,7 +68,7 @@
     <script>
       window.onload = init();
       window.onload = getLocation();
-      setInterval(update, 60000);
+      setInterval(update, 10000);
       setInterval(getLocation, 300000);
       function ShowLength( str ) {
         document.getElementById("inputlength").innerHTML = str.length + "/300";
@@ -139,7 +139,8 @@
               postId[data['id']] = counts;
               if(data['simvalue'] > 0.49){
                 var similarity = data['similarity'];
-                $('#timeline').prepend('<div class="post">' + data['content'] + '<div class="text_data">'  + postId[data['id']] + ' : less than a minute  <a href="#' + similarity  + '"> >>' + similarity  + '</a></div> </div>');
+
+                $('#timeline').prepend('<div class="post">' + data['content'] + '<div class="text_data">'  + postId[data['id']] + ' : less than a minute  <a href="#' + similarity  + '"> >>' + postId[data['similarity']]  + '</a></div> </div>');
               }else{
                 $('#timeline').prepend('<div class="post"><div class="text_body">' + data['content'] + '</div><div class="text_data">'  + postId[data['id']] + ' : less than a minute </div> </div>');
               }
