@@ -544,8 +544,6 @@ ul, ol {
   float:right;*/
   display:none;
   border:none;
-  display: inline-block;
-  width:100%;
 }
 .modalwin-header{
   background-color: #34495e;
