@@ -542,7 +542,7 @@ ul, ol {
   width: 130px;
   padding:6px 5px 6px 5px;
   float:right;*/
-  display:none;
+  background:none;
   border:none;
 }
 .modalwin-header{
