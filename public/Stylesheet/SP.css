@@ -542,6 +542,7 @@ ul, ol {
   width: 130px;
   padding:6px 5px 6px 5px;
   float:right;*/
+  display:none;
   border:none;
   display: inline-block;
   width:100%;
