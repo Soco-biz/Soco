@@ -49,11 +49,11 @@ div.new_tl_count{
   letter-spacing: 0.05em;
 }
 .notification a:link{
-  color:#FF9933;
+  color:#FFBB55;
   text-decoration: none;
 }
 .notification a:visited{
-  color:#FF9933;
+  color:#FFBB55;
   text-decoration: none;
 }
 .room_name{
@@ -157,7 +157,7 @@ div.text_data{
   font-size:80%;
 }
 div.text_data a{
-  background-color:#FF9933;
+  background-color:#FFBB55;
   padding:1px 5px 1px 5px;
   color:#333;
   text-decoration: none;
@@ -281,7 +281,7 @@ ul, li{
 }
 /* form */
 label.tl{
-  background-color:#FF9933;
+  background-color:#FFBB55;
   color: #333;
   cursor: pointer;
   text-align: center;
@@ -298,7 +298,7 @@ label:hover{
 }
 
 label.post {
-  background-color:#FF9933;
+  background-color:#FFBB55;
   color: #333;
   cursor: pointer;
   text-align: center;
@@ -520,7 +520,7 @@ p{
     margin:10px;
 }
 .modalwin-contents button{
-  background-color:#FF9933;
+  background-color:#FFBB55;
   color: #333;
   cursor: pointer;
   font-size:14px;
@@ -569,11 +569,11 @@ textarea.post {
   resize: none;
 }
 a.show-modal{
-  color:#FF9933;
+  color:#FFBB55;
   cursor: pointer;
 }
 label.hoge {
-  background-color:#FF9933;
+  background-color:#FFBB55;
   color: #333;
   cursor: pointer;
   text-align: center;

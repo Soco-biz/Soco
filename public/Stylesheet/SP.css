@@ -59,7 +59,7 @@ div.timeline{
 }
 .timeline a{
   text-decoration: none;
-  color:#FF9933;
+  color:#FFBB55;
 }
 .page-back {
  position: fixed;
@@ -135,13 +135,6 @@ word-wrap: break-word;
 div.text_data{
   font-size:80%;
 }
-div.text_data a{
-  background-color:#FF9933;
-  padding:3px 5px 3px 5px;
-  color:#333;
-  border-radius: 5px;
-  text-decoration: none;
-}
 div.text_body{
   margin-bottom:6px;
 }
@@ -186,7 +179,7 @@ a:visited.post_link{
 }
 div.text_data a:link, a:visited{
   background-color:#FFBB55;
-  padding:4px 5px 4px 5px;
+  padding:3px 5px 3px 5px;
   color:#333;
   border-radius: 5px;
   text-decoration: none;
@@ -260,11 +253,11 @@ ul, li{
 letter-spacing: 0.05em;
 }
 .notification a:link{
-  color:#FF9933;
+  color:#FFBB55;
   text-decoration: none;
 }
 .notification a:visited{
-  color:#FF9933;
+  color:#FFBB55;
   text-decoration: none;
 }
 .form input {
@@ -305,7 +298,7 @@ letter-spacing: 0.05em;
   outline:0;
 }
 label.post{
-  background-color:#FF9933;
+  background-color:#FFBB55;
   color: #333;
   cursor: pointer;
   text-align: center;
@@ -385,7 +378,7 @@ div.new_tl_count{
 }
 label.tl {
   padding:8px 0px 8px 3px;
-  background-color:#FF9933;
+  background-color:#FFBB55;
   color: #333;
   cursor: pointer;
   font-size:13px;
@@ -396,7 +389,7 @@ label.tl {
   text-align: center
 }
 .new_room input[type=submit]{
-  background-color:#FF9933;
+  background-color:#FFBB55;
   color: #333;
   cursor: pointer;
   font-size:13px;
@@ -522,7 +515,7 @@ ul, ol {
     margin:10px;
 }
 .modalwin-contents button{
-/*  background-color:#FF9933;
+/*  background-color:#FFBB55;
   color: #333;
   cursor: pointer;
   font-size:14px;
@@ -573,7 +566,7 @@ textarea.post {
   resize: none;
 }
 label.hoge {
-  background-color:#FF9933;
+  background-color:#FFBB55;
   color: #333;
   cursor: pointer;
   text-align: center;
