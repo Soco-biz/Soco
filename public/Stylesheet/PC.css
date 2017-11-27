@@ -28,7 +28,7 @@ header img{
     cursor: pointer;
 }
 div.timeline{
-  display: none;
+/*  display: none;*/
 }
 div.newTlWrapper{
   background-color:rgba(255,255,255,0.5);
@@ -567,6 +567,10 @@ textarea.post {
   border-radius: 5px;
   outline:0;
   resize: none;
+}
+a.show-modal{
+  color:#FF9933;
+  cursor: pointer;
 }
 label.hoge {
   background-color:#FF9933;

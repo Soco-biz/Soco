@@ -48,25 +48,25 @@ function getLocation(){
       }
     }
         
-        // googlemap init
-        function gmap_init(gpsLat,gpsLng) {
-          var geocoder = new google.maps.Geocoder();
-          var latlng = new google.maps.LatLng(gpsLat,gpsLng);
+        // // googlemap init
+        // function gmap_init(gpsLat,gpsLng) {
+        //   var geocoder = new google.maps.Geocoder();
+        //   var latlng = new google.maps.LatLng(gpsLat,gpsLng);
          
-          geocoder.geocode({'latLng':latlng},function(results,status){
-            if (status == google.maps.GeocoderStatus.OK) {
-              console.log(results[1].formatted_address);
-              result  = '現在地の取得に成功<br>';
-              result += '経度：' + gpsLat + '<br>';
-              result += '緯度：' + gpsLng + '<br>';
-              result += '住所：' + results[0].formatted_address + '<br>';
-              userLat = gpsLat;
-              userLng = gpsLng;
-            } else {
-              console.log(status);
-            }
-          });
-        }
+        //   geocoder.geocode({'latLng':latlng},function(results,status){
+        //     if (status == google.maps.GeocoderStatus.OK) {
+        //       console.log(results[1].formatted_address);
+        //       result  = '現在地の取得に成功<br>';
+        //       result += '経度：' + gpsLat + '<br>';
+        //       result += '緯度：' + gpsLng + '<br>';
+        //       result += '住所：' + results[0].formatted_address + '<br>';
+        //       userLat = gpsLat;
+        //       userLng = gpsLng;
+        //     } else {
+        //       console.log(status);
+        //     }
+        //   });
+        // }
           // googlemap init
     function gmap_init(gpsLat,gpsLng) {
       var geocoder = new google.maps.Geocoder();
@@ -84,6 +84,9 @@ function getLocation(){
           $("#latitude").val(userLat);
           $("#longitude").val(userLng);
           locationFlag = 1;
+      form.disabled = "";
+      $('#submit_TL').css('background-color','#FF9933');
+      $('#submit_TL').css('color','#333');
         } else {
     　   alert("位置情報が取得できないため、表示できません。\nトップページに戻ります");
         location.href="/";

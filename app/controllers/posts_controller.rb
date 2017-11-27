@@ -54,6 +54,7 @@ def create
   @endLng = @room.longitude.to_f + 0.00138889
   @userLat = params[:latitude].to_f
   @userLng = params[:longitude].to_f
+  similarity(params[:content])
   if @startLat < @userLat && @userLat < @endLat && @startLng < @userLng && @userLng  < @endLng || @room_id == "0" then
     unless params[:content].empty? && params[:image].empty? then
       if params[:image].present? then
@@ -78,7 +79,7 @@ def similarity(post)
       num = num + 1
     end
 
-    uri = URI.parse URI.encode("http://localhost:5000/api.soco.com/v1/similarity?comment=#{post}")
+    uri = URI.parse URI.encode("http://iiojun.xyz:5000/api.soco.com/v1/similarity?comment=#{post}")
     http = Net::HTTP.new(uri.host, uri.port)
     req = Net::HTTP::Post.new(uri.request_uri, initheader = {'Content-Type' =>'application/json'})
     req.body = jsonPosts.to_json
