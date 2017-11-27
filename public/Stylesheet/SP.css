@@ -510,18 +510,26 @@ ul, ol {
 }
 .modalwin img.h1{
   height:20px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right:10px;
+  background: 
 }
+
 .modalwin h1 {
   line-height: 20px;
   background-color: #34495e;
   color:#FFF;
-    padding: 7px;
-    font-size: 1.3em;
-    margin-top: 0;
-    text-align: center;
+  padding: 7px;
+  font-size: 1.3em;
+  margin-top: 10;
+  text-align: center;
+  margin:0 auto;
+  width:auto;
 }
 
 .modalwin-contents {
+  top:0;
     margin:10px;
 }
 .modalwin-contents button{
@@ -534,10 +542,18 @@ ul, ol {
   width: 130px;
   padding:6px 5px 6px 5px;
   float:right;*/
-  background: none;
   border:none;
+  display: inline-block;
+  width:100%;
 }
-
+.modalwin-header{
+  background-color: #34495e;
+  width:100%;
+  text-align: center;
+}
+.modalwin-header a{
+  font-size: 1.3em;
+}
 .modalwin-contents p {
     margin: 0 0 1em 0;
     line-height: 1.8em;

@@ -39,9 +39,11 @@
   end
   end %>
       <div id="modalwin" class="modalwin hide">
-        <a herf="#" class="modal-close"></a>
-        <h1><%=@room.name%>への投稿</h1>
-
+        <div class="modalwin-header">
+<!--          -->
+        
+<button><a herf="#" class="modal-close"><h1><< <%=@room.name%></h1></a></button>
+      </div>
         <div class="modalwin-contents">
           <%= form_tag("/create") do %>
           <div class="form-body">
@@ -64,7 +66,7 @@
             <input id="longitude" type="hidden" name="longitude">
             <% end %>
           </div>
-          <div class="back"><button><img src="/close.png" class="h1" alt="☓"></button></div>
+          <div class="back"></div>
         </div>
     <script>
       window.onload = init();
