@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get '/new' => "posts#new"
   post '/create' => "posts#create"
   get '/superuser' => "posts#index"
+  get '/guide' => "rooms#guide"
 
   get "/delete/:id" => "posts#delete"
   post '/img' => "posts#img"

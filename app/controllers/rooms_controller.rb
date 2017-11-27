@@ -53,6 +53,8 @@ def create
   thread.save
   redirect_to("/rooms")
 end
+def guide
+end
 def manageId
   @postId = {}
   @postNum = @posts.count

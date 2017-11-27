@@ -27,8 +27,23 @@ header img{
   margin-right:5px;
     cursor: pointer;
 }
+div.trouble{
+}
+div.trouble a{
+  color:#FFAA44;
+}
+div.trouble img{
+  height:28px;
+  vertical-align: middle;
+}
 div.timeline{
-/*  display: none;*/
+  display: none;
+}
+div.alert{
+  display:none;
+}
+.alert a{
+  color:#FFBB55;
 }
 div.newTlWrapper{
   background-color:rgba(255,255,255,0.5);

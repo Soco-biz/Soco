@@ -53,9 +53,19 @@ header img{
   color:#333;
   text-decoration: none;
 }
-
+div.trouble{
+}
+div.trouble a{
+  color:#FFAA44;
+}
 div.timeline{
   display: none;
+}
+div.alert{
+  display:none;
+}
+div.alert a{
+  color:#FFBB55;
 }
 .timeline a{
   text-decoration: none;

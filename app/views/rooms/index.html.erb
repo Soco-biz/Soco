@@ -12,6 +12,11 @@
       <img src="./loading.gif">
       <br />位置情報を取得しています<br/><br/>
     </div>
+    <div class="alert" id="alert">
+      位置情報を取得できませんでした。<br/>
+      <a href="/guide">こちら</a>を参照して、設定を確認してください。<br/><br/>
+    </div>
+
     <a href="/rooms/0"><li>ラウンジ</li></a>
     <a href="/rooms/new"><li>+ 新たに部屋を作る</li></a>
   </div>
@@ -19,7 +24,6 @@
 </div>
      <script>
       window.onload = getLocation();
-      console.log("add favicon");
       // setInterval(getLocation, 60000);
 function getLocation(){
         var geocoder;
@@ -27,7 +31,6 @@ function getLocation(){
         function is_success(position) {
           var gpsLat = position.coords.latitude;
           var gpsLng = position.coords.longitude;
-         
           gmap_init(gpsLat,gpsLng);
         }
         function is_error(error) {
@@ -43,6 +46,8 @@ function getLocation(){
               result = 'タイムアウト';
             break;
           }
+                $("#loading").css("display", "none");
+                $("#alert").css("display", "block");
         }
         
         // googlemap init
@@ -59,10 +64,12 @@ function getLocation(){
               result += '住所：' + results[0].formatted_address + '<br>';
               userLat = gpsLat;
               userLng = gpsLng;
+              $("#loading").css("display", "none");
               roomlist();
-              $("#loading").remove();
             } else {
-              console.log(status);
+                $("#loading").css("display", "none");
+                $("#alert").css("display", "block");
+                console.log(status);
             }
           });
         }
