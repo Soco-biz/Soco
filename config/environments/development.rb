@@ -6,7 +6,6 @@ Rails.application.configure do
   # since you don't have to restart the web server when you make code changes.
   #config.middleware.use('SpoofIp', '127.0.0.1')
   config.cache_classes = false
-
   # Do not eager load code on boot.
   config.eager_load = false
 
@@ -22,9 +21,10 @@ Rails.application.configure do
       'Cache-Control' => 'public, max-age=172800'
     }
   else
-    config.action_controller.perform_caching = false
+    config.action_controller.perform_caching = true
 
-    config.cache_store = :null_store
+    config.cache_store = :file_store, '/path/to/cache/directory'
+
   end
 
   # Don't care if the mailer can't send.

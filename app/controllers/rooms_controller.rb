@@ -17,7 +17,6 @@ end
 def timeline
   respond_to do |format| 
     format.html{
-      p "hoge"
       @room = Timeline.find_by(id: params[:id])
       if @room == nil then 
         @room = Timeline.new(id: "0", name: "ラウンジ")
@@ -40,6 +39,8 @@ def timeline
       manageId()
     }
     format.json { 
+      Rails.cache.write('city', params[:last_id], expires_in: 1.minutes)
+
       @new_posts = nil
       @new_posts = Post.where('id > ?', params[:last_id]).where('room = ?', params[:id]).order(id: :asc)
     } 

@@ -42,7 +42,7 @@
         <div class="modalwin-header">
 <!--          -->
         
-<button><a herf="#" class="modal-close"><h1><< <%=@room.name%></h1></a></button>
+<button><a herf="#" class="modal-close"><h1>< <%=@room.name%></h1></a></button>
       </div>
         <div class="modalwin-contents">
           <%= form_tag("/create") do %>
@@ -69,6 +69,7 @@
           <div class="back"></div>
         </div>
     <script>
+      console.log(<%=Rails.cache.read('city')%>);
       window.onload = init();
       window.onload = getLocation();
       setInterval(update, 10000);
