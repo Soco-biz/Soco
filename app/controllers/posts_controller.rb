@@ -61,7 +61,7 @@ def create
         @image = params[:image]
         imgur()
       end
-      post = Post.new(content:params[:content], room:params[:room_id], image:@image_link, similarity: @mostSimId, simvalue: @mostSimvValue)
+      post = Post.new(content:params[:content], room:params[:room_id], image:@image_link, similarity: @mostSimId, simvalue: @mostSimvValue, latitude: params[:latitude], longitude: params[:longitude])
       post.save
     end
   else

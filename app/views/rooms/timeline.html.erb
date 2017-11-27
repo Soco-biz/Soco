@@ -7,9 +7,10 @@
   <br />位置情報を取得しています<br/>
 </div> -->
 
+
 <div id="timeline" class="timeline">
   <% unless @posts.present? %>
-  <div class="notification">まだ投稿がありません<br />最初の<a herf="#" class="show-modal">投稿</a>をしませんか？</div>
+    <div class="notification">まだ投稿がありません<br />最初の<a herf="#" class="show-modal">投稿</a>をしませんか？</div>
   <% end %>
   <% first_flag = 0 %>
   <% @posts.each do |post|  %>
@@ -29,7 +30,6 @@
         end
       end
       %> 
-      <!--<%= link_to("☓", "/delete/#{post.id}")%> -->
     </div>
   </div>
   <% if first_flag == 0
@@ -80,7 +80,7 @@
         }else{
           if (str.length < 301 && locationFlag == 1){
             form.disabled = "";
-            $('#submit_label').css('background-color','#FF9933');
+            $('#submit_label').css('background-color','##FFBB55');
             $('#submit_label').css('color','#333');
           }
         }
@@ -135,16 +135,23 @@
         .then(function(data){ 
           if(data.length > 0){
             $.each(data, function(i, data){
+              var content = escapeHTML(data['content']);
+              var image = null;
+              content = content.replace(/\r?\n/g, '<br>');
               counts = counts + 1;
               postId[data['id']] = counts;
+              if(data['image'] == null){
+                var image = '';
+            } else{
+                var image = '<img src="' + data['image'] + '"　target="_blank" src="' + data['image'] + '">';
+            }
+
               if(data['simvalue'] > 0.49){
                 var similarity = data['similarity'];
-
-                $('#timeline').prepend('<div class="post">' + data['content'] + '<div class="text_data">'  + postId[data['id']] + ' : less than a minute  <a href="#' + similarity  + '"> >>' + postId[data['similarity']]  + '</a></div> </div>');
+                $('#timeline').prepend('<div class="post"><div class="text_body">' + content + '</div>' + image + ' <div class="text_data">'  + postId[data['id']] + ' : less than a minute  <a href="#' + similarity  + '"> >>' + postId[data['similarity']]  + '</a></div> </div>');
               }else{
-                $('#timeline').prepend('<div class="post"><div class="text_body">' + data['content'] + '</div><div class="text_data">'  + postId[data['id']] + ' : less than a minute </div> </div>');
+                $('#timeline').prepend('<div class="post"><div class="text_body">' + content + '</div> ' + image + '<div class="text_data">'  + postId[data['id']] + ' : less than a minute </div> </div>');
               }
-
               last_id = data['id'];
             })
           }
@@ -227,4 +234,12 @@ $('#upfile').change(function(){
     }
   }
 });
+function escapeHTML(str) {
+  return str.replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#039;');
+}
 </script>
+
