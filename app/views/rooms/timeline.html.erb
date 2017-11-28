@@ -11,7 +11,7 @@
 </div>
 <div id="timeline" class="timeline">
   <% unless @posts.present? %>
-    <div class="notification">まだ投稿がありません<br />最初の<a herf="#" class="show-modal">投稿</a>をしませんか？</div>
+  <div class="notification">まだ投稿がありません<br />最初の<a herf="#" class="show-modal">投稿</a>をしませんか？</div>
   <% end %>
   <% first_flag = 0 %>
   <% @posts.each do |post|  %>
@@ -38,36 +38,40 @@
     first_flag = 1
   end
   end %>
-      <div id="modalwin" class="modalwin hide">
-        <div class="modalwin-header">
-<!--          -->
-        
-<button><a herf="#" class="modal-close"><h1>< <%=@room.name%></h1></a></button>
-      </div>
-        <div class="modalwin-contents">
-          <%= form_tag("/create") do %>
-          <div class="form-body">
-            <div class="form_wrapper">
-              <textarea id="content" cols="30" rows="10" name="content" onkeyup="ShowLength(value);" class="post"></textarea>
-              <p align="right" id="inputlength">0/300</p>
-            </div>
-            <label id="submit_label"  class="hoge" for="submit">
-              投稿
-              <input id="submit" type="submit" style="display:none;" />
-            </label>
-            <input name="room_id" type="hidden" value="<%= @room_id %>">
-            <input id="image" name="image" type="hidden">
-            <label class="hoge" for="upfile">
-              +画像を追加
-              <input type="file"  name="upfile" id="upfile" accept="image/*" style="display:none;" />
-            </label>
-            <div><img class="thumbnail" id="thumbnail" src="/thumbnail.jpg"></div>
-            <input id="latitude" type="hidden" name="latitude">
-            <input id="longitude" type="hidden" name="longitude">
-            <% end %>
-          </div>
-          <div class="back"></div>
+  <div id="modalwin" class="modalwin hide">
+    <div class="modalwin-header">
+      <button><a herf="#" class="modal-close"><h1>< <%=@room.name%></h1></a></button>
+    </div>
+    <div class="modalwin-contents">
+      <%= form_tag("/create") do %>
+      <div class="form-body">
+        <div class="form_wrapper">
+          <textarea id="content" cols="30" rows="10" name="content" onkeyup="ShowLength(value);" class="post"></textarea>
+          <p align="right" id="inputlength">0/300</p>
         </div>
+        <label id="submit_label"  class="hoge" for="submit">
+          投稿
+          <input id="submit" type="submit" style="display:none;" />
+        </label>
+        <input name="room_id" type="hidden" value="<%= @room_id %>">
+        <input id="image" name="image" type="hidden">
+        <label class="hoge" for="upfile">
+          +画像を追加
+          <input type="file"  name="upfile" id="upfile" accept="image/*" style="display:none;" />
+        </label>
+        <div><img class="thumbnail" id="thumbnail" src="/thumbnail.jpg"></div>
+        <input id="latitude" type="hidden" name="latitude">
+        <input id="longitude" type="hidden" name="longitude">
+        <% end %>
+      </div>
+      <div class="back"></div>
+    </div>
+
+    <div id="modalwin2" class="modalwin hide2">
+      <div class="modalwin-contents2">
+        hoge
+      </div>
+    </div>
     <script>
       console.log(<%=Rails.cache.read('city')%>);
       window.onload = init();
@@ -89,6 +93,39 @@
           }
         }
       }
+      $(function () {
+        function showModal2(event) {
+          event.preventDefault();
+          var $shade = $('<div></div>');
+          $shade
+          .attr('id', 'shade2')
+          .on('click', hideModal2);
+          var $modalWin = $('#modalwin2');
+          var $window = $(window);
+          var posX = ($window.width() - $modalWin.outerWidth()) / 2;
+          var posY = ($window.height() - $modalWin.outerHeight()) / 2;
+
+          $modalWin
+          .before($shade)
+          .css({left: posX, top: posY})
+          .removeClass('hide2')
+          .addClass('show2')
+          .on('click', 'button', function () {
+            hideModal();
+          });
+        }
+
+        function hideModal2() {
+          $('#shade2').remove();
+          $('#modalwin2')
+          .removeClass('show2')
+          .addClass('hide2');
+        }
+
+        $('.show-modal2').on('click', showModal2);
+
+      }());
+
       $(function () {
         function showModal(event) {
           event.preventDefault();
@@ -121,6 +158,7 @@
         $('.show-modal').on('click', showModal);
 
       }());
+
       function init(){
         locationFlag = 0;
         counts = <%=@posts.count%>;
@@ -146,9 +184,9 @@
               postId[data['id']] = counts;
               if(data['image'] == null){
                 var image = '';
-            } else{
+              } else{
                 var image = '<img src="' + data['image'] + '"　target="_blank" src="' + data['image'] + '">';
-            }
+              }
 
               if(data['simvalue'] > 0.49){
                 var similarity = data['similarity'];
@@ -183,65 +221,65 @@
             break;
           }
         }
-function gmap_init(gpsLat,gpsLng) {
-  var geocoder = new google.maps.Geocoder();
-  var latlng = new google.maps.LatLng(gpsLat,gpsLng);
+        function gmap_init(gpsLat,gpsLng) {
+          var geocoder = new google.maps.Geocoder();
+          var latlng = new google.maps.LatLng(gpsLat,gpsLng);
 
-  geocoder.geocode({'latLng':latlng},function(results,status){
-    if (status == google.maps.GeocoderStatus.OK) {
-      console.log(results[1].formatted_address);
-      result  = '現在地の取得に成功<br>';
-      result += '経度：' + gpsLat + '<br>';
-      result += '緯度：' + gpsLng + '<br>';
-      result += '住所：' + results[0].formatted_address + '<br>';
-      userLat = gpsLat;
-      userLng = gpsLng;
-      $("#latitude").val(userLat);
-      $("#longitude").val(userLng);
-      $("#loading").css("display", "none");
-      checkLocation();
-    } else {
-      $("#loading").css("display", "none");
-    }
-  });
-}
-}
-function checkLocation(){
-  var startLat = <%= @startLat %>;
-  var endLat = <%= @endLat %>;
-  var startLng = <%= @startLng %>;
-  var endLng = <%= @endLng%>;
-  if(startLat < userLat　&& userLat < endLat && startLng < userLng && userLng < endLng){
-    locationFlag = 1;
-    $("#timeline").css("display", "block");
-    $("#loading").css("display", "none");
-  }else{
-    alert("タイムラインの範囲以内にいないため、表示できません。\nトップページに戻ります");
-    location.href="/";
-    exit;
-  }
+          geocoder.geocode({'latLng':latlng},function(results,status){
+            if (status == google.maps.GeocoderStatus.OK) {
+              console.log(results[1].formatted_address);
+              result  = '現在地の取得に成功<br>';
+              result += '経度：' + gpsLat + '<br>';
+              result += '緯度：' + gpsLng + '<br>';
+              result += '住所：' + results[0].formatted_address + '<br>';
+              userLat = gpsLat;
+              userLng = gpsLng;
+              $("#latitude").val(userLat);
+              $("#longitude").val(userLng);
+              $("#loading").css("display", "none");
+              checkLocation();
+            } else {
+              $("#loading").css("display", "none");
+            }
+          });
+        }
+      }
+      function checkLocation(){
+        var startLat = <%= @startLat %>;
+        var endLat = <%= @endLat %>;
+        var startLng = <%= @startLng %>;
+        var endLng = <%= @endLng%>;
+        if(startLat < userLat　&& userLat < endLat && startLng < userLng && userLng < endLng){
+          locationFlag = 1;
+          $("#timeline").css("display", "block");
+          $("#loading").css("display", "none");
+        }else{
+          alert("タイムラインの範囲以内にいないため、表示できません。\nトップページに戻ります");
+          location.href="/";
+          exit;
+        }
 
-}
-$('#upfile').change(function(){
-  if (this.files.length > 0) {
-    var file = this.files[0];
-    var reader = new FileReader();
-    reader.readAsDataURL(file);
-    console.log(reader);
-    reader.onload = function() {
-      var height = 500;
-      $('#thumbnail').attr('src', reader.result );
-      var image = reader.result;
-      document.getElementById('image').value=image;
-    }
-  }
-});
-function escapeHTML(str) {
-  return str.replace(/&/g, '&amp;')
-            .replace(/</g, '&lt;')
-            .replace(/>/g, '&gt;')
-            .replace(/"/g, '&quot;')
-            .replace(/'/g, '&#039;');
-}
-</script>
+      }
+      $('#upfile').change(function(){
+        if (this.files.length > 0) {
+          var file = this.files[0];
+          var reader = new FileReader();
+          reader.readAsDataURL(file);
+          console.log(reader);
+          reader.onload = function() {
+            var height = 500;
+            $('#thumbnail').attr('src', reader.result );
+            var image = reader.result;
+            document.getElementById('image').value=image;
+          }
+        }
+      });
+      function escapeHTML(str) {
+        return str.replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+      }
+    </script>
 
