@@ -39,34 +39,49 @@
   end
   end %>
   <div id="modalwin" class="modalwin hide">
-          <div class="new_post_form" id="new_post_form">
-    <div class="modalwin-header">
-      <button><a herf="#" class="modal-close"><h1><span class="h1"><<</span> <%=@room.name%></h1></a></button>
-    </div>
-    <div class="modalwin-contents">
-      <%= form_tag "/create", onsubmit: "submitWait();" do %>
-      <div class="form-body">
-        <div class="form_wrapper">
-          <textarea id="content" cols="30" rows="10" name="content" onkeyup="ShowLength(value);" class="post"></textarea>
-          <p align="right" id="inputlength">0/300</p>
+    <div class="setting" id="setting_form">
+      <div class="modalwin-header">
+        <button><a herf="#" class="modal-close"><h1><span class="h1"><<</span> 設定</h1></a></button>
+      </div>
+      <div class="modalwin-contents">
+        <div class="modal_setting">
+          <ul>
+            <a href="#"><li><img src="/lock.png">この部屋をロックする</li></a>
+            <a href="#"><li><img src="/report.png">この部屋を管理者に報告する</li></a>
+            <a href="#"><li><img src="/share.png">SNSで共有する</li></a>
+          </ul>
         </div>
-        <label id="submit_label"  class="hoge" for="submit">
-          投稿
-          <input id="submit" type="submit" style="display:none;" />
-        </label>
-        <input name="room_id" type="hidden" value="<%= @room_id %>">
-        <input id="image" name="image" type="hidden">
-        <label class="hoge" for="upfile">
-          +画像を追加
-          <input type="file"  name="upfile" id="upfile" accept="image/*" style="display:none;" />
-        </label>
-        <div><img class="thumbnail" id="thumbnail" src="/thumbnail.jpg"></div>
-        <input id="latitude" type="hidden" name="latitude">
-        <input id="longitude" type="hidden" name="longitude">
-        <% end %>
-      </div>
       </div>
     </div>
+    <div class="new_post_form" id="post_form">
+      <div class="modalwin-header">
+        <button><a herf="#" class="modal-close"><h1><span class="h1"><<</span> <%=@room.name%></h1></a></button>
+      </div>
+      <div class="modalwin-contents">
+        <%= form_tag "/create", onsubmit: "submitWait();" do %>
+        <div class="form-body">
+          <div class="form_wrapper">
+            <textarea id="content" cols="30" rows="10" name="content" onkeyup="ShowLength(value);" class="post"></textarea>
+            <p align="right" id="inputlength">0/300</p>
+          </div>
+          <label id="submit_label"  class="hoge" for="submit">
+            投稿
+            <input id="submit" type="submit" style="display:none;" />
+          </label>
+          <input name="room_id" type="hidden" value="<%= @room_id %>">
+          <input id="image" name="image" type="hidden">
+          <label class="hoge" for="upfile">
+            +画像を追加
+            <input type="file"  name="upfile" id="upfile" accept="image/*" style="display:none;" />
+          </label>
+          <div><img class="thumbnail" id="thumbnail" src="/thumbnail.jpg"></div>
+          <input id="latitude" type="hidden" name="latitude">
+          <input id="longitude" type="hidden" name="longitude">
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
     <script>
       console.log(<%=Rails.cache.read('city')%>);
       window.onload = init();
@@ -74,14 +89,14 @@
       setInterval(update, 10000);
       setInterval(getLocation, 300000);
       function ShowLength( str ) {
-        document.getElementById("inputlength").innerHTML = str.length + "/300";
+        document.getElementById("inputlength").innerHTML = str.length + "/200";
         form = document.getElementById("submit");
-        if (str.length > 300 || locationFlag == 0){
+        if (str.length > 200 || locationFlag == 0){
           form.disabled = "disabled";
           $('#submit_label').css('background-color','rgba(50,50,50,0.1)');
           $('#submit_label').css('color','#888');
         }else{
-          if (str.length < 301 && locationFlag == 1){
+          if (str.length < 201 && locationFlag == 1){
             form.disabled = "";
             $('#submit_label').css('background-color','#FFBB55');
             $('#submit_label').css('color','#333');
@@ -90,6 +105,15 @@
       }
       $(function () {
         function showModal(event) {
+          var id =  $(this).attr("id");
+          if(id == "setting"){
+            $("#post_form").css("display","none");
+            $("#setting_form").css("display","block");
+          }
+          if(id == "new_post_form"){
+            $("#setting_form").css("display","none");
+            $("#post_form").css("display","block");
+          }
           event.preventDefault();
           var $shade = $('<div></div>');
           $shade
@@ -115,6 +139,7 @@
           $('#modalwin')
           .removeClass('show')
           .addClass('hide');
+
         }
 
         $('.show-modal').on('click', showModal);
