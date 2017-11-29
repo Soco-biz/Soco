@@ -504,7 +504,6 @@ p{
   padding:none;
 }
 .modalwin-header a{
-  font-size:1.2em;
 }
 .modalwin {
     position: fixed;
@@ -530,7 +529,7 @@ p{
    background-color: #34495e;
     color:#FFF;
     padding: 0px;
-  font-size:23px;
+    font-size:20px;
 /*    margin-top: 10px;*/
     text-align: center;
 }
@@ -541,11 +540,6 @@ p{
 .modalwin-header button{
   background:none;
   border:none;
-}
-
-.modalwin-contents p {
-    margin: 0 0 1em 0;
-    line-height: 1.8em;
 }
 
 #shade {
@@ -610,5 +604,5 @@ label.hoge {
   text-align: center;
 } 
 span.h1{
-  font-size:0;
+  font-size:0px;
 }
