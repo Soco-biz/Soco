@@ -38,6 +38,7 @@
     first_flag = 1
   end
   end %>
+  <div id="hoge">aaaaa</div>
   <div id="modalwin" class="modalwin hide">
     <div class="setting" id="setting_form">
       <div class="modalwin-header">
@@ -85,6 +86,12 @@
   </div>
   <div id="pagetop" class="back"><img src="/top.png"></div>
     <script>
+      $("#hoge").on('click',function() {
+        alert("こんにちは");
+      });
+      $("#hoge").on('click',function() {
+        alert("さようなら");
+      });
       console.log(<%=Rails.cache.read('city')%>);
       window.onload = init();
       window.onload = getLocation();
