@@ -98,6 +98,7 @@ div.new_tl_count{
 }
 .back img{
   height:36px;
+  cursor: pointer;
 }
 .back img:hover{
   filter: invert(1);

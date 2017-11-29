@@ -192,7 +192,8 @@ div.text_data a:link, a:visited{
  right: 15px;
 }
 .back img{
-  height:28px;
+  height:36px;
+  cursor: pointer;
 }
 .post img{
 /*  box-shadow: 0px 0px 20px -5px rgba(0, 0, 0, 0.8);*/
