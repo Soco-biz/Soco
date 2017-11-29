@@ -39,11 +39,12 @@
   end
   end %>
   <div id="modalwin" class="modalwin hide">
+          <div class="new_post_form" id="new_post_form">
     <div class="modalwin-header">
       <button><a herf="#" class="modal-close"><h1><span class="h1"><<</span> <%=@room.name%></h1></a></button>
     </div>
     <div class="modalwin-contents">
-      <%= form_tag("/create") do %>
+      <%= form_tag "/create", onsubmit: "submitWait();" do %>
       <div class="form-body">
         <div class="form_wrapper">
           <textarea id="content" cols="30" rows="10" name="content" onkeyup="ShowLength(value);" class="post"></textarea>
@@ -64,7 +65,7 @@
         <input id="longitude" type="hidden" name="longitude">
         <% end %>
       </div>
-      <div class="back"></div>
+      </div>
     </div>
     <script>
       console.log(<%=Rails.cache.read('city')%>);
@@ -82,7 +83,7 @@
         }else{
           if (str.length < 301 && locationFlag == 1){
             form.disabled = "";
-            $('#submit_label').css('background-color','##FFBB55');
+            $('#submit_label').css('background-color','#FFBB55');
             $('#submit_label').css('color','#333');
           }
         }
@@ -119,7 +120,12 @@
         $('.show-modal').on('click', showModal);
 
       }());
-
+      function submitWait(){
+        form = document.getElementById("submit");
+        form.disabled = "disabled";
+        $('#submit_label').css('background-color','rgba(50,50,50,0.1)');
+        $('#submit_label').css('color','#888');
+      }
       function init(){
         locationFlag = 0;
         counts = <%=@posts.count%>;

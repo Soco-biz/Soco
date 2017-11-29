@@ -606,3 +606,8 @@ label.hoge {
 span.h1{
   font-size:0px;
 }
+
+/*新たに追加*/
+.new_post_form{
+/*  display:none;*/
+}

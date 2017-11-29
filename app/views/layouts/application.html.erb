@@ -22,12 +22,12 @@
 	<ul class="header-menus">
     <li>
 			<div class="post_page" id="post_page"><% if params[:room_id].present? || params[:id].present? then %>
-        <a herf="#" class="show-modal"><%else%><a href="/rooms/new"><% end %>
+        <a herf="#" id="new_post_form" class="show-modal"><%else%><a href="/rooms/new"><% end %>
       <img src="/post.png" height="28">
     </a></div>
 		</li>
     <li>
-      <div class="post_page" id="setting"><a herf="#" class="show-modal2">
+      <div class="post_page"><a herf="#" id="setting" class="show-modal">
       <img src="/setting.png" height="28">
     </a></div>
     </li>
