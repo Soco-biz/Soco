@@ -91,16 +91,16 @@ div.new_tl_count{
   color:#333;
   text-decoration: none;
 }
-.page-back {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
+.back {
+ position: fixed;
+ bottom: 15px;
+ right: 15px;
 }
-.page-back img{
+.back img{
   height:36px;
 }
-.page-back img:hover{
-  opacity:0.8;
+.back img:hover{
+  filter: invert(1);
 }
 div.loading{
   margin-top:10px;

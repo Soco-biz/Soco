@@ -71,14 +71,6 @@ div.alert a{
   text-decoration: none;
   color:#FFBB55;
 }
-.page-back {
- position: fixed;
- bottom: 20px;
- right: 20px;
-}
-.page-back img{
-  height:36px;
-}
 div.loading{
   margin-top:10px;
   margin-bottom:10px;
@@ -196,8 +188,8 @@ div.text_data a:link, a:visited{
 }
 .back {
  position: fixed;
- bottom: 5px;
- right: 0px;
+ bottom: 15px;
+ right: 15px;
 }
 .back img{
   height:28px;
