@@ -66,12 +66,6 @@
       </div>
       <div class="back"></div>
     </div>
-
-    <div id="modalwin2" class="modalwin hide2">
-      <div class="modalwin-contents2">
-        hoge
-      </div>
-    </div>
     <script>
       console.log(<%=Rails.cache.read('city')%>);
       window.onload = init();
@@ -93,39 +87,6 @@
           }
         }
       }
-      $(function () {
-        function showModal2(event) {
-          event.preventDefault();
-          var $shade = $('<div></div>');
-          $shade
-          .attr('id', 'shade2')
-          .on('click', hideModal2);
-          var $modalWin = $('#modalwin2');
-          var $window = $(window);
-          var posX = ($window.width() - $modalWin.outerWidth()) / 2;
-          var posY = ($window.height() - $modalWin.outerHeight()) / 2;
-
-          $modalWin
-          .before($shade)
-          .css({left: posX, top: posY})
-          .removeClass('hide2')
-          .addClass('show2')
-          .on('click', 'button', function () {
-            hideModal();
-          });
-        }
-
-        function hideModal2() {
-          $('#shade2').remove();
-          $('#modalwin2')
-          .removeClass('show2')
-          .addClass('hide2');
-        }
-
-        $('.show-modal2').on('click', showModal2);
-
-      }());
-
       $(function () {
         function showModal(event) {
           event.preventDefault();
