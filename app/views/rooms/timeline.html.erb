@@ -294,7 +294,7 @@
         var endLat = <%= @endLat %>;
         var startLng = <%= @startLng %>;
         var endLng = <%= @endLng%>;
-        if(startLat < userLat　&& userLat < endLat && startLng < userLng && userLng < endLng || <%=Rails.cache.read('lock_room')%> == <%=@room_id%>){
+        if(startLat < userLat　&& userLat < endLat && startLng < userLng && userLng < endLng || lockedRoom == <%=@room_id%>){
           locationFlag = 1;
           $("#timeline").css("display", "block");
           $("#loading").css("display", "none");
