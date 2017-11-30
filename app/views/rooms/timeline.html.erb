@@ -87,12 +87,14 @@
   </div>
   <div id="pagetop" class="back"><img src="/top.png"></div>
     <script>
+      lockedRoom = null;
+      lockedRoom = <%=Rails.cache.read('lock_room')%>;
       console.log(<%=Rails.cache.read('lock_room')%>);
-      // function confirmFunction1() {
-      //   if(<%=Rails.cache.read('lock_room')%>){
-      //   confirm("既にロックされている部屋があります\nロックする部屋をこの部屋に変更しますか？");
-      //   }
-      // }
+      function confirmFunction1() {
+        if(lockedRoom){
+        confirm("既にロックされている部屋があります\nロックする部屋をこの部屋に変更しますか？");
+        }
+      }
       $("#hoge").on('click',function() {
         alert("こんにちは");
       });
@@ -264,7 +266,7 @@
           var latlng = new google.maps.LatLng(gpsLat,gpsLng);
 
           geocoder.geocode({'latLng':latlng},function(results,status){
-            if (status == google.maps.GeocoderStatus.OK || <%=Rails.cache.read('lock_room')%> == <%=@room_id%>) {
+            if (status == google.maps.GeocoderStatus.OK || lockedRoom == <%=@room_id%>) {
               console.log(results[1].formatted_address);
               result  = '現在地の取得に成功<br>';
               result += '経度：' + gpsLat + '<br>';
