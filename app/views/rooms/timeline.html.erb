@@ -2,7 +2,7 @@
 <% if Rails.cache.read('lock_room').present? then
       locked_room = Rails.cache.read('lock_room')
     else
-    locked_room = nil;
+    locked_room = -1;
    end
 %>
 <script src="//code.jquery.com/jquery-3.0.0.min.js"></script>
@@ -93,10 +93,10 @@
   </div>
   <div id="pagetop" class="back"><img src="/top.png"></div>
     <script>
-      lockedRoom = <%=locked_room%>;
+      lockedRoom = <%=locked_room.to_i%>;
       console.log(<%=Rails.cache.read('lock_room')%>);
       function confirmFunction1() {
-        if(lockedRoom){
+        if(lockedRoom > -1){
         confirm("既にロックされている部屋があります\nロックする部屋をこの部屋に変更しますか？");
         }
       }
@@ -271,7 +271,7 @@
           var latlng = new google.maps.LatLng(gpsLat,gpsLng);
 
           geocoder.geocode({'latLng':latlng},function(results,status){
-            if (status == google.maps.GeocoderStatus.OK || lockedRoom == <%=@room_id%>) {
+            if (status == google.maps.GeocoderStatus.OK || lockedRoom == <%=@room_id.to_i%>) {
               console.log(results[1].formatted_address);
               result  = '現在地の取得に成功<br>';
               result += '経度：' + gpsLat + '<br>';
