@@ -1,4 +1,10 @@
 <% @page_title = @room.name %> 
+<% if Rails.cache.read('lock_room').present? then
+      locked_room = Rails.cache.read('lock_room')
+    else
+    locked_room = nil;
+   end
+%>
 <script src="//code.jquery.com/jquery-3.0.0.min.js"></script>
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
 <script src="/sweetalert2.min.js"></script>
@@ -87,8 +93,7 @@
   </div>
   <div id="pagetop" class="back"><img src="/top.png"></div>
     <script>
-      lockedRoom = null;
-      lockedRoom = <%=Rails.cache.read('lock_room')%>;
+      lockedRoom = <%=locked_room%>;
       console.log(<%=Rails.cache.read('lock_room')%>);
       function confirmFunction1() {
         if(lockedRoom){
@@ -322,4 +327,3 @@
         .replace(/'/g, '&#039;');
       }
     </script>
-
