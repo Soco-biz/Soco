@@ -100,19 +100,18 @@ end
       if(<%=@room_id%> == 0){
         alert("ラウンジはロックできません。");
       } else{
-        if(lockedRoom > 0 && <%=@room_id%> != 0){
+        if(lockedRoom){
           judgeLock = confirm("既にロックされている部屋があります\nロックする部屋をこの部屋に変更しますか？");
           if(judgeLock){
             lockRoom();
           }else{
           }
+        }else{
+          lockRoom();
         }
       }
     }
     function lockRoom(){
-      if(<%=@room_id%> == 0){
-        alert("ラウンジはロックできません。");
-      } else{
         $.ajax({
           url: "/rooms/<%=@room_id%>/lock_room", 
           type: 'GET', 
@@ -125,7 +124,6 @@ end
           $('#room_name').attr('src','/lock.png')
           alert("<%=@room.name%>をロックしました。\n一時間だけ、範囲外からでも利用できます。");
         })
-      } 
     }
     window.onload = init();
     window.onload = getLocation();
