@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get'/rooms/new' => "rooms#new"
   post '/rooms/create' => "rooms#create"
   get'/rooms/:id' => "rooms#timeline"
+    get'/rooms/:id/lock_room' => "rooms#lock_room"
 
   get "project/change_session_year"
   get '*path', controller: 'application', action: 'render_404'
