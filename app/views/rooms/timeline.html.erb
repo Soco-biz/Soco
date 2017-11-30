@@ -88,11 +88,11 @@
   <div id="pagetop" class="back"><img src="/top.png"></div>
     <script>
       console.log(<%=Rails.cache.read('lock_room')%>);
-      function confirmFunction1() {
-        if(<%=Rails.cache.read('lock_room')%>){
-        confirm("既にロックされている部屋があります\nロックする部屋をこの部屋に変更しますか？");
-        }
-      }
+      // function confirmFunction1() {
+      //   if(<%=Rails.cache.read('lock_room')%>){
+      //   confirm("既にロックされている部屋があります\nロックする部屋をこの部屋に変更しますか？");
+      //   }
+      // }
       $("#hoge").on('click',function() {
         alert("こんにちは");
       });
