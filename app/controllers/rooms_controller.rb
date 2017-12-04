@@ -1,6 +1,11 @@
 class RoomsController < ApplicationController
 # layout 'timeline'
 def index
+if Rails.cache.read('lock_room').present? then
+    puts "locked Room exist"
+  else
+    puts "locked Room is nil"
+  end
   respond_to do |format| 
     format.html
     format.json { 
