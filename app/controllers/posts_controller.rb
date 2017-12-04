@@ -73,6 +73,12 @@ def similarity(post)
   @soco = Post.where('room = ?', params[:room_id]).select("id", "content").map{ |p| p.attributes }
   unless @soco.count == 0 || params[:content].length < 2 then
     num = 0
+    p @soco.count
+    if @soco.count > 20 then
+      counts = @soco.count - 20
+      @soco = @soco[counts..@soco.count]
+      puts @soco
+    end
     jsonPosts = {}
     for soco in @soco do
       jsonPosts[soco["id"]] = soco["content"]
@@ -81,11 +87,7 @@ def similarity(post)
     uri = URI.parse URI.encode("http://iiojun.xyz:5000/api.soco.com/v1/similarity?comment=#{post}")
     http = Net::HTTP.new(uri.host, uri.port)
     req = Net::HTTP::Post.new(uri.request_uri, initheader = {'Content-Type' =>'application/json'})
-    p jsonPosts
-    if jsonPosts.count > 20 then
-      jsonPosts = jsonPosts[0..19]
-      p jsonPosts
-    end
+
     req.body = jsonPosts.to_json
     res = http.request(req)
     result = JSON.parse(res.body).to_hash
