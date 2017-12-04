@@ -24,6 +24,7 @@ header{
   width:100%;
   height:40px;
   background-color: #34495e;
+  box-shadow:3px 3px 10px #AAA;
 /*  box-shadow:0px 3px 3px #AAA;
   border-top:8px solid #2c3e50;*/
   line-height:37px;
@@ -128,7 +129,7 @@ div.main{
 div.post{
   padding:10px;
   background-color:rgba(255,255,255,0.5);
-/*  box-shadow:3px 3px 3px #AAA;*/
+  box-shadow:1px 1px 3px #BBB;
   margin:0 15px 15px 0;
   display:inline-block;
   max-width: 92%;
@@ -194,6 +195,7 @@ div.text_data a:link, a:visited{
 .back img{
   height:36px;
   cursor: pointer;
+  -webkit-filter: drop-shadow(3px 3px 5px rgba(50, 50, 50, .5));
 }
 .post img{
 /*  box-shadow: 0px 0px 20px -5px rgba(0, 0, 0, 0.8);*/
@@ -459,9 +461,8 @@ ul, ol {
   text-align: center;
   padding:10px;
   background-color:rgba(255,255,255,0.5);
-/*  box-shadow:3px 3px 3px #AAA;*/
+  box-shadow:1px 1px 3px #BBB;
   margin:0 0px 15px 0;
-  border-radius: 3px;
   word-wrap: break-word;
   max-height:200px;
   -webkit-line-clamp: 3;
@@ -489,6 +490,7 @@ ul, ol {
     background-color:#EEE;
     height: 100%;
     z-index: 1;
+  box-shadow:3px 3px 10px #AAA;
 }
 .modalwin dl {
     padding: 0px 10px;
@@ -628,6 +630,7 @@ label.hoge {
   text-align: center;
   padding:10px;
   background-color:rgba(255,255,255,0.5);
+  box-shadow:1px 1px 3px #BBB;
   margin:0 0px 10px 0;
   border-radius: 0px;
   word-wrap: break-word;

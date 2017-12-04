@@ -17,7 +17,7 @@ end
 </div>
 <div id="timeline" class="timeline">
   <% unless @posts.present? %>
-  <div class="notification">まだ投稿がありません<br />最初の<a herf="#" class="show-modal">投稿</a>をしませんか？</div>
+  <div class="notification">まだ投稿がありません<br />最初の<a herf="#" id="new_post_form" class="show-modal">投稿</a>をしませんか？</div>
   <% end %>
   <% first_flag = 0 %>
   <% @posts.each do |post|  %>
@@ -92,9 +92,7 @@ end
   <div id="pagetop" class="back"><img src="/top.png"></div>
   <script>
     lockedRoom = <%=locked_room.to_i%>;
-    if(lockedRoom == <%=@room_id%>){
-      $('#room_name').attr('src','/lock.png')
-    }
+
     console.log(lockedRoom);
     function confirmFunction1() {
       if(<%=@room_id%> == 0){
@@ -288,9 +286,15 @@ end
             $("#latitude").val(userLat);
             $("#longitude").val(userLng);
             $("#loading").css("display", "none");
+            if(lockedRoom == <%=@room_id%>){
+             $('#room_name').attr('src','/lock.png')
+            }
             checkLocation();
           } else {
             $("#loading").css("display", "none");
+            if(lockedRoom == <%=@room_id%>){
+             $('#room_name').attr('src','/lock.png')
+            }
           }
         });
       }
@@ -302,8 +306,12 @@ end
       var endLng = <%= @endLng%>;
       if(startLat < userLat　&& userLat < endLat && startLng < userLng && userLng < endLng || lockedRoom == <%=@room_id%>){
         locationFlag = 1;
+        console.log("checkLocation is ok");
         $("#timeline").css("display", "block");
         $("#loading").css("display", "none");
+            if(lockedRoom == <%=@room_id%>){
+             $('#room_name').attr('src','/lock.png')
+            }
       }else{
         alert("タイムラインの範囲以内にいないため、表示できません。\nトップページに戻ります");
         location.href="/";

@@ -78,10 +78,14 @@ def similarity(post)
       jsonPosts[soco["id"]] = soco["content"]
       num = num + 1
     end
-
     uri = URI.parse URI.encode("http://iiojun.xyz:5000/api.soco.com/v1/similarity?comment=#{post}")
     http = Net::HTTP.new(uri.host, uri.port)
     req = Net::HTTP::Post.new(uri.request_uri, initheader = {'Content-Type' =>'application/json'})
+    p jsonPosts
+    if jsonPosts.count > 20 then
+      jsonPosts = jsonPosts[0..19]
+      p jsonPosts
+    end
     req.body = jsonPosts.to_json
     res = http.request(req)
     result = JSON.parse(res.body).to_hash
