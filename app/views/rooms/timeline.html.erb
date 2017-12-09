@@ -90,6 +90,7 @@ end
     </div>
   </div>
   <div id="pagetop" class="back"><img src="/top.png"></div>
+
   <script>
     lockedRoom = <%=locked_room.to_i%>;
 
@@ -214,6 +215,19 @@ end
       postId = <%= @postId.to_json.html_safe %>;
       last_id = "<%= @last_id %>";
     }
+    function saveLocation(){
+      $.ajax({
+        url: "/rooms/save_location", 
+        type: 'GET',
+        data: {
+          userLat: userLat,
+          userLng: userLng
+        },
+        dataType: 'json'
+      })
+      .then(function(data){
+      })
+    }
     function update(){
       $.ajax({
         url: location.href, 
@@ -234,7 +248,7 @@ end
             if(data['image'] == null){
               var image = '';
             } else{
-              var image = '<a href="' + data['image'] + '"><img src="' + data['image'] + '"　target="_blank" src="' + data['image'] + '"></a>';
+              var image = '<a href="' + data['image'] + '" target="_blank"><img src="' + data['image'] + '"　target="_blank" src="' + data['image'] + '"></a>';
             }
 
             if(data['simvalue'] > 0.49){
@@ -283,6 +297,7 @@ end
             result += '住所：' + results[0].formatted_address + '<br>';
             userLat = gpsLat;
             userLng = gpsLng;
+            saveLocation();
             $("#latitude").val(userLat);
             $("#longitude").val(userLng);
             $("#loading").css("display", "none");

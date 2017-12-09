@@ -9,11 +9,12 @@ Rails.application.routes.draw do
   get "/delete/:id" => "posts#delete"
   post '/img' => "posts#img"
 
-  get'/rooms' => "rooms#index"
-  get'/rooms/new' => "rooms#new"
+  get '/rooms' => "rooms#index"
+  get '/rooms/new' => "rooms#new"
   post '/rooms/create' => "rooms#create"
-  get'/rooms/:id' => "rooms#timeline"
-    get'/rooms/:id/lock_room' => "rooms#lock_room"
+  get '/rooms/:id' => "rooms#timeline"
+  get '/rooms/:id/lock_room' => "rooms#lock_room"
+  get '/rooms/save_location' => "rooms#save_location"
 
   get "project/change_session_year"
   get '*path', controller: 'application', action: 'render_404'

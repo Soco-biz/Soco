@@ -1,5 +1,8 @@
 class RoomsController < ApplicationController
 # layout 'timeline'
+def save_location
+  puts "hoge"
+end
 def index
 if Rails.cache.read('lock_room').present? then
     puts "locked Room exist"
@@ -22,11 +25,7 @@ end
 def lock_room
   respond_to do|format|
     format.json {
-        Rails.cache.write("lock_room", params[:lock_room], expires_in: 1.minutes)
-        @lock_room = params[:lock_room]
-    }
-    format.html {
-        Rails.cache.write("lock_room", params[:lock_room], expires_in: 1.hour)
+        Rails.cache.write("lock_room", params[:lock_room], expires_in: 1.hours)
         @lock_room = params[:lock_room]
     }
 end
