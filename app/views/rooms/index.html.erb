@@ -29,7 +29,6 @@
 <script>
   window.onload = getLocation();
   if(<%= @lockedRoomNum %> > 0) {
-        $('#lockedRoom').append('<a href="/rooms/<%= @lockedRoom.id %>' + '?name=' + "<%= @lockedRoom.name %>" + '"><li><img src="./lock.png">' + "<%= @lockedRoom.name %>（重複御免）" + '</li></a>');
   }
 // setInterval(getLocation, 60000);
 function getLocation(){
