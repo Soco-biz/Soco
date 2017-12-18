@@ -7,8 +7,11 @@ def index
 if Rails.cache.read('lock_room').present? then
     @lockedRoomNum = Rails.cache.read('lock_room')
     @lockedRoom = Timeline.find_by(id: @lockedRoomNum)
+    @lockedRoomName =  @lockedRoom.name
   else
+    p "locked room ないよ"
     @lockedRoom = nil
+    @lockedRoomName = 0
     @lockedRoomNum = 0
   end
   respond_to do |format|

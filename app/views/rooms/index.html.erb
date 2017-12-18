@@ -28,10 +28,15 @@
 </div>
 <script>
   window.onload = getLocation();
-  if(<%= @lockedRoomNum %> > 0) {
-    $('#lockedRoom').append('<a href="/rooms/'+ <%= @lockedRoom.id %>  + '?name=' + '<%= @lockedRoom.name %>' + '"><li>' + '<img src="lock.png"><%= @lockedRoom.name %>' + '</li></a>');
+  var hoge = <%= @lockedRoomNum.to_i %>;
+  var lockedRoomId = <%=@lockedRoomNum%>;
+  var lockedRoomName = "<%=@lockedRoomName%>";
+
+  if(hoge > 0) {
+    $('#lockedRoom').append('<a href="/rooms/'+ lockedRoomId  + '?name=' + lockedRoomName + '"><li>' + '<img src="lock.png">' + lockedRoomName + '</li></a>');
   }
-// setInterval(getLocation, 60000);
+
+  
 function getLocation(){
   var geocoder;
   navigator.geolocation.getCurrentPosition(is_success,is_error);
