@@ -29,6 +29,7 @@
 <script>
   window.onload = getLocation();
   if(<%= @lockedRoomNum %> > 0) {
+    $('#lockedRoom').append('<a href="/rooms/'+ <%= @lockedRoom.id %>  + '?name=' + '<%= @lockedRoom.name %>' + '"><li>' + '<img src="lock.png"><%= @lockedRoom.name %>' + '</li></a>');
   }
 // setInterval(getLocation, 60000);
 function getLocation(){
@@ -97,7 +98,9 @@ var roomlist = function(){
   .then(function(data){ 
     if(data.length > 0){
       $.each(data, function(i, data){
+        if(<%= @lockedRoomNum %> != data['id']){
         $('#roomlist').append('<a href="/rooms/'+ data['id']  + '?name=' + data['name'] + '"><li>' + data['name'] + '</li></a>');
+      }
       })
     }
   })
