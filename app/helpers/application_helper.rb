@@ -17,7 +17,7 @@ require "uri"
 	target = html_escape(target)
 	if /&gt;&gt;\d*/ =~ target then
 		key = $&.gsub!('&gt;&gt;', '')
-		key = @postId.key(key.to_i)
+		key = @postId.key(key.to_i - 1)
 	end
 	target.gsub(/\r\n|\r|\n/, " <br /> ").gsub(/https?:\/\/[\S]+/){"\<a class='post_link' href\=\"#{$&}\"target\=\"new\">#{$&}\<\/a\>"}.gsub(/&gt;&gt;\d*/){'<a class="anchor_link" href="#' + "#{key}" + '">' + $& +'</a>'}
 	end
