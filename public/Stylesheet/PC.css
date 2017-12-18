@@ -181,6 +181,15 @@ div.text_data a{
   text-decoration: none;
   border-radius:5px;
 }
+.anchor_link{
+  background-color:#FFBB55;
+  padding:0px 5px 0px 5px;
+  font-size:80%;
+  color:#333;
+  text-decoration: none;
+  border-radius:5px;
+  margin-right:3px;
+}
 div.text_body{
   margin-bottom:6px;
 }

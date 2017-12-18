@@ -15,7 +15,11 @@ require "uri"
 	end
 	def hbr(target)
 	target = html_escape(target)
-	target.gsub(/\r\n|\r|\n/, " <br /> ").gsub(/https?:\/\/[\S]+/){"\<a class='post_link' href\=\"#{$&}\"target\=\"new\">#{$&}\<\/a\>"}
+	if /&gt;&gt;\d*/ =~ target then
+		key = $&.gsub!('&gt;&gt;', '')
+		key = @postId.key(key.to_i)
+	end
+	target.gsub(/\r\n|\r|\n/, " <br /> ").gsub(/https?:\/\/[\S]+/){"\<a class='post_link' href\=\"#{$&}\"target\=\"new\">#{$&}\<\/a\>"}.gsub(/&gt;&gt;\d*/){'<a class="anchor_link" href="#' + "#{key}" + '">' + $& +'</a>'}
 	end
 end
 

@@ -54,7 +54,9 @@ def create
   @endLng = @room.longitude.to_f + 0.00138889
   @userLat = params[:latitude].to_f
   @userLng = params[:longitude].to_f
-  similarity(params[:content])
+  unless params[:content].include?('>>') then
+    similarity(params[:content])
+  end
   if @startLat < @userLat && @userLat < @endLat && @startLng < @userLng && @userLng  < @endLng || @room_id == "0" || @room_id == Rails.cache.read('lock_room') then
     unless params[:content].empty? && params[:image].empty? then
       if params[:image].present? then

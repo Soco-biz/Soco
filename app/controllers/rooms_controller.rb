@@ -61,7 +61,6 @@ def timeline
     }
     format.json { 
       Rails.cache.write('city', params[:last_id], expires_in: 1.minutes)
-
       @new_posts = nil
       @new_posts = Post.where('id > ?', params[:last_id]).where('room = ?', params[:id]).order(id: :asc)
     } 
