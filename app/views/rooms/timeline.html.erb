@@ -33,7 +33,7 @@ end
       <%= 
       if post.simvalue.present? then
         if post.simvalue > "0.49" then
-          link_to(">>#{@postId.fetch(post.similarity.to_i)}", "\##{post.similarity.to_i - 1}" , :id => "res#{post.similarity}")
+          link_to(">>#{@postId.fetch(post.similarity.to_i)}", "\##{post.similarity.to_i + 1}" , :id => "res#{post.similarity}")
         end
       end
       %> 
