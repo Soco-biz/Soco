@@ -10,50 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171121064043) do
-
-  create_table "add_post_to_posts", force: :cascade do |t|
-    t.text     "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "add_similarity_to_posts", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "images", force: :cascade do |t|
-    t.string   "filename"
-    t.binary   "file"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 20171218090229) do
 
   create_table "posts", force: :cascade do |t|
-    t.text     "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text     "author"
+    t.text     "content"
     t.text     "room"
     t.text     "image"
-    t.text     "similarity"
     t.text     "simvalue"
     t.text     "latitude"
     t.text     "longitude"
-  end
-
-  create_table "rooms", force: :cascade do |t|
-    t.text     "room"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.text     "similarity"
   end
 
   create_table "timelines", force: :cascade do |t|
-    t.text     "name"
-    t.text     "location"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text     "name"
     t.text     "latitude"
     t.text     "longitude"
   end
