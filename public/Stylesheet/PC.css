@@ -616,6 +616,11 @@ span.h1{
 .setting{
   display:none;
 }
+li img{
+  height:22px;
+  vertical-align: middle;
+  margin-right: 5px;
+}
 .modal_setting img{
   height:18px;
   vertical-align: middle;

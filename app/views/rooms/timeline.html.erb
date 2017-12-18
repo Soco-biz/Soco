@@ -93,7 +93,6 @@ end
 
   <script>
     lockedRoom = <%=locked_room.to_i%>;
-
     console.log(lockedRoom);
     function confirmFunction1() {
       if(<%=@room_id%> == 0){
@@ -118,7 +117,7 @@ end
             lock_room: <%=@room_id%>
           },
           dataType: 'json'
-        })        
+        })
         .then(function(data){
           $('#room_name').attr('src','/lock.png')
           alert("\"<%=@room.name%>\"をロックしました。\n一時間だけ、範囲外からでも利用できます。");

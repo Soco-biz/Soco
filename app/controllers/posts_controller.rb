@@ -8,16 +8,16 @@ class PostsController < ApplicationController
   def index
 now = 0#Time.new - 1800
 @posts = Post.order(created_at: :desc)#.where('created_at > ?', now)
-respond_to do |format| 
+respond_to do |format|
   format.html
-  format.json { 
+  format.json {
     @new_posts = nil
     @new_posts = Post.where('id > ?', params[:id])
-  } 
+  }
 end
 end
 
-def new 
+def new
   if params[:room_id].present? then
     @room_id = params[:room_id]
     @room = Timeline.find_by(id: @room_id)

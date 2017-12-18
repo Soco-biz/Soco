@@ -1,5 +1,5 @@
 <head>
-  <% @page_title = "部屋一覧" %> 
+  <% @page_title = "部屋一覧" %>
   <% if Rails.cache.read('lock_room').present? then
     locked_room = Rails.cache.read('lock_room')
   end
@@ -14,6 +14,7 @@
     <div　class="roomlist" id="roomlist">
       <a href="/rooms/new"><li>+ 新たに部屋を作る</li></a>
       <a href="/rooms/0"><li>ラウンジ</li></a>
+      <div id="lockedRoom"></div>
       <div class="loading" id="loading">
         <img src="./loading.gif">
         <br />位置情報を取得しています<br/><br/>
@@ -27,6 +28,9 @@
 </div>
 <script>
   window.onload = getLocation();
+  if(<%= @lockedRoomNum %> > 0) {
+        $('#lockedRoom').append('<a href="/rooms/'+ "<%= @lockedRoom.id %>"  + '?name=' + "<%= @lockedRoom.name %>" + '"><li><img src="./lock.png">' + "<%= @lockedRoom.name %>（重複御免）" + '</li></a>');
+  }
 // setInterval(getLocation, 60000);
 function getLocation(){
   var geocoder;
@@ -72,6 +76,7 @@ function gmap_init(gpsLat,gpsLng) {
     } else {
       $("#loading").css("display", "none");
       $("#alert").css("display", "block");
+
       console.log(status);
     }
   });

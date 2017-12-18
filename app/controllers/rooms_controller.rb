@@ -5,13 +5,15 @@ def save_location
 end
 def index
 if Rails.cache.read('lock_room').present? then
-    puts "locked Room exist"
+    @lockedRoomNum = Rails.cache.read('lock_room')
+    @lockedRoom = Timeline.find_by(id: @lockedRoomNum)
   else
-    puts "locked Room is nil"
+    @lockedRoom = nil
+    @lockedRoomNum = 0
   end
-  respond_to do |format| 
+  respond_to do |format|
     format.html
-    format.json { 
+    format.json {
       @tl = nil
       @roomlist = nil
       @startLat = params[:latitude].to_f - 0.00138889
@@ -19,7 +21,7 @@ if Rails.cache.read('lock_room').present? then
       @startLng = params[:longitude].to_f - 0.00138889
       @endLng = params[:longitude].to_f + 0.00138889
       @roomlist = Timeline.where(latitude: @startLat..@endLat).where(longitude: @startLng..@endLng)
-    } 
+    }
   end
 end
 def lock_room
@@ -31,10 +33,10 @@ def lock_room
 end
 end
 def timeline
-  respond_to do |format| 
+  respond_to do |format|
     format.html{
       @room = Timeline.find_by(id: params[:id])
-      if @room == nil then 
+      if @room == nil then
         @room = Timeline.new(id: "0", name: "ラウンジ")
         @room.save
       end
