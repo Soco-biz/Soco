@@ -84,6 +84,5 @@ def manageId
     @postId[post.id] = @postNum
     @postNum = @postNum - 1
   end
-  p @postId
 end
 end
