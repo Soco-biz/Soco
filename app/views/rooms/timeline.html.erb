@@ -239,6 +239,7 @@ end
       .then(function(data){ 
         if(data.length > 0){
           $.each(data, function(i, data){
+            alert(displayTime(data['created_at']));
             var content = escapeHTML(data['content']);
             var image = null;
             content = content.replace(/\r?\n/g, '<br>');
@@ -259,7 +260,7 @@ end
             last_id = data['id'];
           })
         }
-      }) 
+      })
     }
     function getLocation(){
       var geocoder;
@@ -313,6 +314,25 @@ end
         });
       }
     }
+    function displayTime(unixTime) {
+  var date = new Date(unixTime)
+  var diff = new Date().getTime() - date.getTime()
+  var d = new Date(diff);
+
+  if (d.getUTCFullYear() - 1970) {
+    return d.getUTCFullYear() - 1970 + 'years'
+  } else if (d.getUTCMonth()) {
+    return d.getUTCMonth() + 'months'
+  } else if (d.getUTCDate() - 1) {
+    return d.getUTCDate() - 1 + 'days'
+  } else if (d.getUTCHours()) {
+    return d.getUTCHours() + 'hours'
+  } else if (d.getUTCMinutes()) {
+    return d.getUTCMinutes() + 'minutes'
+  } else {
+    return 'less than a minute'
+  }
+}
     function checkLocation(){
       var startLat = <%= @startLat %>;
       var endLat = <%= @endLat %>;
