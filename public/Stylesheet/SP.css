@@ -138,13 +138,18 @@ word-wrap: break-word;
 div.text_data{
   font-size:80%;
 }
+div.post a{
+  color:#333;
+  margin-right:5px;
+}
 .anchor_link{
   background-color:#FFBB55;
   padding:1px 5px 1px 5px;
-  font-size:80%;
-  color:#333;
+  font-size:75%;
   text-decoration: none;
+  border:1px solid #FFBB55;
   border-radius:5px;
+  color:#333;
 }
 div.text_body{
   margin-bottom:6px;
