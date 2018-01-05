@@ -1,95 +1,98 @@
-<% @page_title = @room.name %> 
+<% @page_title = @room.name %>
 <% if Rails.cache.read('lock_room').present? then
-  locked_room = Rails.cache.read('lock_room')
+    locked_room = Rails.cache.read('lock_room')
 else
-  locked_room = -1;
+    locked_room = -1;
 end
 %>
 <script src="//code.jquery.com/jquery-3.0.0.min.js"></script>
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
 <script type="text/javascript" src="//maps.google.com/maps/api/js?key=AIzaSyCd3SCSn16uIQTi4MbNJ1QtDRCYMce44Yk&sensor=false"></script>
 <div class="loading" id="loading">
-  <img src="/loading.gif">
-  <br />位置情報を取得しています<br/>
+    <img src="/loading.gif">
+    <br />位置情報を取得しています<br/>
 </div>
 <div class="alert" id="alert">
-  <br />位置情報を取得できませんでした<br/>
+    <br />位置情報を取得できませんでした<br/>
 </div>
+
 <div id="timeline" class="timeline">
-  <% unless @posts.present? %>
-  <div class="notification">まだ投稿がありません<br />最初の<a herf="#" id="new_post_form" class="show-modal">投稿</a>をしませんか？</div>
-  <% end %>
-  <% first_flag = 0 %>
-  <% @posts.each do |post|  %>
-  <div id="<%= post.id %>" class="post" id="content">
-    <div class="text_body">
-      <%= raw(hbr(post.content)) %>
-    </div>
-    <%= if post.image.present? then link_to post.image, :target=>["_blank"] do image_tag "#{post.image}" end end %>
-    <div class="text_data">
-      <% post.id %>
-      <div style="display:inline"><%= @postId[post.id] %></div> :
-      <%= time_ago_in_words(post.created_at) %>
-      <%=
-      if post.simvalue.present? then
-        if post.simvalue > "0.49" then
-          link_to(">>#{@postId.fetch(post.similarity.to_i)}", "\##{post.similarity.to_i + 1}" , :id => "res#{post.similarity}")
-        end
-      end
-      %>
-    </div>
-  </div>
-  <% if first_flag == 0
-    @last_id = post.id
-    first_flag = 1
-  end
-  end %>
-  <div id="modalwin" class="modalwin hide">
-    <div class="setting" id="setting_form">
-      <div class="modalwin-header">
-        <button><a herf="#" class="modal-close"><h1><span class="h1"><<</span> 設定</h1></a></button>
-      </div>
-      <div class="modalwin-contents">
-        <div class="modal_setting">
-          <ul>
-            <a href="#"><li><img src="/posts.png">表示方法を変更する</li></a>
-            <a onclick="confirmFunction1()" href="#" id="lock_room"><li><img src="/lock.png">この部屋をロックする</li></a>
-            <a href="#"><li><img src="/report.png">この部屋を管理者に報告する</li></a>
-            <a href="#"><li><img src="/share.png">SNSで共有する</li></a>
-          </ul>
+    <% unless @posts.present? %>
+    <div class="notification">まだ投稿がありません<br />最初の<a herf="#" id="new_post_form" class="show-modal">投稿</a>をしませんか？</div>
+    <% end %>
+    <% first_flag = 0 %>
+    <% @posts.each do |post|  %>
+    <div id="<%= post.id %>" class="post" id="content">
+        <div class="text_body">
+            <%= raw(hbr(post.content)) %>
         </div>
-      </div>
-    </div>
-    <div class="new_post_form" id="post_form">
-      <div class="modalwin-header">
-        <button><a herf="#" class="modal-close"><h1><span class="h1"><<</span> <%=@room.name%></h1></a></button>
-      </div>
-      <div class="modalwin-contents">
-        <%= form_tag "/create", onsubmit: "submitWait();" do %>
-        <div class="form-body">
-          <div class="form_wrapper">
-            <textarea id="content" cols="30" rows="10" name="content" onkeyup="ShowLength(value);" class="post"></textarea>
-            <p align="right" id="inputlength">0/300</p>
-          </div>
-          <label id="submit_label"  class="hoge" for="submit">
-            投稿
-            <input id="submit" type="submit" style="display:none;" />
-          </label>
-          <input name="room_id" type="hidden" value="<%= @room_id %>">
-          <input id="image" name="image" type="hidden">
-          <label class="hoge" for="upfile">
-            +画像を追加
-            <input type="file"  name="upfile" id="upfile" accept="image/*" style="display:none;" />
-          </label>
-          <div><img class="thumbnail" id="thumbnail" src="/thumbnail.jpg"></div>
-          <input id="latitude" type="hidden" name="latitude">
-          <input id="longitude" type="hidden" name="longitude">
-          <% end %>
+        <%= if post.image.present? then link_to post.image, :target=>["_blank"] do image_tag "#{post.image}" end end %>
+        <div class="text_data">
+            <% post.id %>
+            <div style="display:inline"><%= @postId[post.id] %></div> :
+            <%= time_ago_in_words(post.created_at) %>
+            <%=
+            if post.simvalue.present? then
+                if post.simvalue > "0.49" then
+                    link_to(">>#{@postId.fetch(post.similarity.to_i)}", "\##{post.similarity.to_i + 1}" , :id => "res#{post.similarity}")
+                end
+            end
+            %>
         </div>
-      </div>
     </div>
-  </div>
-  <div id="pagetop" class="back"><img src="/top.png"></div>
+    <% if first_flag == 0
+        @last_id = post.id
+        first_flag = 1
+    end
+    end %>
+    <div id="modalwin" class="modalwin hide">
+        <div class="setting" id="setting_form">
+            <div class="modalwin-header">
+                <button><a herf="#" class="modal-close"><h1><span class="h1"><<</span> 設定</h1></a></button>
+            </div>
+            <div class="modalwin-contents">
+                <div class="modal_setting">
+                    <ul>
+                        <a href="#"><li><img src="/posts.png">表示方法を変更する</li></a>
+                        <a onclick="confirmFunction1()" href="#" id="lock_room"><li><img src="/lock.png">この部屋をロックする</li></a>
+                        <a href="#"><li><img src="/report.png">この部屋を管理者に報告する</li></a>
+                        <a href="#"><li><img src="/share.png">SNSで共有する</li></a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="new_post_form" id="post_form">
+            <div class="modalwin-header">
+                <button><a herf="#" class="modal-close"><h1><span class="h1"><<</span> <%=@room.name%></h1></a></button>
+            </div>
+            <div class="modalwin-contents">
+                <%= form_tag "/create", onsubmit: "submitWait();" do %>
+                <div class="form-body">
+                    <div class="form_wrapper">
+                        <textarea id="content" cols="30" rows="10" name="content" onkeyup="ShowLength(value);" class="post"></textarea>
+                        <p align="right" id="inputlength">0/300</p>
+                    </div>
+                    <label id="submit_label"  class="hoge" for="submit">
+                        投稿
+                        <input id="submit" type="submit" style="display:none;" />
+                    </label>
+                    <input name="room_id" type="hidden" value="<%= @room_id %>">
+                    <input id="image" name="image" type="hidden">
+                    <label class="hoge" for="upfile">
+                        +画像を追加
+                        <input type="file"  name="upfile" id="upfile" accept="image/*" style="display:none;" />
+                    </label>
+                    <div><img class="thumbnail" id="thumbnail" src="/thumbnail.jpg"></div>
+                    <input id="latitude" type="hidden" name="latitude">
+                    <input id="longitude" type="hidden" name="longitude">
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="pagetop" class="back"><img src="/top.png">
+    </div>
+
 
   <script>
     lockedRoom = <%=locked_room.to_i%>;
@@ -111,8 +114,8 @@ end
     }
     function lockRoom(){
         $.ajax({
-          url: "/rooms/<%=@room_id%>/lock_room", 
-          type: 'GET', 
+          url: "/rooms/<%=@room_id%>/lock_room",
+          type: 'GET',
           data: {
             lock_room: <%=@room_id%>
           },
@@ -216,7 +219,7 @@ end
     }
     function saveLocation(){
       $.ajax({
-        url: "/rooms/save_location", 
+        url: "/rooms/save_location",
         type: 'GET',
         data: {
           userLat: userLat,
@@ -229,24 +232,24 @@ end
     }
     function update(){
       $.ajax({
-        url: location.href, 
-        type: 'GET', 
+        url: location.href,
+        type: 'GET',
         data: {
           last_id: last_id
         },
         dataType: 'json'
       })
-      .then(function(data){ 
+      .then(function(data){
         if(data.length > 0){
           $.each(data, function(i, data){
             var content = escapeHTML(data['content']);
             var image = null;
             content = content.replace(/\r?\n/g, '<br>');
-            counts = counts + 1;
-            postId[data['id']] = counts;
-            if(data['content'].match(/test/)) {
-              alert("you have test");
+            if (content.match(/&gt;&gt;\d*/)){
+              var anchor = "" + content.match(/&gt;&gt;\d*/);
+              content = content.replace(/&gt;&gt;\d*/,'<a class="anchor_link" href="#' + '">>>' + anchor.substr( 8 ) + '</a>')
             }
+            postId[data['id']] = counts;
             if(data['image'] == null){
               var image = '';
             } else{
