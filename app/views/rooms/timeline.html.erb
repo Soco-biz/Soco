@@ -76,7 +76,7 @@ end
                         投稿
                         <input id="submit" type="submit" style="display:none;" />
                     </label>
-                    <input name="roomId" type="hidden" value="<%= @roomId %>">
+                    <input name="roomId" type="hidden" value="<%= @room_id %>">
                     <input id="image" name="image" type="hidden">
                     <label class="hoge" for="upfile">
                         +画像を追加
@@ -97,7 +97,7 @@ end
   <script>
     lockedRoom = <%=locked_room.to_i%>;
     function confirmFunction1() {
-      if(<%=@roomId%> == 0){
+      if(<%=@room_id%> == 0){
         alert("ラウンジはロックできません。");
       } else{
         if(lockedRoom && lockedRoom > 0){
@@ -113,10 +113,10 @@ end
     }
     function lockRoom(){
         $.ajax({
-          url: "/rooms/<%=@roomId%>/lockRoom",
+          url: "/rooms/<%=@room_id%>/lockRoom",
           type: 'GET',
           data: {
-            lockRoom: <%=@roomId%>
+            lockRoom: <%=@room_id%>
           },
           dataType: 'json'
         })
@@ -293,7 +293,7 @@ end
         var latlng = new google.maps.LatLng(gpsLat,gpsLng);
 
         geocoder.geocode({'latLng':latlng},function(results,status){
-          if (status == google.maps.GeocoderStatus.OK || lockedRoom == <%=@roomId.to_i%>) {
+          if (status == google.maps.GeocoderStatus.OK || lockedRoom == <%=@room_id.to_i%>) {
             console.log(results[1].formatted_address);
             result  = '現在地の取得に成功<br>';
             result += '経度：' + gpsLat + '<br>';
@@ -305,13 +305,13 @@ end
             $("#latitude").val(userLat);
             $("#longitude").val(userLng);
             $("#loading").css("display", "none");
-            if(lockedRoom == <%=@roomId%>){
+            if(lockedRoom == <%=@room_id%>){
              $('#room_name').attr('src','/lock.png')
             }
             checkLocation();
           } else {
             $("#loading").css("display", "none");
-            if(lockedRoom == <%=@roomId%>){
+            if(lockedRoom == <%=@room_id%>){
              $('#room_name').attr('src','/lock.png')
             }
           }
@@ -338,16 +338,16 @@ end
   }
 }
     function checkLocation(){
-      var startLat = <%= @startLat %>;
-      var endLat = <%= @endLat %>;
-      var startLng = <%= @startLng %>;
-      var endLng = <%= @endLng%>;
-      if(startLat < userLat　&& userLat < endLat && startLng < userLng && userLng < endLng || lockedRoom == <%=@roomId%>){
+      var startLat = <%= @start_latitude %>;
+      var endLat = <%= @end_latitude %>;
+      var startLng = <%= @start_longitude %>;
+      var endLng = <%= @end_longitude%>;
+      if(startLat < userLat　&& userLat < endLat && startLng < userLng && userLng < endLng || lockedRoom == <%=@room_id%>){
         locationFlag = 1;
         console.log("checkLocation is ok");
         $("#timeline").css("display", "block");
         $("#loading").css("display", "none");
-            if(lockedRoom == <%=@roomId%>){
+            if(lockedRoom == <%=@room_id%>){
              $('#room_name').attr('src','/lock.png')
             }
       }else{

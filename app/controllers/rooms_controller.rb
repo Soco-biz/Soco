@@ -2,15 +2,15 @@ class RoomsController < ApplicationController
 # layout 'timeline'
 
 def index
-  checkLockedRoomExist()
+  check_locked_room_exist
   respond_to do |format|
-    format.html
+    format.html{}
     format.json {
-      @roomList = nil
-      @userLatitude = params[:latitude]
-      @userLongitude = params[:longitude]
-      calcLocationForSearch()
-      @roomList = Timeline.where(latitude: @startLat..@endLat).where(longitude: @startLng..@endLng)
+      @room_list = nil
+      @user_latitude = params[:latitude]
+      @user_longitude = params[:longitude]
+      calculate_range_for_search
+      @room_list = Timeline.where(latitude: @start_latitude..@end_latitude).where(longitude: @start_longitude..@end_longitude)
     }
   end
 end
@@ -18,17 +18,17 @@ end
 def timeline
   respond_to do |format|
     format.html{
-      @roomId = params[:id]
-      @room = Timeline.find_by(id: @roomId)
-      if @room == nil then
+      @room_id = params[:id]
+      @room = Timeline.find_by(id: @room_id)
+      if @room == nil
         @room = Timeline.new(id: "0", name: "ラウンジ")
         @room.save
       end
-      @userLatitude = @room.latitude
-      @userLongitude = @room.longitude
-      calcLocationForSearch()
+      @user_latitude = @room.latitude
+      @user_longitude = @room.longitude
+      calculate_range_for_search
       @posts = Post.order(created_at: :desc).where('room = ?', params[:id])
-      manageId()
+      manageId
     }
     format.json {
       @new_posts = nil
@@ -37,11 +37,11 @@ def timeline
   end
 end
 
-def lockRoom
+def lock_room
   respond_to do|format|
     format.json {
         Rails.cache.write("lockRoom", params[:lockRoom], expires_in: 1.hours)
-        @lockRoom = params[:lockRoom]
+        @locked_room = params[:lockRoom]
     }
   end
 end
@@ -55,29 +55,29 @@ end
 def guide
 end
 
-def calcLocationForSearch
-  if @roomId == "0" || @roomId == "-1"  then
-    @startLat = -1000
-    @endLat = 1000
-    @startLng = -1000
-    @endLng = 1000
+def calculate_range_for_search
+  if @room_id == "0" || @room_id == "-1"
+    @start_latitude = -1000
+    @end_latitude = 1000
+    @start_longitude = -1000
+    @end_longitude = 1000
   else
-    @startLat = @userLatitude.to_f - 0.00138889
-    @endLat = @userLatitude.to_f + 0.00138889
-    @startLng = @userLongitude.to_f - 0.00138889
-    @endLng = @userLongitude.to_f + 0.00138889
+    @start_latitude = @user_latitude.to_f - 0.00138889
+    @end_latitude = @user_latitude.to_f + 0.00138889
+    @start_longitude = @user_longitude.to_f - 0.00138889
+    @end_longitude = @user_longitude.to_f + 0.00138889
   end
 end
 
-def checkLockedRoomExist
-  if Rails.cache.read('lock_room').present? then
-    @lockedRoomNum = Rails.cache.read('lock_room')
-    @lockedRoomContent = Timeline.find_by(id: @lockedRoomNum)
-    @lockedRoomName =  @lockedRoom.name
+def check_locked_room_exist
+  if Rails.cache.read('lock_room').present?
+    @locked_room_num = Rails.cache.read('lock_room')
+    @locked_room_content = Timeline.find_by(id: @locked_room_num)
+    @locked_room_name =  @locked_room.name
   else
-    @lockedRoomContent = nil
-    @lockedRoomName = 0
-    @lockedRoomNum = 0
+    @locked_room_content = nil
+    @locked_room_name = 0
+    @locked_room_num = 0
   end
 end
 
@@ -89,4 +89,5 @@ def manageId
     @postNum = @postNum - 1
   end
 end
+
 end
