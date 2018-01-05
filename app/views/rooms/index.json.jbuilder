@@ -1,3 +1,3 @@
-if @roomlist.present?
-  json.array! @roomlist
+if @roomList.present?
+  json.array! @roomList
 end

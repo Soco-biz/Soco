@@ -18,14 +18,14 @@ end
 end
 
 def new
-  if params[:room_id].present? then
-    @room_id = params[:room_id]
-    @room = Timeline.find_by(id: @room_id)
+  if params[:roomId].present? then
+    @roomId = params[:roomId]
+    @room = Timeline.find_by(id: @roomId)
     @startLat = @room.latitude.to_f - 0.00138889
     @endLat = @room.latitude.to_f + 0.00138889
     @startLng = @room.longitude.to_f - 0.00138889
     @endLng = @room.longitude.to_f + 0.00138889
-    if @room_id == "0" || @room_id == "-1" then
+    if @roomId == "0" || @roomId == "-1" then
       p "ラウンジへようこそ"
       @startLat = -1000
       @endLat = 1000
@@ -33,7 +33,7 @@ def new
       @endLng = 1000
     end
   else
-    @room_id = 0
+    @roomId = 0
     @startLat = -1000
     @endLat = 1000
     @startLng = -1000
@@ -42,37 +42,40 @@ def new
 end
 
 def create
-  p "投稿を新規作成します"
+  #300文字以上なら処理せずにトップページへリダイレクト
   if params[:content].length > 300 then
-    redirect_to("/rooms/" + params[:room_id])
+    redirect_to("/rooms/" + params[:roomId])
   end
-  @room_id = params[:room_id]
-  @room = Timeline.find_by(id: @room_id)
+  #roomIDをセット。DBから抽出。
+  @roomId = params[:roomId]
+  @room = Timeline.find_by(id: @roomId)
+
   @startLat = @room.latitude.to_f - 0.00138889
   @endLat = @room.latitude.to_f + 0.00138889
   @startLng = @room.longitude.to_f - 0.00138889
   @endLng = @room.longitude.to_f + 0.00138889
   @userLat = params[:latitude].to_f
   @userLng = params[:longitude].to_f
+
   unless params[:content].include?('>>') then
     similarity(params[:content])
   end
-  if @startLat < @userLat && @userLat < @endLat && @startLng < @userLng && @userLng  < @endLng || @room_id == "0" || @room_id == Rails.cache.read('lock_room') then
+  if @startLat < @userLat && @userLat < @endLat && @startLng < @userLng && @userLng  < @endLng || @roomId == "0" || @roomId == Rails.cache.read('lock_room') then
     unless params[:content].empty? && params[:image].empty? then
       if params[:image].present? then
         @image = params[:image]
         imgur()
       end
-      post = Post.new(content:params[:content], room:params[:room_id], image:@image_link, similarity: @mostSimId, simvalue: @mostSimvValue, latitude: params[:latitude], longitude: params[:longitude])
+      post = Post.new(content:params[:content], room:params[:roomId], image:@image_link, similarity: @mostSimId, simvalue: @mostSimvValue, latitude: params[:latitude], longitude: params[:longitude])
       post.save
     end
   else
     p "位置情報が違います"
   end
-redirect_to("/rooms/" + params[:room_id])
+redirect_to("/rooms/" + params[:roomId])
 end
 def similarity(post)
-  @soco = Post.where('room = ?', params[:room_id]).select("id", "content").map{ |p| p.attributes }
+  @soco = Post.where('room = ?', params[:roomId]).select("id", "content").map{ |p| p.attributes }
   unless @soco.count == 0 || params[:content].length < 2 then
     num = 0
     p @soco.count

@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get '/rooms/new' => "rooms#new"
   post '/rooms/create' => "rooms#create"
   get '/rooms/:id' => "rooms#timeline"
-  get '/rooms/:id/lock_room' => "rooms#lock_room"
+  get '/rooms/:id/lockRoom' => "rooms#lockRoom"
   get '/rooms/save_location' => "rooms#save_location"
 
   get "project/change_session_year"
