@@ -2,6 +2,7 @@ class RoomsController < ApplicationController
 # layout 'timeline'
 
 def index
+  gon.hoge = "hoge"
   check_locked_room_exist
   respond_to do |format|
     format.html{}
@@ -10,7 +11,9 @@ def index
       @user_latitude = params[:latitude]
       @user_longitude = params[:longitude]
       calculate_range_for_search
-      @room_list = Timeline.where(latitude: @start_latitude..@end_latitude).where(longitude: @start_longitude..@end_longitude)
+      @room_list = Timeline.
+      where(latitude: @start_latitude..@end_latitude).
+      where(longitude: @start_longitude..@end_longitude)
     }
   end
 end
@@ -32,7 +35,9 @@ def timeline
     }
     format.json {
       @new_posts = nil
-      @new_posts = Post.where('id > ?', params[:last_id]).where('room = ?', params[:id]).order(id: :asc)
+      @new_posts = Post.
+      where('id > ?', params[:last_id]).
+      where('room = ?', params[:id]).order(id: :asc)
     }
   end
 end
@@ -47,12 +52,10 @@ def lock_room
 end
 
 def create
-  timeline = Timeline.new(name:params[:room_name], longitude:params[:longitude], latitude:params[:latitude])
+  timeline = Timeline.new(name:params[:room_name],
+   longitude:params[:longitude], latitude:params[:latitude])
   timeline.save
   redirect_to("/rooms")
-end
-
-def guide
 end
 
 def calculate_range_for_search

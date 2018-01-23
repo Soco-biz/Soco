@@ -20,11 +20,11 @@ class PostsController < ApplicationController
     @user_latitude = params[:latitude].to_f
     @user_longitude = params[:longitude].to_f
     if @start_latitude < @user_latitude && @user_latitude < @end_latitude &&
-     @start_longitude < @user_longitude && @user_longitude  < @end_longitude ||
-     @room_id == "0" || @room_id == Rails.cache.read('lock_room')
+      @start_longitude < @user_longitude && @user_longitude  < @end_longitude ||
+      @room_id == "0" || @room_id == Rails.cache.read('lock_room')
       post = Post.new(content:params[:content], room:params[:roomId],
-         image:@image_link, similarity: @mostSimId, simvalue: @mostSimvValue,
-         latitude: params[:latitude], longitude: params[:longitude])
+        image:@image_link, similarity: @mostSimId, simvalue: @mostSimvValue,
+        latitude: params[:latitude], longitude: params[:longitude])
       post.save
     end
     redirect_to("/rooms/" + params[:roomId])
@@ -38,7 +38,6 @@ class PostsController < ApplicationController
         counts = posts.count - 20
         posts = posts[counts..posts.count]
       end
-
       jsonPosts = {}
       for i in posts do
         jsonPosts[i["id"]] = i["content"]
@@ -95,16 +94,16 @@ class PostsController < ApplicationController
   end
 
   def check_content_and_image_are_empty
-      if params[:content].empty? && params[:image].empty?
-        redirect_to("/rooms/" + params[:roomId])
-      end
+    if params[:content].empty? && params[:image].empty?
+      redirect_to("/rooms/" + params[:roomId])
+    end
   end
 
   def check_image_is_existed
-      if params[:image].present?
-        @image = params[:image]
-        imgur()
-      end
+    if params[:image].present?
+      @image = params[:image]
+      imgur()
+    end
   end
   def check_numbers_of_content
     if params[:content].length > 300
