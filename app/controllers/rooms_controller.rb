@@ -30,7 +30,7 @@ def timeline
       @user_longitude = @room.longitude
       calculate_range_for_search
       @posts = Post.order(created_at: :desc).where('room = ?', params[:id])
-      manageId
+      convert_post_id_for_reply
     }
     format.json {
       @new_posts = nil
@@ -83,7 +83,10 @@ def check_locked_room_exist
   end
 end
 
-def manageId
+
+private
+#DBのユニークなIDとチャットルーム内での投稿ナンバーをハッシュで紐付けしている
+def convert_post_id_for_reply
   @postId = {}
   @postNum = @posts.count
   @posts.each do |post|
