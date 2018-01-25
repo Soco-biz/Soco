@@ -15,6 +15,7 @@ class PostsController < ApplicationController
     check_numbers_of_content
     check_anchor_is_exsited
     check_image_is_existed
+
     @room = Timeline.find_by(id: params[:roomId])
     calculate_range_for_location_check
     @user_latitude = params[:latitude].to_f

@@ -2,7 +2,6 @@ class RoomsController < ApplicationController
 # layout 'timeline'
 
 def index
-  gon.hoge = "hoge"
   check_locked_room_exist
   respond_to do |format|
     format.html{}
