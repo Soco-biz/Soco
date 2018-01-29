@@ -92,6 +92,9 @@ GEM
     rack (2.0.3)
     rack-test (0.6.3)
       rack (>= 1.0)
+    rack-user_agent (0.5.2)
+      rack (>= 1.5)
+      woothee (>= 1.0.0)
     rails (5.0.6)
       actioncable (= 5.0.6)
       actionmailer (= 5.0.6)
@@ -164,6 +167,7 @@ GEM
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
+    woothee (1.7.0)
 
 PLATFORMS
   ruby
@@ -178,6 +182,7 @@ DEPENDENCIES
   listen (~> 3.0.5)
   pg
   puma (~> 3.0)
+  rack-user_agent
   rails (~> 5.0.6)
   rb-readline
   sass-rails (~> 5.0)
@@ -190,4 +195,4 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 BUNDLED WITH
-   1.13.7
+   1.16.1
