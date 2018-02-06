@@ -15,7 +15,7 @@
 //= require turbolinks
 //*= require_tree .
 
-  window.onload = getLocation();
+window.onload = getLocation();
 
 function getLocation(){
   var geocoder;
@@ -25,6 +25,7 @@ function getLocation(){
     var gpsLng = position.coords.longitude;
     gmap_init(gpsLat,gpsLng);
   }
+
   function is_error(error) {
     var result = "";
     switch(error.code) {
@@ -42,30 +43,30 @@ function getLocation(){
     $("#alert").css("display", "block");
   }
 
-// googlemap init
-function gmap_init(gpsLat,gpsLng) {
-  var geocoder = new google.maps.Geocoder();
-  var latlng = new google.maps.LatLng(gpsLat,gpsLng);
+  // googlemap init
+  function gmap_init(gpsLat,gpsLng) {
+    var geocoder = new google.maps.Geocoder();
+    var latlng = new google.maps.LatLng(gpsLat,gpsLng);
 
-  geocoder.geocode({'latLng':latlng},function(results,status){
-    if (status == google.maps.GeocoderStatus.OK) {
-      console.log(results[1].formatted_address);
-      result  = '現在地の取得に成功<br>';
-      result += '経度：' + gpsLat + '<br>';
-      result += '緯度：' + gpsLng + '<br>';
-      result += '住所：' + results[0].formatted_address + '<br>';
-      userLat = gpsLat;
-      userLng = gpsLng;
-      $("#loading").css("display", "none");
-      roomlist();
-    } else {
-      $("#loading").css("display", "none");
-      $("#alert").css("display", "block");
+    geocoder.geocode({'latLng':latlng},function(results,status){
+      if (status == google.maps.GeocoderStatus.OK) {
+        console.log(results[1].formatted_address);
+        result  = '現在地の取得に成功<br>';
+        result += '経度：' + gpsLat + '<br>';
+        result += '緯度：' + gpsLng + '<br>';
+        result += '住所：' + results[0].formatted_address + '<br>';
+        userLat = gpsLat;
+        userLng = gpsLng;
+        $("#loading").css("display", "none");
+        roomlist();
+      } else {
+        $("#loading").css("display", "none");
+        $("#alert").css("display", "block");
 
-      console.log(status);
-    }
-  });
-}
+        console.log(status);
+      }
+    });
+  }
 }
 
 function roomlist(){
@@ -84,12 +85,14 @@ function roomlist(){
     if(data.length > 0){
       $.each(data, function(i, data){
         if(lockedRoomId != data['id']){
-        $('#roomlist').append('<a href="/rooms/'+ data['id']  + '?name=' + data['name'] + '"><li>' + data['name'] + '</li></a>');
-      }
+          $('#roomlist')
+          .append('<a href="/rooms/'+ data['id'] + '?name=' + data['name'] + '"><li>' + data['name'] + '</li></a>');
+        }
       })
     }
   })
 }
+
 var lockedRoom = function(){
   parseFloat(userLat);
   parseFloat(userLng);
