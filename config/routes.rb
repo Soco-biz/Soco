@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get '/' => "rooms#index"
   get '/autoReload' => "posts#autoReload"
   get '/new' => "posts#new"
@@ -18,5 +19,4 @@ Rails.application.routes.draw do
 
   get "project/change_session_year"
   get '*path', controller: 'application', action: 'render_404'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
