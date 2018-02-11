@@ -41,15 +41,6 @@ class RoomsController < ApplicationController
     end
   end
 
-  def lock_room
-    respond_to do|format|
-      format.json {
-          Rails.cache.write("lockRoom", params[:lockRoom], expires_in: 1.hours)
-          @locked_room = params[:lockRoom]
-      }
-    end
-  end
-
   def create
     timeline = Timeline.new(name:params[:room_name],
      longitude:params[:longitude], latitude:params[:latitude])
