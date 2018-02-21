@@ -20,6 +20,7 @@ class RoomsController < ApplicationController
   def timeline
     respond_to do |format|
       format.html{
+        @page_url = request.url
         @room_id = params[:id]
         @room = Timeline.find_by(id: @room_id)
         if @room == nil
