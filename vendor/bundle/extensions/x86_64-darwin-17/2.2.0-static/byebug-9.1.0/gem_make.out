@@ -1,0 +1,15 @@
+/Users/asadashougo/.rbenv/versions/2.2.2/bin/ruby -r ./siteconf20180222-7808-1kybfcu.rb extconf.rb
+creating Makefile
+
+make "DESTDIR=" clean
+
+make "DESTDIR="
+compiling locker.c
+compiling byebug.c
+compiling context.c
+compiling breakpoint.c
+compiling threads.c
+linking shared-object byebug/byebug.bundle
+
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 byebug.bundle ./.gem.20180222-7808-n94485/byebug
