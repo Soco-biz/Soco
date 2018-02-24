@@ -1,0 +1,17 @@
+<div class="room_name"><img src="/add.png"> 新しい部屋を作る</div>
+<div class="new_room">
+  <%= form_tag("/rooms/create") do %>
+  <div class="form-body">
+    <form  name="content">
+      <div class="newTlWrapper"><input id="room_name" type="text" name="room_name"  onkeyup="ShowLength(value);"><div class="new_tl_count" id="inputlength">0/45</div></div><label id="submit_TL"  class="tl" for="submit">部屋作成
+        <input id="submit" type="submit" value="TL作成" style="display: none;" />
+      </label>
+      <input id="latitude" type="hidden" name="latitude">
+      <input id="longitude" type="hidden" name="longitude">
+    </form>
+  </div>
+  <% end %>
+</div>
+<script>
+  form = document.getElementById("submit");
+</script>

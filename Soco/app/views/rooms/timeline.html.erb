@@ -1,0 +1,156 @@
+<% @page_title = @room.name %>
+<% first_flag = 0 %>
+
+<div class="loading" id="loading">
+  <img src="/loading.gif">
+  <br />位置情報を取得しています<br/>
+</div>
+<div class="alert" id="alert">
+  <br />位置情報を取得できませんでした……<br/>
+</div>
+
+<div id="timeline" class="timeline">
+  <% unless @posts.present? %>
+  <div class="notification">まだ投稿がありません<br />最初の<a herf="#" id="new_post_form" class="show-modal">投稿</a>をしませんか？</div>
+  <% end %>
+  <% @posts.each do |post|  %>
+  <div id="<%= post.id %>" class="post" id="content">
+    <div class="text_body">
+      <%= raw(hbr(post.content)) %>
+    </div>
+    <%= if post.image.present? then link_to post.image, :target=>["_blank"] do image_tag "#{post.image}" end end %>
+    <div class="text_data">
+      <% post.id %>
+      <div style="display:inline"><%= @postId[post.id] %></div> :
+      <%= time_ago_in_words(post.created_at) %>
+      <%=
+      if post.simvalue.present? then
+        if post.simvalue > "0.49" then
+          link_to(">>#{@postId.fetch(post.similarity.to_i)}", "\##{post.similarity.to_i + 1}" , :id => "res#{post.similarity}")
+        end
+      end
+      %>
+    </div>
+  </div>
+  <% if first_flag == 0
+    @last_id = post.id
+    first_flag = 1
+  end
+  end %>
+
+  <div id="modalwin" class="modalwin hide">
+    <div class="setting" id="setting_form">
+      <div class="modalwin-header">
+        <button><a herf="#" class="modal-close"><h1><span class="h1"><<</span> 設定</h1></a></button>
+      </div>
+      <div class="modalwin-contents">
+        <div class="modal_setting">
+          <ul>
+            <a href="#"><li><img src="/posts.png">表示方法を変更する</li></a>
+            <a onclick="confirmFunction1()" href="#" id="lock_room"><li><img src="/lock.png">この部屋をロックする</li></a>
+            <a href="#"><li><img src="/report.png">この部屋を管理者に報告する</li></a>
+            <a href="https://twitter.com/intent/tweet?text=<%=@page_title + ' ' + @page_url%>"><li><img src="/share.png">この部屋をTweetする</li></a>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="new_post_form" id="post_form">
+      <div class="modalwin-header">
+        <button><a herf="#" class="modal-close"><h1><span class="h1"><<</span> <%=@room.name%></h1></a></button>
+      </div>
+      <div class="modalwin-contents">
+        <%= form_tag "/create", onsubmit: "submitWait();" do %>
+        <div class="form-body">
+          <div class="form_wrapper">
+            <textarea id="content" cols="30" rows="10" name="content" onkeyup="ShowLength(value);" class="post"></textarea>
+            <p align="right" id="inputlength">0/300</p>
+          </div>
+          <label id="submit_label"  class="hoge" for="submit">
+            投稿
+            <input id="submit" type="submit" style="display:none;" />
+          </label>
+          <input name="roomId" type="hidden" value="<%= @room_id %>">
+          <input id="image" name="image" type="hidden">
+          <label class="hoge" for="upfile">
+            +画像を追加
+            <input type="file"  name="upfile" id="upfile" accept="image/*" style="display:none;" />
+          </label>
+          <div><img class="thumbnail" id="thumbnail" src="/thumbnail.jpg"></div>
+          <input id="latitude" type="hidden" name="latitude">
+          <input id="longitude" type="hidden" name="longitude">
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="pagetop" class="back">
+    <img src="/top.png">
+  </div>
+</div>
+<script>
+  window.onload = init();
+
+  function init(){
+    locationFlag = 0;
+    counts = <%=@posts.count%>;
+    postId = <%= @postId.to_json.html_safe %>;
+    last_id = "<%= @last_id %>";
+  }
+
+  function checkLocation(){
+    var startLat = <%= @start_latitude %>;
+    var endLat = <%= @end_latitude %>;
+    var startLng = <%= @start_longitude %>;
+    var endLng = <%= @end_longitude%>;
+    if(startLat < userLat　&& userLat < endLat && startLng < userLng && userLng < endLng){
+      locationFlag = 1;
+      console.log("checkLocation is ok");
+      $("#timeline").css("display", "block");
+      $("#loading").css("display", "none");
+    }else{
+      alert("タイムラインの範囲以内にいないため、表示できません。\nトップページに戻ります");
+      location.href="/";
+      exit;
+    }
+  }
+
+  $(function () {
+    function showModal(event) {
+      var id =  $(this).attr("id");
+      if(id == "setting"){
+        $("#post_form").css("display","none");
+        $("#setting_form").css("display","block");
+      }
+      if(id == "new_post_form"){
+        $("#setting_form").css("display","none");
+        $("#post_form").css("display","block");
+      }
+      event.preventDefault();
+      var $shade = $('<div></div>');
+      $shade
+      .attr('id', 'shade')
+      .on('click', hideModal);
+      var $modalWin = $('#modalwin');
+      var $window = $(window);
+      var posX = ($window.width() - $modalWin.outerWidth()) / 2;
+      var posY = ($window.height() - $modalWin.outerHeight()) / 2;
+      $modalWin
+      .before($shade)
+      .css({left: posX, top: posY})
+      .removeClass('hide')
+      .addClass('show')
+      .on('click', 'button', function () {
+        hideModal();
+      });
+    }
+
+    function hideModal() {
+      $('#shade').remove();
+      $('#modalwin')
+      .removeClass('show')
+      .addClass('hide');
+    }
+
+    $('.show-modal').on('click', showModal);
+  }());
+</script>
