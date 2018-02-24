@@ -16,7 +16,5 @@ COPY Gemfile.lock $WORKING_DIR
 
 # update bundler
 RUN gem install bundler
-RUN cd Soco
-RUN bundle install
 
 EXPOSE 3000
