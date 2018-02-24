@@ -1,2 +1,0 @@
-class AddPostToPost < ApplicationRecord
-end
