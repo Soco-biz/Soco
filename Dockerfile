@@ -11,10 +11,12 @@ RUN apt-get update && \
                        nodejs \
                        sqlite3
 
-ADD Gemfile $WORKING_DIR
-ADD Gemfile.lock $WORKING_DIR
+COPY Gemfile $WORKING_DIR
+COPY Gemfile.lock $WORKING_DIR
 
 # update bundler
 RUN gem install bundler
+# install rails
+RUN gem install rails
 
 EXPOSE 3000
