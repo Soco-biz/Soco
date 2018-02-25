@@ -2,7 +2,7 @@ FROM ruby:2.4.1
 MAINTAINER asapontenhou@gmail.com
 
 ENV LANG C.UTF-8
-ENV WORKING_DIR var/www/html
+ENV WORKING_DIR /var/www/html
 
 WORKDIR $WORKING_DIR
 
@@ -11,8 +11,8 @@ RUN apt-get update && \
                        nodejs \
                        sqlite3
 
-COPY Gemfile $WORKING_DIR
-COPY Gemfile.lock $WORKING_DIR
+ADD Gemfile $WORKING_DIR
+ADD Gemfile.lock $WORKING_DIR
 
 # update bundler
 RUN gem install bundler

@@ -1,2 +1,0 @@
-class AddSimilarityToPost < ApplicationRecord
-end
