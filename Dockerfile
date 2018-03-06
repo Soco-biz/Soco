@@ -2,21 +2,17 @@ FROM ruby:2.4.1
 MAINTAINER asapontenhou@gmail.com
 
 ENV LANG C.UTF-8
-ENV WORKING_DIR /var/www/html
+ENV WORKING_DIR /var/www/html/SocoAPI
 
 WORKDIR $WORKING_DIR
 
-RUN apt-get update && \
-    apt-get install -y vim \
-                       nodejs \
-                       sqlite3
+RUN apt-get update -qq && \
+    apt-get install -y build-essential libpq-dev nodejs vim
 
-COPY Gemfile $WORKING_DIR
-COPY Gemfile.lock $WORKING_DIR
+ADD ./SocoAPI/Gemfile $WORKING_DIR
+ADD ./SocoAPI/Gemfile.lock $WORKING_DIR
 
 # update bundler
 RUN gem install bundler
-# install rails
-RUN gem install rails
-
-EXPOSE 3000
+# bundle install
+RUN bundle install
