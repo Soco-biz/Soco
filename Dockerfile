@@ -7,7 +7,7 @@ ENV WORKING_DIR /var/www/html/SocoAPI
 WORKDIR $WORKING_DIR
 
 RUN apt-get update -qq && \
-    apt-get install -y build-essential libpq-dev nodejs vim
+    apt-get install -y build-essential libpq-dev nodejs vim mysql-client
 
 ADD ./SocoAPI/Gemfile $WORKING_DIR
 ADD ./SocoAPI/Gemfile.lock $WORKING_DIR
