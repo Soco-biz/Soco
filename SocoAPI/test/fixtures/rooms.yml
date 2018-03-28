@@ -1,15 +1,72 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  latitude: 1.5
-  longitude: 1.5
-  state: MyString
-  local: MyString
+  name: ラウンジ
+  latitude: -1
+  longitude: -1
+  state: all
+  local: all
 
 two:
-  name: MyString
-  latitude: 1.5
-  longitude: 1.5
-  state: MyString
-  local: MyString
+  name: 中央大学
+  latitude: 35.6413913
+  longitude: 139.4056186
+  state: Tōkyō-to
+  local: Hachiōji-shi
+
+three:
+  name: 中央大学・明星大学駅
+  latitude: 35.641927
+  longitude: 139.408568
+  state: Tōkyō-to
+  local: Hachiōji-shi
+
+four:
+  name: 立川駅
+  latitude: 35.697914
+  longitude: 139.413741
+  state: Tōkyō-to
+  local: Tachikawa
+
+five:
+  name: 高幡不動駅
+  latitude: 35.662089
+  longitude: 139.413009
+  state: Tōkyō-to
+  local: Hino-shi
+
+six:
+  name: 多摩動物公園駅
+  latitude: 35.648626
+  longitude: 139.403752
+  state: Tōkyō-to
+  local: Hino-shi
+
+seven:
+  name: 大濠公園
+  latitude: 33.585815
+  longitude: 130.376414
+  state: Fukuoka-ken
+  local: Fukuoka-shi
+
+eight:
+  name: 博多駅
+  latitude: 33.590045
+  longitude: 130.420611
+  state: Fukuoka-ken
+  local: Fukuoka-shi
+
+night:
+  name: 高尾山
+  latitude: 35.625121
+  longitude: 139.243659
+  state: Tōkyō-to
+  local: Hachiōji-shi
+
+ten:
+  name: 新宿駅
+  latitude: 35.691391
+  longitude: 139.705983
+  state: Tōkyō-to
+  local: Shinjuku-ku
+
