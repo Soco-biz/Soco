@@ -1,5 +1,9 @@
 class RoomsController < ApplicationController
   before_action :take_location
+
+  """
+  @parameter: ?latitude=float&logitude=float
+  """
   def index
     @close_room = Room.within(0.2, origin: [@latitude, @longitude])
                       .select(:name)
@@ -14,8 +18,10 @@ class RoomsController < ApplicationController
 
   def create
     # create rooms
-    # trial -> hodokubo 35.6552625, 139.4109211
-    @state
+    # trial -> 35.6552625, 139.4109211, name: Hodokubo
+    room_info = Room.new(room_params)
+    @post_room = create_post_info(room_info)
+    # @error = if 
   end
 
   private
@@ -51,7 +57,16 @@ class RoomsController < ApplicationController
     end
   end
 
-  def room_paarams
-    params
+  def create_post_info(room_info)
+    room_info.latitude = @latitude
+    room_info.longitude = @longitude
+    room_info.state = @state
+    room_info.local = @local
+
+    room_info
+  end
+
+  def room_params
+    params.require(:room).permit(:name)
   end
 end
