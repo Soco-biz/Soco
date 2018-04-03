@@ -43,3 +43,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # location information
 gem 'geokit-rails'
 gem 'geocoder'
+
+# action_cache
+gem 'actionpack-action_caching'
