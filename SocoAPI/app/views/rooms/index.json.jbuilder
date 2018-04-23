@@ -1,12 +1,12 @@
 json.info do
-  json.around do
-    json.array! @around_room, :name
+  json.small do
+    json.array! @small_room , :name
   end
-  json.local do
-    json.array! @local_room, :name
+  json.middle do
+    json.array! @middle_room, :name
   end
-  json.state do
-    json.array! @state_room, :name
+  json.large do
+    json.array! @large_room, :name
   end
 end
 
