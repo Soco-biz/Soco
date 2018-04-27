@@ -1,5 +1,5 @@
 class RoomsController < ApplicationController
-  before_action :take_location
+  before_action :take_location, only: [:index, :create]
 
   """
   @parameter: ?latitude=float&logitude=float
@@ -51,9 +51,12 @@ class RoomsController < ApplicationController
 
   # 緯度経度,市町村区,都道府県を取得する
   def take_location
+    if params[:latitude].nil? || params[:longitude].nil?
+      render formats: 'json', status: :not_found
+    end
+
     @latitude = params[:latitude].to_f
     @longitude = params[:longitude].to_f
-
   end
 
   # dbにいれる用のパラメータを作成する
