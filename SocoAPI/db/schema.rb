@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180425123134) do
+ActiveRecord::Schema.define(version: 20180427160920) do
 
   create_table "posts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "contents", null: false
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 20180425123134) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "rooms_id"
+    t.float "latitude", limit: 24, null: false
+    t.float "longitude", limit: 24, null: false
     t.index ["rooms_id"], name: "index_posts_on_rooms_id"
   end
 

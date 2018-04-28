@@ -5,8 +5,11 @@ class PostsController < ApplicationController
   """
   # room内の投稿を取得する.ラウンジの時だけ特殊処理
   def index
-
     @rooms_info = Room.find(params[:id].to_i)
+    if @rooms_id == 1
+      @lounge = lounge_info
+      render formats: 'json', status: :ok
+    end
 
     if @flag == 0
       render formats: 'json', status: :ok
@@ -20,6 +23,16 @@ class PostsController < ApplicationController
 
   def create
     # 投稿するメソッド
+  end
+
+  private
+
+  # loungeだけは特別処理
+  def lounge_info
+    lounge = Post.within(0.2, origin: [@latitude, @longitude])
+                  .select(:id, :contents, :good, :bad)
+                  .where(rooms_id: 1)
+                  .order(created_at: :desc)
   end
 
   # 部屋へのアクセス, 投稿権限と必要なパラメータがあるか調べる

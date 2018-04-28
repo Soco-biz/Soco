@@ -1,4 +1,7 @@
 json.info do
+  json.lounge do
+    json.array! @lounge, :id, :contents, :good, :bad
+  end
   json.small do
     json.array! @small_room , :name
   end
