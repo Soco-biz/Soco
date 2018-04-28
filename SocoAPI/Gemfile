@@ -46,3 +46,5 @@ gem 'geocoder'
 
 # action_cache
 gem 'actionpack-action_caching'
+
+gem 'httpclient'

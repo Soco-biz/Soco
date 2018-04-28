@@ -54,6 +54,7 @@ GEM
       rails (>= 3.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    httpclient (2.8.3)
     i18n (1.0.1)
       concurrent-ruby (~> 1.0)
     jbuilder (2.7.0)
@@ -138,13 +139,13 @@ DEPENDENCIES
   byebug
   geocoder
   geokit-rails
+  httpclient
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   mysql2 (>= 0.3.18, < 0.5)
   puma (~> 3.7)
   rack-cors
   rails (~> 5.1.4)
-  rake (~> 12.3.1)
   spring
   spring-watcher-listen (~> 2.0.0)
   tzinfo-data
