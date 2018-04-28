@@ -1,0 +1,1 @@
+json.info @post_posts, :id, :contents, :good, :bad

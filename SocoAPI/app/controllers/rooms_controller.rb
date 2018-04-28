@@ -34,7 +34,7 @@ class RoomsController < ApplicationController
   # お試し用 -> ?latitude=35.6552625&longitude=139.4109211, room[name]: 程久保
   def create
     room_info = Room.new(room_params)
-    @post_room = create_post_info(room_info)
+    @post_room = create_room_info(room_info)
 
     # 半径200m以内に同じ名前の部屋があるか
     flag = Room.within(0.2, origin: [@latitude, @longitude])
@@ -65,7 +65,7 @@ class RoomsController < ApplicationController
   end
 
   # dbにいれる用のパラメータを作成する
-  def create_post_info(room_info)
+  def create_room_info(room_info)
     room_info[:latitude] = @latitude
     room_info[:longitude] = @longitude
 

@@ -2,13 +2,14 @@ class PostsController < ApplicationController
   before_action :judge_access_post, only: [:index, :create]
   """
   @parameter: ?latitude=float&logitude=float&id=integer
+  rooms_id: 1はラウンジを指す
   """
-  # room内の投稿を取得する.ラウンジの時だけ特殊処理
+  # room内の投稿を取得する. ラウンジの時だけ特殊処理
   def index
-    @rooms_info = Room.find(params[:id].to_i)
+    @rooms_info = Room.find(@rooms_id)
     if @rooms_id == 1
-      @lounge = lounge_info
-      render formats: 'json', status: :ok
+      lounge_posts
+      return
     end
 
     if @flag == 0
@@ -21,18 +22,36 @@ class PostsController < ApplicationController
 
   end
 
+  """
+  @parameter: ?latitude=float&logitude=float?id=integer
+  content-type: application/x-www-form-urlencoded
+  -d room[name]=room_name
+  """
+  # 投稿するメソッド. ラウンジの時だけ特殊処理
   def create
-    # 投稿するメソッド
+    render formats: 'json', status: :not_acceptable if @flag != 0
+
+    post_info = Post.new(post_params)
+    @post_posts = create_post_info(post_info)
+
+    if @post_posts.save
+      render formats: 'json', status: :created
+    else
+      render formats: 'json', status: :unprocessable_entity
+    end
   end
 
   private
 
   # loungeだけは特別処理
-  def lounge_info
-    lounge = Post.within(0.2, origin: [@latitude, @longitude])
+  def lounge_posts
+    # @loungeはまだ緯度経度を取得していない
+    @lounge = Post.within(0.2, origin: [@latitude, @longitude])
                   .select(:id, :contents, :good, :bad)
                   .where(rooms_id: 1)
                   .order(created_at: :desc)
+
+    render formats: 'json', status: :ok
   end
 
   # 部屋へのアクセス, 投稿権限と必要なパラメータがあるか調べる
@@ -41,11 +60,11 @@ class PostsController < ApplicationController
       render formats: 'json', status: :not_found
     end
 
-    rooms_id = params[:id].to_i
-    latitude = params[:latitude].to_f
-    longitude = params[:longitude].to_f
+    @rooms_id = params[:id].to_i
+    @latitude = params[:latitude].to_f
+    @longitude = params[:longitude].to_f
 
-    @flag = survey_rooms(rooms_id, latitude, longitude)
+    @flag = survey_rooms(@rooms_id, @latitude, @longitude)
   end
 
   # roomsモデル内へ権限調査
@@ -58,7 +77,7 @@ class PostsController < ApplicationController
                       .exists?
 
     # 0 -> 投稿も可能, 1 -> アクセスのみ, 2 -> アクセス不可
-    if write_flag == true
+    if rooms_id == 1 || write_flag == true
       0
     elsif access_flag == true
       1
@@ -67,7 +86,16 @@ class PostsController < ApplicationController
     end
   end
 
+  # dbにいれる用のパラメータを作成する
+  def create_post_info(post_info)
+    post_info[:latitude] = @latitude
+    post_info[:longitude] = @longitude
+    post_info[:rooms_id] = @rooms_id
+
+    post_info
+  end
+
   def post_params
-    params.require(:posts).permit(:contents, :good, :bad)
+    params.require(:post).permit(:contents, :rooms_id, :latitude, :logitude)
   end
 end
