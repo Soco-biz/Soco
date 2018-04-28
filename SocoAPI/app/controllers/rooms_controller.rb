@@ -47,7 +47,7 @@ class RoomsController < ApplicationController
       if @post_room.save
         render formats: 'json', status: :created
       else
-        render formats: 'json', status: :unprocessable_entity
+        render formats: 'json', status: :not_found
       end
     end
   end
