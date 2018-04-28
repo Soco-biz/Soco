@@ -19,7 +19,6 @@ class PostsController < ApplicationController
     else
       render formats: 'json', status: :not_acceptable
     end
-
   end
 
   """
