@@ -46,7 +46,7 @@ class PostsController < ApplicationController
   def lounge_posts
     # @loungeはまだ緯度経度を取得していない
     @lounge = Post.within(0.2, origin: [@latitude, @longitude])
-                  .select(:id, :contents, :good, :bad)
+                  .select(:id, :contents, :good, :bad, :image)
                   .where(rooms_id: 1)
                   .order(created_at: :desc)
 
@@ -90,11 +90,20 @@ class PostsController < ApplicationController
     post_info[:latitude] = @latitude
     post_info[:longitude] = @longitude
     post_info[:rooms_id] = @rooms_id
+    imgur = Imgur.new
+    room_info[:image] = imgur.upload(room_info[:image])
 
     post_info
   end
 
   def post_params
-    params.require(:post).permit(:contents, :rooms_id, :latitude, :logitude)
+    params.require(:post)
+          .permit(
+            :contents,
+            :rooms_id,
+            :latitude,
+            :logitude,
+            :image
+          )
   end
 end

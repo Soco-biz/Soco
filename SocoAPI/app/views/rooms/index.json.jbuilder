@@ -1,15 +1,15 @@
 json.info do
   json.lounge do
-    json.array! @lounge, :id, :contents, :good, :bad
+    json.array! @lounge, :id, :contents, :good, :bad, :image
   end
   json.small do
-    json.array! @small_room , :name
+    json.array! @small_room , :name, :image
   end
   json.middle do
-    json.array! @middle_room, :name
+    json.array! @middle_room, :name, :image
   end
   json.large do
-    json.array! @large_room, :name
+    json.array! @large_room, :name, :image
   end
 end
 
