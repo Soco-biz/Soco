@@ -9,18 +9,18 @@ class RoomsController < ApplicationController
   def index
     # @loungeはまだ緯度経度を取得していない
     @lounge = Post.within(0.2, origin: [@latitude, @longitude])
-                  .select(:id, :contents, :good, :bad, :image)
+                  .select(:id, :contents, :good, :bad, :image, :created_at)
                   .where(rooms_id: 1)
-                  .order(created_at: :desc)
+                  .order(id: :desc)
     @small_room = Room.within(0.2, origin: [@latitude, @longitude])
-                      .select(:name, :image)
-                      .order(created_at: :desc)
+                      .select(:id, :name, :image, :description, :created_at)
+                      .order(id: :desc)
     @middle_room = Room.within(1.0, origin: [@latitude, @longitude])
-                      .select(:name, :image)
-                      .order(created_at: :desc)
+                      .select(:id, :name, :image, :description, :created_at)
+                      .order(id: :desc)
     @large_room = Room.within(3.0, origin: [@latitude, @longitude])
-                      .select(:name, :image)
-                      .order(created_at: :desc)
+                      .select(:id, :name, :image, :description, :created_at)
+                      .order(id: :desc)
 
     render formats: 'json', status: :ok
   end
