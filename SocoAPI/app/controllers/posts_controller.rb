@@ -95,8 +95,6 @@ class PostsController < ApplicationController
       room_info[:image] = imgur.upload(room_info[:image])
     end
 
-    room_info[:image] = imgur.upload(room_info[:image])
-
     post_info
   end
 
