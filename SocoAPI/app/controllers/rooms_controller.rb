@@ -68,8 +68,10 @@ class RoomsController < ApplicationController
   def create_room_info(room_info)
     room_info[:latitude] = @latitude
     room_info[:longitude] = @longitude
-    imgur = Imgur.new
-    room_info[:image] = imgur.upload(room_info[:image])
+    if room_info[:image].present?
+      imgur = Imgur.new
+      room_info[:image] = imgur.upload(room_info[:image])
+    end
 
     room_info
   end
