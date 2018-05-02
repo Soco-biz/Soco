@@ -3,13 +3,13 @@ json.info do
     json.array! @lounge, :id, :contents, :good, :bad, :image
   end
   json.small do
-    json.array! @small_room , :id, :name, :image
+    json.array! @small_room , :name, :image
   end
   json.middle do
-    json.array! @middle_room, :id, :name, :image
+    json.array! @middle_room, :name, :image
   end
   json.large do
-    json.array! @large_room, :id, :name, :image
+    json.array! @large_room, :name, :image
   end
 end
 
