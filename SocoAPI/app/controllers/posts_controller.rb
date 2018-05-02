@@ -90,7 +90,7 @@ class PostsController < ApplicationController
     post_info[:latitude] = @latitude
     post_info[:longitude] = @longitude
     post_info[:rooms_id] = @rooms_id
-    if room_info[:image].present?
+    if params[:image].present?
       imgur = Imgur.new
       room_info[:image] = imgur.upload(room_info[:image])
     end

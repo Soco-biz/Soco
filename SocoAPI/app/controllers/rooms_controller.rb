@@ -13,13 +13,13 @@ class RoomsController < ApplicationController
                   .where(rooms_id: 1)
                   .order(created_at: :desc)
     @small_room = Room.within(0.2, origin: [@latitude, @longitude])
-                      .select(:name, :image)
+                      .select(:name, :image, :id)
                       .order(created_at: :desc)
     @middle_room = Room.within(1.0, origin: [@latitude, @longitude])
-                      .select(:name, :image)
+                      .select(:name, :image, :id)
                       .order(created_at: :desc)
     @large_room = Room.within(3.0, origin: [@latitude, @longitude])
-                      .select(:name, :image)
+                      .select(:name, :image, :id)
                       .order(created_at: :desc)
 
     render formats: 'json', status: :ok
@@ -68,7 +68,7 @@ class RoomsController < ApplicationController
   def create_room_info(room_info)
     room_info[:latitude] = @latitude
     room_info[:longitude] = @longitude
-    if room_info[:image].present?
+    if params[:image].present?
       imgur = Imgur.new
       room_info[:image] = imgur.upload(room_info[:image])
     end
