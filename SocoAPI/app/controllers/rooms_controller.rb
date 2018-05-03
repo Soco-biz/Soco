@@ -5,7 +5,6 @@ class RoomsController < ApplicationController
   @parameter: ?latitude=float&logitude=float
   """
   # ルームを取得する
-  # お試し用 -> ?latitude=35.641927&longitude=139.408568
   def index
     # @loungeはまだ緯度経度を取得していない
     @lounge = Post.within(0.2, origin: [@latitude, @longitude])
@@ -31,7 +30,6 @@ class RoomsController < ApplicationController
   -d room[name]=room_name
   """
   # ルーム作成を行う
-  # お試し用 -> ?latitude=35.6552625&longitude=139.4109211, room[name]: 程久保
   def create
     room_info = Room.new(room_params)
     @post_room = create_room_info(room_info)

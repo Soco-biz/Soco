@@ -52,7 +52,6 @@ class PostsController < ApplicationController
 
   # loungeだけは特別処理
   def lounge_posts
-    # @loungeはまだ緯度経度を取得していない
     @lounge = Post.within(0.2, origin: [@latitude, @longitude])
                   .select(:id, :contents, :good, :bad, :image, :created_at)
                   .where(rooms_id: 1)
