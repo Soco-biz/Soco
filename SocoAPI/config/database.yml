@@ -13,8 +13,8 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: root
-  password: root
+  username: <%= ENV['USER_NAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
   host: db
 
 development:
@@ -50,5 +50,5 @@ test:
 production:
   <<: *default
   database: SocoAPI_production
-  username: SocoAPI
+  username: <%= ENV['SocoAPI'] %>
   password: <%= ENV['SOCOAPI_DATABASE_PASSWORD'] %>

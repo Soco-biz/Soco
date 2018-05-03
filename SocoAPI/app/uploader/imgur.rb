@@ -1,9 +1,9 @@
 class Imgur
 
-  URL = 'https://api.imgur.com/3/image'
+  URL = ENV['IMGUR_API']
 
   def initialize(client_id)
-    @client_id = '917c103fc588ceb'
+    @client_id = ENV['IMGUR_CLIENT_ID']
   end
 
   def upload(file_path)

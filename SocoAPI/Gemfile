@@ -47,4 +47,8 @@ gem 'geocoder'
 # action_cache
 gem 'actionpack-action_caching'
 
+# imgur
 gem 'httpclient'
+
+# env
+gem 'dotenv-rails'
