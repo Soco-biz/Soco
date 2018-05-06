@@ -62,7 +62,10 @@ class PostsController < ApplicationController
 
   # 部屋へのアクセス, 投稿権限と必要なパラメータがあるか調べる
   def judge_access_post
-    if params[:latitude].nil? || params[:longitude].nil? || params[:id].nil?
+    if params[:latitude] == 'null' ||
+      params[:longitude] == 'null' ||
+      params[:id] == 'null'
+
       render formats: 'json', status: :not_found
     end
 
