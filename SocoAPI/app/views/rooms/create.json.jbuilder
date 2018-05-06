@@ -1,1 +1,1 @@
-json.info @post_room, :name, :image
+json.info @post_room, :name, :description, :image
