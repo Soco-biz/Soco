@@ -15,7 +15,7 @@ default: &default
   username: bbf4d9fb3357e0
   password: 554b54f9
   host: us-cdbr-iron-east-04.cleardb.net
-  socket: '/tmp/mysql.sock'
+  socket: /tmp/mysql.sock
 
 development:
   <<: *default
