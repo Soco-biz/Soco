@@ -50,4 +50,4 @@ production:
   <<: *default
   database: SocoAPI_production
   username: root
-  password: root
+  password: 
