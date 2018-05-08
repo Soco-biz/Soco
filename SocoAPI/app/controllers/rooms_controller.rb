@@ -54,7 +54,7 @@ class RoomsController < ApplicationController
 
   # 緯度経度,市町村区,都道府県を取得する
   def take_location
-    if params[:latitude].nil? || params[:longitude].nil?
+    if params[:latitude] == 'null' || params[:longitude] == 'null'
       render formats: 'json', status: :not_found
     end
 
