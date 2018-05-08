@@ -5,22 +5,21 @@ class RoomsController < ApplicationController
   @parameter: ?latitude=float&logitude=float
   """
   # ルームを取得する
-  # お試し用 -> ?latitude=35.641927&longitude=139.408568
   def index
     # @loungeはまだ緯度経度を取得していない
     @lounge = Post.within(0.2, origin: [@latitude, @longitude])
-                  .select(:id, :contents, :good, :bad, :image)
+                  .select(:id, :contents, :good, :bad, :image, :created_at)
                   .where(rooms_id: 1)
-                  .order(created_at: :desc)
+                  .order(id: :desc)
     @small_room = Room.within(0.2, origin: [@latitude, @longitude])
-                      .select(:name, :image, :id)
-                      .order(created_at: :desc)
+                      .select(:id, :name, :image, :description, :created_at)
+                      .order(id: :desc)
     @middle_room = Room.within(1.0, origin: [@latitude, @longitude])
-                      .select(:name, :image, :id)
-                      .order(created_at: :desc)
+                      .select(:id, :name, :image, :description, :created_at)
+                      .order(id: :desc)
     @large_room = Room.within(3.0, origin: [@latitude, @longitude])
-                      .select(:name, :image, :id)
-                      .order(created_at: :desc)
+                      .select(:id, :name, :image, :description, :created_at)
+                      .order(id: :desc)
 
     render formats: 'json', status: :ok
   end
@@ -31,7 +30,6 @@ class RoomsController < ApplicationController
   -d room[name]=room_name
   """
   # ルーム作成を行う
-  # お試し用 -> ?latitude=35.6552625&longitude=139.4109211, room[name]: 程久保
   def create
     room_info = Room.new(room_params)
     @post_room = create_room_info(room_info)
@@ -68,15 +66,11 @@ class RoomsController < ApplicationController
   def create_room_info(room_info)
     room_info[:latitude] = @latitude
     room_info[:longitude] = @longitude
-    if params[:image].present?
-      imgur = Imgur.new
-      room_info[:image] = imgur.upload(room_info[:image])
-    end
 
     room_info
   end
 
   def room_params
-    params.require(:room).permit(:name, :latitude, :logitude, :image)
+    params.require(:room).permit(:name, :latitude, :logitude, :image, :description)
   end
 end

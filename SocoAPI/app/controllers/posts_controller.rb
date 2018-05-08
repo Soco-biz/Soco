@@ -6,10 +6,11 @@ class PostsController < ApplicationController
   """
   # room内の投稿を取得する. ラウンジの時だけ特殊処理
   def index
-    @rooms_info = Room.find(@rooms_id)
     if @rooms_id == 1
       lounge_posts
       return
+    else
+      @posts = posts_geter(@rooms_id)
     end
 
     if @flag == 0
@@ -42,11 +43,17 @@ class PostsController < ApplicationController
 
   private
 
+  # postsの情報を取得
+  def posts_geter(room_id)
+    posts = Post.select(:id, :contents, :good, :bad, :image, :created_at)
+                .where(rooms_id: room_id)
+                .order(id: :desc)
+  end
+
   # loungeだけは特別処理
   def lounge_posts
-    # @loungeはまだ緯度経度を取得していない
     @lounge = Post.within(0.2, origin: [@latitude, @longitude])
-                  .select(:id, :contents, :good, :bad, :image)
+                  .select(:id, :contents, :good, :bad, :image, :created_at)
                   .where(rooms_id: 1)
                   .order(created_at: :desc)
 
@@ -90,11 +97,6 @@ class PostsController < ApplicationController
     post_info[:latitude] = @latitude
     post_info[:longitude] = @longitude
     post_info[:rooms_id] = @rooms_id
-    if params[:image].present?
-      imgur = Imgur.new
-      room_info[:image] = imgur.upload(room_info[:image])
-    end
-
     post_info
   end
 
