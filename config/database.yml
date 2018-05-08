@@ -12,9 +12,9 @@
 default: &default
   adapter: mysql2
   pool: 5
-  username: root
-  password:
-  host: 127.0.0.1
+  username: bbf4d9fb3357e0
+  password: 554b54f9
+  host: us-cdbr-iron-east-04.cleardb.net
 
 development:
   <<: *default
@@ -48,6 +48,6 @@ test:
 #
 production:
   <<: *default
-  database: SocoAPI_production
-  username: root
-  password: 
+  database: heroku_452e350c799df03
+  username: bbf4d9fb3357e0
+  password: 554b54f9
