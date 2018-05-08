@@ -1,8 +1,8 @@
 Room.create(
   id: 1,
   name: 'ラウンジ',
-  latitude: '',
-  longitude: '',
+  latitude: null,
+  longitude: null,
   image: '',
   description: ''
 )
