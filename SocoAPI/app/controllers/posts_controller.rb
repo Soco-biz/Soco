@@ -100,10 +100,6 @@ class PostsController < ApplicationController
     post_info[:latitude] = @latitude
     post_info[:longitude] = @longitude
     post_info[:rooms_id] = @rooms_id
-<<<<<<< HEAD
-=======
-
->>>>>>> fc3f1ea94d8cc75a53f44cf4354a9c1c5550f4bc
     post_info
   end
 
