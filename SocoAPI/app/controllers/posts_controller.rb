@@ -27,7 +27,7 @@ class PostsController < ApplicationController
   content-type: application/x-www-form-urlencoded
   -d room[name]=room_name
   """
-  # 投稿するメソッド. ラウンジの時だけ特殊処理
+  # 投稿するメソッド. ラウンジの時だけ特殊
   def create
     render formats: 'json', status: :not_acceptable if @flag != 0
 
