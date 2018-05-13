@@ -57,7 +57,5 @@ test:
 production:
   <<: *default
   database: SocoAPI_production
-  username: <%= ENV['SocoAPI'] %>
-  password: <%= ENV['SOCOAPI_DATABASE_PASSWORD'] %>
-  # username: <%= ENV['PRODUCTION_USER_NAME'] %>
-  # password: <%= ENV['PRODUCTION_DB_PASSWORD'] %>
+  username: <%= ENV['PRODUCTION_USER_NAME'] %>
+  password: <%= ENV['PRODUCTION_DB_PASSWORD'] %>
