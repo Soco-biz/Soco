@@ -52,8 +52,7 @@ class PostsController < ApplicationController
 
   # loungeだけは特別処理
   def lounge_posts
-    @lounge = Post.within(0.2, origin: [@latitude, @longitude])
-                  .select(:id, :contents, :good, :bad, :image, :created_at)
+    @lounge = Post.select(:id, :contents, :good, :bad, :image, :created_at)
                   .where(rooms_id: 1)
                   .order(created_at: :desc)
 

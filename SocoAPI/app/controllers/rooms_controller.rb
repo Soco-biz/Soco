@@ -7,8 +7,7 @@ class RoomsController < ApplicationController
   # ルームを取得する
   def index
     # @loungeはまだ緯度経度を取得していない
-    @lounge = Post.within(0.2, origin: [@latitude, @longitude])
-                  .select(:id, :contents, :good, :bad, :image, :created_at)
+    @lounge = Post.select(:id, :contents, :good, :bad, :image, :created_at)
                   .where(rooms_id: 1)
                   .order(id: :desc)
     @small_room = Room.within(0.2, origin: [@latitude, @longitude])
