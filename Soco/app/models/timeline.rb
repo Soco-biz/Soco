@@ -1,2 +1,0 @@
-class Timeline < ApplicationRecord
-end

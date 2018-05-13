@@ -1,2 +1,0 @@
-module Message::IndexHelper
-end
