@@ -1,1 +1,0 @@
-json.info @post_posts

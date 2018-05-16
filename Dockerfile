@@ -9,8 +9,8 @@ WORKDIR $WORKING_DIR
 RUN apt-get update -qq && \
     apt-get install -y build-essential libpq-dev nodejs vim mysql-client
 
-ADD ./SocoAPI/Gemfile $WORKING_DIR
-ADD ./SocoAPI/Gemfile.lock $WORKING_DIR
+ADD ./Gemfile $WORKING_DIR
+ADD ./Gemfile.lock $WORKING_DIR
 
 # update bundler
 RUN gem install bundler
