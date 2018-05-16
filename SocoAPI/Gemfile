@@ -53,6 +53,6 @@ gem 'httpclient'
 # env
 gem 'dotenv-rails'
 
-# heroku用
+# for heroku
 gem 'therubyracer', platforms: :ruby
 gem 'rails_12factor', group: :production
