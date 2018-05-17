@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   @parameter: ?latitude=float&logitude=float&id=integer
   rooms_id: 1はラウンジを指す
   """
-  # room内の投稿を取得する. ラウンジの時だけ特殊処理
+  # room内の投稿を取得する. ラウンジ時だけ特殊処理
   def index
     if @rooms_id == 1
       lounge_posts
@@ -27,7 +27,7 @@ class PostsController < ApplicationController
   content-type: application/x-www-form-urlencoded
   -d room[name]=room_name
   """
-  # 投稿するメソッド. ラウンジの時だけ特殊処理
+  # 投稿するメソッド. ラウンジ時だけ特殊処理
   def create
     render formats: 'json', status: :not_acceptable if @flag != 0
 
