@@ -1,0 +1,44 @@
+Started GET "/rooms/index?latitude=null&longitude=null" for 172.21.0.1 at 2018-05-16 15:52:23 +0000
+  [1m[35m (0.6ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by RoomsController#index as */*
+  Parameters: {"latitude"=>"null", "longitude"=>"null"}
+  Rendering rooms/index.json.jbuilder
+  Rendered rooms/index.json.jbuilder (20.8ms)
+Filter chain halted as :take_location rendered or redirected
+Completed 404 Not Found in 67ms (Views: 64.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/rooms/create?latitude=35.641927&longitude=139.408568" for 172.21.0.1 at 2018-05-16 15:52:29 +0000
+Processing by RoomsController#create as */*
+  Parameters: {"room"=>{"name"=>"中央大学・明星大学駅", "image"=>""}, "latitude"=>"35.641927", "longitude"=>"139.408568"}
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[36mRoom Exists (12.5ms)[0m  [1m[34mSELECT  1 AS one FROM `rooms` WHERE (rooms.latitude IS NOT NULL AND rooms.longitude IS NOT NULL) AND (rooms.latitude>35.63903560294293 AND rooms.latitude<35.64481839705707 AND rooms.longitude>139.40501012188432 AND rooms.longitude<139.41212587811566) AND ((
+          (ACOS(least(1,COS(0.622068977905465)*COS(2.433138517090406)*COS(RADIANS(rooms.latitude))*COS(RADIANS(rooms.longitude))+
+          COS(0.622068977905465)*SIN(2.433138517090406)*COS(RADIANS(rooms.latitude))*SIN(RADIANS(rooms.longitude))+
+          SIN(0.622068977905465)*SIN(RADIANS(rooms.latitude))))*3963.1899999999996)
+          <= 0.2)) AND `rooms`.`name` = '中央大学・明星大学駅' LIMIT 1[0m
+  Rendering rooms/create.json.jbuilder
+  Rendered rooms/create.json.jbuilder (1.1ms)
+Completed 406 Not Acceptable in 183ms (Views: 21.6ms | ActiveRecord: 36.6ms)
+
+
+Started GET "/posts/index?latitude=null&longitude=%27%27&id=1" for 172.21.0.1 at 2018-05-16 15:52:31 +0000
+Processing by PostsController#index as */*
+  Parameters: {"latitude"=>"null", "longitude"=>"''", "id"=>"1"}
+  Rendering posts/index.json.jbuilder
+  Rendered posts/index.json.jbuilder (1.0ms)
+  [1m[36mRoom Exists (7.7ms)[0m  [1m[34mSELECT  1 AS one FROM `rooms` WHERE (rooms.latitude IS NOT NULL AND rooms.longitude IS NOT NULL) AND (rooms.latitude>-0.00289139705707182 AND rooms.latitude<0.00289139705707182 AND rooms.longitude>-0.00289139705707182 AND rooms.longitude<0.00289139705707182) AND ((
+          (ACOS(least(1,COS(0.0)*COS(0.0)*COS(RADIANS(rooms.latitude))*COS(RADIANS(rooms.longitude))+
+          COS(0.0)*SIN(0.0)*COS(RADIANS(rooms.latitude))*SIN(RADIANS(rooms.longitude))+
+          SIN(0.0)*SIN(RADIANS(rooms.latitude))))*3963.1899999999996)
+          <= 0.2)) AND `rooms`.`id` = 1 LIMIT 1[0m
+  [1m[36mRoom Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM `rooms` WHERE (rooms.latitude IS NOT NULL AND rooms.longitude IS NOT NULL) AND (rooms.latitude>-0.014456985285359098 AND rooms.latitude<0.014456985285359098 AND rooms.longitude>-0.014456985285359098 AND rooms.longitude<0.014456985285359098) AND ((
+          (ACOS(least(1,COS(0.0)*COS(0.0)*COS(RADIANS(rooms.latitude))*COS(RADIANS(rooms.longitude))+
+          COS(0.0)*SIN(0.0)*COS(RADIANS(rooms.latitude))*SIN(RADIANS(rooms.longitude))+
+          SIN(0.0)*SIN(RADIANS(rooms.latitude))))*3963.1899999999996)
+          <= 1.0)) AND `rooms`.`id` = 1 LIMIT 1[0m
+Filter chain halted as :judge_access_post rendered or redirected
+Completed 404 Not Found in 45ms (Views: 28.0ms | ActiveRecord: 8.7ms)
+
+
