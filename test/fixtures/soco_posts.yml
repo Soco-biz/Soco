@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  contents: MyString
+  reply: 1
+  good: 1
+  first_tag_id: 1
+  second_tag_id: 1
+  third_tag_id: 1
+  latitude: 1.5
+  longitude: 1.5
+  image: MyText
+
+two:
+  contents: MyString
+  reply: 1
+  good: 1
+  first_tag_id: 1
+  second_tag_id: 1
+  third_tag_id: 1
+  latitude: 1.5
+  longitude: 1.5
+  image: MyText
