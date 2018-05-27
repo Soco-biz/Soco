@@ -3,17 +3,6 @@ class SocoPostsController < ApplicationController
 
   def index
     @lounge = SocoPost.within(1.0, origin: [@latitude, @longitude])
-                      .select(
-                        :id,
-                        :contents,
-                        :reply,
-                        :good,
-                        :first_tag_id,
-                        :second_tag_id,
-                        :third_tag_id,
-                        :image,
-                        :updated_at
-                      ).order(updated_at: :desc)
   end
 
   def create
