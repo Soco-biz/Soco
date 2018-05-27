@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180527154364) do
+ActiveRecord::Schema.define(version: 20180527155858) do
 
   create_table "posts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "contents", null: false
@@ -50,14 +50,6 @@ ActiveRecord::Schema.define(version: 20180527154364) do
     t.index ["first_tag_id"], name: "index_soco_posts_on_first_tag_id"
     t.index ["second_tag_id"], name: "index_soco_posts_on_second_tag_id"
     t.index ["third_tag_id"], name: "index_soco_posts_on_third_tag_id"
-  end
-
-  create_table "soco_tags", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "tag_name", null: false
-    t.float "latitude", limit: 24, null: false
-    t.float "longitude", limit: 24, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "taggings", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
