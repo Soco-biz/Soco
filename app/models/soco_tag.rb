@@ -1,0 +1,2 @@
+class SocoTag < ApplicationRecord
+end

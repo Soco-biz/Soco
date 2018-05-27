@@ -1,0 +1,2 @@
+class SocoPost < ApplicationRecord
+end
