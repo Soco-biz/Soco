@@ -1464,3 +1464,29 @@ Completed 200 OK in 263ms (Views: 93.1ms | ActiveRecord: 59.5ms)
 Completed 200 OK in 190ms (Views: 139.9ms | ActiveRecord: 21.2ms)
 
 
+  [1m[35m (108.2ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (5.5ms)[0m  [1m[34mSELECT GET_LOCK('1476257559208671855', 0)[0m
+  [1m[35m (18.9ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateSocoPosts (20180527032055)
+  [1m[35m (223.5ms)[0m  [1m[35mCREATE TABLE `soco_posts` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `contents` varchar(255) NOT NULL, `reply` int, `good` int DEFAULT 0, `first_tag_id_id` bigint, `second_tag_id_id` bigint, `third_tag_id_id` bigint, `latitude` float NOT NULL, `longitude` float NOT NULL, `image` text, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL,  INDEX `index_soco_posts_on_first_tag_id_id`  (`first_tag_id_id`),  INDEX `index_soco_posts_on_second_tag_id_id`  (`second_tag_id_id`),  INDEX `index_soco_posts_on_third_tag_id_id`  (`third_tag_id_id`)) ENGINE=InnoDB[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (3.6ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180527032055')[0m
+  [1m[35m (7.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (4.4ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT RELEASE_LOCK('1476257559208671855')[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (6.9ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT GET_LOCK('1476257559208671855', 0)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateSocoTags (20180527043516)
+  [1m[35m (96.1ms)[0m  [1m[35mCREATE TABLE `soco_tags` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `tag_name` varchar(255) NOT NULL, `latitude` float NOT NULL, `longitude` float NOT NULL, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (1.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180527043516')[0m
+  [1m[35m (7.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK('1476257559208671855')[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
