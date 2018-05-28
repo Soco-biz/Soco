@@ -1508,3 +1508,1121 @@ Migrating to RenameTagNameColumsToSocoPosts (20180527054646)
   [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.4ms)[0m  [1m[34mSELECT RELEASE_LOCK('1476257559208671855')[0m
   [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Started GET "/soco_posts/index?latitude=35.641927&longitude=139.408568" for 172.21.0.1 at 2018-05-27 08:05:21 +0000
+  [1m[35m (0.8ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by SocoPostsController#index as */*
+  Parameters: {"latitude"=>"35.641927", "longitude"=>"139.408568"}
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: soco_posts):
+  
+app/controllers/soco_posts_controller.rb:16:in `soco_posts_params'
+Started GET "/soco_posts/index?latitude=35.641927&longitude=139.408568" for 172.21.0.1 at 2018-05-27 08:06:23 +0000
+  [1m[35m (0.7ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+Processing by SocoPostsController#index as */*
+  Parameters: {"latitude"=>"35.641927", "longitude"=>"139.408568"}
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: soco_posts):
+  
+app/controllers/soco_posts_controller.rb:16:in `soco_posts_params'
+Started GET "/rooms/index?latitude=null&longitude=null" for 172.21.0.1 at 2018-05-27 08:08:29 +0000
+Processing by RoomsController#index as */*
+  Parameters: {"latitude"=>"null", "longitude"=>"null"}
+  Rendering rooms/index.json.jbuilder
+  Rendered rooms/index.json.jbuilder (31.8ms)
+Filter chain halted as :take_location rendered or redirected
+Completed 404 Not Found in 85ms (Views: 82.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/soco_posts/index?latitude=35.641927&longitude=139.408568" for 172.21.0.1 at 2018-05-27 08:11:07 +0000
+Processing by SocoPostsController#index as */*
+  Parameters: {"latitude"=>"35.641927", "longitude"=>"139.408568"}
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: soco_posts):
+  
+app/controllers/soco_posts_controller.rb:16:in `soco_posts_params'
+Started GET "/soco_posts/index?latitude=35.641927&longitude=139.408568" for 172.21.0.1 at 2018-05-27 08:11:11 +0000
+Processing by SocoPostsController#index as */*
+  Parameters: {"latitude"=>"35.641927", "longitude"=>"139.408568"}
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: soco_posts):
+  
+app/controllers/soco_posts_controller.rb:16:in `soco_posts_params'
+Started GET "/soco_posts/index?latitude=35.641927&longitude=139.408568" for 172.21.0.1 at 2018-05-27 08:11:26 +0000
+Processing by SocoPostsController#index as */*
+  Parameters: {"latitude"=>"35.641927", "longitude"=>"139.408568"}
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: soco_posts):
+  
+app/controllers/soco_posts_controller.rb:16:in `soco_posts_params'
+Started GET "/soco_posts/index?latitude=35.641927&longitude=139.408568" for 172.21.0.1 at 2018-05-27 08:14:36 +0000
+Processing by SocoPostsController#index as */*
+  Parameters: {"latitude"=>"35.641927", "longitude"=>"139.408568"}
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: soco_posts):
+  
+app/controllers/soco_posts_controller.rb:16:in `soco_posts_params'
+Started GET "/soco_posts/index?latitude=35.641927&longitude=139.408568" for 172.21.0.1 at 2018-05-27 08:14:45 +0000
+Processing by SocoPostsController#index as */*
+  Parameters: {"latitude"=>"35.641927", "longitude"=>"139.408568"}
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: soco_posts):
+  
+app/controllers/soco_posts_controller.rb:16:in `soco_posts_params'
+Started GET "/soco_posts/index?latitude=35.641927&longitude=139.408568" for 172.21.0.1 at 2018-05-27 08:16:07 +0000
+  
+SyntaxError (/var/www/html/SocoAPI/app/controllers/soco_posts_controller.rb:28: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/controllers/soco_posts_controller.rb:28: syntax error, unexpected end-of-input, expecting keyword_end
+Started GET "/soco_posts/index?latitude=35.641927&longitude=139.408568" for 172.21.0.1 at 2018-05-27 08:16:22 +0000
+Processing by SocoPostsController#index as */*
+  Parameters: {"latitude"=>"35.641927", "longitude"=>"139.408568"}
+  Rendering soco_posts/index.json.jbuilder
+  Rendered soco_posts/index.json.jbuilder (1.0ms)
+Completed 200 OK in 494ms (Views: 200.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/soco_posts/index?latitude=35.641927&longitude=139.408568" for 172.21.0.1 at 2018-05-27 08:16:32 +0000
+Processing by SocoPostsController#index as */*
+  Parameters: {"latitude"=>"35.641927", "longitude"=>"139.408568"}
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: soco_posts):
+  
+app/controllers/soco_posts_controller.rb:16:in `soco_posts_params'
+Started GET "/soco_posts/index?latitude=35.641927&longitude=139.408568" for 172.21.0.1 at 2018-05-27 08:16:46 +0000
+Processing by SocoPostsController#index as */*
+  Parameters: {"latitude"=>"35.641927", "longitude"=>"139.408568"}
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: soco_posts):
+  
+app/controllers/soco_posts_controller.rb:16:in `soco_posts_params'
+Started GET "/soco_posts/index?latitude=35.641927&longitude=139.408568" for 172.21.0.1 at 2018-05-27 08:17:07 +0000
+Processing by SocoPostsController#index as */*
+  Parameters: {"latitude"=>"35.641927", "longitude"=>"139.408568"}
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: soco_post):
+  
+app/controllers/soco_posts_controller.rb:16:in `soco_posts_params'
+Started GET "/soco_posts/index?latitude=35.641927&longitude=139.408568" for 172.21.0.1 at 2018-05-27 08:19:21 +0000
+Processing by SocoPostsController#index as */*
+  Parameters: {"latitude"=>"35.641927", "longitude"=>"139.408568"}
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: soco_post):
+  
+app/controllers/soco_posts_controller.rb:16:in `soco_posts_params'
+Started GET "/soco_posts/index?latitude=35.641927&longitude=139.408568" for 172.21.0.1 at 2018-05-27 08:19:39 +0000
+Processing by SocoPostsController#index as */*
+  Parameters: {"latitude"=>"35.641927", "longitude"=>"139.408568"}
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: soco_post):
+  
+app/controllers/soco_posts_controller.rb:16:in `soco_posts_params'
+Started GET "/soco_posts/index?latitude=35.641927&longitude=139.408568" for 172.21.0.1 at 2018-05-27 08:19:47 +0000
+Processing by SocoPostsController#index as */*
+  Parameters: {"latitude"=>"35.641927", "longitude"=>"139.408568"}
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: soco_post):
+  
+app/controllers/soco_posts_controller.rb:16:in `soco_posts_params'
+Started GET "/soco_posts/index?latitude=35.641927&longitude=139.408568" for 172.21.0.1 at 2018-05-27 08:20:17 +0000
+Processing by SocoPostsController#index as */*
+  Parameters: {"latitude"=>"35.641927", "longitude"=>"139.408568"}
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: soco_post):
+  
+app/controllers/soco_posts_controller.rb:16:in `soco_posts_params'
+Started GET "/soco_posts/index?latitude=35.641927&longitude=139.408568" for 172.21.0.1 at 2018-05-27 08:20:27 +0000
+Processing by SocoPostsController#index as */*
+  Parameters: {"latitude"=>"35.641927", "longitude"=>"139.408568"}
+  Rendering soco_posts/index.json.jbuilder
+  Rendered soco_posts/index.json.jbuilder (1.1ms)
+Completed 200 OK in 338ms (Views: 140.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/soco_posts/index?latitude=35.641927&longitude=139.408568" for 172.21.0.1 at 2018-05-27 08:20:41 +0000
+Processing by SocoPostsController#index as */*
+  Parameters: {"latitude"=>"35.641927", "longitude"=>"139.408568"}
+  Rendering soco_posts/index.json.jbuilder
+  Rendered soco_posts/index.json.jbuilder (1.0ms)
+Completed 200 OK in 280ms (Views: 127.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/soco_posts/index?latitude=35.641927&longitude=139.408568" for 172.21.0.1 at 2018-05-27 08:23:19 +0000
+Processing by SocoPostsController#index as */*
+  Parameters: {"latitude"=>"35.641927", "longitude"=>"139.408568"}
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: soco_posts):
+  
+app/controllers/soco_posts_controller.rb:16:in `soco_posts_params'
+Started GET "/soco_posts/index?latitude=35.641927&longitude=139.408568" for 172.21.0.1 at 2018-05-27 08:28:15 +0000
+Processing by SocoPostsController#index as */*
+  Parameters: {"latitude"=>"35.641927", "longitude"=>"139.408568"}
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: soco_postss):
+  
+app/controllers/soco_posts_controller.rb:16:in `soco_posts_params'
+Started GET "/soco_posts/index?latitude=35.641927&longitude=139.408568" for 172.21.0.1 at 2018-05-27 08:28:20 +0000
+Processing by SocoPostsController#index as */*
+  Parameters: {"latitude"=>"35.641927", "longitude"=>"139.408568"}
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: soco_posts):
+  
+app/controllers/soco_posts_controller.rb:16:in `soco_posts_params'
+Started GET "/soco_posts/index?latitude=35.641927&longitude=139.408568" for 172.21.0.1 at 2018-05-27 08:28:25 +0000
+Processing by SocoPostsController#index as */*
+  Parameters: {"latitude"=>"35.641927", "longitude"=>"139.408568"}
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: soco_post):
+  
+app/controllers/soco_posts_controller.rb:16:in `soco_posts_params'
+Started GET "/soco_posts/index?latitude=35.641927&longitude=139.408568" for 172.21.0.1 at 2018-05-27 08:33:12 +0000
+Processing by SocoPostsController#index as */*
+  Parameters: {"latitude"=>"35.641927", "longitude"=>"139.408568"}
+  Rendering soco_posts/index.json.jbuilder
+  Rendered soco_posts/index.json.jbuilder (0.9ms)
+Completed 200 OK in 256ms (Views: 97.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/soco_posts/index?latitude=35.641927&longitude=139.408568" for 172.21.0.1 at 2018-05-27 08:35:49 +0000
+Processing by SocoPostsController#index as */*
+  Parameters: {"latitude"=>"35.641927", "longitude"=>"139.408568"}
+  Rendering soco_posts/index.json.jbuilder
+  Rendered soco_posts/index.json.jbuilder (1.2ms)
+Completed 200 OK in 274ms (Views: 153.9ms | ActiveRecord: 0.0ms)
+
+
+  [1m[35m (0.7ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mSocoPost Load (7.5ms)[0m  [1m[34mSELECT  `soco_posts`.* FROM `soco_posts` WHERE `soco_posts`.`id` = 1 LIMIT 1[0m
+  [1m[36mSocoPost Load (1.4ms)[0m  [1m[34mSELECT  `soco_posts`.* FROM `soco_posts` LIMIT 11[0m
+  [1m[36mSocoPost Load (2.3ms)[0m  [1m[34mSELECT  `soco_posts`.* FROM `soco_posts` LIMIT 11[0m
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (4.5ms)[0m  [1m[32mINSERT INTO `posts` (`contents`, `created_at`, `updated_at`, `rooms_id`) VALUES ('hoge', '2018-05-27 10:21:09', '2018-05-27 10:21:09', 1)[0m
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (16.4ms)[0m  [1m[32mINSERT INTO `posts` (`contents`, `created_at`, `updated_at`, `rooms_id`, `latitude`, `longitude`) VALUES ('hoge', '2018-05-27 10:22:21', '2018-05-27 10:22:21', 1, 35.641927, 139.408568)[0m
+  [1m[35m (12.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO `soco_tags` (`id`, `tag_name`, `latitude`, `longitude`, `created_at`, `updated_at`) VALUES (1, '中央大学', 35.641927, 139.408568, '2018-05-27 10:31:54', '2018-05-27 10:31:54')[0m
+  [1m[35m (20.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[36mSocoTag Load (0.9ms)[0m  [1m[34mSELECT  `soco_tags`.* FROM `soco_tags` LIMIT 11[0m
+  [1m[36mSocoPost Load (0.6ms)[0m  [1m[34mSELECT  `soco_posts`.* FROM `soco_posts` LIMIT 11[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[36mSocoPost Load (1.3ms)[0m  [1m[34mSELECT  `soco_posts`.* FROM `soco_posts` LIMIT 11[0m
+  [1m[36mSocoTag Load (0.7ms)[0m  [1m[34mSELECT  `soco_tags`.* FROM `soco_tags` LIMIT 11[0m
+  [1m[35m (3.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO `soco_tags` (`id`, `tag_name`, `latitude`, `longitude`, `created_at`, `updated_at`) VALUES (2, '文学部', 35.6419, 139.409, '2018-05-27 10:42:31', '2018-05-27 10:42:31')[0m
+  [1m[35m (7.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSocoTag Load (1.3ms)[0m  [1m[34mSELECT  `soco_tags`.* FROM `soco_tags` LIMIT 11[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO `soco_posts` (`id`, `contents`, `latitude`, `longitude`, `created_at`, `updated_at`) VALUES (1, 'テストデータです', 35.641927, 139.408568, '2018-05-27 10:51:40', '2018-05-27 10:51:40')[0m
+  [1m[35m (12.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO `soco_posts` (`id`, `contents`, `reply`, `latitude`, `longitude`, `created_at`, `updated_at`) VALUES (2, '1へのリプライです', 1, 35.641927, 139.408568, '2018-05-27 10:51:40', '2018-05-27 10:51:40')[0m
+  [1m[35m (15.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO `soco_posts` (`id`, `contents`, `first_tag_id`, `latitude`, `longitude`, `created_at`, `updated_at`) VALUES (3, 'first_tagまでです', 1, 35.641927, 139.408568, '2018-05-27 10:51:40', '2018-05-27 10:51:40')[0m
+  [1m[35m (8.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO `soco_posts` (`id`, `contents`, `first_tag_id`, `second_tag_id`, `latitude`, `longitude`, `created_at`, `updated_at`) VALUES (4, 'second_tagまでです', 1, 2, 35.641927, 139.408568, '2018-05-27 10:51:40', '2018-05-27 10:51:40')[0m
+  [1m[35m (8.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO `soco_posts` (`id`, `contents`, `first_tag_id`, `second_tag_id`, `third_tag_id`, `latitude`, `longitude`, `created_at`, `updated_at`) VALUES (5, 'third_tagまでです', 1, 2, 3, 35.641927, 139.408568, '2018-05-27 10:51:40', '2018-05-27 10:51:40')[0m
+  [1m[35m (8.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO `soco_posts` (`id`, `contents`, `reply`, `latitude`, `longitude`, `created_at`, `updated_at`) VALUES (6, '2へのリプライです', 2, 35.641927, 139.408568, '2018-05-27 10:51:40', '2018-05-27 10:51:40')[0m
+  [1m[35m (8.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (23.1ms)[0m  [1m[32mINSERT INTO `soco_posts` (`id`, `contents`, `latitude`, `longitude`, `created_at`, `updated_at`) VALUES (7, '緯度経度別のデータ', -1.0, -1.0, '2018-05-27 10:51:40', '2018-05-27 10:51:40')[0m
+  [1m[35m (8.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO `soco_posts` (`id`, `contents`, `latitude`, `longitude`, `created_at`, `updated_at`) VALUES (8, 'テストデータです', 35.641927, 139.408568, '2018-05-27 10:51:40', '2018-05-27 10:51:40')[0m
+  [1m[35m (8.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO `soco_posts` (`id`, `contents`, `latitude`, `longitude`, `created_at`, `updated_at`) VALUES (9, 'テストデータです', 35.641927, 139.408568, '2018-05-27 10:51:40', '2018-05-27 10:51:40')[0m
+  [1m[35m (8.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO `soco_posts` (`id`, `contents`, `latitude`, `longitude`, `created_at`, `updated_at`) VALUES (10, 'テストデータです', 35.641927, 139.408568, '2018-05-27 10:51:40', '2018-05-27 10:51:40')[0m
+  [1m[35m (8.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[36mSocoPost Load (0.9ms)[0m  [1m[34mSELECT  `soco_posts`.* FROM `soco_posts` LIMIT 11[0m
+Started GET "/soco_posts/index?latitude=35.641927&longitude=139.408568" for 172.21.0.1 at 2018-05-27 13:05:53 +0000
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by SocoPostsController#index as */*
+  Parameters: {"latitude"=>"35.641927", "longitude"=>"139.408568"}
+  Rendering soco_posts/index.json.jbuilder
+  [1m[36mSocoPost Load (31.9ms)[0m  [1m[34mSELECT `soco_posts`.`id`, `soco_posts`.`contents`, `soco_posts`.`reply`, `soco_posts`.`good`, `soco_posts`.`first_tag_id`, `soco_posts`.`second_tag_id`, `soco_posts`.`third_tag_id`, `soco_posts`.`image`, `soco_posts`.`updated_at` FROM `soco_posts` WHERE (soco_posts.latitude IS NOT NULL AND soco_posts.longitude IS NOT NULL) AND (soco_posts.latitude>35.627470014714646 AND soco_posts.latitude<35.65638398528536 AND soco_posts.longitude>139.39077860960796 AND soco_posts.longitude<139.426357390392) AND ((
+          (ACOS(least(1,COS(0.622068977905465)*COS(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*COS(RADIANS(soco_posts.longitude))+
+          COS(0.622068977905465)*SIN(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*SIN(RADIANS(soco_posts.longitude))+
+          SIN(0.622068977905465)*SIN(RADIANS(soco_posts.latitude))))*3963.1899999999996)
+          <= 1.0)) ORDER BY `soco_posts`.`updated_at` DESC[0m
+  Rendered soco_posts/index.json.jbuilder (86.5ms)
+Completed 200 OK in 363ms (Views: 161.7ms | ActiveRecord: 34.3ms)
+
+
+  [1m[35m (0.7ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[36mSocoTag Load (34.9ms)[0m  [1m[34mSELECT  `soco_tags`.* FROM `soco_tags` LIMIT 11[0m
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO `soco_tags` (`id`, `tag_name`, `latitude`, `longitude`, `created_at`, `updated_at`) VALUES (3, '3号館', 35.6419, 139.409, '2018-05-27 13:08:52', '2018-05-27 13:08:52')[0m
+  [1m[35m (11.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSocoTag Load (1.3ms)[0m  [1m[34mSELECT  `soco_tags`.* FROM `soco_tags` LIMIT 11[0m
+Started GET "/soco_posts/index?latitude=35.641927&longitude=139.408568" for 172.21.0.1 at 2018-05-27 13:17:00 +0000
+  [1m[35m (0.6ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by SocoPostsController#index as */*
+  Parameters: {"latitude"=>"35.641927", "longitude"=>"139.408568"}
+  Rendering soco_posts/index.json.jbuilder
+  [1m[36mSocoPost Load (0.8ms)[0m  [1m[34mSELECT  `soco_posts`.`id`, `soco_posts`.`contents`, `soco_posts`.`reply`, `soco_posts`.`good`, `soco_posts`.`first_tag_id`, `soco_posts`.`second_tag_id`, `soco_posts`.`third_tag_id`, `soco_posts`.`image`, `soco_posts`.`updated_at` FROM `soco_posts` WHERE (soco_posts.latitude IS NOT NULL AND soco_posts.longitude IS NOT NULL) AND (soco_posts.latitude>35.627470014714646 AND soco_posts.latitude<35.65638398528536 AND soco_posts.longitude>139.39077860960796 AND soco_posts.longitude<139.426357390392) AND ((
+          (ACOS(least(1,COS(0.622068977905465)*COS(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*COS(RADIANS(soco_posts.longitude))+
+          COS(0.622068977905465)*SIN(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*SIN(RADIANS(soco_posts.longitude))+
+          SIN(0.622068977905465)*SIN(RADIANS(soco_posts.latitude))))*3963.1899999999996)
+          <= 1.0)) ORDER BY `soco_posts`.`updated_at` DESC LIMIT 11[0m
+  Rendered soco_posts/index.json.jbuilder (185.1ms)
+Completed 500 Internal Server Error in 484ms (ActiveRecord: 3.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `soco_tag' for #<SocoPost::ActiveRecord_Relation:0x007fcba49e73a8>):
+    1: json.info @lounge.soco_tag.tag_name
+  
+app/views/soco_posts/index.json.jbuilder:1:in `_app_views_soco_posts_index_json_jbuilder___4057242252595512696_70256308464380'
+Started GET "/soco_posts/index?latitude=35.641927&longitude=139.408568" for 172.21.0.1 at 2018-05-27 13:17:08 +0000
+Processing by SocoPostsController#index as */*
+  Parameters: {"latitude"=>"35.641927", "longitude"=>"139.408568"}
+  Rendering soco_posts/index.json.jbuilder
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[36mSocoPost Load (1.7ms)[0m  [1m[34mSELECT  `soco_posts`.`id`, `soco_posts`.`contents`, `soco_posts`.`reply`, `soco_posts`.`good`, `soco_posts`.`first_tag_id`, `soco_posts`.`second_tag_id`, `soco_posts`.`third_tag_id`, `soco_posts`.`image`, `soco_posts`.`updated_at` FROM `soco_posts` WHERE (soco_posts.latitude IS NOT NULL AND soco_posts.longitude IS NOT NULL) AND (soco_posts.latitude>35.627470014714646 AND soco_posts.latitude<35.65638398528536 AND soco_posts.longitude>139.39077860960796 AND soco_posts.longitude<139.426357390392) AND ((
+          (ACOS(least(1,COS(0.622068977905465)*COS(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*COS(RADIANS(soco_posts.longitude))+
+          COS(0.622068977905465)*SIN(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*SIN(RADIANS(soco_posts.longitude))+
+          SIN(0.622068977905465)*SIN(RADIANS(soco_posts.latitude))))*3963.1899999999996)
+          <= 1.0)) ORDER BY `soco_posts`.`updated_at` DESC LIMIT 11[0m
+  Rendered soco_posts/index.json.jbuilder (155.9ms)
+Completed 500 Internal Server Error in 500ms (ActiveRecord: 2.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `soco_tags' for #<SocoPost::ActiveRecord_Relation:0x007fcba46d7be0>):
+    1: json.info @lounge.soco_tags.tag_name
+  
+app/views/soco_posts/index.json.jbuilder:1:in `_app_views_soco_posts_index_json_jbuilder___4057242252595512696_70256306859940'
+Started GET "/soco_posts/index?latitude=35.641927&longitude=139.408568" for 172.21.0.1 at 2018-05-27 13:22:18 +0000
+Processing by SocoPostsController#index as */*
+  Parameters: {"latitude"=>"35.641927", "longitude"=>"139.408568"}
+  Rendering soco_posts/index.json.jbuilder
+  [1m[36mSocoPost Load (0.8ms)[0m  [1m[34mSELECT `soco_posts`.`id`, `soco_posts`.`contents`, `soco_posts`.`reply`, `soco_posts`.`good`, `soco_posts`.`first_tag_id`, `soco_posts`.`second_tag_id`, `soco_posts`.`third_tag_id`, `soco_posts`.`image`, `soco_posts`.`updated_at` FROM `soco_posts` WHERE (soco_posts.latitude IS NOT NULL AND soco_posts.longitude IS NOT NULL) AND (soco_posts.latitude>35.627470014714646 AND soco_posts.latitude<35.65638398528536 AND soco_posts.longitude>139.39077860960796 AND soco_posts.longitude<139.426357390392) AND ((
+          (ACOS(least(1,COS(0.622068977905465)*COS(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*COS(RADIANS(soco_posts.longitude))+
+          COS(0.622068977905465)*SIN(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*SIN(RADIANS(soco_posts.longitude))+
+          SIN(0.622068977905465)*SIN(RADIANS(soco_posts.latitude))))*3963.1899999999996)
+          <= 1.0)) ORDER BY `soco_posts`.`updated_at` DESC[0m
+  Rendered soco_posts/index.json.jbuilder (27.8ms)
+Completed 200 OK in 347ms (Views: 174.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/soco_posts/index?latitude=35.641927&longitude=139.408568" for 172.21.0.1 at 2018-05-27 13:24:22 +0000
+Processing by SocoPostsController#index as */*
+  Parameters: {"latitude"=>"35.641927", "longitude"=>"139.408568"}
+  Rendering soco_posts/index.json.jbuilder
+  Rendered soco_posts/index.json.jbuilder (1.2ms)
+Completed 500 Internal Server Error in 311ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/var/www/html/SocoAPI/app/views/soco_posts/index.json.jbuilder:8: syntax error, unexpected keyword_ensure, expecting end-of-input
+          ensure
+                ^):
+  
+app/views/soco_posts/index.json.jbuilder:8: syntax error, unexpected keyword_ensure, expecting end-of-input
+Started GET "/soco_posts/index?latitude=35.641927&longitude=139.408568" for 172.21.0.1 at 2018-05-27 13:24:33 +0000
+Processing by SocoPostsController#index as */*
+  Parameters: {"latitude"=>"35.641927", "longitude"=>"139.408568"}
+  Rendering soco_posts/index.json.jbuilder
+  [1m[36mSocoPost Load (1.1ms)[0m  [1m[34mSELECT `soco_posts`.`id`, `soco_posts`.`contents`, `soco_posts`.`reply`, `soco_posts`.`good`, `soco_posts`.`first_tag_id`, `soco_posts`.`second_tag_id`, `soco_posts`.`third_tag_id`, `soco_posts`.`image`, `soco_posts`.`updated_at` FROM `soco_posts` WHERE (soco_posts.latitude IS NOT NULL AND soco_posts.longitude IS NOT NULL) AND (soco_posts.latitude>35.627470014714646 AND soco_posts.latitude<35.65638398528536 AND soco_posts.longitude>139.39077860960796 AND soco_posts.longitude<139.426357390392) AND ((
+          (ACOS(least(1,COS(0.622068977905465)*COS(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*COS(RADIANS(soco_posts.longitude))+
+          COS(0.622068977905465)*SIN(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*SIN(RADIANS(soco_posts.longitude))+
+          SIN(0.622068977905465)*SIN(RADIANS(soco_posts.latitude))))*3963.1899999999996)
+          <= 1.0)) ORDER BY `soco_posts`.`updated_at` DESC[0m
+  Rendered soco_posts/index.json.jbuilder (8.2ms)
+Completed 200 OK in 309ms (Views: 157.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/soco_posts/index?latitude=35.641927&longitude=139.408568" for 172.21.0.1 at 2018-05-27 13:27:19 +0000
+Processing by SocoPostsController#index as */*
+  Parameters: {"latitude"=>"35.641927", "longitude"=>"139.408568"}
+  [1m[36mSocoPost Load (3.3ms)[0m  [1m[34mSELECT  `soco_posts`.`id`, `soco_posts`.`contents`, `soco_posts`.`reply`, `soco_posts`.`good`, `soco_posts`.`first_tag_id`, `soco_posts`.`second_tag_id`, `soco_posts`.`third_tag_id`, `soco_posts`.`image`, `soco_posts`.`updated_at` FROM `soco_posts` WHERE (soco_posts.latitude IS NOT NULL AND soco_posts.longitude IS NOT NULL) AND (soco_posts.latitude>35.627470014714646 AND soco_posts.latitude<35.65638398528536 AND soco_posts.longitude>139.39077860960796 AND soco_posts.longitude<139.426357390392) AND ((
+          (ACOS(least(1,COS(0.622068977905465)*COS(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*COS(RADIANS(soco_posts.longitude))+
+          COS(0.622068977905465)*SIN(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*SIN(RADIANS(soco_posts.longitude))+
+          SIN(0.622068977905465)*SIN(RADIANS(soco_posts.latitude))))*3963.1899999999996)
+          <= 1.0)) AND `soco_posts`.`id` = 1 LIMIT 1[0m
+  Rendering soco_posts/index.json.jbuilder
+  Rendered soco_posts/index.json.jbuilder (2.2ms)
+Completed 200 OK in 374ms (Views: 127.8ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/soco_posts/index?latitude=35.641927&longitude=139.408568" for 172.21.0.1 at 2018-05-27 13:30:01 +0000
+Processing by SocoPostsController#index as */*
+  Parameters: {"latitude"=>"35.641927", "longitude"=>"139.408568"}
+  [1m[36mSocoPost Load (1.5ms)[0m  [1m[34mSELECT  `soco_posts`.`id`, `soco_posts`.`contents`, `soco_posts`.`reply`, `soco_posts`.`good`, `soco_posts`.`first_tag_id`, `soco_posts`.`second_tag_id`, `soco_posts`.`third_tag_id`, `soco_posts`.`image`, `soco_posts`.`updated_at` FROM `soco_posts` WHERE (soco_posts.latitude IS NOT NULL AND soco_posts.longitude IS NOT NULL) AND (soco_posts.latitude>35.627470014714646 AND soco_posts.latitude<35.65638398528536 AND soco_posts.longitude>139.39077860960796 AND soco_posts.longitude<139.426357390392) AND ((
+          (ACOS(least(1,COS(0.622068977905465)*COS(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*COS(RADIANS(soco_posts.longitude))+
+          COS(0.622068977905465)*SIN(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*SIN(RADIANS(soco_posts.longitude))+
+          SIN(0.622068977905465)*SIN(RADIANS(soco_posts.latitude))))*3963.1899999999996)
+          <= 1.0)) AND `soco_posts`.`id` = 1 LIMIT 1[0m
+  Rendering soco_posts/index.json.jbuilder
+  Rendered soco_posts/index.json.jbuilder (232.1ms)
+Completed 500 Internal Server Error in 555ms (ActiveRecord: 1.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `tag_name' for nil:NilClass):
+    1: json.info @lounge.soco_tag.tag_name
+  
+app/views/soco_posts/index.json.jbuilder:1:in `_app_views_soco_posts_index_json_jbuilder___4057242252595512696_70256309309880'
+Started GET "/soco_posts/index?latitude=35.641927&longitude=139.408568" for 172.21.0.1 at 2018-05-27 13:30:18 +0000
+Processing by SocoPostsController#index as */*
+  Parameters: {"latitude"=>"35.641927", "longitude"=>"139.408568"}
+  [1m[36mSocoPost Load (1.3ms)[0m  [1m[34mSELECT  `soco_posts`.`id`, `soco_posts`.`contents`, `soco_posts`.`reply`, `soco_posts`.`good`, `soco_posts`.`first_tag_id`, `soco_posts`.`second_tag_id`, `soco_posts`.`third_tag_id`, `soco_posts`.`image`, `soco_posts`.`updated_at` FROM `soco_posts` WHERE (soco_posts.latitude IS NOT NULL AND soco_posts.longitude IS NOT NULL) AND (soco_posts.latitude>35.627470014714646 AND soco_posts.latitude<35.65638398528536 AND soco_posts.longitude>139.39077860960796 AND soco_posts.longitude<139.426357390392) AND ((
+          (ACOS(least(1,COS(0.622068977905465)*COS(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*COS(RADIANS(soco_posts.longitude))+
+          COS(0.622068977905465)*SIN(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*SIN(RADIANS(soco_posts.longitude))+
+          SIN(0.622068977905465)*SIN(RADIANS(soco_posts.latitude))))*3963.1899999999996)
+          <= 1.0)) AND `soco_posts`.`id` = 1 LIMIT 1[0m
+  Rendering soco_posts/index.json.jbuilder
+  Rendered soco_posts/index.json.jbuilder (1.7ms)
+Completed 200 OK in 265ms (Views: 138.9ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/soco_posts/index?latitude=35.641927&longitude=139.408568" for 172.21.0.1 at 2018-05-27 13:30:42 +0000
+Processing by SocoPostsController#index as */*
+  Parameters: {"latitude"=>"35.641927", "longitude"=>"139.408568"}
+  [1m[36mSocoPost Load (0.7ms)[0m  [1m[34mSELECT  `soco_posts`.`id`, `soco_posts`.`contents`, `soco_posts`.`reply`, `soco_posts`.`good`, `soco_posts`.`first_tag_id`, `soco_posts`.`second_tag_id`, `soco_posts`.`third_tag_id`, `soco_posts`.`image`, `soco_posts`.`updated_at` FROM `soco_posts` WHERE (soco_posts.latitude IS NOT NULL AND soco_posts.longitude IS NOT NULL) AND (soco_posts.latitude>35.627470014714646 AND soco_posts.latitude<35.65638398528536 AND soco_posts.longitude>139.39077860960796 AND soco_posts.longitude<139.426357390392) AND ((
+          (ACOS(least(1,COS(0.622068977905465)*COS(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*COS(RADIANS(soco_posts.longitude))+
+          COS(0.622068977905465)*SIN(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*SIN(RADIANS(soco_posts.longitude))+
+          SIN(0.622068977905465)*SIN(RADIANS(soco_posts.latitude))))*3963.1899999999996)
+          <= 1.0)) AND `soco_posts`.`id` = 1 LIMIT 1[0m
+  Rendering soco_posts/index.json.jbuilder
+  Rendered soco_posts/index.json.jbuilder (120.7ms)
+Completed 500 Internal Server Error in 387ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionView::Template::Error (undefined method `tag_name' for nil:NilClass):
+    1: json.info @lounge.soco_tag.tag_name
+  
+app/views/soco_posts/index.json.jbuilder:1:in `_app_views_soco_posts_index_json_jbuilder___4057242252595512696_70256305480980'
+Started GET "/soco_posts/index?latitude=35.641927&longitude=139.408568" for 172.21.0.1 at 2018-05-27 13:31:52 +0000
+Processing by SocoPostsController#index as */*
+  Parameters: {"latitude"=>"35.641927", "longitude"=>"139.408568"}
+  [1m[36mSocoPost Load (1.0ms)[0m  [1m[34mSELECT  `soco_posts`.`id`, `soco_posts`.`contents`, `soco_posts`.`reply`, `soco_posts`.`good`, `soco_posts`.`first_tag_id`, `soco_posts`.`second_tag_id`, `soco_posts`.`third_tag_id`, `soco_posts`.`image`, `soco_posts`.`updated_at` FROM `soco_posts` WHERE (soco_posts.latitude IS NOT NULL AND soco_posts.longitude IS NOT NULL) AND (soco_posts.latitude>35.627470014714646 AND soco_posts.latitude<35.65638398528536 AND soco_posts.longitude>139.39077860960796 AND soco_posts.longitude<139.426357390392) AND ((
+          (ACOS(least(1,COS(0.622068977905465)*COS(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*COS(RADIANS(soco_posts.longitude))+
+          COS(0.622068977905465)*SIN(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*SIN(RADIANS(soco_posts.longitude))+
+          SIN(0.622068977905465)*SIN(RADIANS(soco_posts.latitude))))*3963.1899999999996)
+          <= 1.0)) AND `soco_posts`.`id` = 1 LIMIT 1[0m
+  Rendering soco_posts/index.json.jbuilder
+  Rendered soco_posts/index.json.jbuilder (121.7ms)
+Completed 500 Internal Server Error in 425ms (ActiveRecord: 1.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `soco_tag' for :first_tag:Symbol):
+    1: json.info @lounge, :first_tag.soco_tag
+  
+app/views/soco_posts/index.json.jbuilder:1:in `_app_views_soco_posts_index_json_jbuilder___4057242252595512696_70256307814800'
+Started GET "/soco_posts/index?latitude=35.641927&longitude=139.408568" for 172.21.0.1 at 2018-05-27 13:32:00 +0000
+Processing by SocoPostsController#index as */*
+  Parameters: {"latitude"=>"35.641927", "longitude"=>"139.408568"}
+  [1m[36mSocoPost Load (0.7ms)[0m  [1m[34mSELECT  `soco_posts`.`id`, `soco_posts`.`contents`, `soco_posts`.`reply`, `soco_posts`.`good`, `soco_posts`.`first_tag_id`, `soco_posts`.`second_tag_id`, `soco_posts`.`third_tag_id`, `soco_posts`.`image`, `soco_posts`.`updated_at` FROM `soco_posts` WHERE (soco_posts.latitude IS NOT NULL AND soco_posts.longitude IS NOT NULL) AND (soco_posts.latitude>35.627470014714646 AND soco_posts.latitude<35.65638398528536 AND soco_posts.longitude>139.39077860960796 AND soco_posts.longitude<139.426357390392) AND ((
+          (ACOS(least(1,COS(0.622068977905465)*COS(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*COS(RADIANS(soco_posts.longitude))+
+          COS(0.622068977905465)*SIN(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*SIN(RADIANS(soco_posts.longitude))+
+          SIN(0.622068977905465)*SIN(RADIANS(soco_posts.latitude))))*3963.1899999999996)
+          <= 1.0)) AND `soco_posts`.`id` = 1 LIMIT 1[0m
+  Rendering soco_posts/index.json.jbuilder
+  Rendered soco_posts/index.json.jbuilder (134.4ms)
+Completed 500 Internal Server Error in 490ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionView::Template::Error (undefined method `first_tag' for #<SocoPost:0x00000003366840>):
+    1: json.info @lounge, :first_tag
+  
+app/views/soco_posts/index.json.jbuilder:1:in `_app_views_soco_posts_index_json_jbuilder___4057242252595512696_26920220'
+Started GET "/soco_posts/index?latitude=35.641927&longitude=139.408568" for 172.21.0.1 at 2018-05-27 13:32:09 +0000
+Processing by SocoPostsController#index as */*
+  Parameters: {"latitude"=>"35.641927", "longitude"=>"139.408568"}
+  [1m[36mSocoPost Load (0.7ms)[0m  [1m[34mSELECT  `soco_posts`.`id`, `soco_posts`.`contents`, `soco_posts`.`reply`, `soco_posts`.`good`, `soco_posts`.`first_tag_id`, `soco_posts`.`second_tag_id`, `soco_posts`.`third_tag_id`, `soco_posts`.`image`, `soco_posts`.`updated_at` FROM `soco_posts` WHERE (soco_posts.latitude IS NOT NULL AND soco_posts.longitude IS NOT NULL) AND (soco_posts.latitude>35.627470014714646 AND soco_posts.latitude<35.65638398528536 AND soco_posts.longitude>139.39077860960796 AND soco_posts.longitude<139.426357390392) AND ((
+          (ACOS(least(1,COS(0.622068977905465)*COS(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*COS(RADIANS(soco_posts.longitude))+
+          COS(0.622068977905465)*SIN(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*SIN(RADIANS(soco_posts.longitude))+
+          SIN(0.622068977905465)*SIN(RADIANS(soco_posts.latitude))))*3963.1899999999996)
+          <= 1.0)) AND `soco_posts`.`id` = 1 LIMIT 1[0m
+  Rendering soco_posts/index.json.jbuilder
+  Rendered soco_posts/index.json.jbuilder (0.5ms)
+Completed 200 OK in 273ms (Views: 146.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/soco_posts/index?latitude=35.641927&longitude=139.408568" for 172.21.0.1 at 2018-05-27 13:32:22 +0000
+Processing by SocoPostsController#index as */*
+  Parameters: {"latitude"=>"35.641927", "longitude"=>"139.408568"}
+  [1m[36mSocoPost Load (0.7ms)[0m  [1m[34mSELECT  `soco_posts`.`id`, `soco_posts`.`contents`, `soco_posts`.`reply`, `soco_posts`.`good`, `soco_posts`.`first_tag_id`, `soco_posts`.`second_tag_id`, `soco_posts`.`third_tag_id`, `soco_posts`.`image`, `soco_posts`.`updated_at` FROM `soco_posts` WHERE (soco_posts.latitude IS NOT NULL AND soco_posts.longitude IS NOT NULL) AND (soco_posts.latitude>35.627470014714646 AND soco_posts.latitude<35.65638398528536 AND soco_posts.longitude>139.39077860960796 AND soco_posts.longitude<139.426357390392) AND ((
+          (ACOS(least(1,COS(0.622068977905465)*COS(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*COS(RADIANS(soco_posts.longitude))+
+          COS(0.622068977905465)*SIN(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*SIN(RADIANS(soco_posts.longitude))+
+          SIN(0.622068977905465)*SIN(RADIANS(soco_posts.latitude))))*3963.1899999999996)
+          <= 1.0)) AND `soco_posts`.`id` = 1 LIMIT 1[0m
+  Rendering soco_posts/index.json.jbuilder
+  Rendered soco_posts/index.json.jbuilder (135.5ms)
+Completed 500 Internal Server Error in 439ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionView::Template::Error (undefined method `soco_tag' for :first_tag_id:Symbol):
+    1: json.info @lounge, :first_tag_id.soco_tag
+  
+app/views/soco_posts/index.json.jbuilder:1:in `_app_views_soco_posts_index_json_jbuilder___4057242252595512696_70256305925180'
+Started GET "/soco_posts/index?latitude=35.641927&longitude=139.408568" for 172.21.0.1 at 2018-05-27 13:34:38 +0000
+Processing by SocoPostsController#index as */*
+  Parameters: {"latitude"=>"35.641927", "longitude"=>"139.408568"}
+  [1m[36mSocoPost Load (0.7ms)[0m  [1m[34mSELECT  `soco_posts`.`id`, `soco_posts`.`contents`, `soco_posts`.`reply`, `soco_posts`.`good`, `soco_posts`.`first_tag_id`, `soco_posts`.`second_tag_id`, `soco_posts`.`third_tag_id`, `soco_posts`.`image`, `soco_posts`.`updated_at` FROM `soco_posts` WHERE (soco_posts.latitude IS NOT NULL AND soco_posts.longitude IS NOT NULL) AND (soco_posts.latitude>35.627470014714646 AND soco_posts.latitude<35.65638398528536 AND soco_posts.longitude>139.39077860960796 AND soco_posts.longitude<139.426357390392) AND ((
+          (ACOS(least(1,COS(0.622068977905465)*COS(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*COS(RADIANS(soco_posts.longitude))+
+          COS(0.622068977905465)*SIN(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*SIN(RADIANS(soco_posts.longitude))+
+          SIN(0.622068977905465)*SIN(RADIANS(soco_posts.latitude))))*3963.1899999999996)
+          <= 1.0)) AND `soco_posts`.`id` = 1 LIMIT 1[0m
+  Rendering soco_posts/index.json.jbuilder
+  Rendered soco_posts/index.json.jbuilder (0.6ms)
+Completed 200 OK in 333ms (Views: 102.7ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/soco_posts/index?latitude=35.641927&longitude=139.408568" for 172.21.0.1 at 2018-05-27 13:34:50 +0000
+Processing by SocoPostsController#index as */*
+  Parameters: {"latitude"=>"35.641927", "longitude"=>"139.408568"}
+  [1m[36mSocoPost Load (0.7ms)[0m  [1m[34mSELECT  `soco_posts`.`id`, `soco_posts`.`contents`, `soco_posts`.`reply`, `soco_posts`.`good`, `soco_posts`.`first_tag_id`, `soco_posts`.`second_tag_id`, `soco_posts`.`third_tag_id`, `soco_posts`.`image`, `soco_posts`.`updated_at` FROM `soco_posts` WHERE (soco_posts.latitude IS NOT NULL AND soco_posts.longitude IS NOT NULL) AND (soco_posts.latitude>35.627470014714646 AND soco_posts.latitude<35.65638398528536 AND soco_posts.longitude>139.39077860960796 AND soco_posts.longitude<139.426357390392) AND ((
+          (ACOS(least(1,COS(0.622068977905465)*COS(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*COS(RADIANS(soco_posts.longitude))+
+          COS(0.622068977905465)*SIN(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*SIN(RADIANS(soco_posts.longitude))+
+          SIN(0.622068977905465)*SIN(RADIANS(soco_posts.latitude))))*3963.1899999999996)
+          <= 1.0)) AND `soco_posts`.`id` = 1 LIMIT 1[0m
+  Rendering soco_posts/index.json.jbuilder
+  Rendered soco_posts/index.json.jbuilder (0.5ms)
+Completed 200 OK in 337ms (Views: 152.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/soco_posts/index?latitude=35.641927&longitude=139.408568" for 172.21.0.1 at 2018-05-27 13:35:00 +0000
+Processing by SocoPostsController#index as */*
+  Parameters: {"latitude"=>"35.641927", "longitude"=>"139.408568"}
+  [1m[36mSocoPost Load (0.8ms)[0m  [1m[34mSELECT  `soco_posts`.`id`, `soco_posts`.`contents`, `soco_posts`.`reply`, `soco_posts`.`good`, `soco_posts`.`first_tag_id`, `soco_posts`.`second_tag_id`, `soco_posts`.`third_tag_id`, `soco_posts`.`image`, `soco_posts`.`updated_at` FROM `soco_posts` WHERE (soco_posts.latitude IS NOT NULL AND soco_posts.longitude IS NOT NULL) AND (soco_posts.latitude>35.627470014714646 AND soco_posts.latitude<35.65638398528536 AND soco_posts.longitude>139.39077860960796 AND soco_posts.longitude<139.426357390392) AND ((
+          (ACOS(least(1,COS(0.622068977905465)*COS(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*COS(RADIANS(soco_posts.longitude))+
+          COS(0.622068977905465)*SIN(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*SIN(RADIANS(soco_posts.longitude))+
+          SIN(0.622068977905465)*SIN(RADIANS(soco_posts.latitude))))*3963.1899999999996)
+          <= 1.0)) AND `soco_posts`.`id` = 3 LIMIT 1[0m
+  Rendering soco_posts/index.json.jbuilder
+  Rendered soco_posts/index.json.jbuilder (1.1ms)
+Completed 200 OK in 310ms (Views: 110.2ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/soco_posts/index?latitude=35.641927&longitude=139.408568" for 172.21.0.1 at 2018-05-27 13:35:20 +0000
+Processing by SocoPostsController#index as */*
+  Parameters: {"latitude"=>"35.641927", "longitude"=>"139.408568"}
+  [1m[36mSocoPost Load (0.8ms)[0m  [1m[34mSELECT  `soco_posts`.`id`, `soco_posts`.`contents`, `soco_posts`.`reply`, `soco_posts`.`good`, `soco_posts`.`first_tag_id`, `soco_posts`.`second_tag_id`, `soco_posts`.`third_tag_id`, `soco_posts`.`image`, `soco_posts`.`updated_at` FROM `soco_posts` WHERE (soco_posts.latitude IS NOT NULL AND soco_posts.longitude IS NOT NULL) AND (soco_posts.latitude>35.627470014714646 AND soco_posts.latitude<35.65638398528536 AND soco_posts.longitude>139.39077860960796 AND soco_posts.longitude<139.426357390392) AND ((
+          (ACOS(least(1,COS(0.622068977905465)*COS(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*COS(RADIANS(soco_posts.longitude))+
+          COS(0.622068977905465)*SIN(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*SIN(RADIANS(soco_posts.longitude))+
+          SIN(0.622068977905465)*SIN(RADIANS(soco_posts.latitude))))*3963.1899999999996)
+          <= 1.0)) AND `soco_posts`.`id` = 3 LIMIT 1[0m
+  Rendering soco_posts/index.json.jbuilder
+  Rendered soco_posts/index.json.jbuilder (0.6ms)
+Completed 200 OK in 280ms (Views: 127.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/soco_posts/index?latitude=35.641927&longitude=139.408568" for 172.21.0.1 at 2018-05-27 13:35:31 +0000
+Processing by SocoPostsController#index as */*
+  Parameters: {"latitude"=>"35.641927", "longitude"=>"139.408568"}
+  [1m[36mSocoPost Load (1.8ms)[0m  [1m[34mSELECT  `soco_posts`.`id`, `soco_posts`.`contents`, `soco_posts`.`reply`, `soco_posts`.`good`, `soco_posts`.`first_tag_id`, `soco_posts`.`second_tag_id`, `soco_posts`.`third_tag_id`, `soco_posts`.`image`, `soco_posts`.`updated_at` FROM `soco_posts` WHERE (soco_posts.latitude IS NOT NULL AND soco_posts.longitude IS NOT NULL) AND (soco_posts.latitude>35.627470014714646 AND soco_posts.latitude<35.65638398528536 AND soco_posts.longitude>139.39077860960796 AND soco_posts.longitude<139.426357390392) AND ((
+          (ACOS(least(1,COS(0.622068977905465)*COS(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*COS(RADIANS(soco_posts.longitude))+
+          COS(0.622068977905465)*SIN(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*SIN(RADIANS(soco_posts.longitude))+
+          SIN(0.622068977905465)*SIN(RADIANS(soco_posts.latitude))))*3963.1899999999996)
+          <= 1.0)) AND `soco_posts`.`id` = 3 LIMIT 1[0m
+  Rendering soco_posts/index.json.jbuilder
+  Rendered soco_posts/index.json.jbuilder (1.7ms)
+Completed 200 OK in 244ms (Views: 120.6ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/soco_posts/index?latitude=35.641927&longitude=139.408568" for 172.21.0.1 at 2018-05-27 13:35:58 +0000
+Processing by SocoPostsController#index as */*
+  Parameters: {"latitude"=>"35.641927", "longitude"=>"139.408568"}
+  [1m[36mSocoPost Load (0.8ms)[0m  [1m[34mSELECT  `soco_posts`.`id`, `soco_posts`.`contents`, `soco_posts`.`reply`, `soco_posts`.`good`, `soco_posts`.`first_tag_id`, `soco_posts`.`second_tag_id`, `soco_posts`.`third_tag_id`, `soco_posts`.`image`, `soco_posts`.`updated_at` FROM `soco_posts` WHERE (soco_posts.latitude IS NOT NULL AND soco_posts.longitude IS NOT NULL) AND (soco_posts.latitude>35.627470014714646 AND soco_posts.latitude<35.65638398528536 AND soco_posts.longitude>139.39077860960796 AND soco_posts.longitude<139.426357390392) AND ((
+          (ACOS(least(1,COS(0.622068977905465)*COS(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*COS(RADIANS(soco_posts.longitude))+
+          COS(0.622068977905465)*SIN(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*SIN(RADIANS(soco_posts.longitude))+
+          SIN(0.622068977905465)*SIN(RADIANS(soco_posts.latitude))))*3963.1899999999996)
+          <= 1.0)) AND `soco_posts`.`id` = 3 LIMIT 1[0m
+  Rendering soco_posts/index.json.jbuilder
+  Rendered soco_posts/index.json.jbuilder (0.9ms)
+Completed 200 OK in 297ms (Views: 108.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/soco_posts/index?latitude=35.641927&longitude=139.408568" for 172.21.0.1 at 2018-05-27 13:36:04 +0000
+Processing by SocoPostsController#index as */*
+  Parameters: {"latitude"=>"35.641927", "longitude"=>"139.408568"}
+  [1m[36mSocoPost Load (1.1ms)[0m  [1m[34mSELECT  `soco_posts`.`id`, `soco_posts`.`contents`, `soco_posts`.`reply`, `soco_posts`.`good`, `soco_posts`.`first_tag_id`, `soco_posts`.`second_tag_id`, `soco_posts`.`third_tag_id`, `soco_posts`.`image`, `soco_posts`.`updated_at` FROM `soco_posts` WHERE (soco_posts.latitude IS NOT NULL AND soco_posts.longitude IS NOT NULL) AND (soco_posts.latitude>35.627470014714646 AND soco_posts.latitude<35.65638398528536 AND soco_posts.longitude>139.39077860960796 AND soco_posts.longitude<139.426357390392) AND ((
+          (ACOS(least(1,COS(0.622068977905465)*COS(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*COS(RADIANS(soco_posts.longitude))+
+          COS(0.622068977905465)*SIN(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*SIN(RADIANS(soco_posts.longitude))+
+          SIN(0.622068977905465)*SIN(RADIANS(soco_posts.latitude))))*3963.1899999999996)
+          <= 1.0)) AND `soco_posts`.`id` = 3 LIMIT 1[0m
+  Rendering soco_posts/index.json.jbuilder
+  Rendered soco_posts/index.json.jbuilder (0.8ms)
+Completed 200 OK in 266ms (Views: 110.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/soco_posts/index?latitude=35.641927&longitude=139.408568" for 172.21.0.1 at 2018-05-27 13:41:57 +0000
+Processing by SocoPostsController#index as */*
+  Parameters: {"latitude"=>"35.641927", "longitude"=>"139.408568"}
+  [1m[36mSocoPost Load (0.9ms)[0m  [1m[34mSELECT  `soco_posts`.`id`, `soco_posts`.`contents`, `soco_posts`.`reply`, `soco_posts`.`good`, `soco_posts`.`first_tag_id`, `soco_posts`.`second_tag_id`, `soco_posts`.`third_tag_id`, `soco_posts`.`image`, `soco_posts`.`updated_at` FROM `soco_posts` WHERE (soco_posts.latitude IS NOT NULL AND soco_posts.longitude IS NOT NULL) AND (soco_posts.latitude>35.627470014714646 AND soco_posts.latitude<35.65638398528536 AND soco_posts.longitude>139.39077860960796 AND soco_posts.longitude<139.426357390392) AND ((
+          (ACOS(least(1,COS(0.622068977905465)*COS(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*COS(RADIANS(soco_posts.longitude))+
+          COS(0.622068977905465)*SIN(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*SIN(RADIANS(soco_posts.longitude))+
+          SIN(0.622068977905465)*SIN(RADIANS(soco_posts.latitude))))*3963.1899999999996)
+          <= 1.0)) AND `soco_posts`.`id` = 3 LIMIT 1[0m
+  Rendering soco_posts/index.json.jbuilder
+  Rendered soco_posts/index.json.jbuilder (1.4ms)
+Completed 200 OK in 290ms (Views: 123.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/soco_posts/index?latitude=35.641927&longitude=139.408568" for 172.21.0.1 at 2018-05-27 13:42:21 +0000
+Processing by SocoPostsController#index as */*
+  Parameters: {"latitude"=>"35.641927", "longitude"=>"139.408568"}
+  [1m[36mSocoPost Load (0.7ms)[0m  [1m[34mSELECT  `soco_posts`.`id`, `soco_posts`.`contents`, `soco_posts`.`reply`, `soco_posts`.`good`, `soco_posts`.`first_tag_id`, `soco_posts`.`second_tag_id`, `soco_posts`.`third_tag_id`, `soco_posts`.`image`, `soco_posts`.`updated_at` FROM `soco_posts` WHERE (soco_posts.latitude IS NOT NULL AND soco_posts.longitude IS NOT NULL) AND (soco_posts.latitude>35.627470014714646 AND soco_posts.latitude<35.65638398528536 AND soco_posts.longitude>139.39077860960796 AND soco_posts.longitude<139.426357390392) AND ((
+          (ACOS(least(1,COS(0.622068977905465)*COS(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*COS(RADIANS(soco_posts.longitude))+
+          COS(0.622068977905465)*SIN(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*SIN(RADIANS(soco_posts.longitude))+
+          SIN(0.622068977905465)*SIN(RADIANS(soco_posts.latitude))))*3963.1899999999996)
+          <= 1.0)) AND `soco_posts`.`id` = 3 LIMIT 1[0m
+Completed 500 Internal Server Error in 63ms (ActiveRecord: 0.7ms)
+
+
+  
+NoMethodError (undefined method `soco_tag' for 1:Integer):
+  
+app/controllers/soco_posts_controller.rb:18:in `index'
+Started GET "/soco_posts/index?latitude=35.641927&longitude=139.408568" for 172.21.0.1 at 2018-05-27 13:45:53 +0000
+Processing by SocoPostsController#index as */*
+  Parameters: {"latitude"=>"35.641927", "longitude"=>"139.408568"}
+  [1m[36mSocoPost Load (0.6ms)[0m  [1m[34mSELECT  `soco_posts`.`first_tag_id` FROM `soco_posts` WHERE (soco_posts.latitude IS NOT NULL AND soco_posts.longitude IS NOT NULL) AND (soco_posts.latitude>35.627470014714646 AND soco_posts.latitude<35.65638398528536 AND soco_posts.longitude>139.39077860960796 AND soco_posts.longitude<139.426357390392) AND ((
+          (ACOS(least(1,COS(0.622068977905465)*COS(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*COS(RADIANS(soco_posts.longitude))+
+          COS(0.622068977905465)*SIN(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*SIN(RADIANS(soco_posts.longitude))+
+          SIN(0.622068977905465)*SIN(RADIANS(soco_posts.latitude))))*3963.1899999999996)
+          <= 1.0)) AND `soco_posts`.`id` = 3 LIMIT 1[0m
+  Rendering soco_posts/index.json.jbuilder
+  [1m[36mSocoTag Load (0.5ms)[0m  [1m[34mSELECT `soco_tags`.`tag_name` FROM `soco_tags` WHERE `soco_tags`.`id` IS NULL[0m
+  Rendered soco_posts/index.json.jbuilder (4.0ms)
+Completed 200 OK in 258ms (Views: 76.8ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/soco_posts/index?latitude=35.641927&longitude=139.408568" for 172.21.0.1 at 2018-05-27 13:46:06 +0000
+Processing by SocoPostsController#index as */*
+  Parameters: {"latitude"=>"35.641927", "longitude"=>"139.408568"}
+  [1m[36mSocoPost Load (0.8ms)[0m  [1m[34mSELECT  `soco_posts`.`first_tag_id` FROM `soco_posts` WHERE (soco_posts.latitude IS NOT NULL AND soco_posts.longitude IS NOT NULL) AND (soco_posts.latitude>35.627470014714646 AND soco_posts.latitude<35.65638398528536 AND soco_posts.longitude>139.39077860960796 AND soco_posts.longitude<139.426357390392) AND ((
+          (ACOS(least(1,COS(0.622068977905465)*COS(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*COS(RADIANS(soco_posts.longitude))+
+          COS(0.622068977905465)*SIN(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*SIN(RADIANS(soco_posts.longitude))+
+          SIN(0.622068977905465)*SIN(RADIANS(soco_posts.latitude))))*3963.1899999999996)
+          <= 1.0)) AND `soco_posts`.`id` = 3 LIMIT 1[0m
+  [1m[36mSocoPost Load (1.1ms)[0m  [1m[34mSELECT  `soco_posts`.`id`, `soco_posts`.`contents`, `soco_posts`.`reply`, `soco_posts`.`good`, `soco_posts`.`first_tag_id`, `soco_posts`.`second_tag_id`, `soco_posts`.`third_tag_id`, `soco_posts`.`image`, `soco_posts`.`updated_at` FROM `soco_posts` WHERE (soco_posts.latitude IS NOT NULL AND soco_posts.longitude IS NOT NULL) AND (soco_posts.latitude>35.627470014714646 AND soco_posts.latitude<35.65638398528536 AND soco_posts.longitude>139.39077860960796 AND soco_posts.longitude<139.426357390392) AND ((
+          (ACOS(least(1,COS(0.622068977905465)*COS(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*COS(RADIANS(soco_posts.longitude))+
+          COS(0.622068977905465)*SIN(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*SIN(RADIANS(soco_posts.longitude))+
+          SIN(0.622068977905465)*SIN(RADIANS(soco_posts.latitude))))*3963.1899999999996)
+          <= 1.0)) ORDER BY `soco_posts`.`updated_at` DESC LIMIT 11[0m
+Completed 500 Internal Server Error in 158ms (ActiveRecord: 0.8ms)
+
+
+  
+  [1m[36mCACHE SocoPost Load (0.0ms)[0m  [1m[34mSELECT  `soco_posts`.`id`, `soco_posts`.`contents`, `soco_posts`.`reply`, `soco_posts`.`good`, `soco_posts`.`first_tag_id`, `soco_posts`.`second_tag_id`, `soco_posts`.`third_tag_id`, `soco_posts`.`image`, `soco_posts`.`updated_at` FROM `soco_posts` WHERE (soco_posts.latitude IS NOT NULL AND soco_posts.longitude IS NOT NULL) AND (soco_posts.latitude>35.627470014714646 AND soco_posts.latitude<35.65638398528536 AND soco_posts.longitude>139.39077860960796 AND soco_posts.longitude<139.426357390392) AND ((
+          (ACOS(least(1,COS(0.622068977905465)*COS(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*COS(RADIANS(soco_posts.longitude))+
+          COS(0.622068977905465)*SIN(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*SIN(RADIANS(soco_posts.longitude))+
+          SIN(0.622068977905465)*SIN(RADIANS(soco_posts.latitude))))*3963.1899999999996)
+          <= 1.0)) ORDER BY `soco_posts`.`updated_at` DESC LIMIT 11[0m  [["LIMIT", 11]]
+NameError (undefined local variable or method `tag_id' for #<SocoPostsController:0x007fcba49019c0>):
+  
+app/controllers/soco_posts_controller.rb:18:in `index'
+  [1m[36mCACHE SocoPost Load (0.0ms)[0m  [1m[34mSELECT  `soco_posts`.`id`, `soco_posts`.`contents`, `soco_posts`.`reply`, `soco_posts`.`good`, `soco_posts`.`first_tag_id`, `soco_posts`.`second_tag_id`, `soco_posts`.`third_tag_id`, `soco_posts`.`image`, `soco_posts`.`updated_at` FROM `soco_posts` WHERE (soco_posts.latitude IS NOT NULL AND soco_posts.longitude IS NOT NULL) AND (soco_posts.latitude>35.627470014714646 AND soco_posts.latitude<35.65638398528536 AND soco_posts.longitude>139.39077860960796 AND soco_posts.longitude<139.426357390392) AND ((
+          (ACOS(least(1,COS(0.622068977905465)*COS(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*COS(RADIANS(soco_posts.longitude))+
+          COS(0.622068977905465)*SIN(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*SIN(RADIANS(soco_posts.longitude))+
+          SIN(0.622068977905465)*SIN(RADIANS(soco_posts.latitude))))*3963.1899999999996)
+          <= 1.0)) ORDER BY `soco_posts`.`updated_at` DESC LIMIT 11[0m  [["LIMIT", 11]]
+Started GET "/soco_posts/index?latitude=35.641927&longitude=139.408568" for 172.21.0.1 at 2018-05-27 13:46:50 +0000
+Processing by SocoPostsController#index as */*
+  Parameters: {"latitude"=>"35.641927", "longitude"=>"139.408568"}
+  [1m[36mSocoPost Load (0.7ms)[0m  [1m[34mSELECT  `soco_posts`.`first_tag_id` FROM `soco_posts` WHERE (soco_posts.latitude IS NOT NULL AND soco_posts.longitude IS NOT NULL) AND (soco_posts.latitude>35.627470014714646 AND soco_posts.latitude<35.65638398528536 AND soco_posts.longitude>139.39077860960796 AND soco_posts.longitude<139.426357390392) AND ((
+          (ACOS(least(1,COS(0.622068977905465)*COS(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*COS(RADIANS(soco_posts.longitude))+
+          COS(0.622068977905465)*SIN(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*SIN(RADIANS(soco_posts.longitude))+
+          SIN(0.622068977905465)*SIN(RADIANS(soco_posts.latitude))))*3963.1899999999996)
+          <= 1.0)) AND `soco_posts`.`id` = 3 LIMIT 1[0m
+  Rendering soco_posts/index.json.jbuilder
+  Rendered soco_posts/index.json.jbuilder (2.6ms)
+Completed 200 OK in 357ms (Views: 137.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/soco_posts/index?latitude=35.641927&longitude=139.408568" for 172.21.0.1 at 2018-05-27 13:49:22 +0000
+Processing by SocoPostsController#index as */*
+  Parameters: {"latitude"=>"35.641927", "longitude"=>"139.408568"}
+  [1m[36mSocoPost Load (1.9ms)[0m  [1m[34mSELECT  `soco_posts`.`first_tag_id` FROM `soco_posts` WHERE (soco_posts.latitude IS NOT NULL AND soco_posts.longitude IS NOT NULL) AND (soco_posts.latitude>35.627470014714646 AND soco_posts.latitude<35.65638398528536 AND soco_posts.longitude>139.39077860960796 AND soco_posts.longitude<139.426357390392) AND ((
+          (ACOS(least(1,COS(0.622068977905465)*COS(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*COS(RADIANS(soco_posts.longitude))+
+          COS(0.622068977905465)*SIN(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*SIN(RADIANS(soco_posts.longitude))+
+          SIN(0.622068977905465)*SIN(RADIANS(soco_posts.latitude))))*3963.1899999999996)
+          <= 1.0)) AND `soco_posts`.`id` = 3 LIMIT 1[0m
+  Rendering soco_posts/index.json.jbuilder
+  [1m[36mSocoTag Load (1.0ms)[0m  [1m[34mSELECT `soco_tags`.`tag_name` FROM `soco_tags` WHERE `soco_tags`.`id` IS NULL[0m
+  Rendered soco_posts/index.json.jbuilder (6.8ms)
+Completed 200 OK in 211ms (Views: 104.5ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/soco_posts/index?latitude=35.641927&longitude=139.408568" for 172.21.0.1 at 2018-05-27 13:49:30 +0000
+Processing by SocoPostsController#index as */*
+  Parameters: {"latitude"=>"35.641927", "longitude"=>"139.408568"}
+  [1m[36mSocoPost Load (0.6ms)[0m  [1m[34mSELECT  `soco_posts`.`first_tag_id` FROM `soco_posts` WHERE (soco_posts.latitude IS NOT NULL AND soco_posts.longitude IS NOT NULL) AND (soco_posts.latitude>35.627470014714646 AND soco_posts.latitude<35.65638398528536 AND soco_posts.longitude>139.39077860960796 AND soco_posts.longitude<139.426357390392) AND ((
+          (ACOS(least(1,COS(0.622068977905465)*COS(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*COS(RADIANS(soco_posts.longitude))+
+          COS(0.622068977905465)*SIN(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*SIN(RADIANS(soco_posts.longitude))+
+          SIN(0.622068977905465)*SIN(RADIANS(soco_posts.latitude))))*3963.1899999999996)
+          <= 1.0)) AND `soco_posts`.`id` = 3 LIMIT 1[0m
+  Rendering soco_posts/index.json.jbuilder
+  [1m[36mSocoTag Load (0.5ms)[0m  [1m[34mSELECT `soco_tags`.`tag_name` FROM `soco_tags` WHERE `soco_tags`.`id` = 1[0m
+  Rendered soco_posts/index.json.jbuilder (8.5ms)
+Completed 200 OK in 363ms (Views: 112.1ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/soco_posts/index?latitude=35.641927&longitude=139.408568" for 172.21.0.1 at 2018-05-27 13:49:45 +0000
+Processing by SocoPostsController#index as */*
+  Parameters: {"latitude"=>"35.641927", "longitude"=>"139.408568"}
+  [1m[36mSocoPost Load (0.7ms)[0m  [1m[34mSELECT  `soco_posts`.`first_tag_id` FROM `soco_posts` WHERE (soco_posts.latitude IS NOT NULL AND soco_posts.longitude IS NOT NULL) AND (soco_posts.latitude>35.627470014714646 AND soco_posts.latitude<35.65638398528536 AND soco_posts.longitude>139.39077860960796 AND soco_posts.longitude<139.426357390392) AND ((
+          (ACOS(least(1,COS(0.622068977905465)*COS(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*COS(RADIANS(soco_posts.longitude))+
+          COS(0.622068977905465)*SIN(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*SIN(RADIANS(soco_posts.longitude))+
+          SIN(0.622068977905465)*SIN(RADIANS(soco_posts.latitude))))*3963.1899999999996)
+          <= 1.0)) AND `soco_posts`.`id` = 3 LIMIT 1[0m
+  Rendering soco_posts/index.json.jbuilder
+  [1m[36mSocoTag Load (0.7ms)[0m  [1m[34mSELECT `soco_tags`.`tag_name` FROM `soco_tags` WHERE `soco_tags`.`id` IS NULL[0m
+  Rendered soco_posts/index.json.jbuilder (4.2ms)
+Completed 200 OK in 295ms (Views: 98.8ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/soco_posts/index?latitude=35.641927&longitude=139.408568" for 172.21.0.1 at 2018-05-27 13:50:11 +0000
+Processing by SocoPostsController#index as */*
+  Parameters: {"latitude"=>"35.641927", "longitude"=>"139.408568"}
+  [1m[36mSocoPost Load (0.7ms)[0m  [1m[34mSELECT  `soco_posts`.`first_tag_id` FROM `soco_posts` WHERE (soco_posts.latitude IS NOT NULL AND soco_posts.longitude IS NOT NULL) AND (soco_posts.latitude>35.627470014714646 AND soco_posts.latitude<35.65638398528536 AND soco_posts.longitude>139.39077860960796 AND soco_posts.longitude<139.426357390392) AND ((
+          (ACOS(least(1,COS(0.622068977905465)*COS(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*COS(RADIANS(soco_posts.longitude))+
+          COS(0.622068977905465)*SIN(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*SIN(RADIANS(soco_posts.longitude))+
+          SIN(0.622068977905465)*SIN(RADIANS(soco_posts.latitude))))*3963.1899999999996)
+          <= 1.0)) AND `soco_posts`.`id` = 3 LIMIT 1[0m
+  Rendering soco_posts/index.json.jbuilder
+  [1m[36mSocoTag Load (0.8ms)[0m  [1m[34mSELECT `soco_tags`.`tag_name` FROM `soco_tags` WHERE `soco_tags`.`id` IS NULL[0m
+  Rendered soco_posts/index.json.jbuilder (4.1ms)
+Completed 200 OK in 326ms (Views: 105.1ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/soco_posts/index?latitude=35.641927&longitude=139.408568" for 172.21.0.1 at 2018-05-27 13:53:37 +0000
+Processing by SocoPostsController#index as */*
+  Parameters: {"latitude"=>"35.641927", "longitude"=>"139.408568"}
+  [1m[36mSocoPost Load (0.8ms)[0m  [1m[34mSELECT  `soco_posts`.`first_tag_id` FROM `soco_posts` WHERE (soco_posts.latitude IS NOT NULL AND soco_posts.longitude IS NOT NULL) AND (soco_posts.latitude>35.627470014714646 AND soco_posts.latitude<35.65638398528536 AND soco_posts.longitude>139.39077860960796 AND soco_posts.longitude<139.426357390392) AND ((
+          (ACOS(least(1,COS(0.622068977905465)*COS(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*COS(RADIANS(soco_posts.longitude))+
+          COS(0.622068977905465)*SIN(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*SIN(RADIANS(soco_posts.longitude))+
+          SIN(0.622068977905465)*SIN(RADIANS(soco_posts.latitude))))*3963.1899999999996)
+          <= 1.0)) AND `soco_posts`.`id` = 3 LIMIT 1[0m
+  Rendering soco_posts/index.json.jbuilder
+  [1m[36mSocoTag Load (5.5ms)[0m  [1m[34mSELECT `soco_tags`.`tag_name` FROM `soco_tags` WHERE (id = NULL)[0m
+  Rendered soco_posts/index.json.jbuilder (10.0ms)
+Completed 200 OK in 360ms (Views: 156.0ms | ActiveRecord: 6.3ms)
+
+
+Started GET "/soco_posts/index?latitude=35.641927&longitude=139.408568" for 172.21.0.1 at 2018-05-27 13:53:46 +0000
+Processing by SocoPostsController#index as */*
+  Parameters: {"latitude"=>"35.641927", "longitude"=>"139.408568"}
+  [1m[36mSocoPost Load (1.2ms)[0m  [1m[34mSELECT  `soco_posts`.`first_tag_id` FROM `soco_posts` WHERE (soco_posts.latitude IS NOT NULL AND soco_posts.longitude IS NOT NULL) AND (soco_posts.latitude>35.627470014714646 AND soco_posts.latitude<35.65638398528536 AND soco_posts.longitude>139.39077860960796 AND soco_posts.longitude<139.426357390392) AND ((
+          (ACOS(least(1,COS(0.622068977905465)*COS(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*COS(RADIANS(soco_posts.longitude))+
+          COS(0.622068977905465)*SIN(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*SIN(RADIANS(soco_posts.longitude))+
+          SIN(0.622068977905465)*SIN(RADIANS(soco_posts.latitude))))*3963.1899999999996)
+          <= 1.0)) AND `soco_posts`.`id` = 3 LIMIT 1[0m
+  Rendering soco_posts/index.json.jbuilder
+  [1m[36mSocoTag Load (0.8ms)[0m  [1m[34mSELECT `soco_tags`.`tag_name` FROM `soco_tags` WHERE (id = 1)[0m
+  Rendered soco_posts/index.json.jbuilder (11.5ms)
+Completed 200 OK in 349ms (Views: 120.3ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/soco_posts/index?latitude=35.641927&longitude=139.408568" for 172.21.0.1 at 2018-05-27 14:00:33 +0000
+Processing by SocoPostsController#index as */*
+  Parameters: {"latitude"=>"35.641927", "longitude"=>"139.408568"}
+  Rendering soco_posts/index.json.jbuilder
+  Rendered soco_posts/index.json.jbuilder (0.5ms)
+Completed 200 OK in 337ms (Views: 154.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/soco_posts/index?latitude=35.641927&longitude=139.408568" for 172.21.0.1 at 2018-05-27 14:01:06 +0000
+Processing by SocoPostsController#index as */*
+  Parameters: {"latitude"=>"35.641927", "longitude"=>"139.408568"}
+  Rendering soco_posts/index.json.jbuilder
+  [1m[36mSocoPost Load (1.9ms)[0m  [1m[34mSELECT `soco_posts`.`id`, `soco_posts`.`contents`, `soco_posts`.`reply`, `soco_posts`.`good`, `soco_posts`.`first_tag_id`, `soco_posts`.`second_tag_id`, `soco_posts`.`third_tag_id`, `soco_posts`.`image`, `soco_posts`.`updated_at` FROM `soco_posts` WHERE (soco_posts.latitude IS NOT NULL AND soco_posts.longitude IS NOT NULL) AND (soco_posts.latitude>35.627470014714646 AND soco_posts.latitude<35.65638398528536 AND soco_posts.longitude>139.39077860960796 AND soco_posts.longitude<139.426357390392) AND ((
+          (ACOS(least(1,COS(0.622068977905465)*COS(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*COS(RADIANS(soco_posts.longitude))+
+          COS(0.622068977905465)*SIN(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*SIN(RADIANS(soco_posts.longitude))+
+          SIN(0.622068977905465)*SIN(RADIANS(soco_posts.latitude))))*3963.1899999999996)
+          <= 1.0)) ORDER BY `soco_posts`.`updated_at` DESC[0m
+  Rendered soco_posts/index.json.jbuilder (34.7ms)
+Completed 200 OK in 368ms (Views: 180.7ms | ActiveRecord: 8.3ms)
+
+
+Started GET "/soco_posts/index?latitude=35.641927&longitude=139.408568" for 172.21.0.1 at 2018-05-27 14:02:27 +0000
+Processing by SocoPostsController#index as */*
+  Parameters: {"latitude"=>"35.641927", "longitude"=>"139.408568"}
+  Rendering soco_posts/index.json.jbuilder
+  [1m[36mSocoPost Load (1.8ms)[0m  [1m[34mSELECT `soco_posts`.`id`, `soco_posts`.`contents`, `soco_posts`.`reply`, `soco_posts`.`good`, `soco_posts`.`first_tag_id`, `soco_posts`.`second_tag_id`, `soco_posts`.`third_tag_id`, `soco_posts`.`image`, `soco_posts`.`updated_at` FROM `soco_posts` WHERE (soco_posts.latitude IS NOT NULL AND soco_posts.longitude IS NOT NULL) AND (soco_posts.latitude>35.627470014714646 AND soco_posts.latitude<35.65638398528536 AND soco_posts.longitude>139.39077860960796 AND soco_posts.longitude<139.426357390392) AND ((
+          (ACOS(least(1,COS(0.622068977905465)*COS(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*COS(RADIANS(soco_posts.longitude))+
+          COS(0.622068977905465)*SIN(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*SIN(RADIANS(soco_posts.longitude))+
+          SIN(0.622068977905465)*SIN(RADIANS(soco_posts.latitude))))*3963.1899999999996)
+          <= 1.0)) ORDER BY `soco_posts`.`updated_at` DESC[0m
+  Rendered soco_posts/index.json.jbuilder (9.0ms)
+Completed 200 OK in 329ms (Views: 167.7ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/soco_posts/index?latitude=35.641927&longitude=139.408568" for 172.21.0.1 at 2018-05-27 14:02:36 +0000
+Processing by SocoPostsController#index as */*
+  Parameters: {"latitude"=>"35.641927", "longitude"=>"139.408568"}
+  Rendering soco_posts/index.json.jbuilder
+  Rendered soco_posts/index.json.jbuilder (0.6ms)
+Completed 200 OK in 285ms (Views: 151.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/soco_posts/index?latitude=35.641927&longitude=139.408568" for 172.21.0.1 at 2018-05-27 14:03:26 +0000
+Processing by SocoPostsController#index as */*
+  Parameters: {"latitude"=>"35.641927", "longitude"=>"139.408568"}
+  Rendering soco_posts/index.json.jbuilder
+  Rendered soco_posts/index.json.jbuilder (1.1ms)
+Completed 500 Internal Server Error in 324ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/var/www/html/SocoAPI/app/views/soco_posts/index.json.jbuilder:2: syntax error, unexpected keyword_do, expecting keyword_end
+  @lounge do |l|
+            ^
+/var/www/html/SocoAPI/app/views/soco_posts/index.json.jbuilder:5: syntax error, unexpected keyword_end, expecting end-of-input):
+  
+app/views/soco_posts/index.json.jbuilder:2: syntax error, unexpected keyword_do, expecting keyword_end
+app/views/soco_posts/index.json.jbuilder:5: syntax error, unexpected keyword_end, expecting end-of-input
+Started GET "/soco_posts/index?latitude=35.641927&longitude=139.408568" for 172.21.0.1 at 2018-05-27 14:05:05 +0000
+Processing by SocoPostsController#index as */*
+  Parameters: {"latitude"=>"35.641927", "longitude"=>"139.408568"}
+  Rendering soco_posts/index.json.jbuilder
+  Rendered soco_posts/index.json.jbuilder (1.4ms)
+Completed 200 OK in 360ms (Views: 179.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/soco_posts/index?latitude=35.641927&longitude=139.408568" for 172.21.0.1 at 2018-05-27 14:05:26 +0000
+Processing by SocoPostsController#index as */*
+  Parameters: {"latitude"=>"35.641927", "longitude"=>"139.408568"}
+  Rendering soco_posts/index.json.jbuilder
+  Rendered soco_posts/index.json.jbuilder (0.9ms)
+Completed 200 OK in 318ms (Views: 145.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/soco_posts/index?latitude=35.641927&longitude=139.408568" for 172.21.0.1 at 2018-05-27 14:05:49 +0000
+Processing by SocoPostsController#index as */*
+  Parameters: {"latitude"=>"35.641927", "longitude"=>"139.408568"}
+  Rendering soco_posts/index.json.jbuilder
+  [1m[36mSocoPost Load (1.5ms)[0m  [1m[34mSELECT `soco_posts`.`id`, `soco_posts`.`contents`, `soco_posts`.`reply`, `soco_posts`.`good`, `soco_posts`.`first_tag_id`, `soco_posts`.`second_tag_id`, `soco_posts`.`third_tag_id`, `soco_posts`.`image`, `soco_posts`.`updated_at` FROM `soco_posts` WHERE (soco_posts.latitude IS NOT NULL AND soco_posts.longitude IS NOT NULL) AND (soco_posts.latitude>35.627470014714646 AND soco_posts.latitude<35.65638398528536 AND soco_posts.longitude>139.39077860960796 AND soco_posts.longitude<139.426357390392) AND ((
+          (ACOS(least(1,COS(0.622068977905465)*COS(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*COS(RADIANS(soco_posts.longitude))+
+          COS(0.622068977905465)*SIN(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*SIN(RADIANS(soco_posts.longitude))+
+          SIN(0.622068977905465)*SIN(RADIANS(soco_posts.latitude))))*3963.1899999999996)
+          <= 1.0)) ORDER BY `soco_posts`.`updated_at` DESC[0m
+  Rendered soco_posts/index.json.jbuilder (8.9ms)
+Completed 200 OK in 390ms (Views: 148.9ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/soco_posts/index?latitude=35.641927&longitude=139.408568" for 172.21.0.1 at 2018-05-27 14:12:45 +0000
+Processing by SocoPostsController#index as */*
+  Parameters: {"latitude"=>"35.641927", "longitude"=>"139.408568"}
+  Rendering soco_posts/index.json.jbuilder
+  [1m[36mSocoPost Load (0.9ms)[0m  [1m[34mSELECT `soco_posts`.`id`, `soco_posts`.`contents`, `soco_posts`.`reply`, `soco_posts`.`good`, `soco_posts`.`first_tag_id`, `soco_posts`.`second_tag_id`, `soco_posts`.`third_tag_id`, `soco_posts`.`image`, `soco_posts`.`updated_at` FROM `soco_posts` WHERE (soco_posts.latitude IS NOT NULL AND soco_posts.longitude IS NOT NULL) AND (soco_posts.latitude>35.627470014714646 AND soco_posts.latitude<35.65638398528536 AND soco_posts.longitude>139.39077860960796 AND soco_posts.longitude<139.426357390392) AND ((
+          (ACOS(least(1,COS(0.622068977905465)*COS(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*COS(RADIANS(soco_posts.longitude))+
+          COS(0.622068977905465)*SIN(2.433138517090406)*COS(RADIANS(soco_posts.latitude))*SIN(RADIANS(soco_posts.longitude))+
+          SIN(0.622068977905465)*SIN(RADIANS(soco_posts.latitude))))*3963.1899999999996)
+          <= 1.0)) ORDER BY `soco_posts`.`updated_at` DESC[0m
+  Rendered soco_posts/index.json.jbuilder (21.6ms)
+Completed 200 OK in 335ms (Views: 154.6ms | ActiveRecord: 4.1ms)
+
+
+  [1m[35m (0.6ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (3.5ms)[0m  [1m[35mALTER TABLE tags MODIFY name varchar(255) CHARACTER SET utf8 COLLATE utf8_bin;[0m
+  [1m[35m (0.6ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT GET_LOCK('1476257559208671855', 0)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to ActsAsTaggableOnMigration (20180527154359)
+  [1m[35m (46.6ms)[0m  [1m[35mCREATE TABLE `tags` (`id` int NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255)) ENGINE=InnoDB[0m
+  [1m[35m (53.0ms)[0m  [1m[35mCREATE TABLE `taggings` (`id` int NOT NULL AUTO_INCREMENT PRIMARY KEY, `tag_id` int, `taggable_type` varchar(255), `taggable_id` int, `tagger_type` varchar(255), `tagger_id` int, `context` varchar(128), `created_at` datetime) ENGINE=InnoDB[0m
+  [1m[35m (47.3ms)[0m  [1m[35mCREATE  INDEX `index_taggings_on_tag_id`  ON `taggings` (`tag_id`) [0m
+  [1m[35m (32.3ms)[0m  [1m[35mCREATE  INDEX `index_taggings_on_taggable_id_and_taggable_type_and_context`  ON `taggings` (`taggable_id`, `taggable_type`, `context`) [0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180527154359')[0m
+  [1m[35m (5.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddMissingUniqueIndices (20180527154360)
+  [1m[35m (38.3ms)[0m  [1m[35mCREATE UNIQUE INDEX `index_tags_on_name`  ON `tags` (`name`) [0m
+  [1m[35m (27.0ms)[0m  [1m[35mDROP INDEX `index_taggings_on_tag_id` ON `taggings`[0m
+  [1m[35m (24.8ms)[0m  [1m[35mDROP INDEX `index_taggings_on_taggable_id_and_taggable_type_and_context` ON `taggings`[0m
+  [1m[35m (35.7ms)[0m  [1m[35mCREATE UNIQUE INDEX `taggings_idx`  ON `taggings` (`tag_id`, `taggable_id`, `taggable_type`, `context`, `tagger_id`, `tagger_type`) [0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180527154360')[0m
+  [1m[35m (7.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddTaggingsCounterCacheToTags (20180527154361)
+  [1m[35m (98.2ms)[0m  [1m[35mALTER TABLE `tags` ADD `taggings_count` int DEFAULT 0[0m
+  [1m[36mActsAsTaggableOn::Tag Load (0.8ms)[0m  [1m[34mSELECT  `tags`.* FROM `tags` ORDER BY `tags`.`id` ASC LIMIT 1000[0m
+  [1m[35m (1.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.2ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180527154361')[0m
+  [1m[35m (8.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddMissingTaggableIndex (20180527154362)
+  [1m[35m (37.5ms)[0m  [1m[35mCREATE  INDEX `index_taggings_on_taggable_id_and_taggable_type_and_context`  ON `taggings` (`taggable_id`, `taggable_type`, `context`) [0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180527154362')[0m
+  [1m[35m (7.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to ChangeCollationForTagNames (20180527154363)
+  [1m[35m (123.9ms)[0m  [1m[35mALTER TABLE tags MODIFY name varchar(255) CHARACTER SET utf8 COLLATE utf8_bin;[0m
+  [1m[35m (2.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180527154363')[0m
+  [1m[35m (7.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddMissingIndexesOnTaggings (20180527154364)
+  [1m[35m (47.9ms)[0m  [1m[35mCREATE  INDEX `index_taggings_on_tag_id`  ON `taggings` (`tag_id`) [0m
+  [1m[35m (42.0ms)[0m  [1m[35mCREATE  INDEX `index_taggings_on_taggable_id`  ON `taggings` (`taggable_id`) [0m
+  [1m[35m (40.1ms)[0m  [1m[35mCREATE  INDEX `index_taggings_on_taggable_type`  ON `taggings` (`taggable_type`) [0m
+  [1m[35m (45.5ms)[0m  [1m[35mCREATE  INDEX `index_taggings_on_tagger_id`  ON `taggings` (`tagger_id`) [0m
+  [1m[35m (59.6ms)[0m  [1m[35mCREATE  INDEX `index_taggings_on_context`  ON `taggings` (`context`) [0m
+  [1m[35m (40.9ms)[0m  [1m[35mCREATE  INDEX `index_taggings_on_tagger_id_and_tagger_type`  ON `taggings` (`tagger_id`, `tagger_type`) [0m
+  [1m[35m (33.4ms)[0m  [1m[35mCREATE  INDEX `taggings_idy`  ON `taggings` (`taggable_id`, `taggable_type`, `tagger_id`, `context`) [0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180527154364')[0m
+  [1m[35m (5.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT RELEASE_LOCK('1476257559208671855')[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT GET_LOCK('1476257559208671855', 0)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to RemoveSocoTags (20180527155858)
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT RELEASE_LOCK('1476257559208671855')[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT GET_LOCK('1476257559208671855', 0)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to RemoveSocoTags (20180527155858)
+  [1m[35m (28.5ms)[0m  [1m[35mDROP TABLE `soco_tags`[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180527155858')[0m
+  [1m[35m (7.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK('1476257559208671855')[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT GET_LOCK('1476257559208671855', 0)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to RomoveTagColumnsToSocoPosts (20180527161738)
+  [1m[35m (192.0ms)[0m  [1m[35mALTER TABLE `soco_posts` DROP `first_tag_id`[0m
+  [1m[35m (154.1ms)[0m  [1m[35mALTER TABLE `soco_posts` DROP `second_tag_id`[0m
+  [1m[35m (126.4ms)[0m  [1m[35mALTER TABLE `soco_posts` DROP `third_tag_id`[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180527161738')[0m
+  [1m[35m (5.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT RELEASE_LOCK('1476257559208671855')[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
