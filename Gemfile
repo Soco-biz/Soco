@@ -53,6 +53,9 @@ gem 'httpclient'
 # env
 gem 'dotenv-rails'
 
+# tag
+gem 'acts-as-taggable-on'
+
 # heroku用
 gem 'therubyracer', platforms: :ruby
 gem 'rails_12factor', group: :production
