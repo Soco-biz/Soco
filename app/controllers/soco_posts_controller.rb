@@ -27,12 +27,10 @@ class SocoPostsController < ApplicationController
       :contents,
       :reply,
       :good,
-      :first_tag_id,
-      :second_tag_id,
-      :third_tag_id,
       :latitude,
       :longitude,
-      :image
+      :image,
+      :tag_list
     )
   end
 end
