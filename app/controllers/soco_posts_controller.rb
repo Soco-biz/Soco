@@ -43,9 +43,9 @@ class SocoPostsController < ApplicationController
 
   def auto_reload
     last_id = params[:last_id].to_i + 1
-    @new_posts = Post.select(:id, :contents, :good, :bad, :image, :created_at)
-                      .where(rooms_id: 1, id: last_id...Float::INFINITY)
-                      .order(id: :asc)
+    @new_posts = SocoPost.within(1.0, origin: [@latitude, @longitude])
+                          .where(rooms_id: 1, id: last_id...Float::INFINITY)
+                          .order(id: :asc)
     render formats: 'json', status: :ok
   end
 
