@@ -1,5 +1,5 @@
 class SocoPostsController < ApplicationController
-  before_action :take_location, only: [:index, :create, :favorite]
+  before_action :take_location, only: [:index, :create, :favorite, :auto_reload]
 
   def index
     @lounge = SocoPost.within(1.0, origin: [@latitude, @longitude])
@@ -39,6 +39,14 @@ class SocoPostsController < ApplicationController
     else
       render formats: 'json', status: :not_acceptable
     end
+  end
+
+  def auto_reload
+    last_id = params[:last_id].to_i + 1
+    @new_posts = Post.select(:id, :contents, :good, :bad, :image, :created_at)
+                      .where(rooms_id: 1, id: last_id...Float::INFINITY)
+                      .order(id: :asc)
+    render formats: 'json', status: :ok
   end
 
   private
