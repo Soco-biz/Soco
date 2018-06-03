@@ -10,30 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180527161738) do
-
-  create_table "posts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "contents", null: false
-    t.integer "good", default: 0
-    t.integer "bad", default: 0
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "rooms_id"
-    t.float "latitude", limit: 24, null: false
-    t.float "longitude", limit: 24, null: false
-    t.text "image"
-    t.index ["rooms_id"], name: "index_posts_on_rooms_id"
-  end
-
-  create_table "rooms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "name", null: false
-    t.float "latitude", limit: 24, null: false
-    t.float "longitude", limit: 24, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.text "image"
-    t.string "description"
-  end
+ActiveRecord::Schema.define(version: 20180602132348) do
 
   create_table "soco_posts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "contents", null: false
@@ -71,5 +48,4 @@ ActiveRecord::Schema.define(version: 20180527161738) do
     t.index ["name"], name: "index_tags_on_name", unique: true
   end
 
-  add_foreign_key "posts", "rooms", column: "rooms_id"
 end
