@@ -1,1 +1,1 @@
-json.array! @new_post
+json.array! @new_posts
