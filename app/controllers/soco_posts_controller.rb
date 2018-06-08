@@ -2,11 +2,18 @@ class SocoPostsController < ApplicationController
   before_action :take_location, only: [:index, :create, :favorite, :auto_reload]
 
   def index
-    minutes = 10 * 60 # Socoの取得時間制限
+    minutes = 60 * 60 # Socoの取得時間制限
+    limit_time = Time.current - minutes
     # リプライIDを持ってるものは省く処理を追加する
     @lounge = SocoPost.within(1.0, origin: [@latitude, @longitude])
-                      .where('created_at >= ?', Time.current - minutes)
+                      .where('updated_at >= ?', limit_time)
+                      .where(reply: nil)
                       .order(id: :desc)
+    # リプライIDを持っているものだけを取得
+    @to_reply = SocoPost.within(1.0, origin: [@latitude, @longitude])
+                        .where('updated_at >= ?', limit_time)
+                        .where.not(reply: nil)
+                        .order(id: :desc)
   end
 
   def create
@@ -14,12 +21,19 @@ class SocoPostsController < ApplicationController
     @posts[:latitude] = @latitude
     @posts[:longitude] = @longitude
     tags = params[:soco_post][:tag]
+    reply_id = params[:soco_post][:reply]
 
     if tags.present?
       tags.split(',').each do |tag|
         @posts.tag_list.add(tag)
       end
     end
+
+    if reply_id.present?
+      to_reply = SocoPost.find(reply_id)
+      to_reply.touch # リプライ先のupdated_atだけを更新
+    end
+
     if @posts.save
       render formats: 'json', status: :created
     else
