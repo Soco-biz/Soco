@@ -3,6 +3,7 @@ class SocoPostsController < ApplicationController
 
   def index
     minutes = 10 * 60 # Socoの取得時間制限
+    # リプライIDを持ってるものは省く処理を追加する
     @lounge = SocoPost.within(1.0, origin: [@latitude, @longitude])
                       .where('created_at >= ?', Time.current - minutes)
                       .order(id: :desc)
