@@ -2,7 +2,7 @@ class SocoPostsController < ApplicationController
   before_action :take_location, only: [:index, :create, :favorite, :auto_reload]
 
   def index
-    minutes = 10 * 60 # Socoの取得時間制限
+    minutes = 30 * 60 # Socoの取得時間制限
     @lounge = SocoPost.within(1.0, origin: [@latitude, @longitude])
                       .where('created_at >= ?', Time.current - minutes)
                       .order(id: :desc)
