@@ -13596,3 +13596,383 @@ Processing by SocoPostsController#index as */*
 Completed 200 OK in 485ms (Views: 256.3ms | ActiveRecord: 4.0ms)
 
 
+Started GET "/soco_posts/index?latitude=35.7271891&longitude=139.7683379&id=1" for 172.21.0.1 at 2018-06-12 03:53:33 +0000
+  [1m[35m (0.7ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by SocoPostsController#index as JSON
+  Parameters: {"latitude"=>"35.7271891", "longitude"=>"139.7683379", "id"=>"1"}
+  Rendering soco_posts/index.json.jbuilder
+  [1m[36mSocoPost Load (1.6ms)[0m  [1m[34mSELECT `soco_posts`.* FROM `soco_posts` WHERE (soco_posts.latitude IS NOT NULL AND soco_posts.longitude IS NOT NULL) AND (soco_posts.latitude>35.71273211471463 AND soco_posts.latitude<35.741646085285346 AND soco_posts.longitude>139.75052948785878 AND soco_posts.longitude<139.78614631214123) AND ((
+          (ACOS(least(1,COS(0.6235570822776295)*COS(2.439417686394977)*COS(RADIANS(soco_posts.latitude))*COS(RADIANS(soco_posts.longitude))+
+          COS(0.6235570822776295)*SIN(2.439417686394977)*COS(RADIANS(soco_posts.latitude))*SIN(RADIANS(soco_posts.longitude))+
+          SIN(0.6235570822776295)*SIN(RADIANS(soco_posts.latitude))))*3963.1899999999996)
+          <= 1.0)) AND (created_at >= '2018-06-12 03:23:34.267999') ORDER BY `soco_posts`.`id` DESC[0m
+  [1m[36mActsAsTaggableOn::Tagging Load (1.3ms)[0m  [1m[34mSELECT `taggings`.* FROM `taggings` WHERE `taggings`.`taggable_id` = 155 AND `taggings`.`taggable_type` = 'SocoPost'[0m
+  [1m[36mActsAsTaggableOn::Tag Load (1.3ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.`id` = `taggings`.`tag_id` WHERE `taggings`.`taggable_id` = 155 AND `taggings`.`taggable_type` = 'SocoPost' AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m
+  Rendered soco_posts/_tag.json.jbuilder (0.4ms)
+  Rendered soco_posts/_post.json.jbuilder (354.0ms)
+  [1m[36mActsAsTaggableOn::Tagging Load (0.7ms)[0m  [1m[34mSELECT `taggings`.* FROM `taggings` WHERE `taggings`.`taggable_id` = 154 AND `taggings`.`taggable_type` = 'SocoPost'[0m
+  [1m[36mActsAsTaggableOn::Tag Load (0.8ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.`id` = `taggings`.`tag_id` WHERE `taggings`.`taggable_id` = 154 AND `taggings`.`taggable_type` = 'SocoPost' AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m
+  Rendered soco_posts/_tag.json.jbuilder (0.1ms)
+  Rendered soco_posts/_post.json.jbuilder (39.8ms)
+  Rendered soco_posts/index.json.jbuilder (508.6ms)
+Completed 200 OK in 846ms (Views: 620.6ms | ActiveRecord: 12.3ms)
+
+
+Started POST "/soco_posts/create?latitude=35.7271891&longitude=139.7683379&id=1" for 172.21.0.1 at 2018-06-12 03:54:02 +0000
+Processing by SocoPostsController#create as HTML
+  Parameters: {"soco_post"=>{"contents"=>"投稿する", "image"=>"null", "tag"=>"null", "reply"=>""}, "latitude"=>"35.7271891", "longitude"=>"139.7683379", "id"=>"1"}
+Unpermitted parameter: :tag
+  [1m[35m (1.7ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO `soco_posts` (`contents`, `latitude`, `longitude`, `image`, `created_at`, `updated_at`) VALUES ('投稿する', 35.7271891, 139.7683379, 'null', '2018-06-12 03:54:03', '2018-06-12 03:54:03')[0m
+  [1m[36mActsAsTaggableOn::Tag Load (1.5ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` WHERE (LOWER(name) = LOWER('null'))[0m
+  [1m[36mActsAsTaggableOn::Tag Load (1.3ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.`id` = `taggings`.`tag_id` WHERE `taggings`.`taggable_id` = 156 AND `taggings`.`taggable_type` = 'SocoPost' AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m
+  [1m[36mActsAsTaggableOn::Tag Load (0.4ms)[0m  [1m[34mSELECT  `tags`.* FROM `tags` WHERE `tags`.`id` = 3 LIMIT 1[0m
+  [1m[36mActsAsTaggableOn::Tagging Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM `taggings` WHERE `taggings`.`tag_id` = 3 AND `taggings`.`taggable_type` = 'SocoPost' AND `taggings`.`taggable_id` = 156 AND `taggings`.`context` = 'tags' AND `taggings`.`tagger_id` IS NULL AND `taggings`.`tagger_type` IS NULL LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO `taggings` (`tag_id`, `taggable_type`, `taggable_id`, `context`, `created_at`) VALUES (3, 'SocoPost', 156, 'tags', '2018-06-12 03:54:03')[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE `tags` SET `taggings_count` = COALESCE(`taggings_count`, 0) + 1 WHERE `tags`.`id` = 3[0m
+  [1m[35m (7.4ms)[0m  [1m[35mCOMMIT[0m
+  Rendering soco_posts/create.json.jbuilder
+  Rendered soco_posts/_tag.json.jbuilder (0.3ms)
+  Rendered soco_posts/_post.json.jbuilder (13.8ms)
+  Rendered soco_posts/create.json.jbuilder (26.4ms)
+Completed 201 Created in 318ms (Views: 49.0ms | ActiveRecord: 16.5ms)
+
+
+Started GET "/soco_posts/index?latitude=35.7271891&longitude=139.7683379&id=1" for 172.21.0.1 at 2018-06-12 03:54:03 +0000
+Processing by SocoPostsController#index as JSON
+  Parameters: {"latitude"=>"35.7271891", "longitude"=>"139.7683379", "id"=>"1"}
+  Rendering soco_posts/index.json.jbuilder
+  [1m[36mSocoPost Load (1.0ms)[0m  [1m[34mSELECT `soco_posts`.* FROM `soco_posts` WHERE (soco_posts.latitude IS NOT NULL AND soco_posts.longitude IS NOT NULL) AND (soco_posts.latitude>35.71273211471463 AND soco_posts.latitude<35.741646085285346 AND soco_posts.longitude>139.75052948785878 AND soco_posts.longitude<139.78614631214123) AND ((
+          (ACOS(least(1,COS(0.6235570822776295)*COS(2.439417686394977)*COS(RADIANS(soco_posts.latitude))*COS(RADIANS(soco_posts.longitude))+
+          COS(0.6235570822776295)*SIN(2.439417686394977)*COS(RADIANS(soco_posts.latitude))*SIN(RADIANS(soco_posts.longitude))+
+          SIN(0.6235570822776295)*SIN(RADIANS(soco_posts.latitude))))*3963.1899999999996)
+          <= 1.0)) AND (created_at >= '2018-06-12 03:24:03.341542') ORDER BY `soco_posts`.`id` DESC[0m
+  [1m[36mActsAsTaggableOn::Tagging Load (0.5ms)[0m  [1m[34mSELECT `taggings`.* FROM `taggings` WHERE `taggings`.`taggable_id` = 156 AND `taggings`.`taggable_type` = 'SocoPost'[0m
+  [1m[36mActsAsTaggableOn::Tag Load (0.9ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.`id` = `taggings`.`tag_id` WHERE `taggings`.`taggable_id` = 156 AND `taggings`.`taggable_type` = 'SocoPost' AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m
+  Rendered soco_posts/_tag.json.jbuilder (0.3ms)
+  Rendered soco_posts/_post.json.jbuilder (41.3ms)
+  [1m[36mActsAsTaggableOn::Tagging Load (0.6ms)[0m  [1m[34mSELECT `taggings`.* FROM `taggings` WHERE `taggings`.`taggable_id` = 155 AND `taggings`.`taggable_type` = 'SocoPost'[0m
+  [1m[36mActsAsTaggableOn::Tag Load (1.3ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.`id` = `taggings`.`tag_id` WHERE `taggings`.`taggable_id` = 155 AND `taggings`.`taggable_type` = 'SocoPost' AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m
+  Rendered soco_posts/_tag.json.jbuilder (0.1ms)
+  Rendered soco_posts/_post.json.jbuilder (39.4ms)
+  [1m[36mActsAsTaggableOn::Tagging Load (1.1ms)[0m  [1m[34mSELECT `taggings`.* FROM `taggings` WHERE `taggings`.`taggable_id` = 154 AND `taggings`.`taggable_type` = 'SocoPost'[0m
+  [1m[36mActsAsTaggableOn::Tag Load (1.3ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.`id` = `taggings`.`tag_id` WHERE `taggings`.`taggable_id` = 154 AND `taggings`.`taggable_type` = 'SocoPost' AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m
+  Rendered soco_posts/_tag.json.jbuilder (0.2ms)
+  Rendered soco_posts/_post.json.jbuilder (123.7ms)
+  Rendered soco_posts/index.json.jbuilder (337.7ms)
+Completed 200 OK in 504ms (Views: 411.7ms | ActiveRecord: 6.6ms)
+
+
+Started POST "/soco_posts/create?latitude=35.7271891&longitude=139.7683379&id=1" for 172.21.0.1 at 2018-06-12 03:54:30 +0000
+Processing by SocoPostsController#create as HTML
+  Parameters: {"soco_post"=>{"contents"=>"投稿する", "image"=>"null", "tag"=>"null", "reply"=>""}, "latitude"=>"35.7271891", "longitude"=>"139.7683379", "id"=>"1"}
+Unpermitted parameter: :tag
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO `soco_posts` (`contents`, `latitude`, `longitude`, `image`, `created_at`, `updated_at`) VALUES ('投稿する', 35.7271891, 139.7683379, 'null', '2018-06-12 03:54:30', '2018-06-12 03:54:30')[0m
+  [1m[36mActsAsTaggableOn::Tag Load (1.4ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` WHERE (LOWER(name) = LOWER('null'))[0m
+  [1m[36mActsAsTaggableOn::Tag Load (1.2ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.`id` = `taggings`.`tag_id` WHERE `taggings`.`taggable_id` = 157 AND `taggings`.`taggable_type` = 'SocoPost' AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m
+  [1m[36mActsAsTaggableOn::Tag Load (0.8ms)[0m  [1m[34mSELECT  `tags`.* FROM `tags` WHERE `tags`.`id` = 3 LIMIT 1[0m
+  [1m[36mActsAsTaggableOn::Tagging Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM `taggings` WHERE `taggings`.`tag_id` = 3 AND `taggings`.`taggable_type` = 'SocoPost' AND `taggings`.`taggable_id` = 157 AND `taggings`.`context` = 'tags' AND `taggings`.`tagger_id` IS NULL AND `taggings`.`tagger_type` IS NULL LIMIT 1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO `taggings` (`tag_id`, `taggable_type`, `taggable_id`, `context`, `created_at`) VALUES (3, 'SocoPost', 157, 'tags', '2018-06-12 03:54:30')[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[33mUPDATE `tags` SET `taggings_count` = COALESCE(`taggings_count`, 0) + 1 WHERE `tags`.`id` = 3[0m
+  [1m[35m (8.0ms)[0m  [1m[35mCOMMIT[0m
+  Rendering soco_posts/create.json.jbuilder
+  Rendered soco_posts/_tag.json.jbuilder (0.3ms)
+  Rendered soco_posts/_post.json.jbuilder (14.5ms)
+  Rendered soco_posts/create.json.jbuilder (26.5ms)
+Completed 201 Created in 106ms (Views: 49.3ms | ActiveRecord: 15.0ms)
+
+
+Started GET "/soco_posts/index?latitude=35.7271891&longitude=139.7683379&id=1" for 172.21.0.1 at 2018-06-12 03:54:30 +0000
+Processing by SocoPostsController#index as JSON
+  Parameters: {"latitude"=>"35.7271891", "longitude"=>"139.7683379", "id"=>"1"}
+  Rendering soco_posts/index.json.jbuilder
+  [1m[36mSocoPost Load (1.9ms)[0m  [1m[34mSELECT `soco_posts`.* FROM `soco_posts` WHERE (soco_posts.latitude IS NOT NULL AND soco_posts.longitude IS NOT NULL) AND (soco_posts.latitude>35.71273211471463 AND soco_posts.latitude<35.741646085285346 AND soco_posts.longitude>139.75052948785878 AND soco_posts.longitude<139.78614631214123) AND ((
+          (ACOS(least(1,COS(0.6235570822776295)*COS(2.439417686394977)*COS(RADIANS(soco_posts.latitude))*COS(RADIANS(soco_posts.longitude))+
+          COS(0.6235570822776295)*SIN(2.439417686394977)*COS(RADIANS(soco_posts.latitude))*SIN(RADIANS(soco_posts.longitude))+
+          SIN(0.6235570822776295)*SIN(RADIANS(soco_posts.latitude))))*3963.1899999999996)
+          <= 1.0)) AND (created_at >= '2018-06-12 03:24:30.368842') ORDER BY `soco_posts`.`id` DESC[0m
+  [1m[36mActsAsTaggableOn::Tagging Load (0.5ms)[0m  [1m[34mSELECT `taggings`.* FROM `taggings` WHERE `taggings`.`taggable_id` = 157 AND `taggings`.`taggable_type` = 'SocoPost'[0m
+  [1m[36mActsAsTaggableOn::Tag Load (1.5ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.`id` = `taggings`.`tag_id` WHERE `taggings`.`taggable_id` = 157 AND `taggings`.`taggable_type` = 'SocoPost' AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m
+  Rendered soco_posts/_tag.json.jbuilder (0.5ms)
+  Rendered soco_posts/_post.json.jbuilder (45.0ms)
+  [1m[36mActsAsTaggableOn::Tagging Load (1.0ms)[0m  [1m[34mSELECT `taggings`.* FROM `taggings` WHERE `taggings`.`taggable_id` = 156 AND `taggings`.`taggable_type` = 'SocoPost'[0m
+  [1m[36mActsAsTaggableOn::Tag Load (1.4ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.`id` = `taggings`.`tag_id` WHERE `taggings`.`taggable_id` = 156 AND `taggings`.`taggable_type` = 'SocoPost' AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m
+  Rendered soco_posts/_tag.json.jbuilder (0.1ms)
+  Rendered soco_posts/_post.json.jbuilder (123.3ms)
+  [1m[36mActsAsTaggableOn::Tagging Load (1.0ms)[0m  [1m[34mSELECT `taggings`.* FROM `taggings` WHERE `taggings`.`taggable_id` = 155 AND `taggings`.`taggable_type` = 'SocoPost'[0m
+  [1m[36mActsAsTaggableOn::Tag Load (1.2ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.`id` = `taggings`.`tag_id` WHERE `taggings`.`taggable_id` = 155 AND `taggings`.`taggable_type` = 'SocoPost' AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m
+  Rendered soco_posts/_tag.json.jbuilder (0.1ms)
+  Rendered soco_posts/_post.json.jbuilder (102.6ms)
+  [1m[36mActsAsTaggableOn::Tagging Load (0.6ms)[0m  [1m[34mSELECT `taggings`.* FROM `taggings` WHERE `taggings`.`taggable_id` = 154 AND `taggings`.`taggable_type` = 'SocoPost'[0m
+  [1m[36mActsAsTaggableOn::Tag Load (0.9ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.`id` = `taggings`.`tag_id` WHERE `taggings`.`taggable_id` = 154 AND `taggings`.`taggable_type` = 'SocoPost' AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m
+  Rendered soco_posts/_tag.json.jbuilder (0.1ms)
+  Rendered soco_posts/_post.json.jbuilder (40.7ms)
+  Rendered soco_posts/index.json.jbuilder (544.9ms)
+Completed 200 OK in 807ms (Views: 650.4ms | ActiveRecord: 9.9ms)
+
+
+Started GET "/soco_posts/index?latitude=35.727277&longitude=139.7682891&id=1" for 172.21.0.1 at 2018-06-12 03:55:08 +0000
+Processing by SocoPostsController#index as JSON
+  Parameters: {"latitude"=>"35.727277", "longitude"=>"139.7682891", "id"=>"1"}
+  Rendering soco_posts/index.json.jbuilder
+  [1m[36mSocoPost Load (1.5ms)[0m  [1m[34mSELECT `soco_posts`.* FROM `soco_posts` WHERE (soco_posts.latitude IS NOT NULL AND soco_posts.longitude IS NOT NULL) AND (soco_posts.latitude>35.71282001471464 AND soco_posts.latitude<35.74173398528536 AND soco_posts.longitude>139.7504806682072 AND soco_posts.longitude<139.78609753179282) AND ((
+          (ACOS(least(1,COS(0.6235586164220421)*COS(2.439416834674302)*COS(RADIANS(soco_posts.latitude))*COS(RADIANS(soco_posts.longitude))+
+          COS(0.6235586164220421)*SIN(2.439416834674302)*COS(RADIANS(soco_posts.latitude))*SIN(RADIANS(soco_posts.longitude))+
+          SIN(0.6235586164220421)*SIN(RADIANS(soco_posts.latitude))))*3963.1899999999996)
+          <= 1.0)) AND (created_at >= '2018-06-12 03:25:08.365417') ORDER BY `soco_posts`.`id` DESC[0m
+  [1m[36mActsAsTaggableOn::Tagging Load (0.7ms)[0m  [1m[34mSELECT `taggings`.* FROM `taggings` WHERE `taggings`.`taggable_id` = 157 AND `taggings`.`taggable_type` = 'SocoPost'[0m
+  [1m[36mActsAsTaggableOn::Tag Load (1.2ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.`id` = `taggings`.`tag_id` WHERE `taggings`.`taggable_id` = 157 AND `taggings`.`taggable_type` = 'SocoPost' AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m
+  Rendered soco_posts/_tag.json.jbuilder (0.4ms)
+  Rendered soco_posts/_post.json.jbuilder (53.8ms)
+  [1m[36mActsAsTaggableOn::Tagging Load (0.6ms)[0m  [1m[34mSELECT `taggings`.* FROM `taggings` WHERE `taggings`.`taggable_id` = 156 AND `taggings`.`taggable_type` = 'SocoPost'[0m
+  [1m[36mActsAsTaggableOn::Tag Load (0.8ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.`id` = `taggings`.`tag_id` WHERE `taggings`.`taggable_id` = 156 AND `taggings`.`taggable_type` = 'SocoPost' AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m
+  Rendered soco_posts/_tag.json.jbuilder (0.2ms)
+  Rendered soco_posts/_post.json.jbuilder (87.2ms)
+  [1m[36mActsAsTaggableOn::Tagging Load (1.2ms)[0m  [1m[34mSELECT `taggings`.* FROM `taggings` WHERE `taggings`.`taggable_id` = 155 AND `taggings`.`taggable_type` = 'SocoPost'[0m
+  [1m[36mActsAsTaggableOn::Tag Load (1.0ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.`id` = `taggings`.`tag_id` WHERE `taggings`.`taggable_id` = 155 AND `taggings`.`taggable_type` = 'SocoPost' AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m
+  Rendered soco_posts/_tag.json.jbuilder (0.1ms)
+  Rendered soco_posts/_post.json.jbuilder (160.2ms)
+  [1m[36mActsAsTaggableOn::Tagging Load (1.4ms)[0m  [1m[34mSELECT `taggings`.* FROM `taggings` WHERE `taggings`.`taggable_id` = 154 AND `taggings`.`taggable_type` = 'SocoPost'[0m
+  [1m[36mActsAsTaggableOn::Tag Load (1.6ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.`id` = `taggings`.`tag_id` WHERE `taggings`.`taggable_id` = 154 AND `taggings`.`taggable_type` = 'SocoPost' AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m
+  Rendered soco_posts/_tag.json.jbuilder (0.1ms)
+  Rendered soco_posts/_post.json.jbuilder (154.5ms)
+  Rendered soco_posts/index.json.jbuilder (774.8ms)
+Completed 200 OK in 1142ms (Views: 933.6ms | ActiveRecord: 10.1ms)
+
+
+Started GET "/soco_posts/index?latitude=35.727277&longitude=139.7682891&id=1" for 172.21.0.1 at 2018-06-12 03:56:34 +0000
+Processing by SocoPostsController#index as JSON
+  Parameters: {"latitude"=>"35.727277", "longitude"=>"139.7682891", "id"=>"1"}
+  Rendering soco_posts/index.json.jbuilder
+  [1m[36mSocoPost Load (1.7ms)[0m  [1m[34mSELECT `soco_posts`.* FROM `soco_posts` WHERE (soco_posts.latitude IS NOT NULL AND soco_posts.longitude IS NOT NULL) AND (soco_posts.latitude>35.71282001471464 AND soco_posts.latitude<35.74173398528536 AND soco_posts.longitude>139.7504806682072 AND soco_posts.longitude<139.78609753179282) AND ((
+          (ACOS(least(1,COS(0.6235586164220421)*COS(2.439416834674302)*COS(RADIANS(soco_posts.latitude))*COS(RADIANS(soco_posts.longitude))+
+          COS(0.6235586164220421)*SIN(2.439416834674302)*COS(RADIANS(soco_posts.latitude))*SIN(RADIANS(soco_posts.longitude))+
+          SIN(0.6235586164220421)*SIN(RADIANS(soco_posts.latitude))))*3963.1899999999996)
+          <= 1.0)) AND (created_at >= '2018-06-12 03:26:34.710397') ORDER BY `soco_posts`.`id` DESC[0m
+  [1m[36mActsAsTaggableOn::Tagging Load (1.2ms)[0m  [1m[34mSELECT `taggings`.* FROM `taggings` WHERE `taggings`.`taggable_id` = 157 AND `taggings`.`taggable_type` = 'SocoPost'[0m
+  [1m[36mActsAsTaggableOn::Tag Load (1.3ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.`id` = `taggings`.`tag_id` WHERE `taggings`.`taggable_id` = 157 AND `taggings`.`taggable_type` = 'SocoPost' AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m
+  Rendered soco_posts/_tag.json.jbuilder (0.4ms)
+  Rendered soco_posts/_post.json.jbuilder (52.8ms)
+  [1m[36mActsAsTaggableOn::Tagging Load (0.6ms)[0m  [1m[34mSELECT `taggings`.* FROM `taggings` WHERE `taggings`.`taggable_id` = 156 AND `taggings`.`taggable_type` = 'SocoPost'[0m
+  [1m[36mActsAsTaggableOn::Tag Load (1.2ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.`id` = `taggings`.`tag_id` WHERE `taggings`.`taggable_id` = 156 AND `taggings`.`taggable_type` = 'SocoPost' AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m
+  Rendered soco_posts/_tag.json.jbuilder (0.1ms)
+  Rendered soco_posts/_post.json.jbuilder (49.5ms)
+  [1m[36mActsAsTaggableOn::Tagging Load (0.7ms)[0m  [1m[34mSELECT `taggings`.* FROM `taggings` WHERE `taggings`.`taggable_id` = 155 AND `taggings`.`taggable_type` = 'SocoPost'[0m
+  [1m[36mActsAsTaggableOn::Tag Load (1.0ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.`id` = `taggings`.`tag_id` WHERE `taggings`.`taggable_id` = 155 AND `taggings`.`taggable_type` = 'SocoPost' AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m
+  Rendered soco_posts/_tag.json.jbuilder (0.1ms)
+  Rendered soco_posts/_post.json.jbuilder (40.8ms)
+  [1m[36mActsAsTaggableOn::Tagging Load (0.6ms)[0m  [1m[34mSELECT `taggings`.* FROM `taggings` WHERE `taggings`.`taggable_id` = 154 AND `taggings`.`taggable_type` = 'SocoPost'[0m
+  [1m[36mActsAsTaggableOn::Tag Load (1.0ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.`id` = `taggings`.`tag_id` WHERE `taggings`.`taggable_id` = 154 AND `taggings`.`taggable_type` = 'SocoPost' AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m
+  Rendered soco_posts/_tag.json.jbuilder (0.1ms)
+  Rendered soco_posts/_post.json.jbuilder (48.2ms)
+  Rendered soco_posts/index.json.jbuilder (374.6ms)
+Completed 200 OK in 732ms (Views: 571.3ms | ActiveRecord: 9.3ms)
+
+
+Started GET "/soco_posts/index?latitude=35.7272621&longitude=139.7683485&id=1" for 172.21.0.1 at 2018-06-12 03:57:54 +0000
+Processing by SocoPostsController#index as JSON
+  Parameters: {"latitude"=>"35.7272621", "longitude"=>"139.7683485", "id"=>"1"}
+  Rendering soco_posts/index.json.jbuilder
+  [1m[36mSocoPost Load (1.2ms)[0m  [1m[34mSELECT `soco_posts`.* FROM `soco_posts` WHERE (soco_posts.latitude IS NOT NULL AND soco_posts.longitude IS NOT NULL) AND (soco_posts.latitude>35.71280511471464 AND soco_posts.latitude<35.74171908528536 AND soco_posts.longitude>139.75054007153835 AND soco_posts.longitude<139.78615692846168) AND ((
+          (ACOS(least(1,COS(0.6235583563679835)*COS(2.4394178713998778)*COS(RADIANS(soco_posts.latitude))*COS(RADIANS(soco_posts.longitude))+
+          COS(0.6235583563679835)*SIN(2.4394178713998778)*COS(RADIANS(soco_posts.latitude))*SIN(RADIANS(soco_posts.longitude))+
+          SIN(0.6235583563679835)*SIN(RADIANS(soco_posts.latitude))))*3963.1899999999996)
+          <= 1.0)) AND (created_at >= '2018-06-12 03:27:54.492968') ORDER BY `soco_posts`.`id` DESC[0m
+  [1m[36mActsAsTaggableOn::Tagging Load (0.7ms)[0m  [1m[34mSELECT `taggings`.* FROM `taggings` WHERE `taggings`.`taggable_id` = 157 AND `taggings`.`taggable_type` = 'SocoPost'[0m
+  [1m[36mActsAsTaggableOn::Tag Load (0.9ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.`id` = `taggings`.`tag_id` WHERE `taggings`.`taggable_id` = 157 AND `taggings`.`taggable_type` = 'SocoPost' AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m
+  Rendered soco_posts/_tag.json.jbuilder (0.4ms)
+  Rendered soco_posts/_post.json.jbuilder (47.7ms)
+  [1m[36mActsAsTaggableOn::Tagging Load (1.0ms)[0m  [1m[34mSELECT `taggings`.* FROM `taggings` WHERE `taggings`.`taggable_id` = 156 AND `taggings`.`taggable_type` = 'SocoPost'[0m
+  [1m[36mActsAsTaggableOn::Tag Load (1.1ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.`id` = `taggings`.`tag_id` WHERE `taggings`.`taggable_id` = 156 AND `taggings`.`taggable_type` = 'SocoPost' AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m
+  Rendered soco_posts/_tag.json.jbuilder (0.1ms)
+  Rendered soco_posts/_post.json.jbuilder (43.4ms)
+  [1m[36mActsAsTaggableOn::Tagging Load (0.7ms)[0m  [1m[34mSELECT `taggings`.* FROM `taggings` WHERE `taggings`.`taggable_id` = 155 AND `taggings`.`taggable_type` = 'SocoPost'[0m
+  [1m[36mActsAsTaggableOn::Tag Load (1.0ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.`id` = `taggings`.`tag_id` WHERE `taggings`.`taggable_id` = 155 AND `taggings`.`taggable_type` = 'SocoPost' AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m
+  Rendered soco_posts/_tag.json.jbuilder (0.1ms)
+  Rendered soco_posts/_post.json.jbuilder (42.0ms)
+  Rendered soco_posts/index.json.jbuilder (241.5ms)
+Completed 200 OK in 505ms (Views: 352.7ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/soco_posts/index?latitude=35.7272621&longitude=139.7683485&id=1" for 172.21.0.1 at 2018-06-12 03:58:26 +0000
+Processing by SocoPostsController#index as JSON
+  Parameters: {"latitude"=>"35.7272621", "longitude"=>"139.7683485", "id"=>"1"}
+  Rendering soco_posts/index.json.jbuilder
+  [1m[36mSocoPost Load (1.6ms)[0m  [1m[34mSELECT `soco_posts`.* FROM `soco_posts` WHERE (soco_posts.latitude IS NOT NULL AND soco_posts.longitude IS NOT NULL) AND (soco_posts.latitude>35.71280511471464 AND soco_posts.latitude<35.74171908528536 AND soco_posts.longitude>139.75054007153835 AND soco_posts.longitude<139.78615692846168) AND ((
+          (ACOS(least(1,COS(0.6235583563679835)*COS(2.4394178713998778)*COS(RADIANS(soco_posts.latitude))*COS(RADIANS(soco_posts.longitude))+
+          COS(0.6235583563679835)*SIN(2.4394178713998778)*COS(RADIANS(soco_posts.latitude))*SIN(RADIANS(soco_posts.longitude))+
+          SIN(0.6235583563679835)*SIN(RADIANS(soco_posts.latitude))))*3963.1899999999996)
+          <= 1.0)) AND (created_at >= '2018-06-12 03:28:26.600426') ORDER BY `soco_posts`.`id` DESC[0m
+  [1m[36mActsAsTaggableOn::Tagging Load (0.9ms)[0m  [1m[34mSELECT `taggings`.* FROM `taggings` WHERE `taggings`.`taggable_id` = 157 AND `taggings`.`taggable_type` = 'SocoPost'[0m
+  [1m[36mActsAsTaggableOn::Tag Load (1.1ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.`id` = `taggings`.`tag_id` WHERE `taggings`.`taggable_id` = 157 AND `taggings`.`taggable_type` = 'SocoPost' AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m
+  Rendered soco_posts/_tag.json.jbuilder (0.3ms)
+  Rendered soco_posts/_post.json.jbuilder (47.0ms)
+  [1m[36mActsAsTaggableOn::Tagging Load (0.9ms)[0m  [1m[34mSELECT `taggings`.* FROM `taggings` WHERE `taggings`.`taggable_id` = 156 AND `taggings`.`taggable_type` = 'SocoPost'[0m
+  [1m[36mActsAsTaggableOn::Tag Load (1.0ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.`id` = `taggings`.`tag_id` WHERE `taggings`.`taggable_id` = 156 AND `taggings`.`taggable_type` = 'SocoPost' AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m
+  Rendered soco_posts/_tag.json.jbuilder (0.1ms)
+  Rendered soco_posts/_post.json.jbuilder (43.8ms)
+  Rendered soco_posts/index.json.jbuilder (206.5ms)
+Completed 200 OK in 598ms (Views: 445.4ms | ActiveRecord: 5.5ms)
+
+
+Started GET "/soco_posts/index?latitude=35.7272621&longitude=139.7683485&id=1" for 172.21.0.1 at 2018-06-12 03:58:55 +0000
+Processing by SocoPostsController#index as JSON
+  Parameters: {"latitude"=>"35.7272621", "longitude"=>"139.7683485", "id"=>"1"}
+  Rendering soco_posts/index.json.jbuilder
+  [1m[36mSocoPost Load (3.4ms)[0m  [1m[34mSELECT `soco_posts`.* FROM `soco_posts` WHERE (soco_posts.latitude IS NOT NULL AND soco_posts.longitude IS NOT NULL) AND (soco_posts.latitude>35.71280511471464 AND soco_posts.latitude<35.74171908528536 AND soco_posts.longitude>139.75054007153835 AND soco_posts.longitude<139.78615692846168) AND ((
+          (ACOS(least(1,COS(0.6235583563679835)*COS(2.4394178713998778)*COS(RADIANS(soco_posts.latitude))*COS(RADIANS(soco_posts.longitude))+
+          COS(0.6235583563679835)*SIN(2.4394178713998778)*COS(RADIANS(soco_posts.latitude))*SIN(RADIANS(soco_posts.longitude))+
+          SIN(0.6235583563679835)*SIN(RADIANS(soco_posts.latitude))))*3963.1899999999996)
+          <= 1.0)) AND (created_at >= '2018-06-12 03:28:55.963638') ORDER BY `soco_posts`.`id` DESC[0m
+  [1m[36mActsAsTaggableOn::Tagging Load (1.3ms)[0m  [1m[34mSELECT `taggings`.* FROM `taggings` WHERE `taggings`.`taggable_id` = 157 AND `taggings`.`taggable_type` = 'SocoPost'[0m
+  [1m[36mActsAsTaggableOn::Tag Load (1.6ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.`id` = `taggings`.`tag_id` WHERE `taggings`.`taggable_id` = 157 AND `taggings`.`taggable_type` = 'SocoPost' AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m
+  Rendered soco_posts/_tag.json.jbuilder (0.3ms)
+  Rendered soco_posts/_post.json.jbuilder (69.8ms)
+  [1m[36mActsAsTaggableOn::Tagging Load (0.6ms)[0m  [1m[34mSELECT `taggings`.* FROM `taggings` WHERE `taggings`.`taggable_id` = 156 AND `taggings`.`taggable_type` = 'SocoPost'[0m
+  [1m[36mActsAsTaggableOn::Tag Load (1.9ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.`id` = `taggings`.`tag_id` WHERE `taggings`.`taggable_id` = 156 AND `taggings`.`taggable_type` = 'SocoPost' AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m
+  Rendered soco_posts/_tag.json.jbuilder (0.0ms)
+  Rendered soco_posts/_post.json.jbuilder (71.3ms)
+  Rendered soco_posts/index.json.jbuilder (309.8ms)
+Completed 200 OK in 727ms (Views: 563.5ms | ActiveRecord: 8.9ms)
+
+
+Started GET "/soco_posts/index?latitude=35.7272621&longitude=139.7683485&id=1" for 172.21.0.1 at 2018-06-12 03:59:00 +0000
+Processing by SocoPostsController#index as JSON
+  Parameters: {"latitude"=>"35.7272621", "longitude"=>"139.7683485", "id"=>"1"}
+  Rendering soco_posts/index.json.jbuilder
+  [1m[36mSocoPost Load (1.3ms)[0m  [1m[34mSELECT `soco_posts`.* FROM `soco_posts` WHERE (soco_posts.latitude IS NOT NULL AND soco_posts.longitude IS NOT NULL) AND (soco_posts.latitude>35.71280511471464 AND soco_posts.latitude<35.74171908528536 AND soco_posts.longitude>139.75054007153835 AND soco_posts.longitude<139.78615692846168) AND ((
+          (ACOS(least(1,COS(0.6235583563679835)*COS(2.4394178713998778)*COS(RADIANS(soco_posts.latitude))*COS(RADIANS(soco_posts.longitude))+
+          COS(0.6235583563679835)*SIN(2.4394178713998778)*COS(RADIANS(soco_posts.latitude))*SIN(RADIANS(soco_posts.longitude))+
+          SIN(0.6235583563679835)*SIN(RADIANS(soco_posts.latitude))))*3963.1899999999996)
+          <= 1.0)) AND (created_at >= '2018-06-12 03:29:00.696050') ORDER BY `soco_posts`.`id` DESC[0m
+  [1m[36mActsAsTaggableOn::Tagging Load (0.7ms)[0m  [1m[34mSELECT `taggings`.* FROM `taggings` WHERE `taggings`.`taggable_id` = 157 AND `taggings`.`taggable_type` = 'SocoPost'[0m
+  [1m[36mActsAsTaggableOn::Tag Load (1.0ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.`id` = `taggings`.`tag_id` WHERE `taggings`.`taggable_id` = 157 AND `taggings`.`taggable_type` = 'SocoPost' AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m
+  Rendered soco_posts/_tag.json.jbuilder (0.4ms)
+  Rendered soco_posts/_post.json.jbuilder (44.6ms)
+  [1m[36mActsAsTaggableOn::Tagging Load (2.0ms)[0m  [1m[34mSELECT `taggings`.* FROM `taggings` WHERE `taggings`.`taggable_id` = 156 AND `taggings`.`taggable_type` = 'SocoPost'[0m
+  [1m[36mActsAsTaggableOn::Tag Load (1.4ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.`id` = `taggings`.`tag_id` WHERE `taggings`.`taggable_id` = 156 AND `taggings`.`taggable_type` = 'SocoPost' AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m
+  Rendered soco_posts/_tag.json.jbuilder (0.1ms)
+  Rendered soco_posts/_post.json.jbuilder (52.5ms)
+  Rendered soco_posts/index.json.jbuilder (191.7ms)
+Completed 200 OK in 395ms (Views: 273.1ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/soco_posts/index?latitude=35.7272621&longitude=139.7683485&id=1" for 172.21.0.1 at 2018-06-12 03:59:39 +0000
+Processing by SocoPostsController#index as JSON
+  Parameters: {"latitude"=>"35.7272621", "longitude"=>"139.7683485", "id"=>"1"}
+  Rendering soco_posts/index.json.jbuilder
+  [1m[36mSocoPost Load (1.0ms)[0m  [1m[34mSELECT `soco_posts`.* FROM `soco_posts` WHERE (soco_posts.latitude IS NOT NULL AND soco_posts.longitude IS NOT NULL) AND (soco_posts.latitude>35.71280511471464 AND soco_posts.latitude<35.74171908528536 AND soco_posts.longitude>139.75054007153835 AND soco_posts.longitude<139.78615692846168) AND ((
+          (ACOS(least(1,COS(0.6235583563679835)*COS(2.4394178713998778)*COS(RADIANS(soco_posts.latitude))*COS(RADIANS(soco_posts.longitude))+
+          COS(0.6235583563679835)*SIN(2.4394178713998778)*COS(RADIANS(soco_posts.latitude))*SIN(RADIANS(soco_posts.longitude))+
+          SIN(0.6235583563679835)*SIN(RADIANS(soco_posts.latitude))))*3963.1899999999996)
+          <= 1.0)) AND (created_at >= '2018-06-12 03:29:39.571259') ORDER BY `soco_posts`.`id` DESC[0m
+  [1m[36mActsAsTaggableOn::Tagging Load (0.8ms)[0m  [1m[34mSELECT `taggings`.* FROM `taggings` WHERE `taggings`.`taggable_id` = 157 AND `taggings`.`taggable_type` = 'SocoPost'[0m
+  [1m[36mActsAsTaggableOn::Tag Load (1.3ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.`id` = `taggings`.`tag_id` WHERE `taggings`.`taggable_id` = 157 AND `taggings`.`taggable_type` = 'SocoPost' AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m
+  Rendered soco_posts/_tag.json.jbuilder (0.6ms)
+  Rendered soco_posts/_post.json.jbuilder (56.5ms)
+  [1m[36mActsAsTaggableOn::Tagging Load (0.8ms)[0m  [1m[34mSELECT `taggings`.* FROM `taggings` WHERE `taggings`.`taggable_id` = 156 AND `taggings`.`taggable_type` = 'SocoPost'[0m
+  [1m[36mActsAsTaggableOn::Tag Load (1.0ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.`id` = `taggings`.`tag_id` WHERE `taggings`.`taggable_id` = 156 AND `taggings`.`taggable_type` = 'SocoPost' AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m
+  Rendered soco_posts/_tag.json.jbuilder (0.1ms)
+  Rendered soco_posts/_post.json.jbuilder (51.0ms)
+  Rendered soco_posts/index.json.jbuilder (190.9ms)
+Completed 200 OK in 477ms (Views: 291.5ms | ActiveRecord: 4.9ms)
+
+
+Started POST "/soco_posts/create?latitude=35.7272621&longitude=139.7683485&id=1" for 172.21.0.1 at 2018-06-12 03:59:53 +0000
+Processing by SocoPostsController#create as HTML
+  Parameters: {"soco_post"=>{"contents"=>"a", "image"=>"null", "tag"=>"null", "reply"=>""}, "latitude"=>"35.7272621", "longitude"=>"139.7683485", "id"=>"1"}
+Unpermitted parameter: :tag
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO `soco_posts` (`contents`, `latitude`, `longitude`, `image`, `created_at`, `updated_at`) VALUES ('a', 35.7272621, 139.7683485, 'null', '2018-06-12 03:59:53', '2018-06-12 03:59:53')[0m
+  [1m[36mActsAsTaggableOn::Tag Load (0.5ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` WHERE (LOWER(name) = LOWER('null'))[0m
+  [1m[36mActsAsTaggableOn::Tag Load (0.8ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.`id` = `taggings`.`tag_id` WHERE `taggings`.`taggable_id` = 158 AND `taggings`.`taggable_type` = 'SocoPost' AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m
+  [1m[36mActsAsTaggableOn::Tag Load (0.5ms)[0m  [1m[34mSELECT  `tags`.* FROM `tags` WHERE `tags`.`id` = 3 LIMIT 1[0m
+  [1m[36mActsAsTaggableOn::Tagging Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM `taggings` WHERE `taggings`.`tag_id` = 3 AND `taggings`.`taggable_type` = 'SocoPost' AND `taggings`.`taggable_id` = 158 AND `taggings`.`context` = 'tags' AND `taggings`.`tagger_id` IS NULL AND `taggings`.`tagger_type` IS NULL LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO `taggings` (`tag_id`, `taggable_type`, `taggable_id`, `context`, `created_at`) VALUES (3, 'SocoPost', 158, 'tags', '2018-06-12 03:59:53')[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[33mUPDATE `tags` SET `taggings_count` = COALESCE(`taggings_count`, 0) + 1 WHERE `tags`.`id` = 3[0m
+  [1m[35m (6.0ms)[0m  [1m[35mCOMMIT[0m
+  Rendering soco_posts/create.json.jbuilder
+  Rendered soco_posts/_tag.json.jbuilder (0.3ms)
+  Rendered soco_posts/_post.json.jbuilder (14.8ms)
+  Rendered soco_posts/create.json.jbuilder (27.1ms)
+Completed 201 Created in 95ms (Views: 51.9ms | ActiveRecord: 11.1ms)
+
+
+Started GET "/soco_posts/index?latitude=35.7272621&longitude=139.7683485&id=1" for 172.21.0.1 at 2018-06-12 03:59:53 +0000
+Processing by SocoPostsController#index as JSON
+  Parameters: {"latitude"=>"35.7272621", "longitude"=>"139.7683485", "id"=>"1"}
+  Rendering soco_posts/index.json.jbuilder
+  [1m[36mSocoPost Load (1.1ms)[0m  [1m[34mSELECT `soco_posts`.* FROM `soco_posts` WHERE (soco_posts.latitude IS NOT NULL AND soco_posts.longitude IS NOT NULL) AND (soco_posts.latitude>35.71280511471464 AND soco_posts.latitude<35.74171908528536 AND soco_posts.longitude>139.75054007153835 AND soco_posts.longitude<139.78615692846168) AND ((
+          (ACOS(least(1,COS(0.6235583563679835)*COS(2.4394178713998778)*COS(RADIANS(soco_posts.latitude))*COS(RADIANS(soco_posts.longitude))+
+          COS(0.6235583563679835)*SIN(2.4394178713998778)*COS(RADIANS(soco_posts.latitude))*SIN(RADIANS(soco_posts.longitude))+
+          SIN(0.6235583563679835)*SIN(RADIANS(soco_posts.latitude))))*3963.1899999999996)
+          <= 1.0)) AND (created_at >= '2018-06-12 03:29:53.820239') ORDER BY `soco_posts`.`id` DESC[0m
+  [1m[36mActsAsTaggableOn::Tagging Load (0.7ms)[0m  [1m[34mSELECT `taggings`.* FROM `taggings` WHERE `taggings`.`taggable_id` = 158 AND `taggings`.`taggable_type` = 'SocoPost'[0m
+  [1m[36mActsAsTaggableOn::Tag Load (1.1ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.`id` = `taggings`.`tag_id` WHERE `taggings`.`taggable_id` = 158 AND `taggings`.`taggable_type` = 'SocoPost' AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m
+  Rendered soco_posts/_tag.json.jbuilder (0.3ms)
+  Rendered soco_posts/_post.json.jbuilder (42.7ms)
+  [1m[36mActsAsTaggableOn::Tagging Load (0.5ms)[0m  [1m[34mSELECT `taggings`.* FROM `taggings` WHERE `taggings`.`taggable_id` = 157 AND `taggings`.`taggable_type` = 'SocoPost'[0m
+  [1m[36mActsAsTaggableOn::Tag Load (0.7ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.`id` = `taggings`.`tag_id` WHERE `taggings`.`taggable_id` = 157 AND `taggings`.`taggable_type` = 'SocoPost' AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m
+  Rendered soco_posts/_tag.json.jbuilder (0.1ms)
+  Rendered soco_posts/_post.json.jbuilder (36.2ms)
+  [1m[36mActsAsTaggableOn::Tagging Load (0.5ms)[0m  [1m[34mSELECT `taggings`.* FROM `taggings` WHERE `taggings`.`taggable_id` = 156 AND `taggings`.`taggable_type` = 'SocoPost'[0m
+  [1m[36mActsAsTaggableOn::Tag Load (0.6ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.`id` = `taggings`.`tag_id` WHERE `taggings`.`taggable_id` = 156 AND `taggings`.`taggable_type` = 'SocoPost' AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m
+  Rendered soco_posts/_tag.json.jbuilder (0.2ms)
+  Rendered soco_posts/_post.json.jbuilder (61.4ms)
+  Rendered soco_posts/index.json.jbuilder (252.0ms)
+Completed 200 OK in 546ms (Views: 366.4ms | ActiveRecord: 5.3ms)
+
+
+Started GET "/soco_posts/index?latitude=35.7272621&longitude=139.7683485&id=1" for 172.21.0.1 at 2018-06-12 04:00:31 +0000
+Processing by SocoPostsController#index as JSON
+  Parameters: {"latitude"=>"35.7272621", "longitude"=>"139.7683485", "id"=>"1"}
+  Rendering soco_posts/index.json.jbuilder
+  [1m[36mSocoPost Load (2.4ms)[0m  [1m[34mSELECT `soco_posts`.* FROM `soco_posts` WHERE (soco_posts.latitude IS NOT NULL AND soco_posts.longitude IS NOT NULL) AND (soco_posts.latitude>35.71280511471464 AND soco_posts.latitude<35.74171908528536 AND soco_posts.longitude>139.75054007153835 AND soco_posts.longitude<139.78615692846168) AND ((
+          (ACOS(least(1,COS(0.6235583563679835)*COS(2.4394178713998778)*COS(RADIANS(soco_posts.latitude))*COS(RADIANS(soco_posts.longitude))+
+          COS(0.6235583563679835)*SIN(2.4394178713998778)*COS(RADIANS(soco_posts.latitude))*SIN(RADIANS(soco_posts.longitude))+
+          SIN(0.6235583563679835)*SIN(RADIANS(soco_posts.latitude))))*3963.1899999999996)
+          <= 1.0)) AND (created_at >= '2018-06-12 03:30:31.373888') ORDER BY `soco_posts`.`id` DESC[0m
+  [1m[36mActsAsTaggableOn::Tagging Load (1.4ms)[0m  [1m[34mSELECT `taggings`.* FROM `taggings` WHERE `taggings`.`taggable_id` = 158 AND `taggings`.`taggable_type` = 'SocoPost'[0m
+  [1m[36mActsAsTaggableOn::Tag Load (1.4ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.`id` = `taggings`.`tag_id` WHERE `taggings`.`taggable_id` = 158 AND `taggings`.`taggable_type` = 'SocoPost' AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m
+  Rendered soco_posts/_tag.json.jbuilder (0.4ms)
+  Rendered soco_posts/_post.json.jbuilder (121.0ms)
+  [1m[36mActsAsTaggableOn::Tagging Load (1.3ms)[0m  [1m[34mSELECT `taggings`.* FROM `taggings` WHERE `taggings`.`taggable_id` = 157 AND `taggings`.`taggable_type` = 'SocoPost'[0m
+  [1m[36mActsAsTaggableOn::Tag Load (2.9ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.`id` = `taggings`.`tag_id` WHERE `taggings`.`taggable_id` = 157 AND `taggings`.`taggable_type` = 'SocoPost' AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m
+  Rendered soco_posts/_tag.json.jbuilder (0.1ms)
+  Rendered soco_posts/_post.json.jbuilder (93.9ms)
+  [1m[36mActsAsTaggableOn::Tagging Load (1.1ms)[0m  [1m[34mSELECT `taggings`.* FROM `taggings` WHERE `taggings`.`taggable_id` = 156 AND `taggings`.`taggable_type` = 'SocoPost'[0m
+  [1m[36mActsAsTaggableOn::Tag Load (1.2ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.`id` = `taggings`.`tag_id` WHERE `taggings`.`taggable_id` = 156 AND `taggings`.`taggable_type` = 'SocoPost' AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m
+  Rendered soco_posts/_tag.json.jbuilder (0.1ms)
+  Rendered soco_posts/_post.json.jbuilder (64.3ms)
+  Rendered soco_posts/index.json.jbuilder (601.0ms)
+Completed 200 OK in 994ms (Views: 863.5ms | ActiveRecord: 11.6ms)
+
+
+Started GET "/soco_posts/index?latitude=35.7272327&longitude=139.76833829999998&id=1" for 172.21.0.1 at 2018-06-12 04:00:37 +0000
+Processing by SocoPostsController#index as JSON
+  Parameters: {"latitude"=>"35.7272327", "longitude"=>"139.76833829999998", "id"=>"1"}
+  Rendering soco_posts/index.json.jbuilder
+  [1m[36mSocoPost Load (1.5ms)[0m  [1m[34mSELECT `soco_posts`.* FROM `soco_posts` WHERE (soco_posts.latitude IS NOT NULL AND soco_posts.longitude IS NOT NULL) AND (soco_posts.latitude>35.71277571471463 AND soco_posts.latitude<35.741689685285365 AND soco_posts.longitude>139.7505298781112 AND soco_posts.longitude<139.78614672188874) AND ((
+          (ACOS(least(1,COS(0.6235578432411835)*COS(2.4394176933762934)*COS(RADIANS(soco_posts.latitude))*COS(RADIANS(soco_posts.longitude))+
+          COS(0.6235578432411835)*SIN(2.4394176933762934)*COS(RADIANS(soco_posts.latitude))*SIN(RADIANS(soco_posts.longitude))+
+          SIN(0.6235578432411835)*SIN(RADIANS(soco_posts.latitude))))*3963.1899999999996)
+          <= 1.0)) AND (created_at >= '2018-06-12 03:30:37.874137') ORDER BY `soco_posts`.`id` DESC[0m
+  [1m[36mActsAsTaggableOn::Tagging Load (0.6ms)[0m  [1m[34mSELECT `taggings`.* FROM `taggings` WHERE `taggings`.`taggable_id` = 158 AND `taggings`.`taggable_type` = 'SocoPost'[0m
+  [1m[36mActsAsTaggableOn::Tag Load (0.8ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.`id` = `taggings`.`tag_id` WHERE `taggings`.`taggable_id` = 158 AND `taggings`.`taggable_type` = 'SocoPost' AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m
+  Rendered soco_posts/_tag.json.jbuilder (0.3ms)
+  Rendered soco_posts/_post.json.jbuilder (42.3ms)
+  [1m[36mActsAsTaggableOn::Tagging Load (0.7ms)[0m  [1m[34mSELECT `taggings`.* FROM `taggings` WHERE `taggings`.`taggable_id` = 157 AND `taggings`.`taggable_type` = 'SocoPost'[0m
+  [1m[36mActsAsTaggableOn::Tag Load (0.8ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.`id` = `taggings`.`tag_id` WHERE `taggings`.`taggable_id` = 157 AND `taggings`.`taggable_type` = 'SocoPost' AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m
+  Rendered soco_posts/_tag.json.jbuilder (0.1ms)
+  Rendered soco_posts/_post.json.jbuilder (40.9ms)
+  [1m[36mActsAsTaggableOn::Tagging Load (0.6ms)[0m  [1m[34mSELECT `taggings`.* FROM `taggings` WHERE `taggings`.`taggable_id` = 156 AND `taggings`.`taggable_type` = 'SocoPost'[0m
+  [1m[36mActsAsTaggableOn::Tag Load (0.9ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.`id` = `taggings`.`tag_id` WHERE `taggings`.`taggable_id` = 156 AND `taggings`.`taggable_type` = 'SocoPost' AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m
+  Rendered soco_posts/_tag.json.jbuilder (0.1ms)
+  Rendered soco_posts/_post.json.jbuilder (40.2ms)
+  Rendered soco_posts/index.json.jbuilder (237.2ms)
+Completed 200 OK in 571ms (Views: 346.8ms | ActiveRecord: 5.8ms)
+
+
