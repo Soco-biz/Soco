@@ -2,7 +2,7 @@ class SocoPostsController < ApplicationController
   before_action :take_location, only: [:index, :create, :favorite, :auto_reload]
 
   def index
-    minutes = 60 * 60 # Socoの取得時間制限
+    minutes = 30 * 60 # Socoの取得時間制限
     limit_time = Time.current - minutes
     # リプライIDを持ってるものは省く処理を追加する
     @lounge = SocoPost.within(1.0, origin: [@latitude, @longitude])
