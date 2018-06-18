@@ -1,0 +1,108 @@
+  [1m[35m (7.6ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (96.8ms)[0m  [1m[35mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL PRIMARY KEY) ENGINE=InnoDB[0m
+  [1m[35m (52.6ms)[0m  [1m[35mCREATE TABLE `ar_internal_metadata` (`key` varchar(255) NOT NULL PRIMARY KEY, `value` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT GET_LOCK('7987787267362283325', 0)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to AddRoomIdToPosts (20180425123134)
+  [1m[35m (1.7ms)[0m  [1m[35mALTER TABLE `posts` ADD `rooms_id` bigint[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT RELEASE_LOCK('7987787267362283325')[0m
+  [1m[35m (0.7ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT GET_LOCK('7987787267362283325', 0)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to AddRoomIdToPosts (20180425123134)
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE `posts` ADD `rooms_id` bigint[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT RELEASE_LOCK('7987787267362283325')[0m
+  [1m[35m (1.0ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('environment', 'test', '2018-06-18 11:47:22', '2018-06-18 11:47:22')[0m
+  [1m[35m (17.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (74.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS `SocoAPI_test`[0m
+  [1m[35m (0.6ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE DATABASE `SocoAPI_test` DEFAULT CHARACTER SET `utf8`[0m
+  [1m[35m (0.6ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (59.8ms)[0m  [1m[35mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL PRIMARY KEY) ENGINE=InnoDB[0m
+  [1m[35m (56.8ms)[0m  [1m[35mCREATE TABLE `ar_internal_metadata` (`key` varchar(255) NOT NULL PRIMARY KEY, `value` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT GET_LOCK('7987787267362283325', 0)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to AddRoomIdToPosts (20180425123134)
+  [1m[35m (1.5ms)[0m  [1m[35mALTER TABLE `posts` ADD `rooms_id` bigint[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT RELEASE_LOCK('7987787267362283325')[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT GET_LOCK('7987787267362283325', 0)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateSocoPosts (20180527032055)
+  [1m[35m (88.8ms)[0m  [1m[35mCREATE TABLE `soco_posts` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `contents` varchar(255) NOT NULL, `reply` int, `good` int DEFAULT 0, `first_tag_id_id` bigint, `second_tag_id_id` bigint, `third_tag_id_id` bigint, `latitude` float NOT NULL, `longitude` float NOT NULL, `image` text, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL,  INDEX `index_soco_posts_on_first_tag_id_id`  (`first_tag_id_id`),  INDEX `index_soco_posts_on_second_tag_id_id`  (`second_tag_id_id`),  INDEX `index_soco_posts_on_third_tag_id_id`  (`third_tag_id_id`)) ENGINE=InnoDB[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180527032055')[0m
+  [1m[35m (7.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to RenameTagNameColumsToSocoPosts (20180527054646)
+  [1m[35m (16.6ms)[0m  [1m[35mALTER TABLE `soco_posts` CHANGE `first_tag_id_id` `first_tag_id` bigint(20) DEFAULT NULL[0m
+  [1m[35m (21.7ms)[0m  [1m[35mALTER TABLE `soco_posts` RENAME INDEX `index_soco_posts_on_first_tag_id_id` TO `index_soco_posts_on_first_tag_id`[0m
+  [1m[35m (15.4ms)[0m  [1m[35mALTER TABLE `soco_posts` CHANGE `second_tag_id_id` `second_tag_id` bigint(20) DEFAULT NULL[0m
+  [1m[35m (27.7ms)[0m  [1m[35mALTER TABLE `soco_posts` RENAME INDEX `index_soco_posts_on_second_tag_id_id` TO `index_soco_posts_on_second_tag_id`[0m
+  [1m[35m (17.9ms)[0m  [1m[35mALTER TABLE `soco_posts` CHANGE `third_tag_id_id` `third_tag_id` bigint(20) DEFAULT NULL[0m
+  [1m[35m (31.4ms)[0m  [1m[35mALTER TABLE `soco_posts` RENAME INDEX `index_soco_posts_on_third_tag_id_id` TO `index_soco_posts_on_third_tag_id`[0m
+  [1m[35m (1.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.7ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180527054646')[0m
+  [1m[35m (15.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to ActsAsTaggableOnMigration (20180527154359)
+  [1m[35m (44.5ms)[0m  [1m[35mCREATE TABLE `tags` (`id` int NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255)) ENGINE=InnoDB[0m
+  [1m[35m (44.9ms)[0m  [1m[35mCREATE TABLE `taggings` (`id` int NOT NULL AUTO_INCREMENT PRIMARY KEY, `tag_id` int, `taggable_type` varchar(255), `taggable_id` int, `tagger_type` varchar(255), `tagger_id` int, `context` varchar(128), `created_at` datetime) ENGINE=InnoDB[0m
+  [1m[35m (51.8ms)[0m  [1m[35mCREATE  INDEX `index_taggings_on_tag_id`  ON `taggings` (`tag_id`) [0m
+  [1m[35m (46.4ms)[0m  [1m[35mCREATE  INDEX `index_taggings_on_taggable_id_and_taggable_type_and_context`  ON `taggings` (`taggable_id`, `taggable_type`, `context`) [0m
+  [1m[35m (2.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180527154359')[0m
+  [1m[35m (6.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddMissingUniqueIndices (20180527154360)
+  [1m[35m (37.8ms)[0m  [1m[35mCREATE UNIQUE INDEX `index_tags_on_name`  ON `tags` (`name`) [0m
+  [1m[35m (26.9ms)[0m  [1m[35mDROP INDEX `index_taggings_on_tag_id` ON `taggings`[0m
+  [1m[35m (27.9ms)[0m  [1m[35mDROP INDEX `index_taggings_on_taggable_id_and_taggable_type_and_context` ON `taggings`[0m
+  [1m[35m (21.8ms)[0m  [1m[35mCREATE UNIQUE INDEX `taggings_idx`  ON `taggings` (`tag_id`, `taggable_id`, `taggable_type`, `context`, `tagger_id`, `tagger_type`) [0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180527154360')[0m
+  [1m[35m (5.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddTaggingsCounterCacheToTags (20180527154361)
+  [1m[35m (100.9ms)[0m  [1m[35mALTER TABLE `tags` ADD `taggings_count` int DEFAULT 0[0m
+  [1m[36mActsAsTaggableOn::Tag Load (0.4ms)[0m  [1m[34mSELECT  `tags`.* FROM `tags` ORDER BY `tags`.`id` ASC LIMIT 1000[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180527154361')[0m
+  [1m[35m (7.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddMissingTaggableIndex (20180527154362)
+  [1m[35m (28.3ms)[0m  [1m[35mCREATE  INDEX `index_taggings_on_taggable_id_and_taggable_type_and_context`  ON `taggings` (`taggable_id`, `taggable_type`, `context`) [0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180527154362')[0m
+  [1m[35m (7.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to ChangeCollationForTagNames (20180527154363)
+  [1m[35m (134.9ms)[0m  [1m[35mALTER TABLE tags MODIFY name varchar(255) CHARACTER SET utf8 COLLATE utf8_bin;[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180527154363')[0m
+  [1m[35m (8.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddMissingIndexesOnTaggings (20180527154364)
+  [1m[35m (36.1ms)[0m  [1m[35mCREATE  INDEX `index_taggings_on_tag_id`  ON `taggings` (`tag_id`) [0m
+  [1m[35m (44.6ms)[0m  [1m[35mCREATE  INDEX `index_taggings_on_taggable_id`  ON `taggings` (`taggable_id`) [0m
+  [1m[35m (36.1ms)[0m  [1m[35mCREATE  INDEX `index_taggings_on_taggable_type`  ON `taggings` (`taggable_type`) [0m
+  [1m[35m (43.6ms)[0m  [1m[35mCREATE  INDEX `index_taggings_on_tagger_id`  ON `taggings` (`tagger_id`) [0m
+  [1m[35m (44.7ms)[0m  [1m[35mCREATE  INDEX `index_taggings_on_context`  ON `taggings` (`context`) [0m
+  [1m[35m (38.5ms)[0m  [1m[35mCREATE  INDEX `index_taggings_on_tagger_id_and_tagger_type`  ON `taggings` (`tagger_id`, `tagger_type`) [0m
+  [1m[35m (34.8ms)[0m  [1m[35mCREATE  INDEX `taggings_idy`  ON `taggings` (`taggable_id`, `taggable_type`, `tagger_id`, `context`) [0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180527154364')[0m
+  [1m[35m (7.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to RomoveTagColumnsToSocoPosts (20180527161738)
+  [1m[35m (102.2ms)[0m  [1m[35mALTER TABLE `soco_posts` DROP `first_tag_id`[0m
+  [1m[35m (70.5ms)[0m  [1m[35mALTER TABLE `soco_posts` DROP `second_tag_id`[0m
+  [1m[35m (82.1ms)[0m  [1m[35mALTER TABLE `soco_posts` DROP `third_tag_id`[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180527161738')[0m
+  [1m[35m (7.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('environment', 'test', '2018-06-18 12:00:24', '2018-06-18 12:00:24')[0m
+  [1m[35m (7.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT RELEASE_LOCK('7987787267362283325')[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
