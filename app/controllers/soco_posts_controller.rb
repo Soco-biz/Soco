@@ -8,12 +8,12 @@ class SocoPostsController < ApplicationController
     @lounge = SocoPost.within(1.0, origin: [@latitude, @longitude])
                       .where('updated_at >= ?', limit_time)
                       .where(reply: nil)
-                      .order(id: :desc)
+                      .order(updated_at: :desc)
     # リプライIDを持っているものだけを取得
     @to_reply = SocoPost.within(1.0, origin: [@latitude, @longitude])
                         .where('updated_at >= ?', limit_time)
                         .where.not(reply: nil)
-                        .order(id: :desc)
+                        .order(updated_at: :desc)
   end
 
   def create
