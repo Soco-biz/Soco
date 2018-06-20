@@ -10,12 +10,39 @@ class SocoPostTest < ActiveSupport::TestCase
     assert posts.save, '保存できませんでした'
   end
 
-  test '投稿が失敗する想定' do
-    # ここはmodelにvalidationを書いてから記述する
+  test 'latitudeとlongitudeがnilで投稿が失敗する想定' do
+    posts = SocoPost.new({
+      contents: '失敗する想定です',
+      latitude: nil,
+      longitude: nil
+    })
+    assert_not posts.save, '保存しました'
+  end
+
+  test 'latitudeが0で投稿が失敗する想定' do
+    posts = SocoPost.new({
+      contents: '失敗する想定です',
+      latitude: 0,
+      longitude: 1.5
+    })
+    assert_not posts.save, '保存しました'
+  end
+
+  test 'longitudeが0で投稿が失敗する想定' do
     posts = SocoPost.new({
       contents: '失敗する想定です',
       latitude: 1.5,
+      longitude: 0
+    })
+    assert_not posts.save, '保存しました'
+  end
+
+  test 'contentsが0で投稿が失敗する想定' do
+    posts = SocoPost.new({
+      contents: '',
+      latitude: 1.5,
       longitude: 1.5
     })
-    assert posts.save, '保存できませんでした'
+    assert_not posts.save, '保存しました'
+  end
 end
