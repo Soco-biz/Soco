@@ -2,22 +2,17 @@ class SocoPostsController < ApplicationController
   before_action :take_location, only: [:index, :create, :favorite, :auto_reload]
 
   def index
-    minutes = 30 * 60 # Socoの取得時間制限
-    limit_time = Time.current - minutes
-
     if @latitude == 0 || @longitude == 0
       render formats: 'json', status: :not_found
     end
     # 直接ラウンジ内に表示する投稿だけを追加する
     @lounge = SocoPost.within(1.0, origin: [@latitude, @longitude])
-                      .where('updated_at >= ?', limit_time)
                       .where(reply: nil)
-                      .order(id: :desc)
+                      .order(updated_at: :desc)
     # リプライIDを持っているものだけを取得
     @to_reply = SocoPost.within(1.0, origin: [@latitude, @longitude])
-                        .where('updated_at >= ?', limit_time)
                         .where.not(reply: nil)
-                        .order(id: :desc)
+                        .order(updated_at: :desc)
   end
 
   def create
