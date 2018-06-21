@@ -37,9 +37,20 @@ class SocoPostTest < ActiveSupport::TestCase
     assert_not posts.save, '保存しました'
   end
 
-  test 'contentsが0で投稿が失敗する想定' do
+  test 'contentsが1未満で投稿が失敗する想定' do
     posts = SocoPost.new({
       contents: '',
+      latitude: 1.5,
+      longitude: 1.5
+    })
+    assert_not posts.save, '保存しました'
+  end
+
+  test 'contentsが140より上で投稿が失敗する想定' do
+    posts = SocoPost.new({
+      contents: 'hogehogehogehogehogehogehogehogehogehogehogehogehogehogehoge
+      hogehogehogehogehogehogehogehogehogehogehogehogehogehogehogehogehogehoge
+      hogehogeh',
       latitude: 1.5,
       longitude: 1.5
     })

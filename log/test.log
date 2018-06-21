@@ -595,3 +595,931 @@ SocoPostTest: test_latitudeとlongitudeがNot_Floatで投稿が失敗する想�
   [1m[35m (0.9ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
   [1m[35m (0.9ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
   [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (3.1ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.6ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixture Delete (7.1ms)[0m  [1m[31mDELETE FROM `soco_posts`[0m
+  [1m[36mFixture Insert (1.4ms)[0m  [1m[32mINSERT INTO `soco_posts` (`id`, `contents`, `reply`, `good`, `latitude`, `longitude`, `image`, `created_at`, `updated_at`) VALUES (1, 'MyString', 0, 0, 1.5, 1.5, 'MyText', '2018-06-21 13:01:39', '2018-06-21 13:01:39')[0m
+  [1m[36mFixture Insert (0.9ms)[0m  [1m[32mINSERT INTO `soco_posts` (`id`, `contents`, `reply`, `good`, `latitude`, `longitude`, `image`, `created_at`, `updated_at`) VALUES (2, 'MyString', 1, 0, 1.5, 1.5, 'MyText', '2018-06-21 13:01:39', '2018-06-21 13:01:39')[0m
+  [1m[36mFixture Insert (0.5ms)[0m  [1m[32mINSERT INTO `soco_posts` (`id`, `contents`, `reply`, `good`, `latitude`, `longitude`, `image`, `created_at`, `updated_at`) VALUES (3, 'MyString', 0, 10, 1.5, 1.5, 'MyText', '2018-06-21 13:01:39', '2018-06-21 13:01:39')[0m
+  [1m[35m (9.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------------
+SocoPostTest: test_latitudeとlongitudeがnilで投稿が失敗する想定
+---------------------------------------------------
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------
+SocoPostTest: test_longitudeが0で投稿が失敗する想定
+----------------------------------------
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------
+SocoPostTest: test_contentsが1未満で投稿が失敗する想定
+-----------------------------------------
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------
+SocoPostTest: test_latitudeが0で投稿が失敗する想定
+---------------------------------------
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------
+SocoPostTest: test_contentsが140より上で投稿が失敗する想定
+--------------------------------------------
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+----------------------------
+SocoPostTest: test_投稿が成功する想定
+----------------------------
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO `soco_posts` (`contents`, `latitude`, `longitude`, `created_at`, `updated_at`) VALUES ('成功想定です', 1.5, 1.5, '2018-06-21 13:01:39', '2018-06-21 13:01:39')[0m
+  [1m[36mActsAsTaggableOn::Tagging Load (0.9ms)[0m  [1m[34mSELECT `taggings`.* FROM `taggings` WHERE `taggings`.`taggable_id` = 12 AND `taggings`.`taggable_type` = 'SocoPost'[0m
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (7.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.8ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixture Delete (0.4ms)[0m  [1m[31mDELETE FROM `soco_posts`[0m
+  [1m[36mFixture Insert (0.4ms)[0m  [1m[32mINSERT INTO `soco_posts` (`id`, `contents`, `reply`, `good`, `latitude`, `longitude`, `image`, `created_at`, `updated_at`) VALUES (1, 'MyString', 0, 0, 1.5, 1.5, 'MyText', '2018-06-21 13:01:47', '2018-06-21 13:01:47')[0m
+  [1m[36mFixture Insert (0.4ms)[0m  [1m[32mINSERT INTO `soco_posts` (`id`, `contents`, `reply`, `good`, `latitude`, `longitude`, `image`, `created_at`, `updated_at`) VALUES (2, 'MyString', 1, 0, 1.5, 1.5, 'MyText', '2018-06-21 13:01:47', '2018-06-21 13:01:47')[0m
+  [1m[36mFixture Insert (0.5ms)[0m  [1m[32mINSERT INTO `soco_posts` (`id`, `contents`, `reply`, `good`, `latitude`, `longitude`, `image`, `created_at`, `updated_at`) VALUES (3, 'MyString', 0, 10, 1.5, 1.5, 'MyText', '2018-06-21 13:01:47', '2018-06-21 13:01:47')[0m
+  [1m[35m (7.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------------
+SocoPostTest: test_latitudeとlongitudeがnilで投稿が失敗する想定
+---------------------------------------------------
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------
+SocoPostTest: test_longitudeが0で投稿が失敗する想定
+----------------------------------------
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------
+SocoPostTest: test_latitudeが0で投稿が失敗する想定
+---------------------------------------
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+----------------------------
+SocoPostTest: test_投稿が成功する想定
+----------------------------
+  [1m[35m (2.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO `soco_posts` (`contents`, `latitude`, `longitude`, `created_at`, `updated_at`) VALUES ('成功想定です', 1.5, 1.5, '2018-06-21 13:01:47', '2018-06-21 13:01:47')[0m
+  [1m[36mActsAsTaggableOn::Tagging Load (0.6ms)[0m  [1m[34mSELECT `taggings`.* FROM `taggings` WHERE `taggings`.`taggable_id` = 13 AND `taggings`.`taggable_type` = 'SocoPost'[0m
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (7.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------
+SocoPostTest: test_contentsが1未満で投稿が失敗する想定
+-----------------------------------------
+  [1m[35m (0.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------
+SocoPostTest: test_contentsが140より上で投稿が失敗する想定
+--------------------------------------------
+  [1m[35m (1.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.9ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.8ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.6ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixture Delete (0.7ms)[0m  [1m[31mDELETE FROM `soco_posts`[0m
+  [1m[36mFixture Insert (0.5ms)[0m  [1m[32mINSERT INTO `soco_posts` (`id`, `contents`, `reply`, `good`, `latitude`, `longitude`, `image`, `created_at`, `updated_at`) VALUES (1, 'MyString', 0, 0, 1.5, 1.5, 'MyText', '2018-06-21 13:01:53', '2018-06-21 13:01:53')[0m
+  [1m[36mFixture Insert (0.5ms)[0m  [1m[32mINSERT INTO `soco_posts` (`id`, `contents`, `reply`, `good`, `latitude`, `longitude`, `image`, `created_at`, `updated_at`) VALUES (2, 'MyString', 1, 0, 1.5, 1.5, 'MyText', '2018-06-21 13:01:53', '2018-06-21 13:01:53')[0m
+  [1m[36mFixture Insert (0.5ms)[0m  [1m[32mINSERT INTO `soco_posts` (`id`, `contents`, `reply`, `good`, `latitude`, `longitude`, `image`, `created_at`, `updated_at`) VALUES (3, 'MyString', 0, 10, 1.5, 1.5, 'MyText', '2018-06-21 13:01:53', '2018-06-21 13:01:53')[0m
+  [1m[35m (7.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------
+SocoPostTest: test_latitudeが0で投稿が失敗する想定
+---------------------------------------
+  [1m[35m (0.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------
+SocoPostTest: test_contentsが1未満で投稿が失敗する想定
+-----------------------------------------
+  [1m[35m (1.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------------
+SocoPostTest: test_latitudeとlongitudeがnilで投稿が失敗する想定
+---------------------------------------------------
+  [1m[35m (0.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------
+SocoPostTest: test_longitudeが0で投稿が失敗する想定
+----------------------------------------
+  [1m[35m (0.8ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------
+SocoPostTest: test_contentsが140より上で投稿が失敗する想定
+--------------------------------------------
+  [1m[35m (1.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+----------------------------
+SocoPostTest: test_投稿が成功する想定
+----------------------------
+  [1m[35m (0.8ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO `soco_posts` (`contents`, `latitude`, `longitude`, `created_at`, `updated_at`) VALUES ('成功想定です', 1.5, 1.5, '2018-06-21 13:01:54', '2018-06-21 13:01:54')[0m
+  [1m[36mActsAsTaggableOn::Tagging Load (0.6ms)[0m  [1m[34mSELECT `taggings`.* FROM `taggings` WHERE `taggings`.`taggable_id` = 14 AND `taggings`.`taggable_type` = 'SocoPost'[0m
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (7.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.2ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.6ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixture Delete (1.0ms)[0m  [1m[31mDELETE FROM `soco_posts`[0m
+  [1m[36mFixture Insert (0.5ms)[0m  [1m[32mINSERT INTO `soco_posts` (`id`, `contents`, `reply`, `good`, `latitude`, `longitude`, `image`, `created_at`, `updated_at`) VALUES (1, 'MyString', 0, 0, 1.5, 1.5, 'MyText', '2018-06-21 13:02:39', '2018-06-21 13:02:39')[0m
+  [1m[36mFixture Insert (0.9ms)[0m  [1m[32mINSERT INTO `soco_posts` (`id`, `contents`, `reply`, `good`, `latitude`, `longitude`, `image`, `created_at`, `updated_at`) VALUES (2, 'MyString', 1, 0, 1.5, 1.5, 'MyText', '2018-06-21 13:02:39', '2018-06-21 13:02:39')[0m
+  [1m[36mFixture Insert (0.5ms)[0m  [1m[32mINSERT INTO `soco_posts` (`id`, `contents`, `reply`, `good`, `latitude`, `longitude`, `image`, `created_at`, `updated_at`) VALUES (3, 'MyString', 0, 10, 1.5, 1.5, 'MyText', '2018-06-21 13:02:39', '2018-06-21 13:02:39')[0m
+  [1m[35m (9.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------
+SocoPostTest: test_contentsが1未満で投稿が失敗する想定
+-----------------------------------------
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.2ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------
+SocoPostTest: test_latitudeが0で投稿が失敗する想定
+---------------------------------------
+  [1m[35m (0.9ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+----------------------------
+SocoPostTest: test_投稿が成功する想定
+----------------------------
+  [1m[35m (0.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.6ms)[0m  [1m[32mINSERT INTO `soco_posts` (`contents`, `latitude`, `longitude`, `created_at`, `updated_at`) VALUES ('成功想定です', 1.5, 1.5, '2018-06-21 13:02:39', '2018-06-21 13:02:39')[0m
+  [1m[36mActsAsTaggableOn::Tagging Load (0.8ms)[0m  [1m[34mSELECT `taggings`.* FROM `taggings` WHERE `taggings`.`taggable_id` = 15 AND `taggings`.`taggable_type` = 'SocoPost'[0m
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (10.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.6ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------
+SocoPostTest: test_contentsが140より上で投稿が失敗する想定
+--------------------------------------------
+  [1m[35m (0.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------------
+SocoPostTest: test_latitudeとlongitudeがnilで投稿が失敗する想定
+---------------------------------------------------
+  [1m[35m (0.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------
+SocoPostTest: test_longitudeが0で投稿が失敗する想定
+----------------------------------------
+  [1m[35m (0.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.8ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixture Delete (0.4ms)[0m  [1m[31mDELETE FROM `soco_posts`[0m
+  [1m[36mFixture Insert (0.4ms)[0m  [1m[32mINSERT INTO `soco_posts` (`id`, `contents`, `reply`, `good`, `latitude`, `longitude`, `image`, `created_at`, `updated_at`) VALUES (1, 'MyString', 0, 0, 1.5, 1.5, 'MyText', '2018-06-21 13:02:48', '2018-06-21 13:02:48')[0m
+  [1m[36mFixture Insert (0.4ms)[0m  [1m[32mINSERT INTO `soco_posts` (`id`, `contents`, `reply`, `good`, `latitude`, `longitude`, `image`, `created_at`, `updated_at`) VALUES (2, 'MyString', 1, 0, 1.5, 1.5, 'MyText', '2018-06-21 13:02:48', '2018-06-21 13:02:48')[0m
+  [1m[36mFixture Insert (0.8ms)[0m  [1m[32mINSERT INTO `soco_posts` (`id`, `contents`, `reply`, `good`, `latitude`, `longitude`, `image`, `created_at`, `updated_at`) VALUES (3, 'MyString', 0, 10, 1.5, 1.5, 'MyText', '2018-06-21 13:02:48', '2018-06-21 13:02:48')[0m
+  [1m[35m (7.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------------
+SocoPostTest: test_latitudeとlongitudeがnilで投稿が失敗する想定
+---------------------------------------------------
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+----------------------------
+SocoPostTest: test_投稿が成功する想定
+----------------------------
+  [1m[35m (1.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO `soco_posts` (`contents`, `latitude`, `longitude`, `created_at`, `updated_at`) VALUES ('成功想定です', 1.5, 1.5, '2018-06-21 13:02:48', '2018-06-21 13:02:48')[0m
+  [1m[36mActsAsTaggableOn::Tagging Load (0.6ms)[0m  [1m[34mSELECT `taggings`.* FROM `taggings` WHERE `taggings`.`taggable_id` = 16 AND `taggings`.`taggable_type` = 'SocoPost'[0m
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (7.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------
+SocoPostTest: test_contentsが140より上で投稿が失敗する想定
+--------------------------------------------
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO `soco_posts` (`contents`, `latitude`, `longitude`, `created_at`, `updated_at`) VALUES ('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\n      aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 1.5, 1.5, '2018-06-21 13:02:48', '2018-06-21 13:02:48')[0m
+  [1m[36mActsAsTaggableOn::Tagging Load (1.2ms)[0m  [1m[34mSELECT `taggings`.* FROM `taggings` WHERE `taggings`.`taggable_id` = 17 AND `taggings`.`taggable_type` = 'SocoPost'[0m
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (10.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------
+SocoPostTest: test_contentsが1未満で投稿が失敗する想定
+-----------------------------------------
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------
+SocoPostTest: test_latitudeが0で投稿が失敗する想定
+---------------------------------------
+  [1m[35m (1.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------
+SocoPostTest: test_longitudeが0で投稿が失敗する想定
+----------------------------------------
+  [1m[35m (0.8ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixture Delete (1.1ms)[0m  [1m[31mDELETE FROM `soco_posts`[0m
+  [1m[36mFixture Insert (0.6ms)[0m  [1m[32mINSERT INTO `soco_posts` (`id`, `contents`, `reply`, `good`, `latitude`, `longitude`, `image`, `created_at`, `updated_at`) VALUES (1, 'MyString', 0, 0, 1.5, 1.5, 'MyText', '2018-06-21 13:03:10', '2018-06-21 13:03:10')[0m
+  [1m[36mFixture Insert (0.5ms)[0m  [1m[32mINSERT INTO `soco_posts` (`id`, `contents`, `reply`, `good`, `latitude`, `longitude`, `image`, `created_at`, `updated_at`) VALUES (2, 'MyString', 1, 0, 1.5, 1.5, 'MyText', '2018-06-21 13:03:10', '2018-06-21 13:03:10')[0m
+  [1m[36mFixture Insert (0.4ms)[0m  [1m[32mINSERT INTO `soco_posts` (`id`, `contents`, `reply`, `good`, `latitude`, `longitude`, `image`, `created_at`, `updated_at`) VALUES (3, 'MyString', 0, 10, 1.5, 1.5, 'MyText', '2018-06-21 13:03:10', '2018-06-21 13:03:10')[0m
+  [1m[35m (7.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------------
+SocoPostTest: test_latitudeとlongitudeがnilで投稿が失敗する想定
+---------------------------------------------------
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------
+SocoPostTest: test_latitudeが0で投稿が失敗する想定
+---------------------------------------
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------
+SocoPostTest: test_contentsが140より上で投稿が失敗する想定
+--------------------------------------------
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------
+SocoPostTest: test_contentsが1未満で投稿が失敗する想定
+-----------------------------------------
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------
+SocoPostTest: test_longitudeが0で投稿が失敗する想定
+----------------------------------------
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.8ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+----------------------------
+SocoPostTest: test_投稿が成功する想定
+----------------------------
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO `soco_posts` (`contents`, `latitude`, `longitude`, `created_at`, `updated_at`) VALUES ('成功想定です', 1.5, 1.5, '2018-06-21 13:03:10', '2018-06-21 13:03:10')[0m
+  [1m[36mActsAsTaggableOn::Tagging Load (0.6ms)[0m  [1m[34mSELECT `taggings`.* FROM `taggings` WHERE `taggings`.`taggable_id` = 18 AND `taggings`.`taggable_type` = 'SocoPost'[0m
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (7.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixture Delete (0.4ms)[0m  [1m[31mDELETE FROM `soco_posts`[0m
+  [1m[36mFixture Insert (0.4ms)[0m  [1m[32mINSERT INTO `soco_posts` (`id`, `contents`, `reply`, `good`, `latitude`, `longitude`, `image`, `created_at`, `updated_at`) VALUES (1, 'MyString', 0, 0, 1.5, 1.5, 'MyText', '2018-06-21 13:03:19', '2018-06-21 13:03:19')[0m
+  [1m[36mFixture Insert (0.4ms)[0m  [1m[32mINSERT INTO `soco_posts` (`id`, `contents`, `reply`, `good`, `latitude`, `longitude`, `image`, `created_at`, `updated_at`) VALUES (2, 'MyString', 1, 0, 1.5, 1.5, 'MyText', '2018-06-21 13:03:19', '2018-06-21 13:03:19')[0m
+  [1m[36mFixture Insert (0.4ms)[0m  [1m[32mINSERT INTO `soco_posts` (`id`, `contents`, `reply`, `good`, `latitude`, `longitude`, `image`, `created_at`, `updated_at`) VALUES (3, 'MyString', 0, 10, 1.5, 1.5, 'MyText', '2018-06-21 13:03:19', '2018-06-21 13:03:19')[0m
+  [1m[35m (7.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------
+SocoPostTest: test_contentsが140より上で投稿が失敗する想定
+--------------------------------------------
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+----------------------------
+SocoPostTest: test_投稿が成功する想定
+----------------------------
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO `soco_posts` (`contents`, `latitude`, `longitude`, `created_at`, `updated_at`) VALUES ('成功想定です', 1.5, 1.5, '2018-06-21 13:03:19', '2018-06-21 13:03:19')[0m
+  [1m[36mActsAsTaggableOn::Tagging Load (0.6ms)[0m  [1m[34mSELECT `taggings`.* FROM `taggings` WHERE `taggings`.`taggable_id` = 19 AND `taggings`.`taggable_type` = 'SocoPost'[0m
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (7.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------
+SocoPostTest: test_contentsが1未満で投稿が失敗する想定
+-----------------------------------------
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.8ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------------
+SocoPostTest: test_latitudeとlongitudeがnilで投稿が失敗する想定
+---------------------------------------------------
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------
+SocoPostTest: test_longitudeが0で投稿が失敗する想定
+----------------------------------------
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.9ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------
+SocoPostTest: test_latitudeが0で投稿が失敗する想定
+---------------------------------------
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.9ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.6ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixture Delete (0.6ms)[0m  [1m[31mDELETE FROM `soco_posts`[0m
+  [1m[36mFixture Insert (0.6ms)[0m  [1m[32mINSERT INTO `soco_posts` (`id`, `contents`, `reply`, `good`, `latitude`, `longitude`, `image`, `created_at`, `updated_at`) VALUES (1, 'MyString', 0, 0, 1.5, 1.5, 'MyText', '2018-06-21 13:03:26', '2018-06-21 13:03:26')[0m
+  [1m[36mFixture Insert (0.5ms)[0m  [1m[32mINSERT INTO `soco_posts` (`id`, `contents`, `reply`, `good`, `latitude`, `longitude`, `image`, `created_at`, `updated_at`) VALUES (2, 'MyString', 1, 0, 1.5, 1.5, 'MyText', '2018-06-21 13:03:26', '2018-06-21 13:03:26')[0m
+  [1m[36mFixture Insert (0.5ms)[0m  [1m[32mINSERT INTO `soco_posts` (`id`, `contents`, `reply`, `good`, `latitude`, `longitude`, `image`, `created_at`, `updated_at`) VALUES (3, 'MyString', 0, 10, 1.5, 1.5, 'MyText', '2018-06-21 13:03:26', '2018-06-21 13:03:26')[0m
+  [1m[35m (7.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------
+SocoPostTest: test_latitudeが0で投稿が失敗する想定
+---------------------------------------
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------
+SocoPostTest: test_longitudeが0で投稿が失敗する想定
+----------------------------------------
+  [1m[35m (1.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.8ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------------
+SocoPostTest: test_latitudeとlongitudeがnilで投稿が失敗する想定
+---------------------------------------------------
+  [1m[35m (0.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (1.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.2ms)[0m  [1m[35mBEGIN[0m
+----------------------------
+SocoPostTest: test_投稿が成功する想定
+----------------------------
+  [1m[35m (0.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO `soco_posts` (`contents`, `latitude`, `longitude`, `created_at`, `updated_at`) VALUES ('成功想定です', 1.5, 1.5, '2018-06-21 13:03:26', '2018-06-21 13:03:26')[0m
+  [1m[36mActsAsTaggableOn::Tagging Load (0.7ms)[0m  [1m[34mSELECT `taggings`.* FROM `taggings` WHERE `taggings`.`taggable_id` = 20 AND `taggings`.`taggable_type` = 'SocoPost'[0m
+  [1m[35m (0.5ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (7.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.5ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------
+SocoPostTest: test_contentsが140より上で投稿が失敗する想定
+--------------------------------------------
+  [1m[35m (0.8ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO `soco_posts` (`contents`, `latitude`, `longitude`, `created_at`, `updated_at`) VALUES ('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\n      aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 1.5, 1.5, '2018-06-21 13:03:26', '2018-06-21 13:03:26')[0m
+  [1m[36mActsAsTaggableOn::Tagging Load (0.7ms)[0m  [1m[34mSELECT `taggings`.* FROM `taggings` WHERE `taggings`.`taggable_id` = 21 AND `taggings`.`taggable_type` = 'SocoPost'[0m
+  [1m[35m (0.5ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (8.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------
+SocoPostTest: test_contentsが1未満で投稿が失敗する想定
+-----------------------------------------
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.6ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixture Delete (0.5ms)[0m  [1m[31mDELETE FROM `soco_posts`[0m
+  [1m[36mFixture Insert (0.5ms)[0m  [1m[32mINSERT INTO `soco_posts` (`id`, `contents`, `reply`, `good`, `latitude`, `longitude`, `image`, `created_at`, `updated_at`) VALUES (1, 'MyString', 0, 0, 1.5, 1.5, 'MyText', '2018-06-21 13:03:38', '2018-06-21 13:03:38')[0m
+  [1m[36mFixture Insert (0.5ms)[0m  [1m[32mINSERT INTO `soco_posts` (`id`, `contents`, `reply`, `good`, `latitude`, `longitude`, `image`, `created_at`, `updated_at`) VALUES (2, 'MyString', 1, 0, 1.5, 1.5, 'MyText', '2018-06-21 13:03:38', '2018-06-21 13:03:38')[0m
+  [1m[36mFixture Insert (0.5ms)[0m  [1m[32mINSERT INTO `soco_posts` (`id`, `contents`, `reply`, `good`, `latitude`, `longitude`, `image`, `created_at`, `updated_at`) VALUES (3, 'MyString', 0, 10, 1.5, 1.5, 'MyText', '2018-06-21 13:03:38', '2018-06-21 13:03:38')[0m
+  [1m[35m (7.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+----------------------------
+SocoPostTest: test_投稿が成功する想定
+----------------------------
+  [1m[35m (0.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO `soco_posts` (`contents`, `latitude`, `longitude`, `created_at`, `updated_at`) VALUES ('成功想定です', 1.5, 1.5, '2018-06-21 13:03:38', '2018-06-21 13:03:38')[0m
+  [1m[36mActsAsTaggableOn::Tagging Load (0.8ms)[0m  [1m[34mSELECT `taggings`.* FROM `taggings` WHERE `taggings`.`taggable_id` = 22 AND `taggings`.`taggable_type` = 'SocoPost'[0m
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (3.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------
+SocoPostTest: test_contentsが140より上で投稿が失敗する想定
+--------------------------------------------
+  [1m[35m (0.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------
+SocoPostTest: test_contentsが1未満で投稿が失敗する想定
+-----------------------------------------
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------------
+SocoPostTest: test_latitudeとlongitudeがnilで投稿が失敗する想定
+---------------------------------------------------
+  [1m[35m (0.8ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------
+SocoPostTest: test_longitudeが0で投稿が失敗する想定
+----------------------------------------
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------
+SocoPostTest: test_latitudeが0で投稿が失敗する想定
+---------------------------------------
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.8ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixture Delete (0.5ms)[0m  [1m[31mDELETE FROM `soco_posts`[0m
+  [1m[36mFixture Insert (0.5ms)[0m  [1m[32mINSERT INTO `soco_posts` (`id`, `contents`, `reply`, `good`, `latitude`, `longitude`, `image`, `created_at`, `updated_at`) VALUES (1, 'MyString', 0, 0, 1.5, 1.5, 'MyText', '2018-06-21 13:03:45', '2018-06-21 13:03:45')[0m
+  [1m[36mFixture Insert (0.5ms)[0m  [1m[32mINSERT INTO `soco_posts` (`id`, `contents`, `reply`, `good`, `latitude`, `longitude`, `image`, `created_at`, `updated_at`) VALUES (2, 'MyString', 1, 0, 1.5, 1.5, 'MyText', '2018-06-21 13:03:45', '2018-06-21 13:03:45')[0m
+  [1m[36mFixture Insert (0.6ms)[0m  [1m[32mINSERT INTO `soco_posts` (`id`, `contents`, `reply`, `good`, `latitude`, `longitude`, `image`, `created_at`, `updated_at`) VALUES (3, 'MyString', 0, 10, 1.5, 1.5, 'MyText', '2018-06-21 13:03:45', '2018-06-21 13:03:45')[0m
+  [1m[35m (12.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------
+SocoPostTest: test_latitudeが0で投稿が失敗する想定
+---------------------------------------
+  [1m[35m (0.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------
+SocoPostTest: test_contentsが1未満で投稿が失敗する想定
+-----------------------------------------
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------------
+SocoPostTest: test_latitudeとlongitudeがnilで投稿が失敗する想定
+---------------------------------------------------
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------
+SocoPostTest: test_contentsが140より上で投稿が失敗する想定
+--------------------------------------------
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO `soco_posts` (`contents`, `latitude`, `longitude`, `created_at`, `updated_at`) VALUES ('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\n      aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 1.5, 1.5, '2018-06-21 13:03:45', '2018-06-21 13:03:45')[0m
+  [1m[36mActsAsTaggableOn::Tagging Load (0.7ms)[0m  [1m[34mSELECT `taggings`.* FROM `taggings` WHERE `taggings`.`taggable_id` = 23 AND `taggings`.`taggable_type` = 'SocoPost'[0m
+  [1m[35m (0.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (7.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------
+SocoPostTest: test_longitudeが0で投稿が失敗する想定
+----------------------------------------
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+----------------------------
+SocoPostTest: test_投稿が成功する想定
+----------------------------
+  [1m[35m (1.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO `soco_posts` (`contents`, `latitude`, `longitude`, `created_at`, `updated_at`) VALUES ('成功想定です', 1.5, 1.5, '2018-06-21 13:03:45', '2018-06-21 13:03:45')[0m
+  [1m[36mActsAsTaggableOn::Tagging Load (1.3ms)[0m  [1m[34mSELECT `taggings`.* FROM `taggings` WHERE `taggings`.`taggable_id` = 24 AND `taggings`.`taggable_type` = 'SocoPost'[0m
+  [1m[35m (0.7ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (7.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.8ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixture Delete (0.6ms)[0m  [1m[31mDELETE FROM `soco_posts`[0m
+  [1m[36mFixture Insert (0.6ms)[0m  [1m[32mINSERT INTO `soco_posts` (`id`, `contents`, `reply`, `good`, `latitude`, `longitude`, `image`, `created_at`, `updated_at`) VALUES (1, 'MyString', 0, 0, 1.5, 1.5, 'MyText', '2018-06-21 13:03:56', '2018-06-21 13:03:56')[0m
+  [1m[36mFixture Insert (0.5ms)[0m  [1m[32mINSERT INTO `soco_posts` (`id`, `contents`, `reply`, `good`, `latitude`, `longitude`, `image`, `created_at`, `updated_at`) VALUES (2, 'MyString', 1, 0, 1.5, 1.5, 'MyText', '2018-06-21 13:03:56', '2018-06-21 13:03:56')[0m
+  [1m[36mFixture Insert (0.5ms)[0m  [1m[32mINSERT INTO `soco_posts` (`id`, `contents`, `reply`, `good`, `latitude`, `longitude`, `image`, `created_at`, `updated_at`) VALUES (3, 'MyString', 0, 10, 1.5, 1.5, 'MyText', '2018-06-21 13:03:56', '2018-06-21 13:03:56')[0m
+  [1m[35m (8.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+----------------------------
+SocoPostTest: test_投稿が成功する想定
+----------------------------
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO `soco_posts` (`contents`, `latitude`, `longitude`, `created_at`, `updated_at`) VALUES ('成功想定です', 1.5, 1.5, '2018-06-21 13:03:56', '2018-06-21 13:03:56')[0m
+  [1m[36mActsAsTaggableOn::Tagging Load (0.6ms)[0m  [1m[34mSELECT `taggings`.* FROM `taggings` WHERE `taggings`.`taggable_id` = 25 AND `taggings`.`taggable_type` = 'SocoPost'[0m
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (5.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------
+SocoPostTest: test_contentsが1未満で投稿が失敗する想定
+-----------------------------------------
+  [1m[35m (0.8ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------
+SocoPostTest: test_latitudeが0で投稿が失敗する想定
+---------------------------------------
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------
+SocoPostTest: test_contentsが140より上で投稿が失敗する想定
+--------------------------------------------
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO `soco_posts` (`contents`, `latitude`, `longitude`, `created_at`, `updated_at`) VALUES ('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\n      aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 1.5, 1.5, '2018-06-21 13:03:56', '2018-06-21 13:03:56')[0m
+  [1m[36mActsAsTaggableOn::Tagging Load (1.2ms)[0m  [1m[34mSELECT `taggings`.* FROM `taggings` WHERE `taggings`.`taggable_id` = 26 AND `taggings`.`taggable_type` = 'SocoPost'[0m
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (7.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------------
+SocoPostTest: test_latitudeとlongitudeがnilで投稿が失敗する想定
+---------------------------------------------------
+  [1m[35m (0.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------
+SocoPostTest: test_longitudeが0で投稿が失敗する想定
+----------------------------------------
+  [1m[35m (0.8ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.7ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixture Delete (0.5ms)[0m  [1m[31mDELETE FROM `soco_posts`[0m
+  [1m[36mFixture Insert (0.5ms)[0m  [1m[32mINSERT INTO `soco_posts` (`id`, `contents`, `reply`, `good`, `latitude`, `longitude`, `image`, `created_at`, `updated_at`) VALUES (1, 'MyString', 0, 0, 1.5, 1.5, 'MyText', '2018-06-21 13:04:08', '2018-06-21 13:04:08')[0m
+  [1m[36mFixture Insert (0.6ms)[0m  [1m[32mINSERT INTO `soco_posts` (`id`, `contents`, `reply`, `good`, `latitude`, `longitude`, `image`, `created_at`, `updated_at`) VALUES (2, 'MyString', 1, 0, 1.5, 1.5, 'MyText', '2018-06-21 13:04:08', '2018-06-21 13:04:08')[0m
+  [1m[36mFixture Insert (0.5ms)[0m  [1m[32mINSERT INTO `soco_posts` (`id`, `contents`, `reply`, `good`, `latitude`, `longitude`, `image`, `created_at`, `updated_at`) VALUES (3, 'MyString', 0, 10, 1.5, 1.5, 'MyText', '2018-06-21 13:04:08', '2018-06-21 13:04:08')[0m
+  [1m[35m (7.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------
+SocoPostTest: test_contentsが140より上で投稿が失敗する想定
+--------------------------------------------
+  [1m[35m (0.8ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------
+SocoPostTest: test_contentsが1未満で投稿が失敗する想定
+-----------------------------------------
+  [1m[35m (0.8ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------
+SocoPostTest: test_latitudeが0で投稿が失敗する想定
+---------------------------------------
+  [1m[35m (0.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------------
+SocoPostTest: test_latitudeとlongitudeがnilで投稿が失敗する想定
+---------------------------------------------------
+  [1m[35m (0.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------
+SocoPostTest: test_longitudeが0で投稿が失敗する想定
+----------------------------------------
+  [1m[35m (0.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+----------------------------
+SocoPostTest: test_投稿が成功する想定
+----------------------------
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO `soco_posts` (`contents`, `latitude`, `longitude`, `created_at`, `updated_at`) VALUES ('成功想定です', 1.5, 1.5, '2018-06-21 13:04:08', '2018-06-21 13:04:08')[0m
+  [1m[36mActsAsTaggableOn::Tagging Load (0.8ms)[0m  [1m[34mSELECT `taggings`.* FROM `taggings` WHERE `taggings`.`taggable_id` = 27 AND `taggings`.`taggable_type` = 'SocoPost'[0m
+  [1m[35m (0.6ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (7.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.6ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixture Delete (1.0ms)[0m  [1m[31mDELETE FROM `soco_posts`[0m
+  [1m[36mFixture Insert (0.4ms)[0m  [1m[32mINSERT INTO `soco_posts` (`id`, `contents`, `reply`, `good`, `latitude`, `longitude`, `image`, `created_at`, `updated_at`) VALUES (1, 'MyString', 0, 0, 1.5, 1.5, 'MyText', '2018-06-21 13:08:05', '2018-06-21 13:08:05')[0m
+  [1m[36mFixture Insert (0.7ms)[0m  [1m[32mINSERT INTO `soco_posts` (`id`, `contents`, `reply`, `good`, `latitude`, `longitude`, `image`, `created_at`, `updated_at`) VALUES (2, 'MyString', 1, 0, 1.5, 1.5, 'MyText', '2018-06-21 13:08:05', '2018-06-21 13:08:05')[0m
+  [1m[36mFixture Insert (0.4ms)[0m  [1m[32mINSERT INTO `soco_posts` (`id`, `contents`, `reply`, `good`, `latitude`, `longitude`, `image`, `created_at`, `updated_at`) VALUES (3, 'MyString', 0, 10, 1.5, 1.5, 'MyText', '2018-06-21 13:08:05', '2018-06-21 13:08:05')[0m
+  [1m[35m (13.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------
+SocoPostTest: test_latitudeが0で投稿が失敗する想定
+---------------------------------------
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------
+SocoPostTest: test_contentsが140より上で投稿が失敗する想定
+--------------------------------------------
+  [1m[35m (0.9ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO `soco_posts` (`contents`, `latitude`, `longitude`, `created_at`, `updated_at`) VALUES ('hogehogehogehogehogehogehogehogehogehogehogehogehogehogehogehogehogehogehogehogehogehogehogehogehogehogehogehogehogehogehogehogehogehogehoge', 1.5, 1.5, '2018-06-21 13:08:05', '2018-06-21 13:08:05')[0m
+  [1m[36mActsAsTaggableOn::Tagging Load (0.7ms)[0m  [1m[34mSELECT `taggings`.* FROM `taggings` WHERE `taggings`.`taggable_id` = 28 AND `taggings`.`taggable_type` = 'SocoPost'[0m
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (7.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.8ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------------
+SocoPostTest: test_latitudeとlongitudeがnilで投稿が失敗する想定
+---------------------------------------------------
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+----------------------------
+SocoPostTest: test_投稿が成功する想定
+----------------------------
+  [1m[35m (0.9ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO `soco_posts` (`contents`, `latitude`, `longitude`, `created_at`, `updated_at`) VALUES ('成功想定です', 1.5, 1.5, '2018-06-21 13:08:05', '2018-06-21 13:08:05')[0m
+  [1m[36mActsAsTaggableOn::Tagging Load (1.1ms)[0m  [1m[34mSELECT `taggings`.* FROM `taggings` WHERE `taggings`.`taggable_id` = 29 AND `taggings`.`taggable_type` = 'SocoPost'[0m
+  [1m[35m (0.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (9.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------
+SocoPostTest: test_contentsが1未満で投稿が失敗する想定
+-----------------------------------------
+  [1m[35m (0.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------
+SocoPostTest: test_longitudeが0で投稿が失敗する想定
+----------------------------------------
+  [1m[35m (1.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.8ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixture Delete (0.5ms)[0m  [1m[31mDELETE FROM `soco_posts`[0m
+  [1m[36mFixture Insert (0.4ms)[0m  [1m[32mINSERT INTO `soco_posts` (`id`, `contents`, `reply`, `good`, `latitude`, `longitude`, `image`, `created_at`, `updated_at`) VALUES (1, 'MyString', 0, 0, 1.5, 1.5, 'MyText', '2018-06-21 13:08:14', '2018-06-21 13:08:14')[0m
+  [1m[36mFixture Insert (0.4ms)[0m  [1m[32mINSERT INTO `soco_posts` (`id`, `contents`, `reply`, `good`, `latitude`, `longitude`, `image`, `created_at`, `updated_at`) VALUES (2, 'MyString', 1, 0, 1.5, 1.5, 'MyText', '2018-06-21 13:08:14', '2018-06-21 13:08:14')[0m
+  [1m[36mFixture Insert (0.4ms)[0m  [1m[32mINSERT INTO `soco_posts` (`id`, `contents`, `reply`, `good`, `latitude`, `longitude`, `image`, `created_at`, `updated_at`) VALUES (3, 'MyString', 0, 10, 1.5, 1.5, 'MyText', '2018-06-21 13:08:14', '2018-06-21 13:08:14')[0m
+  [1m[35m (7.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+----------------------------
+SocoPostTest: test_投稿が成功する想定
+----------------------------
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO `soco_posts` (`contents`, `latitude`, `longitude`, `created_at`, `updated_at`) VALUES ('成功想定です', 1.5, 1.5, '2018-06-21 13:08:14', '2018-06-21 13:08:14')[0m
+  [1m[36mActsAsTaggableOn::Tagging Load (0.6ms)[0m  [1m[34mSELECT `taggings`.* FROM `taggings` WHERE `taggings`.`taggable_id` = 30 AND `taggings`.`taggable_type` = 'SocoPost'[0m
+  [1m[35m (0.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (5.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------
+SocoPostTest: test_latitudeが0で投稿が失敗する想定
+---------------------------------------
+  [1m[35m (0.9ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (1.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------------
+SocoPostTest: test_latitudeとlongitudeがnilで投稿が失敗する想定
+---------------------------------------------------
+  [1m[35m (0.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------
+SocoPostTest: test_longitudeが0で投稿が失敗する想定
+----------------------------------------
+  [1m[35m (0.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.6ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------
+SocoPostTest: test_contentsが1未満で投稿が失敗する想定
+-----------------------------------------
+  [1m[35m (1.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------
+SocoPostTest: test_contentsが140より上で投稿が失敗する想定
+--------------------------------------------
+  [1m[35m (0.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.7ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixture Delete (3.6ms)[0m  [1m[31mDELETE FROM `soco_posts`[0m
+  [1m[36mFixture Insert (0.7ms)[0m  [1m[32mINSERT INTO `soco_posts` (`id`, `contents`, `reply`, `good`, `latitude`, `longitude`, `image`, `created_at`, `updated_at`) VALUES (1, 'MyString', 0, 0, 1.5, 1.5, 'MyText', '2018-06-21 13:08:33', '2018-06-21 13:08:33')[0m
+  [1m[36mFixture Insert (0.7ms)[0m  [1m[32mINSERT INTO `soco_posts` (`id`, `contents`, `reply`, `good`, `latitude`, `longitude`, `image`, `created_at`, `updated_at`) VALUES (2, 'MyString', 1, 0, 1.5, 1.5, 'MyText', '2018-06-21 13:08:33', '2018-06-21 13:08:33')[0m
+  [1m[36mFixture Insert (0.6ms)[0m  [1m[32mINSERT INTO `soco_posts` (`id`, `contents`, `reply`, `good`, `latitude`, `longitude`, `image`, `created_at`, `updated_at`) VALUES (3, 'MyString', 0, 10, 1.5, 1.5, 'MyText', '2018-06-21 13:08:33', '2018-06-21 13:08:33')[0m
+  [1m[35m (12.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.8ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------
+SocoPostTest: test_latitudeが0で投稿が失敗する想定
+---------------------------------------
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------
+SocoPostTest: test_contentsが1未満で投稿が失敗する想定
+-----------------------------------------
+  [1m[35m (1.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------
+SocoPostTest: test_longitudeが0で投稿が失敗する想定
+----------------------------------------
+  [1m[35m (0.8ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------------
+SocoPostTest: test_latitudeとlongitudeがnilで投稿が失敗する想定
+---------------------------------------------------
+  [1m[35m (0.8ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (1.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.3ms)[0m  [1m[35mBEGIN[0m
+----------------------------
+SocoPostTest: test_投稿が成功する想定
+----------------------------
+  [1m[35m (0.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO `soco_posts` (`contents`, `latitude`, `longitude`, `created_at`, `updated_at`) VALUES ('成功想定です', 1.5, 1.5, '2018-06-21 13:08:34', '2018-06-21 13:08:34')[0m
+  [1m[36mActsAsTaggableOn::Tagging Load (0.8ms)[0m  [1m[34mSELECT `taggings`.* FROM `taggings` WHERE `taggings`.`taggable_id` = 31 AND `taggings`.`taggable_type` = 'SocoPost'[0m
+  [1m[35m (0.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (7.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------
+SocoPostTest: test_contentsが140より上で投稿が失敗する想定
+--------------------------------------------
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.8ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.8ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixture Delete (1.0ms)[0m  [1m[31mDELETE FROM `soco_posts`[0m
+  [1m[36mFixture Insert (0.4ms)[0m  [1m[32mINSERT INTO `soco_posts` (`id`, `contents`, `reply`, `good`, `latitude`, `longitude`, `image`, `created_at`, `updated_at`) VALUES (1, 'MyString', 0, 0, 1.5, 1.5, 'MyText', '2018-06-21 14:35:23', '2018-06-21 14:35:23')[0m
+  [1m[36mFixture Insert (1.0ms)[0m  [1m[32mINSERT INTO `soco_posts` (`id`, `contents`, `reply`, `good`, `latitude`, `longitude`, `image`, `created_at`, `updated_at`) VALUES (2, 'MyString', 1, 0, 1.5, 1.5, 'MyText', '2018-06-21 14:35:23', '2018-06-21 14:35:23')[0m
+  [1m[36mFixture Insert (0.6ms)[0m  [1m[32mINSERT INTO `soco_posts` (`id`, `contents`, `reply`, `good`, `latitude`, `longitude`, `image`, `created_at`, `updated_at`) VALUES (3, 'MyString', 0, 10, 1.5, 1.5, 'MyText', '2018-06-21 14:35:23', '2018-06-21 14:35:23')[0m
+  [1m[35m (16.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------
+SocoPostsControllerTest: test_indexの動作が成功する想定
+---------------------------------------------
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixture Delete (0.5ms)[0m  [1m[31mDELETE FROM `soco_posts`[0m
+  [1m[36mFixture Insert (0.5ms)[0m  [1m[32mINSERT INTO `soco_posts` (`id`, `contents`, `reply`, `good`, `latitude`, `longitude`, `image`, `created_at`, `updated_at`) VALUES (1, 'MyString', 0, 0, 1.5, 1.5, 'MyText', '2018-06-21 14:38:02', '2018-06-21 14:38:02')[0m
+  [1m[36mFixture Insert (0.5ms)[0m  [1m[32mINSERT INTO `soco_posts` (`id`, `contents`, `reply`, `good`, `latitude`, `longitude`, `image`, `created_at`, `updated_at`) VALUES (2, 'MyString', 1, 0, 1.5, 1.5, 'MyText', '2018-06-21 14:38:02', '2018-06-21 14:38:02')[0m
+  [1m[36mFixture Insert (0.6ms)[0m  [1m[32mINSERT INTO `soco_posts` (`id`, `contents`, `reply`, `good`, `latitude`, `longitude`, `image`, `created_at`, `updated_at`) VALUES (3, 'MyString', 0, 10, 1.5, 1.5, 'MyText', '2018-06-21 14:38:02', '2018-06-21 14:38:02')[0m
+  [1m[35m (10.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------
+SocoPostsControllerTest: test_indexの動作が成功する想定
+---------------------------------------------
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.8ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixture Delete (1.0ms)[0m  [1m[31mDELETE FROM `soco_posts`[0m
+  [1m[36mFixture Insert (0.6ms)[0m  [1m[32mINSERT INTO `soco_posts` (`id`, `contents`, `reply`, `good`, `latitude`, `longitude`, `image`, `created_at`, `updated_at`) VALUES (1, 'MyString', 0, 0, 1.5, 1.5, 'MyText', '2018-06-21 14:38:27', '2018-06-21 14:38:27')[0m
+  [1m[36mFixture Insert (0.6ms)[0m  [1m[32mINSERT INTO `soco_posts` (`id`, `contents`, `reply`, `good`, `latitude`, `longitude`, `image`, `created_at`, `updated_at`) VALUES (2, 'MyString', 1, 0, 1.5, 1.5, 'MyText', '2018-06-21 14:38:27', '2018-06-21 14:38:27')[0m
+  [1m[36mFixture Insert (0.7ms)[0m  [1m[32mINSERT INTO `soco_posts` (`id`, `contents`, `reply`, `good`, `latitude`, `longitude`, `image`, `created_at`, `updated_at`) VALUES (3, 'MyString', 0, 10, 1.5, 1.5, 'MyText', '2018-06-21 14:38:27', '2018-06-21 14:38:27')[0m
+  [1m[35m (6.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------
+SocoPostsControllerTest: test_indexの動作が成功する想定
+---------------------------------------------
+Started GET "/soco_posts/index?latitude=1.5&longitude=1.5" for 127.0.0.1 at 2018-06-21 14:38:28 +0000
+Processing by SocoPostsController#index as HTML
+  Parameters: {"latitude"=>"1.5", "longitude"=>"1.5"}
+Completed 406 Not Acceptable in 456ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixture Delete (1.1ms)[0m  [1m[31mDELETE FROM `soco_posts`[0m
+  [1m[36mFixture Insert (0.5ms)[0m  [1m[32mINSERT INTO `soco_posts` (`id`, `contents`, `reply`, `good`, `latitude`, `longitude`, `image`, `created_at`, `updated_at`) VALUES (1, 'MyString', 0, 0, 1.5, 1.5, 'MyText', '2018-06-21 14:43:07', '2018-06-21 14:43:07')[0m
+  [1m[36mFixture Insert (0.6ms)[0m  [1m[32mINSERT INTO `soco_posts` (`id`, `contents`, `reply`, `good`, `latitude`, `longitude`, `image`, `created_at`, `updated_at`) VALUES (2, 'MyString', 1, 0, 1.5, 1.5, 'MyText', '2018-06-21 14:43:07', '2018-06-21 14:43:07')[0m
+  [1m[36mFixture Insert (0.5ms)[0m  [1m[32mINSERT INTO `soco_posts` (`id`, `contents`, `reply`, `good`, `latitude`, `longitude`, `image`, `created_at`, `updated_at`) VALUES (3, 'MyString', 0, 10, 1.5, 1.5, 'MyText', '2018-06-21 14:43:07', '2018-06-21 14:43:07')[0m
+  [1m[35m (16.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------
+SocoPostsControllerTest: test_indexの動作が成功する想定
+---------------------------------------------
+Started GET "/soco_posts/index.json?latitude=1.5&longitude=1.5" for 127.0.0.1 at 2018-06-21 14:43:07 +0000
+Processing by SocoPostsController#index as JSON
+  Parameters: {"latitude"=>"1.5", "longitude"=>"1.5"}
+  Rendering soco_posts/index.json.jbuilder
+  [1m[36mSocoPost Load (1.6ms)[0m  [1m[34mSELECT `soco_posts`.* FROM `soco_posts` WHERE (soco_posts.latitude IS NOT NULL AND soco_posts.longitude IS NOT NULL) AND (soco_posts.latitude>1.4855430147146407 AND soco_posts.latitude<1.5144569852853589 AND soco_posts.longitude>1.485538058968855 AND soco_posts.longitude<1.5144619410311448) AND ((
+          (ACOS(least(1,COS(0.02617993877991494)*COS(0.02617993877991494)*COS(RADIANS(soco_posts.latitude))*COS(RADIANS(soco_posts.longitude))+
+          COS(0.02617993877991494)*SIN(0.02617993877991494)*COS(RADIANS(soco_posts.latitude))*SIN(RADIANS(soco_posts.longitude))+
+          SIN(0.02617993877991494)*SIN(RADIANS(soco_posts.latitude))))*3963.1899999999996)
+          <= 1.0)) AND `soco_posts`.`reply` IS NULL ORDER BY `soco_posts`.`updated_at` DESC[0m
+  [1m[36mSocoPost Load (7.4ms)[0m  [1m[34mSELECT `soco_posts`.* FROM `soco_posts` WHERE (soco_posts.latitude IS NOT NULL AND soco_posts.longitude IS NOT NULL) AND (soco_posts.latitude>1.4855430147146407 AND soco_posts.latitude<1.5144569852853589 AND soco_posts.longitude>1.485538058968855 AND soco_posts.longitude<1.5144619410311448) AND ((
+          (ACOS(least(1,COS(0.02617993877991494)*COS(0.02617993877991494)*COS(RADIANS(soco_posts.latitude))*COS(RADIANS(soco_posts.longitude))+
+          COS(0.02617993877991494)*SIN(0.02617993877991494)*COS(RADIANS(soco_posts.latitude))*SIN(RADIANS(soco_posts.longitude))+
+          SIN(0.02617993877991494)*SIN(RADIANS(soco_posts.latitude))))*3963.1899999999996)
+          <= 1.0)) AND (`soco_posts`.`reply` IS NOT NULL) ORDER BY `soco_posts`.`updated_at` DESC[0m
+  [1m[36mActsAsTaggableOn::Tagging Load (0.8ms)[0m  [1m[34mSELECT `taggings`.* FROM `taggings` WHERE `taggings`.`taggable_id` = 1 AND `taggings`.`taggable_type` = 'SocoPost'[0m
+  [1m[36mActsAsTaggableOn::Tag Load (3.6ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.`id` = `taggings`.`tag_id` WHERE `taggings`.`taggable_id` = 1 AND `taggings`.`taggable_type` = 'SocoPost' AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m
+  Rendered soco_posts/_reply.json.jbuilder (110.3ms)
+  [1m[36mActsAsTaggableOn::Tagging Load (0.7ms)[0m  [1m[34mSELECT `taggings`.* FROM `taggings` WHERE `taggings`.`taggable_id` = 2 AND `taggings`.`taggable_type` = 'SocoPost'[0m
+  [1m[36mActsAsTaggableOn::Tag Load (0.7ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.`id` = `taggings`.`tag_id` WHERE `taggings`.`taggable_id` = 2 AND `taggings`.`taggable_type` = 'SocoPost' AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m
+  Rendered soco_posts/_reply.json.jbuilder (6.2ms)
+  [1m[36mActsAsTaggableOn::Tagging Load (0.5ms)[0m  [1m[34mSELECT `taggings`.* FROM `taggings` WHERE `taggings`.`taggable_id` = 3 AND `taggings`.`taggable_type` = 'SocoPost'[0m
+  [1m[36mActsAsTaggableOn::Tag Load (0.6ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.`id` = `taggings`.`tag_id` WHERE `taggings`.`taggable_id` = 3 AND `taggings`.`taggable_type` = 'SocoPost' AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m
+  Rendered soco_posts/_reply.json.jbuilder (5.0ms)
+  Rendered soco_posts/index.json.jbuilder (180.6ms)
+Completed 200 OK in 221ms (Views: 169.6ms | ActiveRecord: 26.0ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
