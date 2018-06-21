@@ -2,3 +2,5 @@
 deploy.sh
 .ruby-version
 server.pid
+log/development.log
+log/test.log
