@@ -23,9 +23,9 @@ class SocoPostsControllerTest < ActionDispatch::IntegrationTest
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded'
     }
-    json = JSON.parse(response.body)['posts']['tag']
-    first_tag = json[0]['name']
-    second_tag = json[1]['name']
+    json_tag = JSON.parse(response.body)['posts']['tag']
+    first_tag = json_tag[0]['name']
+    second_tag = json_tag[1]['name']
 
     assert_equal 'テストタグ1', first_tag, 'テストに失敗しました.タグが取得できません'
     assert_equal 'テストタグ2', second_tag, 'テストに失敗しました.タグが取得できません'
