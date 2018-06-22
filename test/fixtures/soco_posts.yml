@@ -3,7 +3,6 @@
 one:
   id: 1
   contents: MyString
-  reply: 0
   good: 0
   latitude: 1.5
   longitude: 1.5
@@ -18,11 +17,18 @@ two:
   longitude: 1.5
   image: MyText
 
-third:
+three:
   id: 3
   contents: MyString
-  reply: 0
   good: 10
   latitude: 1.5
   longitude: 1.5
+  image: MyText
+
+four:
+  id: 4
+  contents: MyString
+  good: 0
+  latitude: 10.0
+  longitude: 10.0
   image: MyText
