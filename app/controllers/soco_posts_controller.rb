@@ -2,16 +2,15 @@ class SocoPostsController < ApplicationController
   before_action :take_location, only: [:index, :create, :favorite, :auto_reload]
 
   def index
-    minutes = 30 * 60 # Socoの取得時間制限
-    limit_time = Time.current - minutes
-    # リプライIDを持ってるものは省く処理を追加する
+    if @latitude == 0 || @longitude == 0
+      render formats: 'json', status: :not_found
+    end
+    # 直接ラウンジ内に表示する投稿だけを追加する
     @lounge = SocoPost.within(1.0, origin: [@latitude, @longitude])
-                      .where('updated_at >= ?', limit_time)
                       .where(reply: nil)
                       .order(updated_at: :desc)
     # リプライIDを持っているものだけを取得
     @to_reply = SocoPost.within(1.0, origin: [@latitude, @longitude])
-                        .where('updated_at >= ?', limit_time)
                         .where.not(reply: nil)
                         .order(updated_at: :desc)
   end
@@ -29,12 +28,11 @@ class SocoPostsController < ApplicationController
       end
     end
 
-    if reply_id.present?
-      to_reply = SocoPost.find(reply_id)
-      to_reply.touch # リプライ先のupdated_atだけを更新
-    end
-
     if @posts.save
+      if reply_id.present?
+        to_reply = SocoPost.find(reply_id)
+        to_reply.touch # リプライ先のupdated_atだけを更新
+      end
       render formats: 'json', status: :created
     else
       render formats: 'json', status: :unprocessable_entity
@@ -67,12 +65,8 @@ class SocoPostsController < ApplicationController
   end
 
   private
-  # 緯度経度,市町村区,都道府県を取得する
+  # 緯度経度を取得する
   def take_location
-    if params[:latitude] == 'null' || params[:longitude] == 'null'
-      render formats: 'json', status: :not_found
-    end
-
     @latitude = params[:latitude].to_f
     @longitude = params[:longitude].to_f
   end
@@ -84,7 +78,6 @@ class SocoPostsController < ApplicationController
                             .exists?
   end
 
-  # tag_idは受け取ったtag_nameをidに変換してからparamsにいれる必要がある
   def soco_posts_params
     params.require(:soco_post).permit(
       :contents,
