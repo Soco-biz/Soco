@@ -7,10 +7,13 @@ class SocoPostsController < ApplicationController
     end
     # 直接ラウンジ内に表示する投稿だけを追加する
     @lounge = SocoPost.within(1.0, origin: [@latitude, @longitude])
+                      .select(:id, :contents, :reply, :good, :image, :created_at)
                       .where(reply: nil)
+                      .limit(100)
                       .order(updated_at: :desc)
     # リプライIDを持っているものだけを取得
     @to_reply = SocoPost.within(1.0, origin: [@latitude, @longitude])
+                        .select(:id, :contents, :reply, :good, :image, :created_at)
                         .where.not(reply: nil)
                         .order(updated_at: :desc)
   end
