@@ -3,7 +3,7 @@ json.contents post.contents
 json.reply post.reply
 json.good post.good
 json.image post.image
-json.tag do
-  json.array! post.tag_list, partial: 'soco_posts/tag', as: :tag
+json.tag(post.tags.pluck(:name)) do |tag|
+  json.name tag
 end
 json.created_at post.created_at
