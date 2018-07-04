@@ -6,7 +6,7 @@ class SocoPostsController < ApplicationController
       render formats: 'json', status: :not_found
     end
     # 直接ラウンジ内に表示する投稿だけを追加する
-    @lounge = SocoPost.within(10.0, origin: [@latitude, @longitude])
+    @lounge = SocoPost.within(1.0, origin: [@latitude, @longitude])
                       .select(:id, :contents, :reply, :good, :image, :created_at)
                       .includes(:tags)
                       .where(reply: nil)
