@@ -6,7 +6,7 @@ class SocoPostsController < ApplicationController
       render formats: 'json', status: :not_found
     end
     # 直接ラウンジ内に表示する投稿だけを追加する
-    @lounge = SocoPost.within(1.0, origin: [@latitude, @longitude])
+    @lounge = SocoPost.within(0.5, origin: [@latitude, @longitude])
                       .select(:id, :contents, :reply, :good, :image, :created_at)
                       .includes(:tags)
                       .where(reply: nil)
@@ -14,7 +14,7 @@ class SocoPostsController < ApplicationController
                       .order(updated_at: :desc)
     # リプライIDを持っているものだけを取得
     # TODO: loungeの一番古い投稿の、update_atより後に投稿されたリプライだけを取得する
-    @to_reply = SocoPost.within(1.0, origin: [@latitude, @longitude])
+    @to_reply = SocoPost.within(0.5, origin: [@latitude, @longitude])
                         .select(:id, :contents, :reply, :good, :image, :created_at)
                         .includes(:tags)
                         .where.not(reply: nil)
