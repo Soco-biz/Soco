@@ -58,6 +58,9 @@ gem 'dotenv-rails'
 # tag
 gem 'acts-as-taggable-on'
 
+# pusher
+gem 'pusher'
+
 # heroku用
 gem 'therubyracer', platforms: :ruby
 gem 'rails_12factor', group: :production
