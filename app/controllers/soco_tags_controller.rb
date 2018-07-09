@@ -3,7 +3,7 @@ class SocoTagsController < ApplicationController
 
   def index
     @tag_info = []
-    lounge = SocoPost.within(0.5, origin: [@latitude, @longitude])
+    lounge = SocoPost.within(0.2, origin: [@latitude, @longitude])
 
     lounge.each do |post|
       post.tag_list
