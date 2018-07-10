@@ -48,9 +48,9 @@ Rails.application.configure do
   # Pusher
   require 'pusher'
 
-  URL = "http://#{ENV['DEV_PUSHER_KEY']}:#{ENV['DEV_PUSHER_SECRET']}"
-  URL += "@api.pusherapp.com/apps/#{ENV['DEV_PUSHER_ID']}"
-  Pusher.url = URL
+  url = "http://#{ENV['DEV_PUSHER_KEY']}:#{ENV['DEV_PUSHER_SECRET']}"
+  url += "@api.pusherapp.com/apps/#{ENV['DEV_PUSHER_ID']}"
+  Pusher.url = url
   Pusher.logger = Rails.logger
 
   # Heroku Pusher
