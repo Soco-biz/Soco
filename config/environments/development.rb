@@ -44,19 +44,4 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
-
-  # Pusher
-  require 'pusher'
-
-  url = "http://#{ENV['DEV_PUSHER_KEY']}:#{ENV['DEV_PUSHER_SECRET']}"
-  url += "@api.pusherapp.com/apps/#{ENV['DEV_PUSHER_ID']}"
-  Pusher.url = url
-  Pusher.logger = Rails.logger
-
-  # Heroku Pusher
-  require 'pusher'
-
-  Pusher.app_id = ENV['PRO_PUSHER_ID']
-  Pusher.key = ENV['PRO_PUSHER_KEY']
-  Pusher.secret = ENV['PRO_PUSHER_SECRET']
 end
