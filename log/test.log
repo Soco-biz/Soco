@@ -6838,3 +6838,172 @@ Processing by SocoPostsController#index as JSON
   Rendered soco_posts/index.json.jbuilder (0.8ms)
 Completed 404 Not Found in 21ms (Views: 19.6ms | ActiveRecord: 0.0ms)
   [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (6.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (2.1ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixture Delete (7.7ms)[0m  [1m[31mDELETE FROM `soco_posts`[0m
+  [1m[36mFixture Insert (1.4ms)[0m  [1m[32mINSERT INTO `soco_posts` (`id`, `contents`, `good`, `latitude`, `longitude`, `image`, `created_at`, `updated_at`) VALUES (1, 'MyString', 0, 1.5, 1.5, 'MyText', '2018-07-13 10:25:21', '2018-07-13 10:25:21')[0m
+  [1m[36mFixture Insert (1.0ms)[0m  [1m[32mINSERT INTO `soco_posts` (`id`, `contents`, `reply`, `good`, `latitude`, `longitude`, `image`, `created_at`, `updated_at`) VALUES (2, 'MyString', 1, 0, 1.5, 1.5, 'MyText', '2018-07-13 10:25:21', '2018-07-13 10:25:21')[0m
+  [1m[36mFixture Insert (1.0ms)[0m  [1m[32mINSERT INTO `soco_posts` (`id`, `contents`, `good`, `latitude`, `longitude`, `image`, `created_at`, `updated_at`) VALUES (3, 'MyString', 10, 1.5, 1.5, 'MyText', '2018-07-13 10:25:21', '2018-07-13 10:25:21')[0m
+  [1m[36mFixture Insert (0.6ms)[0m  [1m[32mINSERT INTO `soco_posts` (`id`, `contents`, `good`, `latitude`, `longitude`, `image`, `created_at`, `updated_at`) VALUES (4, 'MyString', 0, 10.0, 10.0, 'MyText', '2018-07-13 10:25:21', '2018-07-13 10:25:21')[0m
+  [1m[35m (19.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------------
+SocoPostsControllerTest: test_create処理で複数含めてタグがキチンと生成された想定
+----------------------------------------------------------
+Started POST "/soco_posts/create.json?latitude=1.5&longitude=1.5" for 127.0.0.1 at 2018-07-13 10:25:22 +0000
+Processing by SocoPostsController#create as JSON
+  Parameters: {"soco_post"=>{"contents"=>"成功想定です", "tag"=>"テストタグ1, テストタグ2"}, "latitude"=>"1.5", "longitude"=>"1.5"}
+Unpermitted parameter: :tag
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO `soco_posts` (`contents`, `latitude`, `longitude`, `created_at`, `updated_at`) VALUES ('成功想定です', 1.5, 1.5, '2018-07-13 10:25:22', '2018-07-13 10:25:22')[0m
+  [1m[36mActsAsTaggableOn::Tag Load (3.8ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` WHERE (LOWER(name) = LOWER('テストタグ1') OR LOWER(name) = LOWER('テストタグ2'))[0m
+  [1m[36mActsAsTaggableOn::Tag Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM `tags` WHERE `tags`.`name` = 'テストタグ1' LIMIT 1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO `tags` (`name`) VALUES ('テストタグ1')[0m
+  [1m[36mActsAsTaggableOn::Tag Load (0.6ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` WHERE (LOWER(name) = LOWER('テストタグ1') OR LOWER(name) = LOWER('テストタグ2'))[0m
+  [1m[36mActsAsTaggableOn::Tag Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `tags` WHERE `tags`.`name` = 'テストタグ2' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO `tags` (`name`) VALUES ('テストタグ2')[0m
+  [1m[36mActsAsTaggableOn::Tag Load (1.3ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.`id` = `taggings`.`tag_id` WHERE `taggings`.`taggable_id` = 5 AND `taggings`.`taggable_type` = 'SocoPost' AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m
+  [1m[36mActsAsTaggableOn::Tag Load (0.6ms)[0m  [1m[34mSELECT  `tags`.* FROM `tags` WHERE `tags`.`id` = 1 LIMIT 1[0m
+  [1m[36mActsAsTaggableOn::Tagging Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM `taggings` WHERE `taggings`.`tag_id` = 1 AND `taggings`.`taggable_type` = 'SocoPost' AND `taggings`.`taggable_id` = 5 AND `taggings`.`context` = 'tags' AND `taggings`.`tagger_id` IS NULL AND `taggings`.`tagger_type` IS NULL LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO `taggings` (`tag_id`, `taggable_type`, `taggable_id`, `context`, `created_at`) VALUES (1, 'SocoPost', 5, 'tags', '2018-07-13 10:25:22')[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[33mUPDATE `tags` SET `taggings_count` = COALESCE(`taggings_count`, 0) + 1 WHERE `tags`.`id` = 1[0m
+  [1m[36mActsAsTaggableOn::Tag Load (0.5ms)[0m  [1m[34mSELECT  `tags`.* FROM `tags` WHERE `tags`.`id` = 2 LIMIT 1[0m
+  [1m[36mActsAsTaggableOn::Tagging Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM `taggings` WHERE `taggings`.`tag_id` = 2 AND `taggings`.`taggable_type` = 'SocoPost' AND `taggings`.`taggable_id` = 5 AND `taggings`.`context` = 'tags' AND `taggings`.`tagger_id` IS NULL AND `taggings`.`tagger_type` IS NULL LIMIT 1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO `taggings` (`tag_id`, `taggable_type`, `taggable_id`, `context`, `created_at`) VALUES (2, 'SocoPost', 5, 'tags', '2018-07-13 10:25:22')[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE `tags` SET `taggings_count` = COALESCE(`taggings_count`, 0) + 1 WHERE `tags`.`id` = 2[0m
+  [1m[35m (0.5ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering soco_posts/create.json.jbuilder
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT `tags`.`name` FROM `tags` INNER JOIN `taggings` ON `tags`.`id` = `taggings`.`tag_id` WHERE `taggings`.`taggable_id` = 5 AND `taggings`.`taggable_type` = 'SocoPost' AND `taggings`.`context` = 'tags'[0m
+  Rendered soco_posts/_post.json.jbuilder (20.6ms)
+  Rendered soco_posts/create.json.jbuilder (31.1ms)
+Completed 201 Created in 465ms (Views: 82.1ms | ActiveRecord: 25.8ms)
+  [1m[35m (20.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.8ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------------------------
+SocoPostsControllerTest: test_indexの動作が位置情報にそった投稿・返信数も含めて成功する想定
+---------------------------------------------------------------
+Started GET "/soco_posts/index.json?latitude=1.5&longitude=1.5" for 127.0.0.1 at 2018-07-13 10:25:23 +0000
+Processing by SocoPostsController#index as JSON
+  Parameters: {"latitude"=>"1.5", "longitude"=>"1.5"}
+  Rendering soco_posts/index.json.jbuilder
+  [1m[36mSocoPost Load (1.1ms)[0m  [1m[34mSELECT  `soco_posts`.`id`, `soco_posts`.`contents`, `soco_posts`.`reply`, `soco_posts`.`good`, `soco_posts`.`image`, `soco_posts`.`created_at` FROM `soco_posts` WHERE (soco_posts.latitude IS NOT NULL AND soco_posts.longitude IS NOT NULL) AND (soco_posts.latitude>1.4971086029429281 AND soco_posts.latitude<1.5028913970570716 AND soco_posts.longitude>1.4971076117937305 AND soco_posts.longitude<1.5028923882062695) AND ((
+          (ACOS(least(1,COS(0.02617993877991494)*COS(0.02617993877991494)*COS(RADIANS(soco_posts.latitude))*COS(RADIANS(soco_posts.longitude))+
+          COS(0.02617993877991494)*SIN(0.02617993877991494)*COS(RADIANS(soco_posts.latitude))*SIN(RADIANS(soco_posts.longitude))+
+          SIN(0.02617993877991494)*SIN(RADIANS(soco_posts.latitude))))*3963.1899999999996)
+          <= 0.2)) AND `soco_posts`.`reply` IS NULL ORDER BY `soco_posts`.`updated_at` DESC LIMIT 100[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[34mSELECT `taggings`.`id` AS t0_r0, `taggings`.`tag_id` AS t0_r1, `taggings`.`taggable_type` AS t0_r2, `taggings`.`taggable_id` AS t0_r3, `taggings`.`tagger_type` AS t0_r4, `taggings`.`tagger_id` AS t0_r5, `taggings`.`context` AS t0_r6, `taggings`.`created_at` AS t0_r7, `tags`.`id` AS t1_r0, `tags`.`name` AS t1_r1, `tags`.`taggings_count` AS t1_r2 FROM `taggings` LEFT OUTER JOIN `tags` ON `tags`.`id` = `taggings`.`tag_id` WHERE `taggings`.`taggable_type` = 'SocoPost' AND `taggings`.`context` = 'tags' AND `taggings`.`taggable_id` IN (1, 3)[0m
+  Rendered soco_posts/_post.json.jbuilder (1.7ms)
+  Rendered soco_posts/_post.json.jbuilder (0.3ms)
+  [1m[36mSocoPost Load (0.9ms)[0m  [1m[34mSELECT `soco_posts`.`id`, `soco_posts`.`contents`, `soco_posts`.`reply`, `soco_posts`.`good`, `soco_posts`.`image`, `soco_posts`.`created_at` FROM `soco_posts` WHERE (soco_posts.latitude IS NOT NULL AND soco_posts.longitude IS NOT NULL) AND (soco_posts.latitude>1.4971086029429281 AND soco_posts.latitude<1.5028913970570716 AND soco_posts.longitude>1.4971076117937305 AND soco_posts.longitude<1.5028923882062695) AND ((
+          (ACOS(least(1,COS(0.02617993877991494)*COS(0.02617993877991494)*COS(RADIANS(soco_posts.latitude))*COS(RADIANS(soco_posts.longitude))+
+          COS(0.02617993877991494)*SIN(0.02617993877991494)*COS(RADIANS(soco_posts.latitude))*SIN(RADIANS(soco_posts.longitude))+
+          SIN(0.02617993877991494)*SIN(RADIANS(soco_posts.latitude))))*3963.1899999999996)
+          <= 0.2)) AND (`soco_posts`.`reply` IS NOT NULL) ORDER BY `soco_posts`.`updated_at` DESC[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[34mSELECT `taggings`.`id` AS t0_r0, `taggings`.`tag_id` AS t0_r1, `taggings`.`taggable_type` AS t0_r2, `taggings`.`taggable_id` AS t0_r3, `taggings`.`tagger_type` AS t0_r4, `taggings`.`tagger_id` AS t0_r5, `taggings`.`context` AS t0_r6, `taggings`.`created_at` AS t0_r7, `tags`.`id` AS t1_r0, `tags`.`name` AS t1_r1, `tags`.`taggings_count` AS t1_r2 FROM `taggings` LEFT OUTER JOIN `tags` ON `tags`.`id` = `taggings`.`tag_id` WHERE `taggings`.`taggable_type` = 'SocoPost' AND `taggings`.`context` = 'tags' AND `taggings`.`taggable_id` = 2[0m
+  Rendered soco_posts/_reply.json.jbuilder (0.8ms)
+  Rendered soco_posts/index.json.jbuilder (110.6ms)
+Completed 200 OK in 149ms (Views: 109.6ms | ActiveRecord: 3.7ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------
+SocoPostsControllerTest: test_indexの動作が位置情報不足で失敗する想定
+----------------------------------------------------
+Started GET "/soco_posts/index.json?latitude=&longitude=" for 127.0.0.1 at 2018-07-13 10:25:23 +0000
+Processing by SocoPostsController#index as JSON
+  Parameters: {"latitude"=>"", "longitude"=>""}
+  Rendering soco_posts/index.json.jbuilder
+  Rendered soco_posts/index.json.jbuilder (1.3ms)
+Completed 404 Not Found in 22ms (Views: 19.4ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------
+SocoPostsControllerTest: test_favoriteの動作が成功する想定
+------------------------------------------------
+Started POST "/soco_posts/favorite.json?latitude=1.5&longitude=1.5" for 127.0.0.1 at 2018-07-13 10:25:23 +0000
+Processing by SocoPostsController#favorite as JSON
+  Parameters: {"soco_post"=>{"id"=>"1", "good"=>"0"}, "latitude"=>"1.5", "longitude"=>"1.5"}
+  [1m[36mSocoPost Load (3.2ms)[0m  [1m[34mSELECT  `soco_posts`.* FROM `soco_posts` WHERE `soco_posts`.`id` = 1 LIMIT 1[0m
+Unpermitted parameter: :id
+  [1m[36mSocoPost Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM `soco_posts` WHERE (soco_posts.latitude IS NOT NULL AND soco_posts.longitude IS NOT NULL) AND (soco_posts.latitude>1.4855430147146407 AND soco_posts.latitude<1.5144569852853589 AND soco_posts.longitude>1.485538058968855 AND soco_posts.longitude<1.5144619410311448) AND ((
+          (ACOS(least(1,COS(0.02617993877991494)*COS(0.02617993877991494)*COS(RADIANS(soco_posts.latitude))*COS(RADIANS(soco_posts.longitude))+
+          COS(0.02617993877991494)*SIN(0.02617993877991494)*COS(RADIANS(soco_posts.latitude))*SIN(RADIANS(soco_posts.longitude))+
+          SIN(0.02617993877991494)*SIN(RADIANS(soco_posts.latitude))))*3963.1899999999996)
+          <= 1.0)) AND `soco_posts`.`id` = 1 LIMIT 1[0m
+  [1m[35m (1.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE `soco_posts` SET `good` = 1 WHERE `soco_posts`.`id` = 1[0m
+  [1m[36mActsAsTaggableOn::Tagging Load (0.7ms)[0m  [1m[34mSELECT `taggings`.* FROM `taggings` WHERE `taggings`.`taggable_id` = 1 AND `taggings`.`taggable_type` = 'SocoPost'[0m
+  [1m[35m (0.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering soco_posts/favorite.json.jbuilder
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT `tags`.`name` FROM `tags` INNER JOIN `taggings` ON `tags`.`id` = `taggings`.`tag_id` WHERE `taggings`.`taggable_id` = 1 AND `taggings`.`taggable_type` = 'SocoPost' AND `taggings`.`context` = 'tags'[0m
+  Rendered soco_posts/_post.json.jbuilder (3.3ms)
+  Rendered soco_posts/favorite.json.jbuilder (4.6ms)
+Completed 202 Accepted in 54ms (Views: 23.6ms | ActiveRecord: 7.9ms)
+  [1m[35m (8.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------------------------------
+SocoPostsControllerTest: test_favoriteの動作が投稿が位置情報の外にあって失敗する想定
+-------------------------------------------------------------
+Started POST "/soco_posts/favorite.json?latitude=10.0&longitude=10.0" for 127.0.0.1 at 2018-07-13 10:25:23 +0000
+Processing by SocoPostsController#favorite as JSON
+  Parameters: {"soco_post"=>{"id"=>"1", "good"=>"0"}, "latitude"=>"10.0", "longitude"=>"10.0"}
+  [1m[36mSocoPost Load (0.6ms)[0m  [1m[34mSELECT  `soco_posts`.* FROM `soco_posts` WHERE `soco_posts`.`id` = 1 LIMIT 1[0m
+Unpermitted parameter: :id
+  [1m[36mSocoPost Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM `soco_posts` WHERE (soco_posts.latitude IS NOT NULL AND soco_posts.longitude IS NOT NULL) AND (soco_posts.latitude>9.985543014714638 AND soco_posts.latitude<10.014456985285358 AND soco_posts.longitude>9.985319992423292 AND soco_posts.longitude<10.014680007576708) AND ((
+          (ACOS(least(1,COS(0.17453292519943295)*COS(0.17453292519943295)*COS(RADIANS(soco_posts.latitude))*COS(RADIANS(soco_posts.longitude))+
+          COS(0.17453292519943295)*SIN(0.17453292519943295)*COS(RADIANS(soco_posts.latitude))*SIN(RADIANS(soco_posts.longitude))+
+          SIN(0.17453292519943295)*SIN(RADIANS(soco_posts.latitude))))*3963.1899999999996)
+          <= 1.0)) AND `soco_posts`.`id` = 1 LIMIT 1[0m
+  Rendering soco_posts/favorite.json.jbuilder
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT `tags`.`name` FROM `tags` INNER JOIN `taggings` ON `tags`.`id` = `taggings`.`tag_id` WHERE `taggings`.`taggable_id` = 1 AND `taggings`.`taggable_type` = 'SocoPost' AND `taggings`.`context` = 'tags'[0m
+  Rendered soco_posts/_post.json.jbuilder (3.2ms)
+  Rendered soco_posts/favorite.json.jbuilder (4.4ms)
+Completed 406 Not Acceptable in 15ms (Views: 5.8ms | ActiveRecord: 2.5ms)
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------
+SocoPostTest: test_contentsが140より上で投稿が失敗する想定
+--------------------------------------------
+  [1m[35m (0.8ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------
+SocoPostTest: test_latitudeが0で投稿が失敗する想定
+---------------------------------------
+  [1m[35m (0.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------
+SocoPostTest: test_longitudeが0で投稿が失敗する想定
+----------------------------------------
+  [1m[35m (0.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (1.8ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------
+SocoPostTest: test_contentsが1未満で投稿が失敗する想定
+-----------------------------------------
+  [1m[35m (0.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------------
+SocoPostTest: test_latitudeとlongitudeがnilで投稿が失敗する想定
+---------------------------------------------------
+  [1m[35m (1.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (1.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+----------------------------
+SocoPostTest: test_投稿が成功する想定
+----------------------------
+  [1m[35m (0.9ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO `soco_posts` (`contents`, `latitude`, `longitude`, `created_at`, `updated_at`) VALUES ('成功想定です', 1.5, 1.5, '2018-07-13 10:25:23', '2018-07-13 10:25:23')[0m
+  [1m[36mActsAsTaggableOn::Tagging Load (0.8ms)[0m  [1m[34mSELECT `taggings`.* FROM `taggings` WHERE `taggings`.`taggable_id` = 6 AND `taggings`.`taggable_type` = 'SocoPost'[0m
+  [1m[35m (0.6ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (2.8ms)[0m  [1m[31mROLLBACK[0m
