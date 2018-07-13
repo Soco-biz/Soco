@@ -58,7 +58,9 @@ class SocoPostsController < ApplicationController
     soco_params[:good] = soco_params[:good].to_i + 1 # いいねを1増やす
 
     if accept_favorite(posts_id)
+      @posts.record_timestamps = false
       if @posts.update(soco_params)
+        @posts.record_timestamps = true
         render formats: 'json', status: :accepted
       else
         render formats: 'json', status: :unprocessable_entity
