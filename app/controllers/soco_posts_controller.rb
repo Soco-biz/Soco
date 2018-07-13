@@ -41,7 +41,7 @@ class SocoPostsController < ApplicationController
       end
       Pusher.trigger('lounge', 'chat', {
         'contents': params[:soco_post][:contents],
-        'reply': params[:soco_post][:reply],
+        'reply': params[:soco_post][:reply].to_i,
         'image': params[:soco_post][:image],
         'tag': params[:soco_post][:tag],
         'id': @posts.id,
