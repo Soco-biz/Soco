@@ -39,11 +39,13 @@ class SocoPostsController < ApplicationController
         to_reply = SocoPost.find(reply_id)
         to_reply.touch # リプライ先のupdated_atだけを更新
       end
-      Pusher['lounge'].trigger('chat', {
+      Pusher.trigger('lounge', 'chat', {
         'contents': params[:soco_post][:contents],
-        'reply': params[:soco_post][:reply],
+        'reply': params[:soco_post][:reply].to_i,
         'image': params[:soco_post][:image],
-        'tag': params[:soco_post][:tag]
+        'tag': params[:soco_post][:tag],
+        'id': @posts.id,
+        'created_at': @posts.created_at
       })
       render formats: 'json', status: :created
     else
