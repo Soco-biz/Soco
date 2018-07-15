@@ -6,7 +6,7 @@ class SocoPostsController < ApplicationController
       render formats: 'json', status: :not_found
     end
     # 直接ラウンジ内に表示する投稿だけを追加する
-    @lounge = SocoPost.within(0.5, origin: [@latitude, @longitude])
+    @lounge = SocoPost.within(0.2, origin: [@latitude, @longitude])
                       .select(:id, :contents, :reply, :good, :image, :created_at)
                       .includes(:tags)
                       .where(reply: nil)
@@ -14,7 +14,7 @@ class SocoPostsController < ApplicationController
                       .order(updated_at: :desc)
     # リプライIDを持っているものだけを取得
     # TODO: loungeの一番古い投稿の、update_atより後に投稿されたリプライだけを取得する
-    @to_reply = SocoPost.within(0.5, origin: [@latitude, @longitude])
+    @to_reply = SocoPost.within(0.2, origin: [@latitude, @longitude])
                         .select(:id, :contents, :reply, :good, :image, :created_at)
                         .includes(:tags)
                         .where.not(reply: nil)
@@ -39,6 +39,14 @@ class SocoPostsController < ApplicationController
         to_reply = SocoPost.find(reply_id)
         to_reply.touch # リプライ先のupdated_atだけを更新
       end
+      Pusher.trigger('lounge', 'chat', {
+        'contents': params[:soco_post][:contents],
+        'reply': params[:soco_post][:reply].to_i,
+        'image': params[:soco_post][:image],
+        'tag': params[:soco_post][:tag],
+        'id': @posts.id,
+        'created_at': @posts.created_at
+      })
       render formats: 'json', status: :created
     else
       render formats: 'json', status: :unprocessable_entity
@@ -52,7 +60,9 @@ class SocoPostsController < ApplicationController
     soco_params[:good] = soco_params[:good].to_i + 1 # いいねを1増やす
 
     if accept_favorite(posts_id)
+      @posts.record_timestamps = false
       if @posts.update(soco_params)
+        @posts.record_timestamps = true
         render formats: 'json', status: :accepted
       else
         render formats: 'json', status: :unprocessable_entity
@@ -60,14 +70,6 @@ class SocoPostsController < ApplicationController
     else
       render formats: 'json', status: :not_acceptable
     end
-  end
-
-  def auto_reload
-    last_id = params[:last_id].to_i + 1
-    @new_posts = SocoPost.within(1.0, origin: [@latitude, @longitude])
-                                  .where(id: last_id...Float::INFINITY)
-                                  .order(id: :asc)
-    render formats: 'json', status: :ok
   end
 
   private
