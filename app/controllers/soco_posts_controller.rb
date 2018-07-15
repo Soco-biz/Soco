@@ -45,6 +45,8 @@ class SocoPostsController < ApplicationController
         'image': params[:soco_post][:image],
         'tag': params[:soco_post][:tag],
         'id': @posts.id,
+        'latitude': @latitude,
+        'longitude': @longitude,
         'created_at': @posts.created_at
       })
       render formats: 'json', status: :created
