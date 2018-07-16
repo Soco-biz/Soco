@@ -26,7 +26,7 @@ ActsAsTaggableOnMigration.class_eval do
     end
 
     add_index :taggings, :tag_id
-    add_index :taggings, [:taggable_id, :taggable_type, :context], length: {taggable_id: 36, taggable_type: 36, context: 36}
+    add_index :taggings, [:taggable_id, :taggable_type, :context]
   end
 
   def self.down
