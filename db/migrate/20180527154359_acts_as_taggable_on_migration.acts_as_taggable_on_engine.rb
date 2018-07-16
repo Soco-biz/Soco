@@ -6,11 +6,11 @@ else
 end
 ActsAsTaggableOnMigration.class_eval do
   def self.up
-    create_table :tags, options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8mb4' do |t|
+    create_table :tags do |t|
       t.string :name
     end
 
-    create_table :taggings, options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8mb4' do |t|
+    create_table :taggings do |t|
       t.references :tag
 
       # You should make sure that the column created is
