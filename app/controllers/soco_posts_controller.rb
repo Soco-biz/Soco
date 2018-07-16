@@ -83,7 +83,7 @@ class SocoPostsController < ApplicationController
 
   # いいねするための投稿が範囲内にあるか
   def accept_favorite(posts_id)
-    favorite_flag = SocoPost.within(1.0, origin: [@latitude, @longitude])
+    favorite_flag = SocoPost.within(0.2, origin: [@latitude, @longitude])
                             .where(id: posts_id)
                             .exists?
   end

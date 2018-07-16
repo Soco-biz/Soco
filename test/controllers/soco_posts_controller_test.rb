@@ -15,6 +15,11 @@ class SocoPostsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'create処理で複数含めてタグがキチンと生成された想定' do
+    require 'pusher'
+    Pusher.app_id = ENV['PUSHER_ID']
+    Pusher.key = ENV['PUSHER_KEY']
+    Pusher.secret = ENV['PUSHER_SECRET']
+
     post '/soco_posts/create.json?latitude=1.5&longitude=1.5',
     params: {
       'soco_post[contents]': '成功想定です',
