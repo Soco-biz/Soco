@@ -12,7 +12,7 @@ AddMissingUniqueIndices.class_eval do
     remove_index :taggings, [:taggable_id, :taggable_type, :context]
     add_index :taggings,
               [:tag_id, :taggable_id, :taggable_type, :context, :tagger_id, :tagger_type],
-              unique: true, name: 'taggings_idx'
+              unique: true, name: 'taggings_idx', limit: 36
   end
 
   def self.down
