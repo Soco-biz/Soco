@@ -7,7 +7,7 @@ end
 ActsAsTaggableOnMigration.class_eval do
   def self.up
     create_table :tags do |t|
-      t.string :name
+      t.string :name, limit: 191
     end
 
     create_table :taggings do |t|
@@ -15,8 +15,8 @@ ActsAsTaggableOnMigration.class_eval do
 
       # You should make sure that the column created is
       # long enough to store the required class names.
-      t.references :taggable, polymorphic: true
-      t.references :tagger, polymorphic: true
+      t.references :taggable, polymorphic: { limit: 191 }
+      t.references :tagger, polymorphic: { limit: 191 }
 
       # Limit is created to prevent MySQL error on index
       # length for MyISAM table type: http://bit.ly/vgW2Ql

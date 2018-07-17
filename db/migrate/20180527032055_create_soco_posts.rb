@@ -1,6 +1,6 @@
 class CreateSocoPosts < ActiveRecord::Migration[5.1]
   def change
-    create_table :soco_posts do |t|
+    create_table :soco_posts, options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8mb4' do |t|
       t.string :contents, null: false
       t.integer :reply
       t.integer :good, default: 0

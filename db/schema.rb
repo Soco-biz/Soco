@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20180527161738) do
 
-  create_table "soco_posts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "soco_posts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.string "contents", null: false
     t.integer "reply"
     t.integer "good", default: 0
@@ -23,11 +23,11 @@ ActiveRecord::Schema.define(version: 20180527161738) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "taggings", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "taggings", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.integer "tag_id"
-    t.string "taggable_type"
+    t.string "taggable_type", limit: 191
     t.integer "taggable_id"
-    t.string "tagger_type"
+    t.string "tagger_type", limit: 191
     t.integer "tagger_id"
     t.string "context", limit: 128
     t.datetime "created_at"
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 20180527161738) do
     t.index ["tagger_id"], name: "index_taggings_on_tagger_id"
   end
 
-  create_table "tags", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "tags", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.string "name", collation: "utf8_bin"
     t.integer "taggings_count", default: 0
     t.index ["name"], name: "index_tags_on_name", unique: true
